@@ -3,11 +3,9 @@ backend:
   repo: epicmobile-reserve/kvidai-documentation
   branch: master
 
-# These lines should *not* be indented
 media_folder: "static/img"
 public_folder: "/img/"
 
-# Slug configuration for files  
 slug:
   encoding: "ascii"
   clean_accents: true
@@ -15,109 +13,38 @@ slug:
 
 collections:
   - name: blog
-    label: "블로그"
+    label: "Blog Posts"
     folder: blog
     identifier_field: title
     extension: md
-    widget: "list"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: title, label: 제목, widget: string }
-      - { name: description, label: 설명, widget: string, required: false }
-      - { name: body, label: 내용, widget: markdown }
-      - { name: slug, label: URL슬러그, widget: string }
-      - label: "태그"
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string, required: false }
+      - { name: body, label: Content, widget: markdown }
+      - { name: slug, label: URL Slug, widget: string, required: false }
+      - label: "Tags"
         name: "tags"
         widget: "list"
         required: false
-      - label: "작성자"
+      - label: "Authors"
         name: "authors"
         widget: "list"
         required: false
         fields:
-          - { name: name, label: 이름, widget: string }
-          - { name: title, label: 직책, widget: string }
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title, widget: string }
           - { name: url, label: URL, widget: string, required: false }
-          - { name: imageUrl, label: 프로필이미지, widget: string, required: false }
+          - { name: imageUrl, label: Profile Image, widget: string, required: false }
 
-  - name: getting-started
-    label: "시작하기"
+  - name: english-getting-started
+    label: "English - Getting Started"
     folder: docs/getting-started
     identifier_field: title
     extension: md
     create: true
     slug: "{{slug}}"
-    fields:
-      - { name: title, label: 제목, widget: string }
-      - { name: description, label: 설명, widget: string }
-      - { name: slug, label: URL슬러그, widget: string }
-      - label: "태그"
-        name: "tags"
-        widget: "list"
-        required: false
-      - { name: body, label: 내용, widget: markdown }
-
-  - name: console-guide
-    label: "콘솔 가이드"
-    folder: docs/console-guide
-    identifier_field: title
-    extension: md
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: title, label: 제목, widget: string }
-      - { name: description, label: 설명, widget: string }
-      - { name: slug, label: URL슬러그, widget: string }
-      - label: "태그"
-        name: "tags"
-        widget: "list"
-        required: false
-      - { name: body, label: 내용, widget: markdown }
-
-  - name: api-services
-    label: "API 서비스"
-    folder: docs/api-services
-    identifier_field: title
-    extension: md
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: title, label: 제목, widget: string }
-      - { name: description, label: 설명, widget: string }
-      - { name: slug, label: URL슬러그, widget: string }
-      - label: "태그"
-        name: "tags"
-        widget: "list"
-        required: false
-      - { name: body, label: 내용, widget: markdown }
-
-  - name: docs-general
-    label: "일반 문서"
-    folder: docs
-    identifier_field: title
-    extension: md
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    filter: {field: "path", pattern: "^(?!.*(getting-started|console-guide|api-services)/).*"}
-    fields:
-      - { name: title, label: 제목, widget: string }
-      - { name: description, label: 설명, widget: string, required: false }
-      - { name: slug, label: URL슬러그, widget: string }
-      - label: "태그"
-        name: "tags"
-        widget: "list"
-        required: false
-      - { name: body, label: 내용, widget: markdown }
-
-  - name: english-docs
-    label: "English Documents"
-    folder: docs
-    identifier_field: title
-    extension: md
-    create: true
-    slug: "{{slug}}"
-    filter: {field: "path", pattern: "^(?!ko/).*"}
     fields:
       - { name: title, label: Title, widget: string }
       - { name: description, label: Description, widget: string }
@@ -129,13 +56,103 @@ collections:
         required: false
       - { name: body, label: Content, widget: markdown }
 
-  - name: korean-docs
-    label: "한국어 문서"
+  - name: english-api-services
+    label: "English - API Services"
+    folder: docs/api-services
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: slug, label: URL Slug, widget: string, required: false }
+      - { name: sidebar_position, label: Sidebar Position, widget: number, required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: Content, widget: markdown }
+
+  - name: english-console-guide
+    label: "English - Console Guide"
+    folder: docs/console-guide
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: slug, label: URL Slug, widget: string, required: false }
+      - { name: sidebar_position, label: Sidebar Position, widget: number, required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: Content, widget: markdown }
+
+  - name: english-root
+    label: "English - Root Documents"
+    folder: docs
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    filter: {field: "path", pattern: "^(?!.*(getting-started|api-services|console-guide|ko)/).*"}
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: slug, label: URL Slug, widget: string, required: false }
+      - { name: sidebar_position, label: Sidebar Position, widget: number, required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: Content, widget: markdown }
+
+  - name: korean-api-services
+    label: "한국어 - API 서비스"
+    folder: docs/ko/api-services
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string }
+      - { name: sidebar_position, label: 사이드바순서, widget: number, required: false }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: 내용, widget: markdown }
+
+  - name: korean-console-guide
+    label: "한국어 - 콘솔 가이드"
+    folder: docs/ko/console-guide
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string }
+      - { name: sidebar_position, label: 사이드바순서, widget: number, required: false }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: 내용, widget: markdown }
+
+  - name: korean-root
+    label: "한국어 - 루트 문서"
     folder: docs/ko
     identifier_field: title
     extension: md
     create: true
     slug: "{{slug}}"
+    filter: {field: "path", pattern: "^(?!.*(api-services|console-guide)/).*"}
     fields:
       - { name: title, label: 제목, widget: string }
       - { name: description, label: 설명, widget: string }

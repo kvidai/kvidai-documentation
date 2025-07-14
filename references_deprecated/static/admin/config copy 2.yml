@@ -1,0 +1,85 @@
+backend:
+  name: github
+  repo: epicmobile-reserve/kvidai-documentation
+  branch: master
+
+# These lines should *not* be indented
+media_folder: "static/img"
+public_folder: "/img/"
+
+# Slug configuration for files  
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: blog
+    label: "블로그"
+    folder: blog
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    nested:
+      depth: 100
+      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string, required: false }
+      - { name: body, label: 내용, widget: markdown }
+      - { name: slug, label: URL슬러그, widget: string }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - label: "작성자"
+        name: "authors"
+        widget: "list"
+        required: false
+        fields:
+          - { name: name, label: 이름, widget: string }
+          - { name: title, label: 직책, widget: string }
+          - { name: url, label: URL, widget: string, required: false }
+          - { name: imageUrl, label: 프로필이미지, widget: string, required: false }
+
+  - name: english-docs
+    label: "English Documents"
+    folder: docs
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+      summary: '{{title}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: slug, label: URL Slug, widget: string, required: false }
+      - { name: sidebar_position, label: Sidebar Position, widget: number, required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: Content, widget: markdown }
+
+  - name: korean-docs
+    label: "한국어 문서"
+    folder: docs/ko
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    nested:
+      depth: 100
+      summary: '{{title}}'
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string }
+      - { name: sidebar_position, label: 사이드바순서, widget: number, required: false }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: 내용, widget: markdown }

@@ -1,7 +1,7 @@
 ---
 title: 시작하기 가이드
 description: kvidAI API 첫 사용을 위한 단계별 가이드
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 # 시작하기 가이드

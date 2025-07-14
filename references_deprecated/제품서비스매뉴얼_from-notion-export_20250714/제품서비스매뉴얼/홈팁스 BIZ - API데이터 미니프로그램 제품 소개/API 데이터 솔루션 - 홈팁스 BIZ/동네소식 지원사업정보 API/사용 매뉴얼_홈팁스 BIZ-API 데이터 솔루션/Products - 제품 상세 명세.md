@@ -28,7 +28,7 @@
 
 ![Untitled](Products%20-%20%E1%84%8C%E1%85%A6%E1%84%91%E1%85%AE%E1%86%B7%20%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A6%20%E1%84%86%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A6/Untitled%202.png)
 
-1. 신청자 이메일 - 반드시 홈팁스 콘솔 사이트([https://console.hometip.net/](https://console.hometip.net/))에서 가입한 email을 입력해주세요. - 다르게 입력할 경우 사용이 불가능 할 수 있습니다.
+1. 신청자 이메일 - 반드시 홈팁스 콘솔 사이트([https://console.kvid.ai/](https://console.kvid.ai/))에서 가입한 email을 입력해주세요. - 다르게 입력할 경우 사용이 불가능 할 수 있습니다.
 
     
     ❗️주의사항

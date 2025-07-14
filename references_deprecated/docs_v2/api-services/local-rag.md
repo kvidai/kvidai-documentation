@@ -17,7 +17,7 @@ kvidAI Local RAG 솔루션은 기업의 내부 문서를 안전하게 활용할 
 
 에이전트는 기본적으로 간단한 도구에 액세스할 수 있는 LLM입니다. 모든 에이전트는 작업 공간에서 동일한 도구를 공유하지만, 호출된 작업 공간 내에서 작동합니다.
 
-![AI 에이전트](/img/local-rag/local-rag--4.png)
+![AI 에이전트](/img/local-rag/local-rag-4.png)
 
 작업 공간으로 이동하여 `@agent <your prompt>`를 입력하면 에이전트 세션을 시작할 수 있으며, `exit`를 입력하기만 하면 종료할 수 있습니다.
 
@@ -30,7 +30,7 @@ kvidAI Local RAG 솔루션은 기업의 내부 문서를 안전하게 활용할 
 
 ### API 액세스 및 키 관리
 
-![API 관리](/img/local-rag/local-rag--5.png)
+![API 관리](/img/local-rag/local-rag-5.png)
 
 - **API 문서**: 인스턴스에서 사용 가능한 엔드포인트에 대한 API 설명서를 `/api/docs`에서 확인 가능
 - **API 키 관리**: 올바른 액세스 수준을 갖춘 계정에서 API 키 관리
@@ -43,7 +43,7 @@ API 키가 있는 사람은 누구나 Local RAG를 사용할 수 있으므로 �
 
 ### 외관 커스터마이징
 
-![외관 커스터마이징](/img/local-rag/local-rag--6.png)
+![외관 커스터마이징](/img/local-rag/local-rag-6.png)
 
 Local RAG는 사용자가 원하는 브랜딩에 맞게 인스턴스의 모양과 느낌을 커스터마이징할 수 있습니다.
 
@@ -51,7 +51,7 @@ Local RAG는 사용자가 원하는 브랜딩에 맞게 인스턴스의 모양�
 
 ### 채팅 로그 내보내기
 
-![채팅 로그](/img/local-rag/local-rag--7.png)
+![채팅 로그](/img/local-rag/local-rag-7.png)
 
 Local RAG는 다음 형식으로 채팅 로그 내보내기를 지원합니다:
 - **CSV**: 스프레드시트 호환 형식
@@ -63,13 +63,13 @@ Local RAG는 다음 형식으로 채팅 로그 내보내기를 지원합니다:
 
 ### 임베딩 채팅 위젯
 
-![채팅 위젯](/img/local-rag/local-rag--8.png)
+![채팅 위젯](/img/local-rag/local-rag-8.png)
 
 RAG 솔루션을 사용하면 간단한 `<script>` 태그를 사용하여 모든 웹사이트에 쉽게 통합할 수 있는 내장형 채팅 위젯을 만들 수 있습니다.
 
 #### 구성 옵션
 
-![위젯 구성](/img/local-rag/local-rag--9.png)
+![위젯 구성](/img/local-rag/local-rag-9.png)
 
 **작업 공간 설정**
 - 채팅 창이 어떤 작업 공간을 기반으로 할지 결정
@@ -91,7 +91,7 @@ RAG 솔루션을 사용하면 간단한 `<script>` 태그를 사용하여 모든
 
 ### 이벤트 로그 모니터링
 
-![이벤트 로그](/img/local-rag/local-rag--10.png)
+![이벤트 로그](/img/local-rag/local-rag-10.png)
 
 RAG의 이벤트 로그 페이지를 통해 사용자는 애플리케이션 내에서 발생하는 다양한 이벤트를 보고 모니터링할 수 있습니다.
 
@@ -176,7 +176,7 @@ Local RAG 솔루션에서는 LanceDB가 구동하는 개인 내장 벡터 데이
 
 Local RAG에서는 단일 사용자 모드와 다중 사용자 모드라는 두 가지 유형의 사용 사례를 지원합니다.
 
-![보안 설정](/img/local-rag/local-rag--11.png)
+![보안 설정](/img/local-rag/local-rag-11.png)
 
 ### 단일 사용자 모드
 
@@ -188,7 +188,7 @@ Local RAG에서는 단일 사용자 모드와 다중 사용자 모드라는 두 
 
 ### 다중 사용자 모드 (권장)
 
-![다중 사용자 모드](/img/local-rag/local-rag--12.png)
+![다중 사용자 모드](/img/local-rag/local-rag-12.png)
 
 선호되는 사용 방법은 **다중 사용자 모드**입니다. 이 모드에서는 사용자별 역할 기반 액세스 권한을 설정할 수 있습니다.
 
@@ -230,7 +230,7 @@ Local RAG에서는 단일 사용자 모드와 다중 사용자 모드라는 두 
 Local RAG 솔루션은 기업별 맞춤 구성과 설치가 필요한 엔터프라이즈 서비스입니다.
 
 ### 문의 방법
-- **이메일**: enterprise@kvid.ai
+- **이메일**: support@kvid.ai
 - **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
 - **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 

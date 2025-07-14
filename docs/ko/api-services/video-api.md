@@ -273,4 +273,3 @@ true로 설정하면 안전 검사기가 활성화됩니다.
 
 - **이메일**: support@kvid.ai
 - **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
-- **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)

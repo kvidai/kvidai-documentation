@@ -30,7 +30,7 @@ K-pop과 K-beauty 콘텐츠 제작을 위한 AI 플랫폼입니다.
 ## 💬 커뮤니티
 
 - [Discord 커뮤니티](https://discord.gg/wvsecByF) - 질문과 소통
-- [쇼핑몰](https://kvid.ai.kr) - K-pop/K-beauty 상품
+- [API 크레딧 구매](https://kvid.ai.kr) - 한국 결제로 API 크레딧 구매
 
 ## 📚 전체 문서
 

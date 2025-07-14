@@ -134,7 +134,6 @@ Once setup is complete:
 
 - **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
 - **Email**: support@kvid.ai
-- **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ## 💡 K-pop & K-beauty Tips
 

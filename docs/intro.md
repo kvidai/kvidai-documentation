@@ -42,7 +42,7 @@ slug: intro
 | **Main App** | [app.kvid.ai](http://app.kvid.ai) | Try AI features directly |
 | **Console** | [console.kvid.ai](https://console.kvid.ai) | Manage API keys & usage |
 | **Developer Portal** | [developers.kvid.ai](http://developers.kvid.ai) | Get API keys |
-| **Shopping Mall** | [kvid.ai.kr](https://kvid.ai.kr/) | K-pop/K-beauty products |
+| **API Credit Shop** | [kvid.ai.kr](https://kvid.ai.kr/) | Buy API credits (Korean payments) |
 
 ## 💬 Support & Community
 

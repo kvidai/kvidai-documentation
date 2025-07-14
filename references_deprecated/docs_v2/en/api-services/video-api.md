@@ -255,6 +255,7 @@ For questions or assistance:
 
 - **Email**: support@kvid.ai
 - **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ---
 

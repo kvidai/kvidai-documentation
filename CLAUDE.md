@@ -14,12 +14,12 @@ This is a Docusaurus-based documentation site for kvidAI, a K-pop and K-beauty s
 - Local RAG 솔루션
 
 **kvidAI Platform URLs:**
-- [app.kvid.ai](http://app.kvid.ai) - Main AI app interface
+- [app.kvid.ai](http://app.kvid.ai) - kvidAI Main app interface
 - [console.kvid.ai](https://console.kvid.ai) - User console and API management
-- [developers.kvid.ai](http://developers.kvid.ai) - API key issuance
+- [developers.kvid.ai](http://developers.kvid.ai) - API key issuance, developer portal - Check key api request usage
 - [docs.kvid.ai](http://docs.kvid.ai) - Documentation site (this project)
-- [kvid.ai.kr](https://kvid.ai.kr/) - Korean shopping mall
-- [Discord](https://discord.gg/wvsecByF) - kvidAI community
+- [kvid.ai.kr](https://kvid.ai.kr/) - buy api credit shopping mall - For Korean credit payments only
+- [Discord](https://discord.gg/wvsecByF) - kvidAI discord community
 
 ## Development Commands
 
@@ -31,7 +31,9 @@ yarn install
 **Development:**
 ```bash
 yarn start        # Start local development server
+yarn start:fast   # Start with faster build optimizations (Docusaurus 3.8)
 yarn build        # Build for production
+yarn build:fast   # Build with faster optimizations (Docusaurus 3.8)
 yarn serve        # Serve production build locally
 yarn clear        # Clear Docusaurus cache
 yarn typecheck    # Run TypeScript type checking
@@ -59,24 +61,14 @@ vercel --prod                           # Deploy to Vercel
 - **Internationalization (i18n)**: English default, Korean secondary
 
 **Directory Structure:**
-- `docs/` - **English documentation** (auto-generated sidebar)
-  - `intro.md` - Main introduction page (English)
-  - `api-services/` - API documentation (English)
-    - `overview.md` - Complete API services overview
-    - `video-api.md` - Video generation API guide
-  - `console-guide/` - Console usage guides (English)
-    - `initial-setup.md` - Account setup and API key issuance
-  - `getting-started/` - Getting started guides (English)
-    - `quick-start.md` - 5-minute quick start guide
-  - `ko/` - **Korean documentation** (separate sidebar)
-    - `intro.md` - Korean main page
-    - `api-services/` - Korean API documentation (moved from root)
-    - `console-guide/` - Korean console guides (moved from root)
-    - `getting-started.md` - Korean quick start guide
+- `docs/` - Documentation content (auto-generated sidebar)
+  - `intro.md` - Main introduction page
+  - `api-services/` - API documentation (Video, Image, Text, Excel Plugin, Local RAG)
+  - `console-guide/` - Console usage guides (Initial setup, Content scheduling)
+  - `getting-started/` - Getting started guides
 - `blog/` - Blog posts (authors.yml maintained)
 - `src/` - React components and custom pages
   - `components/HomepageFeatures/` - Custom homepage with video showcases
-  - `components/LanguageSwitcher/` - Language switching component
 - `static/` - Static assets and Decap CMS admin
   - `img/` - Images and videos for documentation
   - `admin/` - Decap CMS configuration and custom scripts
@@ -88,23 +80,22 @@ vercel --prod                           # Deploy to Vercel
 
 **Decap CMS Integration:**
 - Admin interface: `/admin` (requires GitHub OAuth)
-- **English Documents**: `docs/` folder management (excluding `ko/` subfolder)
-- **Korean Documents**: `docs/ko/` folder management
+- Content stored in `docs/` and `blog/` folders
 - Media files in `static/img/`
 - Configuration: `static/admin/config.yml`
 - **Custom filename sanitization**: Automatically replaces spaces with hyphens in uploaded images
 - Custom JavaScript handlers for file upload processing (`filename-sanitizer.js`)
 
 **Document Creation:**
-- **Team Separation**: Content team manages `docs/`, developers manage `src/`
-- Auto-generated sidebar from folder structure (separate for English/Korean)
+- Automatic filename format: `YYYY-MM-DD-slug.md`
+- Auto-generated sidebar from folder structure
 - Support for Korean content and filenames
 - **File naming**: All filenames automatically cleaned (spaces → hyphens) for CLI compatibility
-- **Language Structure**: English docs in root, Korean docs in `ko/` subfolder
 
 ## Build Configuration
 
 **Docusaurus Config** (`docusaurus.config.ts`):
+- **Docusaurus 3.8 Build Optimizations**: Rspack bundler, persistent cache, SSG worker threads (2-5x faster builds)
 - Tailwind CSS integration via custom plugin
 - Customizable navbar and footer
 - GitHub edit links configured
@@ -136,23 +127,17 @@ vercel --prod                           # Deploy to Vercel
 ## Current Documentation Status
 
 **Completed Sections:**
-- **English Documentation**:
-  - API Services overview and video API guide
-  - Console initial setup guide
-  - Quick start guide for developers
-  - Complete technical specifications
-- **Korean Documentation**:
-  - API 서비스 개요 (comprehensive overview)
-  - Console guides (initial setup, content scheduling)
-  - Getting started guide in Korean
-  - Excel Plugin and Local RAG documentation
-- **Template Cleanup**: All Docusaurus template content removed
+- API Services documentation (Video, Image, Text APIs)
+- Console setup and usage guides (Initial setup, Content scheduling)
+- Excel Plugin integration guide
+- Local RAG solution overview
+- All template content removed and replaced with actual kvidAI content
 - **Custom homepage with video showcases** - Native multi-shot storytelling examples
 - **Homepage features redesign** - K-pop/K-beauty specialized AI demonstrations
 
 **Key Features Documented:**
-- **Bilingual Structure**: Complete English docs with Korean translations
-- **Team Workflow**: Clear separation between content team (`docs/`) and developers (`src/`)
+- Complete API technical specifications with pricing
+- Step-by-step console setup for new users
 - Real code examples in multiple programming languages
 - K-pop/K-beauty specific use cases and prompts
 - Enterprise-grade Local RAG solution details
@@ -182,13 +167,11 @@ vercel --prod                           # Deploy to Vercel
 3. Focus on K-pop/K-beauty specialized features and applications
 4. Maintain consistent branding and terminology
 5. Provide clear, actionable instructions for users
-6. **Primary language**: Write in English first (`docs/`), Korean secondary (`docs/ko/`)
-7. **Team coordination**: Content teams work in `docs/`, developers in `src/`
-8. **Filename best practices**: Use hyphens instead of spaces in all filenames
-9. **Video content**: Include relevant showcase videos when documenting features
-10. **Reference accuracy**: Only document features that actually exist in kvidAI services
-11. **International audience**: Consider global users while maintaining K-pop/K-beauty specialization
-12. **Language linking**: Add cross-language links between English and Korean versions
+6. **Primary language**: Write in English first, Korean translation secondary
+7. **Filename best practices**: Use hyphens instead of spaces in all filenames
+8. **Video content**: Include relevant showcase videos when documenting features
+9. **Reference accuracy**: Only document features that actually exist in kvidAI services
+10. **International audience**: Consider global users while maintaining K-pop/K-beauty specialization
 
 ## Technical Implementation Details
 
@@ -201,21 +184,12 @@ vercel --prod                           # Deploy to Vercel
 
 **Decap CMS Enhancements:**
 - `static/admin/filename-sanitizer.js` - Custom file upload handler
-- **Dual Language Support**: Separate collections for English and Korean docs
 - Automatic space-to-hyphen conversion for uploaded media
 - Korean filename support with proper encoding
 - Browser-level file input interception for seamless UX
 
 **API Documentation Structure:**
-- **Bilingual Documentation**: Complete English docs with Korean equivalents
 - Consistent pricing information in credits and USD
-- Real endpoint URLs (api.hometip.net domain)
+- Real endpoint URLs (api.kvid.ai domain)
 - Actual code examples tested with live services
 - Practical use cases with K-pop/K-beauty focus
-- Cross-language navigation links on every page
-
-**Language Management:**
-- **URL Structure**: `/docs/intro` (English), `/docs/ko/intro` (Korean)
-- **Automatic Sidebars**: Separate navigation for each language
-- **Team Workflow**: Content creators manage `docs/` folder exclusively
-- **Decap CMS Collections**: "English Documents" and "한국어 문서" sections

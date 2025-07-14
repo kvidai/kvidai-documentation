@@ -17,14 +17,14 @@ kvidAI 서비스를 처음 이용하시는 분들을 위한 단계별 설정 가
 - 초기 설정 시 수동으로 크레딧 및 사용자 권한을 설정해야 합니다
 
 ### 접속 URL
-- **개발자 포털**: [developers.hometip.net](https://developers.hometip.net/)
-- **콘솔**: [console.hometip.net](https://console.hometip.net)
+- **개발자 포털**: [developers.kvid.ai](https://developers.kvid.ai/)
+- **콘솔**: [console.kvid.ai](https://console.kvid.ai)
 
 ## 📝 1단계: 계정 생성
 
 ### 1.1 개발자 포털 회원가입
 
-1. [developers.hometip.net](https://developers.hometip.net/)에 접속
+1. [developers.kvid.ai](https://developers.kvid.ai/)에 접속
 2. **"회원가입"** 버튼 클릭
 3. 가입 정보 입력:
    - 이메일 주소
@@ -33,7 +33,7 @@ kvidAI 서비스를 처음 이용하시는 분들을 위한 단계별 설정 가
 
 ### 1.2 콘솔 사이트 회원가입
 
-1. [console.hometip.net](https://console.hometip.net)에 접속
+1. [console.kvid.ai](https://console.kvid.ai)에 접속
 2. **"회원가입"** 버튼 클릭
 3. **동일한 이메일 주소**로 가입
 
@@ -45,7 +45,7 @@ kvidAI 서비스를 처음 이용하시는 분들을 위한 단계별 설정 가
 
 ### 2.1 개발자 포털에서 API 키 생성
 
-1. [developers.hometip.net](https://developers.hometip.net/)에 로그인
+1. [developers.kvid.ai](https://developers.kvid.ai/)에 로그인
 2. **"API Keys"** 또는 **"키 관리"** 메뉴 선택
 3. **"새 API 키 생성"** 버튼 클릭
 4. 원하는 API 서비스 선택:
@@ -70,7 +70,7 @@ API 키는 생성 시 한 번만 표시됩니다. 반드시 안전한 곳에 저
 
 현재 자동 결제 시스템이 연동되지 않아 수동으로 크레딧을 설정해야 합니다.
 
-1. [console.hometip.net](https://console.hometip.net)에 로그인
+1. [console.kvid.ai](https://console.kvid.ai)에 로그인
 2. 관리자에게 크레딧 충전 요청
 3. 크레딧 충전 완료 확인
 
@@ -120,8 +120,8 @@ curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
 
 다음 항목들을 모두 완료했는지 확인하세요:
 
-- [ ] 개발자 포털 회원가입 (developers.hometip.net)
-- [ ] 콘솔 사이트 회원가입 (console.hometip.net)
+- [ ] 개발자 포털 회원가입 (developers.kvid.ai)
+- [ ] 콘솔 사이트 회원가입 (console.kvid.ai)
 - [ ] **동일한 이메일 주소** 사용 확인
 - [ ] 개발자 포털에서 API 키 발급
 - [ ] API 키 안전한 곳에 저장
@@ -152,7 +152,6 @@ curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
 
 - **이메일**: support@kvid.ai
 - **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
-- **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ## 🎯 다음 단계
 

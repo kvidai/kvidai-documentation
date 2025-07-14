@@ -19,14 +19,14 @@ A step-by-step setup guide for first-time kvidAI service users, covering everyth
 - Manual credit and user permission setup required during initial configuration
 
 ### Access URLs
-- **Developer Portal**: [developers.hometip.net](https://developers.hometip.net/)
-- **Console**: [console.hometip.net](https://console.hometip.net)
+- **Developer Portal**: [developers.kvid.ai](https://developers.kvid.ai/)
+- **Console**: [console.kvid.ai](https://console.kvid.ai)
 
 ## 📝 Step 1: Account Creation
 
 ### 1.1 Developer Portal Registration
 
-1. Visit [developers.hometip.net](https://developers.hometip.net/)
+1. Visit [developers.kvid.ai](https://developers.kvid.ai/)
 2. Click **"Sign Up"** button
 3. Enter registration information:
    - Email address
@@ -35,7 +35,7 @@ A step-by-step setup guide for first-time kvidAI service users, covering everyth
 
 ### 1.2 Console Site Registration
 
-1. Visit [console.hometip.net](https://console.hometip.net)
+1. Visit [console.kvid.ai](https://console.kvid.ai)
 2. Click **"Sign Up"** button
 3. Register with the **same email address**
 
@@ -47,7 +47,7 @@ The email addresses used for the Developer Portal and Console Site must be ident
 
 ### 2.1 Create API Key in Developer Portal
 
-1. Log in to [developers.hometip.net](https://developers.hometip.net/)
+1. Log in to [developers.kvid.ai](https://developers.kvid.ai/)
 2. Select **"API Keys"** or **"Key Management"** menu
 3. Click **"Generate New API Key"** button
 4. Select desired API services:
@@ -72,7 +72,7 @@ API keys are only displayed once during creation. Make sure to store them secure
 
 Manual credit setup is required as automatic payment system is not yet integrated.
 
-1. Log in to [console.hometip.net](https://console.hometip.net)
+1. Log in to [console.kvid.ai](https://console.kvid.ai)
 2. Request credit top-up from administrator
 3. Confirm credit top-up completion
 
@@ -122,8 +122,8 @@ curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
 
 Check if you have completed all the following items:
 
-- [ ] Developer Portal registration (developers.hometip.net)
-- [ ] Console Site registration (console.hometip.net)
+- [ ] Developer Portal registration (developers.kvid.ai)
+- [ ] Console Site registration (console.kvid.ai)
 - [ ] **Same email address** usage confirmed
 - [ ] API key issued from Developer Portal
 - [ ] API key stored securely
@@ -154,7 +154,6 @@ Contact us anytime during the setup process:
 
 - **Email**: support@kvid.ai
 - **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
-- **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ## 🎯 Next Steps
 

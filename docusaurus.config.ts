@@ -33,6 +33,19 @@ const config: Config = {
 
   plugins: [tailwindPlugin],
 
+  // Docusaurus 3.8 Build Performance Optimizations
+  future: {
+    // v4: {
+    //   removeLegacyPostBuildHeadAttribute: true, // required
+    // },
+    v4: true,
+    experimental_faster: {
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true
+    }
+  },
+
   presets: [
     [
       "classic",
@@ -134,7 +147,7 @@ const config: Config = {
               href: "https://developers.kvid.ai",
             },
             {
-              label: "Shopping Mall",
+              label: "API Credit Shop",
               href: "https://kvid.ai.kr",
             },
           ],

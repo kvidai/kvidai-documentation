@@ -1,69 +1,114 @@
 ---
-title: API 서비스 개요
-description: kvidAI에서 제공하는 API 데이터 솔루션 및 미니프로그램 서비스 소개
+title: API Services Overview
+description: Complete overview of kvidAI API services specialized for K-pop and K-beauty content
 slug: api-overview
-tags: [API, 솔루션, 미니프로그램]
+tags: [API, Services, K-pop, K-beauty]
 sidebar_position: 1
 ---
 
-# API 서비스 개요
+# API Services Overview
 
-kvidAI는 K-pop, K-뷰티 특화 AI 생성 서비스를 제공하는 플랫폼입니다.
+> **한국어로 보기**: [API 서비스 개요](/docs/ko/api-services/overview) | **View in English** (current page)
 
-## 메인 서비스
+**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation, offering comprehensive API services for developers and businesses.
 
-### 🎥 Video 생성 AI API
-AI 기반 비디오 생성 서비스
+## 🎯 Main API Services
 
-### 🖼️ Image 생성 AI API  
-AI 기반 이미지 생성 서비스
+### 1. Video Generation AI API
+- **Function**: Convert text or images into 5-6 second videos
+- **Specialization**: K-pop dance moves, K-beauty content optimization
+- **Pricing**: $0.86 (124.356 credits) per video
+- **Resolution**: 480p, 720p support
 
-### 💬 Text 생성 LLM AI API
-대화형 AI 텍스트 생성 서비스
+### 2. Image Generation AI API  
+- **Function**: FLUX.1 dev model-based image generation
+- **Specialization**: K-pop idol style, K-beauty model aesthetics
+- **Pricing**: 1-3 credits (varies by resolution)
+- **Max Resolution**: 1024x1024
 
-### 📊 RAG AI 연동 Excel Plugin
-Excel과 연동되는 RAG(Retrieval-Augmented Generation) AI 플러그인
+### 3. Text Generation LLM API
+- **Models**: Qwen2.5-72B-Instruct, Qwen2.5-VL-72B-Instruct
+- **Specialization**: Korean language and K-culture content generation
+- **Pricing**: 
+  - Input: $0.0012 (17.352 credits) per 1K tokens
+  - Output: $0.0036 (52.056 credits) per 1K tokens
 
-## 서브 서비스
+### 4. Excel Plugin with RAG AI
+- **Function**: Use AI functions directly in Excel
+- **Functions**: RUNGPT_TEXT(), RUNGPT_IMAGE_TO_TEXT(), RUNGPT_ASYNC_RESULT()
+- **Pricing**: $0.01-$0.1 per function call
 
-### 🏠 Local RAG 솔루션
-로컬 환경에서 동작하는 RAG 솔루션
+### 5. Local RAG Solution
+- **Function**: On-premises AI system deployment
+- **Specialization**: Enterprise-grade custom AI solutions
+- **Architecture**: LangChain, Streamlit, ChromaDB based
 
-## 서비스 이용 전 준비사항
+## 🔑 Getting Started with APIs
 
-### 1. 콘솔 회원가입
-[kvidAI 콘솔](https://console.kvid.ai)에 회원가입이 되어 있어야 합니다.
+### Step 1: API Key Issuance
+1. Sign up at [Developer Portal](https://developers.kvid.ai)
+2. Register at [Console](https://console.kvid.ai) with the same email
+3. Generate API keys and set up credits
 
-:::warning 중요
-API 상품을 구매할 때 콘솔 계정 아이디를 정확히 입력해야 정상적인 사용이 가능합니다.
-:::
+### Step 2: First API Call
+```bash
+# Text API Example
+curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
+  -H "API-KEY: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "qwen2.5-72b-instruct",
+    "messages": [
+      {"role": "user", "content": "Write K-pop lyrics about friendship"}
+    ]
+  }'
+```
 
-### 2. 계정 설정
-- 콘솔 사이트 회원가입 완료
-- API 키 발급 신청
-- 크레딧 및 사용자 권한 설정
+## 💰 Pricing Structure
 
-## 문의 방법
+### Credit System
+- **Exchange Rate**: 1,446 KRW = 1 USD
+- **Usage-based**: Pay per usage × unit price
+- **Prepaid**: Credit top-up system
 
-### 📧 이메일 문의
-**담당자 이메일**: hometip21@gmail.com
+### Service Pricing Table
+| Service | Unit Price | Credits |
+|---------|------------|---------|
+| Video Generation | $0.86 | 124.356 credits |
+| Image Generation | $0.0007-$0.002 | 1-3 credits |
+| Text Generation (Input) | $0.0012/1K | 17.352 credits |
+| Text Generation (Output) | $0.0036/1K | 52.056 credits |
+| Excel Functions | $0.01-$0.1 | 14-144 credits |
 
-### 📝 문의신청서
-[Google Forms 문의신청](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
+## 🎨 K-pop & K-beauty Specializations
 
-### 💬 커뮤니티
-[kvidAI 디스코드](https://discord.gg/wvsecByF)
+### Video API Features
+- K-pop dance move optimization
+- Idol-style camera angles
+- Korean traditional element integration
 
-## 플랫폼 링크
+### Image API Features  
+- K-beauty makeup styles
+- Korean fashion trend reflection
+- Idol photo style support
 
-| 서비스 | URL | 설명 |
-|--------|-----|------|
-| **메인 앱** | [app.kvid.ai](http://app.kvid.ai) | AI 앱 메인 페이지 |
-| **콘솔** | [console.kvid.ai](https://console.kvid.ai) | 서비스 관리 콘솔 |
-| **개발자** | [developers.kvid.ai](http://developers.kvid.ai) | API 키 발급 |
-| **문서** | [docs.kvid.ai](http://docs.kvid.ai) | 서비스 매뉴얼 |
-| **쇼핑몰** | [kvid.ai.kr](https://kvid.ai.kr/) | 한국 전용 쇼핑몰 |
+### Text API Features
+- Korean natural language processing optimization
+- K-culture content generation
+- Korean expression and cultural context understanding
 
-:::tip 시작하기
-처음 이용하시는 분은 [계정 설정 가이드](/docs/getting-started/account-setup)를 먼저 확인해 주세요.
-:::
+## 🚀 Next Steps
+
+- [Getting Started Guide](/docs/getting-started) - From account setup to first API call
+- [Console Guide](/docs/console-guide/initial-setup) - Account and credit management
+- [한국어 문서](/docs/ko/api-services/overview) - Complete documentation in Korean
+
+## 🆘 Support
+
+- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Email**: support@kvid.ai
+- **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
+
+---
+
+**Language**: **English** (current page) | [한국어](/docs/ko/api-services/overview)

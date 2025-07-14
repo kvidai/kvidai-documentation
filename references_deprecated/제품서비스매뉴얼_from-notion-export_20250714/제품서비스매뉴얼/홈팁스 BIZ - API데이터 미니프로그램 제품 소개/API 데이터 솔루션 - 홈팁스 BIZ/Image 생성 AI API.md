@@ -15,20 +15,20 @@ You can call the Image Generation API **| flux.1 dev, etc image models**
 
 # **— API reference**
 
-base_url for SDK: `https://api.hometip.net/ai-model/{model_id="flux"}/v1` 
+base_url for SDK: `https://api.kvid.ai/ai-model/{model_id="flux"}/v1` 
 
 {MODEL_ID}: [`"flux"`]
 
 **— base_url example**
 
-- `https://api.hometip.net/ai-model/flux/v1/flux-dev`
+- `https://api.kvid.ai/ai-model/flux/v1/flux-dev`
 
 **Available models: [ flux-dev ]**
 
 — **Generate an image with FLUX.1 [dev]**
 
 ```bash
-curl https://api.hometip.net/ai-model/flux/v1/flux-dev \
+curl https://api.kvid.ai/ai-model/flux/v1/flux-dev \
   --request POST \
   --header 'Content-Type: application/json' \
   --data '{
@@ -100,7 +100,7 @@ Optional secret for webhook signature verification
 **— Get Result**
 
 ```bash
-curl 'https://api.hometip.net/ai-model/flux/v1/get_result?id='
+curl 'https://api.kvid.ai/ai-model/flux/v1/get_result?id='
 ```
 
 ```json

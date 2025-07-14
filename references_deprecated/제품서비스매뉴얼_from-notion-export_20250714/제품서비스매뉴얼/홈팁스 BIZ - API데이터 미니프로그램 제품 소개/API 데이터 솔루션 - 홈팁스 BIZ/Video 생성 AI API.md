@@ -19,13 +19,13 @@ You can call the Video Generation API
 
 # **— API reference**
 
-base_url for SDK: `https://api.hometip.net/ai-model/{model_id="videogen-1"}/v1` 
+base_url for SDK: `https://api.kvid.ai/ai-model/{model_id="videogen-1"}/v1` 
 
 {MODEL_ID}: [`"videogen-1"`]
 
 **— base_url example**
 
-- `https://api.hometip.net/ai-model/videogen-1/v1/video_generation`
+- `https://api.kvid.ai/ai-model/videogen-1/v1/video_generation`
 
 **Available models: [ text-to-video, image-to-video ]**
 
@@ -35,7 +35,7 @@ base_url for SDK: `https://api.hometip.net/ai-model/{model_id="videogen-1"}/v1`
 import requests
 import json
 
-url = "https://api.hometip.net/ai-model/videogen-1/v1/video_generation"
+url = "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation"
 api_key = "Fill in your api_key"
 
 payload = json.dumps({
@@ -62,7 +62,7 @@ import json
 api_key="fill in the api_key"
 task_id="fill in the task_id"
 
-url = f"https://api.hometip.net/ai-model/videogen-1/v1/query/video_generation?task_id={task_id}"
+url = f"https://api.kvid.ai/ai-model/videogen-1/v1/query/video_generation?task_id={task_id}"
 
 payload = {}
 headers = {
@@ -84,7 +84,7 @@ group_id = "fill in the groupid - optional"
 api_key = "fill in the api key"
 file_id = "fill in the file id"
 
-url = f'https://api.hometip.net/ai-model/videogen-1/v1/files/retrieve?GroupId={group_id}&file_id={file_id}'
+url = f'https://api.kvid.ai/ai-model/videogen-1/v1/files/retrieve?GroupId={group_id}&file_id={file_id}'
 headers = {
     'content-type': 'application/json',
     'API-KEY': f'Bearer {$SUBSCRIPTION_KEY}'

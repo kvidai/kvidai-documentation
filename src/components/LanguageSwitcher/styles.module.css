@@ -1,0 +1,41 @@
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ifm-navbar-link-color);
+}
+
+.currentLang {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.separator {
+  color: var(--ifm-color-emphasis-300);
+}
+
+.alternateLang {
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.alternateLang:hover {
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: underline;
+}
+
+.alternateLangDisabled {
+  color: var(--ifm-color-emphasis-500);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .languageSwitcher {
+    font-size: 0.8rem;
+    gap: 0.25rem;
+  }
+}

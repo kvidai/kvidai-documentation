@@ -1,113 +1,115 @@
 ---
-title: 콘솔 초기 설정 가이드
-description: kvidAI 콘솔 첫 사용을 위한 계정 설정 및 API 키 발급 안내
+title: Console Initial Setup Guide
+description: Complete guide for account setup and API key issuance for first-time kvidAI console users
 slug: initial-setup
-tags: [콘솔, 설정, API키, 초기설정]
+tags: [Console, Setup, API Keys, Initial Setup]
 sidebar_position: 1
 ---
 
-# 콘솔 초기 설정 가이드
+# Console Initial Setup Guide
 
-kvidAI 서비스를 처음 이용하시는 분들을 위한 단계별 설정 가이드입니다. 최초 사용 시 필요한 계정 생성부터 API 키 발급까지 전 과정을 안내합니다.
+> **한국어로 보기**: [콘솔 초기 설정 가이드](/docs/ko/console-guide/initial-setup) | **View in English** (current page)
 
-## 🚀 시작하기 전에
+A step-by-step setup guide for first-time kvidAI service users, covering everything from account creation to API key issuance.
 
-### 중요사항
-- **개발자 포털**과 **콘솔 사이트**의 이메일 주소가 반드시 동일해야 합니다
-- 초기 설정 시 수동으로 크레딧 및 사용자 권한을 설정해야 합니다
+## 🚀 Before You Start
 
-### 접속 URL
-- **개발자 포털**: [developers.hometip.net](https://developers.hometip.net/)
-- **콘솔**: [console.hometip.net](https://console.hometip.net)
+### Important Requirements
+- **Developer Portal** and **Console Site** must use the **same email address**
+- Manual credit and user permission setup required during initial configuration
 
-## 📝 1단계: 계정 생성
+### Access URLs
+- **Developer Portal**: [developers.hometip.net](https://developers.hometip.net/)
+- **Console**: [console.hometip.net](https://console.hometip.net)
 
-### 1.1 개발자 포털 회원가입
+## 📝 Step 1: Account Creation
 
-1. [developers.hometip.net](https://developers.hometip.net/)에 접속
-2. **"회원가입"** 버튼 클릭
-3. 가입 정보 입력:
-   - 이메일 주소
-   - 비밀번호
-   - 기본 정보
+### 1.1 Developer Portal Registration
 
-### 1.2 콘솔 사이트 회원가입
+1. Visit [developers.hometip.net](https://developers.hometip.net/)
+2. Click **"Sign Up"** button
+3. Enter registration information:
+   - Email address
+   - Password
+   - Basic information
 
-1. [console.hometip.net](https://console.hometip.net)에 접속
-2. **"회원가입"** 버튼 클릭
-3. **동일한 이메일 주소**로 가입
+### 1.2 Console Site Registration
 
-:::warning 중요
-개발자 포털과 콘솔 사이트에서 사용하는 이메일 주소는 반드시 동일해야 합니다. 이메일이 다르면 API 키와 계정 연동이 되지 않습니다.
+1. Visit [console.hometip.net](https://console.hometip.net)
+2. Click **"Sign Up"** button
+3. Register with the **same email address**
+
+:::warning Important
+The email addresses used for the Developer Portal and Console Site must be identical. Different emails will prevent API key and account integration.
 :::
 
-## 🔑 2단계: API 키 발급
+## 🔑 Step 2: API Key Issuance
 
-### 2.1 개발자 포털에서 API 키 생성
+### 2.1 Create API Key in Developer Portal
 
-1. [developers.hometip.net](https://developers.hometip.net/)에 로그인
-2. **"API Keys"** 또는 **"키 관리"** 메뉴 선택
-3. **"새 API 키 생성"** 버튼 클릭
-4. 원하는 API 서비스 선택:
-   - Video 생성 AI API
-   - Image 생성 AI API  
-   - Text 생성 LLM AI API
-5. API 키 생성 완료
+1. Log in to [developers.hometip.net](https://developers.hometip.net/)
+2. Select **"API Keys"** or **"Key Management"** menu
+3. Click **"Generate New API Key"** button
+4. Select desired API services:
+   - Video Generation AI API
+   - Image Generation AI API  
+   - Text Generation LLM AI API
+5. Complete API key generation
 
-### 2.2 API 키 저장
+### 2.2 Save API Key
 
-:::warning 보안 주의
-API 키는 생성 시 한 번만 표시됩니다. 반드시 안전한 곳에 저장하세요!
+:::warning Security Notice
+API keys are only displayed once during creation. Make sure to store them securely!
 :::
 
-1. 생성된 API 키 복사
-2. 안전한 곳에 저장 (비밀번호 관리자 권장)
-3. 키가 노출되지 않도록 주의
+1. Copy the generated API key
+2. Store in a secure location (password manager recommended)
+3. Ensure the key is not exposed
 
-## 💳 3단계: 콘솔 사이트 설정
+## 💳 Step 3: Console Site Configuration
 
-### 3.1 크레딧 설정
+### 3.1 Credit Setup
 
-현재 자동 결제 시스템이 연동되지 않아 수동으로 크레딧을 설정해야 합니다.
+Manual credit setup is required as automatic payment system is not yet integrated.
 
-1. [console.hometip.net](https://console.hometip.net)에 로그인
-2. 관리자에게 크레딧 충전 요청
-3. 크레딧 충전 완료 확인
+1. Log in to [console.hometip.net](https://console.hometip.net)
+2. Request credit top-up from administrator
+3. Confirm credit top-up completion
 
-### 3.2 사용자 권한 설정
+### 3.2 User Permission Setup
 
-사용자 권한을 수동으로 설정해야 합니다.
+User permissions must be set manually.
 
-1. 콘솔 사이트에서 계정 설정 메뉴 이동
-2. 사용자 역할(User Role)을 **"api-user"**로 설정
-3. 권한 설정 완료 확인
+1. Navigate to account settings in console site
+2. Set User Role to **"api-user"**
+3. Confirm permission setup completion
 
-:::info 참고
-Cafe24 결제 시스템을 거치지 않기 때문에 크레딧과 사용자 권한을 수동으로 설정해야 합니다.
+:::info Note
+Manual credit and user permission setup is required because the system does not go through Cafe24 payment system.
 :::
 
-## 🧪 4단계: API 테스트
+## 🧪 Step 4: API Testing
 
-### 4.1 첫 번째 API 호출 테스트
+### 4.1 First API Call Test
 
-설정이 완료되었는지 간단한 API 호출로 테스트해보세요.
+Test if setup is complete with a simple API call.
 
-**Text API 테스트:**
+**Text API Test:**
 ```bash
-curl -X POST "https://api.hometip.net/ai-model/qwen/v1/chat/completions" \
+curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
   -H "API-KEY: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "qwen2.5-72b-instruct",
     "messages": [
-      {"role": "user", "content": "안녕하세요"}
+      {"role": "user", "content": "Hello"}
     ]
   }'
 ```
 
-**Video API 테스트:**
+**Video API Test:**
 ```bash
-curl -X POST "https://api.hometip.net/ai-model/videogen-1/v1/video_generation" \
+curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
   -H "API-KEY: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -116,57 +118,56 @@ curl -X POST "https://api.hometip.net/ai-model/videogen-1/v1/video_generation" \
   }'
 ```
 
-## ✅ 설정 완료 체크리스트
+## ✅ Setup Completion Checklist
 
-다음 항목들을 모두 완료했는지 확인하세요:
+Check if you have completed all the following items:
 
-- [ ] 개발자 포털 회원가입 (developers.hometip.net)
-- [ ] 콘솔 사이트 회원가입 (console.hometip.net)
-- [ ] **동일한 이메일 주소** 사용 확인
-- [ ] 개발자 포털에서 API 키 발급
-- [ ] API 키 안전한 곳에 저장
-- [ ] 콘솔 사이트에서 크레딧 설정 (수동)
-- [ ] 사용자 권한을 "api-user"로 설정
-- [ ] API 테스트 성공
+- [ ] Developer Portal registration (developers.hometip.net)
+- [ ] Console Site registration (console.hometip.net)
+- [ ] **Same email address** usage confirmed
+- [ ] API key issued from Developer Portal
+- [ ] API key stored securely
+- [ ] Credit setup in Console Site (manual)
+- [ ] User permission set to "api-user"
+- [ ] API test successful
 
-## 🆘 문제 해결
+## 🆘 Troubleshooting
 
-### 자주 발생하는 문제
+### Common Issues
 
-**Q: API 키가 작동하지 않아요**
-- 개발자 포털과 콘솔 사이트 이메일 주소가 동일한지 확인
-- API 키 복사 시 공백이나 특수문자 포함 여부 확인
-- 크레딧 잔액 및 사용자 권한 확인
+**Q: API key not working**
+- Check if Developer Portal and Console Site email addresses match
+- Verify no spaces or special characters when copying API key
+- Check credit balance and user permissions
 
-**Q: 크레딧이 없어요**
-- 현재 수동 설정이 필요합니다
-- 고객 지원팀에 크레딧 충전 요청
+**Q: No credits available**
+- Manual setup is currently required
+- Contact customer support for credit top-up
 
-**Q: 사용자 권한 오류가 발생해요**
-- 콘솔 사이트에서 사용자 역할이 "api-user"로 설정되었는지 확인
-- 권한 설정이 안 되어 있다면 고객 지원팀에 문의
+**Q: User permission error**
+- Check if user role is set to "api-user" in Console Site
+- Contact customer support if permission setup is not working
 
-### 고객 지원
+### Customer Support
 
-설정 과정에서 도움이 필요하시면 언제든 연락하세요:
+Contact us anytime during the setup process:
 
-- **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
-- **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
+- **Email**: support@kvid.ai
+- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
-## 🎯 다음 단계
+## 🎯 Next Steps
 
-설정이 완료되었다면 이제 다음 문서들을 참고하세요:
+Once setup is complete, refer to these documents:
 
-- [Video API 사용법](/docs/api-services/video-api)
-- [Image API 사용법](/docs/api-services/image-api)
-- [Text API 사용법](/docs/api-services/text-api)
+- [Video API Usage](/docs/api-services/video-api)
+- [Image API Usage](/docs/api-services/image-api)
+- [Text API Usage](/docs/api-services/text-api)
 
-:::tip 성공 팁
-초기 설정 시 이메일 주소 통일과 수동 권한 설정이 가장 중요합니다. 문제가 발생하면 고객 지원팀에 문의하세요.
+:::tip Success Tips
+Email address unification and manual permission setup are most important during initial setup. Contact customer support if you encounter any issues.
 :::
 
 ---
 
-**마지막 업데이트**: 2025년 7월 14일  
-**작성자**: kvidAI 팀
+**Language**: **English** (current page) | [한국어](/docs/ko/console-guide/initial-setup)

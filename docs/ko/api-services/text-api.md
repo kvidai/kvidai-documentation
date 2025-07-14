@@ -26,8 +26,8 @@ kvidAI의 Text 생성 LLM AI API는 Qwen 모델을 기반으로 한 대화형 AI
 
 ### 기본 정보
 ```
-Base URL: https://api.hometip.net/ai-model/qwen/v1
-Chat Completions: https://api.hometip.net/ai-model/qwen/v1/chat/completions
+Base URL: https://api.kvid.ai/ai-model/qwen/v1
+Chat Completions: https://api.kvid.ai/ai-model/qwen/v1/chat/completions
 Authentication: API-KEY Bearer Token
 Content-Type: application/json
 ```
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 **요청 예시**
 ```bash
-curl -X POST https://api.hometip.net/ai-model/qwen/v1/chat/completions \
+curl -X POST https://api.kvid.ai/ai-model/qwen/v1/chat/completions \
 -H "API-KEY: Bearer $SUBSCRIPTION_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -58,7 +58,7 @@ curl -X POST https://api.hometip.net/ai-model/qwen/v1/chat/completions \
 
 **요청 예시**
 ```bash
-curl -X POST https://api.hometip.net/ai-model/qwen/v1/chat/completions \
+curl -X POST https://api.kvid.ai/ai-model/qwen/v1/chat/completions \
 -H "API-KEY: Bearer $SUBSCRIPTION_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -115,7 +115,7 @@ from openai import OpenAI
 # kvidAI API 클라이언트 설정
 client = OpenAI(
     api_key="YOUR_API_KEY",
-    base_url="https://api.hometip.net/ai-model/qwen/v1"
+    base_url="https://api.kvid.ai/ai-model/qwen/v1"
 )
 
 # 채팅 완성 요청

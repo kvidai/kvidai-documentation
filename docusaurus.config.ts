@@ -85,6 +85,12 @@ const config: Config = {
           label: "Discord",
           position: "right",
         },
+        {
+          href: "/docs/ko/intro",
+          label: "한국어",
+          position: "right",
+          className: "navbar-language-switch",
+        },
         // {
         //   href: "https://github.com/epicmobile-reserve/kvidai-documentation",
         //   label: "GitHub",

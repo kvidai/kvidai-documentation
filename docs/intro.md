@@ -1,52 +1,54 @@
 ---
 sidebar_position: 1
-title: kvidAI 문서 시작하기
-description: kvidAI 플랫폼의 전체 서비스와 사용법을 안내합니다
+title: Getting Started with kvidAI
+description: Complete guide to kvidAI platform services and API usage
 slug: intro
 ---
 
-# kvidAI 문서 시작하기
+# Getting Started with kvidAI
 
-**kvidAI**는 K-pop, K-뷰티 특화 AI 생성 서비스 플랫폼입니다. 
+> **한국어로 보기**: [시작하기 가이드](/docs/ko/intro) | **View in English** (current page)
 
-## 🚀 주요 서비스
+**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation. 
 
-### AI 생성 서비스
-- **Video 생성 AI API** - AI 기반 비디오 생성
-- **Image 생성 AI API** - AI 기반 이미지 생성  
-- **Text 생성 LLM AI API** - 대화형 AI 텍스트 생성
-- **RAG AI 연동 Excel Plugin** - Excel 연동 RAG AI
+## 🚀 Main Services
 
-### 추가 솔루션
-- **Local RAG 솔루션** - 로컬 환경 RAG 서비스
+### AI Generation APIs
+- **Video Generation AI API** - Create videos from text/images
+- **Image Generation AI API** - Generate K-pop/K-beauty specialized images
+- **Text Generation LLM API** - Korean-optimized language model
+- **Excel Plugin with RAG AI** - AI functions directly in Excel
 
-## 📚 문서 구성
+### Enterprise Solutions
+- **Local RAG Solution** - On-premises AI system for enterprises
 
-### [콘솔 가이드](/docs/console-guide/initial-setup)
-- 계정 생성 및 초기 설정
-- API 키 발급 방법
-- 콘솔 사용법
-- 카페 글쓰기 예약 기능
+## 📚 Documentation Structure
 
-### [API 서비스](/docs/api-services/overview)
-- API 서비스 개요
-- 각 API 사용법
-- 개발자 가이드
+### [Console Guide](/docs/console-guide/initial-setup)
+- Account setup and initial configuration
+- API key issuance process
+- Console usage instructions
+- Cafe content scheduling features
 
-## 🔗 플랫폼 링크
+### [API Services](/docs/api-services/overview)
+- Complete API service overview
+- Individual API usage guides
+- Developer documentation
 
-| 서비스 | URL | 설명 |
-|--------|-----|------|
-| **메인 앱** | [app.kvid.ai](http://app.kvid.ai) | AI 앱 메인 페이지 |
-| **콘솔** | [console.kvid.ai](https://console.kvid.ai) | 서비스 관리 |
-| **개발자** | [developers.kvid.ai](http://developers.kvid.ai) | API 키 발급 |
-| **쇼핑몰** | [kvid.ai.kr](https://kvid.ai.kr/) | 한국 쇼핑몰 |
+## 🔗 Platform Links
 
-## 💬 지원 및 커뮤니티
+| Service | URL | Description |
+|---------|-----|-------------|
+| **Main App** | [app.kvid.ai](http://app.kvid.ai) | Try AI features directly |
+| **Console** | [console.kvid.ai](https://console.kvid.ai) | Manage API keys & usage |
+| **Developer Portal** | [developers.kvid.ai](http://developers.kvid.ai) | Get API keys |
+| **Shopping Mall** | [kvid.ai.kr](https://kvid.ai.kr/) | K-pop/K-beauty products |
 
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
-- **이메일**: support@kvid.ai
+## 💬 Support & Community
 
-:::tip 빠른 시작
-처음 사용하시는 분은 [콘솔 초기 설정 가이드](/docs/console-guide/initial-setup)부터 시작해 주세요!
+- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Email**: support@kvid.ai
+
+:::tip Quick Start
+New users should start with the [Console Initial Setup Guide](/docs/console-guide/initial-setup)!
 :::

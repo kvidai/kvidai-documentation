@@ -17,20 +17,20 @@ You can call the LLM API with the OpenAI SDK
 
 # **— API reference**
 
-base_url for SDK: `https://api.hometip.net/ai-model/{model_id="qwen"}/v1` 
+base_url for SDK: `https://api.kvid.ai/ai-model/{model_id="qwen"}/v1` 
 
 {MODEL_ID}: [`"qwen"`]
 
 **— base_url example**
 
-- `https://api.hometip.net/ai-model/qwen/v1/chat/completions`
+- `https://api.kvid.ai/ai-model/qwen/v1/chat/completions`
 
 **Available models: [ qwen2.5-72b-instruct, qwen2.5-vl-72b-instruct ]**
 
 — **Text input**
 
 ```bash
-curl -X POST https://api.hometip.net/ai-model/qwen/v1/chat/completions \
+curl -X POST https://api.kvid.ai/ai-model/qwen/v1/chat/completions \
 -H "API-KEY: Bearer $SUBSCRIPTION_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -69,7 +69,7 @@ Instructions that request some output from the model. Similar to messages you'd 
 **— Image Input**
 
 ```bash
-curl -X POST https://api.hometip.net/ai-model/qwen/v1/chat/completions \
+curl -X POST https://api.kvid.ai/ai-model/qwen/v1/chat/completions \
 -H "API-KEY: Bearer $SUBSCRIPTION_KEY" \
 -H 'Content-Type: application/json' \
 -d '{

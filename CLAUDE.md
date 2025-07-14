@@ -31,9 +31,7 @@ yarn install
 **Development:**
 ```bash
 yarn start        # Start local development server
-yarn start:fast   # Start with faster build optimizations (Docusaurus 3.8)
 yarn build        # Build for production
-yarn build:fast   # Build with faster optimizations (Docusaurus 3.8)
 yarn serve        # Serve production build locally
 yarn clear        # Clear Docusaurus cache
 yarn typecheck    # Run TypeScript type checking
@@ -61,11 +59,16 @@ vercel --prod                           # Deploy to Vercel
 - **Internationalization (i18n)**: English default, Korean secondary
 
 **Directory Structure:**
-- `docs/` - Documentation content (auto-generated sidebar)
+- `docs/` - **English documentation** (auto-generated sidebar)
   - `intro.md` - Main introduction page
   - `api-services/` - API documentation (Video, Image, Text, Excel Plugin, Local RAG)
   - `console-guide/` - Console usage guides (Initial setup, Content scheduling)
   - `getting-started/` - Getting started guides
+  - `ko/` - **Korean documentation** (AWS-style multilingual approach)
+    - `intro.md` - Korean introduction page
+    - `api-services/` - Korean API documentation
+    - `console-guide/` - Korean console guides
+    - `getting-started.md` - Korean getting started guide
 - `blog/` - Blog posts (authors.yml maintained)
 - `src/` - React components and custom pages
   - `components/HomepageFeatures/` - Custom homepage with video showcases
@@ -83,8 +86,10 @@ vercel --prod                           # Deploy to Vercel
 - Content stored in `docs/` and `blog/` folders
 - Media files in `static/img/`
 - Configuration: `static/admin/config.yml`
+- **Organized collections**: Separate collections for English/Korean content by folder
 - **Custom filename sanitization**: Automatically replaces spaces with hyphens in uploaded images
-- Custom JavaScript handlers for file upload processing (`filename-sanitizer.js`)
+- **Fixed DOM errors**: Resolved React DOM manipulation issues in CMS interface
+- **Stable configuration**: Folder-based collections without nested depth issues
 
 **Document Creation:**
 - Automatic filename format: `YYYY-MM-DD-slug.md`
@@ -95,11 +100,12 @@ vercel --prod                           # Deploy to Vercel
 ## Build Configuration
 
 **Docusaurus Config** (`docusaurus.config.ts`):
-- **Docusaurus 3.8 Build Optimizations**: Rspack bundler, persistent cache, SSG worker threads (2-5x faster builds)
+- **Docusaurus 3.8 Build Optimizations**: v4 future flags enabled, experimental_faster for improved performance
 - Tailwind CSS integration via custom plugin
-- Customizable navbar and footer
+- Customizable navbar and footer (English default, Korean language switcher)
 - GitHub edit links configured
 - Prism syntax highlighting with GitHub/Dracula themes
+- **Internationalization**: English default locale, Korean secondary (AWS-style multilingual support)
 
 **Deployment Targets:**
 - Netlify (recommended for Decap CMS)
@@ -182,11 +188,21 @@ vercel --prod                           # Deploy to Vercel
 - **English-first interface** with international call-to-action buttons
 - Direct links to app and documentation optimized for global users
 
-**Decap CMS Enhancements:**
-- `static/admin/filename-sanitizer.js` - Custom file upload handler
-- Automatic space-to-hyphen conversion for uploaded media
-- Korean filename support with proper encoding
-- Browser-level file input interception for seamless UX
+**Decap CMS Collections:**
+- **Blog Posts** - Blog content management
+- **English - Getting Started** - English getting started guides
+- **English - API Services** - English API documentation
+- **English - Console Guide** - English console guides
+- **English - Root Documents** - English root-level documents
+- **한국어 - API 서비스** - Korean API documentation
+- **한국어 - 콘솔 가이드** - Korean console guides
+- **한국어 - 루트 문서** - Korean root-level documents
+
+**Decap CMS Troubleshooting:**
+- **DOM Error Resolution**: Fixed "Failed to execute 'removeChild'" React DOM errors
+- **Invalid Event Listener**: Removed unsupported 'login' event listener
+- **Stable Configuration**: Folder-based collections prevent CMS interface conflicts
+- **JavaScript Fixes**: Custom `static/admin/index.html` with proper event handling
 
 **API Documentation Structure:**
 - Consistent pricing information in credits and USD

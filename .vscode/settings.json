@@ -1,0 +1,72 @@
+{
+  "xml.codeLens.enabled": true,
+  "files.associations": {
+    "*.dvc": "yaml",
+    "dvc.lock": "yaml",
+    "*.gs": "javascript"
+  },
+  "files.exclude": {
+    ".cache/": true,
+    ".venv/": true,
+    "*.egg-info": true,
+    "pip-wheel-metadata/": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.ipynb_checkpoints": true,
+    "**/tmp/": true,
+    "dist/": true,
+    "htmlcov/": true,
+    "notebooks/*.yml": true,
+    "notebooks/files/": true,
+    "notebooks/inventory/": true,
+    "prof/": true,
+    "site/": true,
+    "geckodriver.log": true,
+    "targets.log": true,
+    "bin/verchew": true,
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  // "python.testing.pytestArgs": ["oasst_maker"],
+  // "python.testing.unittestEnabled": false,
+  // "python.testing.pytestEnabled": true,
+  // "pylint.args": ["--rcfile=.pylint.ini"],
+  "cSpell.words": [
+    "asdf",
+    "builtins",
+    "codecov",
+    "codehilite",
+    "cygstart",
+    "cygwin",
+    "dataclasses",
+    "Graphviz",
+    "ipython",
+    "mkdocs",
+    "noclasses",
+    "pipx",
+    "pyenv",
+    "ruamel",
+    "showfspath",
+    "venv",
+    "verchew"
+  ],
+
+  // https://velog.io/@qlgks1/Python-flake8-Black-%EB%8F%84%EC%9E%85-clean-code-%EC%8B%A4%EC%B2%9C%ED%95%98%EA%B8%B0
+  // https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions
+  // "python.linting.enabled": true,
+  // "python.linting.pylintEnabled": true,
+  // "python.linting.flake8Enabled": true,
+  // "python.linting.lintOnSave": true,
+  // "python.formatting.provider": "black",
+  // "editor.formatOnSave": true
+  "editor.formatOnSave": false,
+  "editor.autoIndent": "none"
+
+  // "pre-commit-helper.runOnSave": "all hooks"
+}

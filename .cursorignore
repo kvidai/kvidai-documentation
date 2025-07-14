@@ -1,0 +1,19 @@
+## https://docs.cursor.com/context/ignore-files
+
+# Ignore specific file `config.json`
+# config.json
+
+# Ignore `dist` directory and all files inside
+dist/
+logs/
+**/logs
+**/logs/**
+
+
+references_deprecated/
+
+.cursorignore
+# .cursorrules
+# .cursorrulesignore
+
+.env

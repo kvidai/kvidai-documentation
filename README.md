@@ -1,6 +1,50 @@
-# Website
+# kvidAI documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), [Decap CMS](https://decapcms.org/docs/docusaurus/) - a modern static website generator.
+
+
+## [scripts](./scripts)
+
+
+
+## prompt list
+```
+https://docs.kvid.ai/1ab228ab-36a0-8020-8eb0-df5500b695f6 
+@references_deprecated/**/"Video 생성 AI API.md" 
+@references_deprecated/제품서비스매뉴얼_from-notion-export_20250714/제품서비스매뉴얼/**/"Video 생성 AI API"/  참고해서, 
+@docs/api-services/video-api.md 내용 수정하기. 참고내용에 없는 내용 과장해서 작성하지 말고, 
+참고내용에 이미지 video 포함되어 있으면, 해당 리소스 다운로드 받아서 .md파일에 visible되게 추가해줘 
+
+"콘솔 가이드"에서 문서 정렬 순서 1번으로
+```
+
+```
+메인 페이지 내용 꾸며줘. 
+
+-- 동영상 삽입
+dog_and_man_cheese_16-9.mp4
+baby_fox_seed_16-9.mp4
+squid_game_season_3_U.S._Edition_Insights_TikTok_9-16.mp4
+말자말자의_댄스_퍼포먼스_TikTok_9-16.mp4
+
+
+-- text내용 삽입 - seedance 1.0 내용은 삭제하고(seedance 1.0 사용내용 노출하고 싶지 않음)
+
+Native Multi-Shot Storytelling
+Natively supports the generation of narrative videos with multiple cohesive shots. It maintains consistency in the main subject, visual style, and atmosphere across shot transitions and temporal-spatial shifts.
+
+Diverse Stylistic Expression
+From photorealism and cyberpunk to illustration and felt texture, Seedance 1.0 can accurately interpret diverse stylistic prompts to support a wide range of creative needs.
+
+Creativity Unleashed, Explore the Possibilities
+From surreal fantasy and daily life documentaries to professional-grade commercial shorts, Seedance empowers creators and developers worldwide. Browse our curated showcase to spark your next great idea.
+```
+
+```
+@src/components/HomepageFeatures/ mainpage, header, footer 
+  text는 전부 영어 default로 표시 - 해외 결제도 곧 지원함
+```
+
 
 ## Installation
 
@@ -130,3 +174,9 @@ $ vercel --prod
 The Vercel CLI will automatically detect that this is a Docusaurus project and configure the build settings appropriately. Your site will be deployed to a Vercel URL and can be connected to a custom domain through the Vercel dashboard.
 
 **Note:** If you're using Decap CMS, you'll need to manually authenticate with GitHub when accessing `/admin`. The Netlify authentication flow won't work on Vercel. Consider using Netlify deployment for the best Decap CMS experience.
+
+
+
+## 참고자료
+- notion mcp 연동: https://www.notion.so/profile/integrations
+- notion epicmobile apikey: https://www.notion.so/epicmoble/notion-epicmobile-22f228ab36a080b5a1b6febc825406e5?source=copy_link

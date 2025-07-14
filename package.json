@@ -1,5 +1,6 @@
 {
-  "name": "template-decap-cms-docusaurus",
+  "name": "kvidai-documentation",
+  "description": "Kvidai Documentation template-decap-cms-docusaurus",
   "packageManager": "yarn@4.9.2",
   "version": "0.0.0",
   "private": true,
@@ -29,6 +30,7 @@
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
     "@modelcontextprotocol/sdk": "^1.15.1",
+    "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.13",
     "autoprefixer": "^10.4.16",
     "node-fetch": "^3.3.2",

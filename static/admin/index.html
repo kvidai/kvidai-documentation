@@ -4,9 +4,97 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <!-- Include our custom filename sanitizer -->
+    <script src="./filename-sanitizer.js"></script>
+    
+    <!-- Custom script to handle filename sanitization -->
+    <script>
+      // Function to sanitize filenames
+      function sanitizeFilename(filename) {
+        const parts = filename.split('.');
+        const extension = parts.pop();
+        const name = parts.join('.');
+        
+        const sanitizedName = name
+          .replace(/\s+/g, '-')  // Replace spaces with hyphens
+          .replace(/[^\w\-가-힣]/g, '')  // Remove special characters except hyphens and Korean characters
+          .replace(/-+/g, '-')  // Replace multiple hyphens with single hyphen
+          .replace(/^-|-$/g, '')  // Remove leading/trailing hyphens
+          .toLowerCase();
+        
+        return sanitizedName + '.' + extension;
+      }
+
+      // Register a custom event listener for media uploads
+      CMS.registerEventListener({
+        name: 'prePublish',
+        handler: ({ entry, collection }) => {
+          console.log('Processing entry for filename sanitization...');
+          
+          // Process the entry data to update media references
+          const processValue = (value) => {
+            if (typeof value === 'string' && value.includes('/img/')) {
+              // Extract filename from media URL
+              const urlParts = value.split('/');
+              const filename = urlParts[urlParts.length - 1];
+              
+              // Check if filename has spaces that need sanitization
+              if (filename.includes(' ') || /[^\w\-가-힣.]/.test(filename.replace(/\.[^.]+$/, ''))) {
+                const sanitizedFilename = sanitizeFilename(filename);
+                console.log(`Sanitizing filename: ${filename} -> ${sanitizedFilename}`);
+                
+                // Replace the filename in the URL
+                urlParts[urlParts.length - 1] = sanitizedFilename;
+                return urlParts.join('/');
+              }
+            } else if (Array.isArray(value)) {
+              return value.map(processValue);
+            } else if (typeof value === 'object' && value !== null) {
+              const processed = {};
+              for (const key in value) {
+                processed[key] = processValue(value[key]);
+              }
+              return processed;
+            }
+            return value;
+          };
+
+          // Process the entire entry data
+          entry.data = processValue(entry.data);
+          return entry;
+        }
+      });
+
+      // Additional media upload configuration
+      CMS.init({
+        config: {
+          load_config_file: true,
+          media_folder: 'static/img',
+          public_folder: '/img/',
+          // Custom media library configuration
+          media_library: {
+            name: 'uploadcare',
+            config: {
+              // This will help with filename handling
+              filename_template: '{{slug}}'
+            }
+          }
+        }
+      });
+
+      // Log when CMS is ready
+      CMS.registerEventListener({
+        name: 'login',
+        handler: () => {
+          console.log('Decap CMS loaded with filename sanitization enabled');
+        }
+      });
+    </script>
   </body>
 </html>

@@ -20,7 +20,14 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started
+          </Link>
+          <Link
+            className="button button--primary button--lg"
+            to="https://app.kvid.ai"
+            target="_blank"
+            rel="noopener noreferrer">
+            Try kvidAI Now
           </Link>
         </div>
       </div>
@@ -32,8 +39,8 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - K-pop & K-beauty AI Platform`}
+      description="AI generation platform specialized for K-pop and K-beauty content creation. Create videos, images, and text with cutting-edge AI technology.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

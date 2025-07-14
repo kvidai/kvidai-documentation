@@ -9,3 +9,69 @@
   height: 200px;
   width: 200px;
 }
+
+.featureVideo {
+  height: 300px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.showcase {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4rem 0;
+  margin-top: 2rem;
+}
+
+.showcase h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.showcase p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.showcaseVideo {
+  height: 400px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.showcaseButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.showcaseButtons .button {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .featureVideo {
+    height: 200px;
+    max-width: 100%;
+  }
+  
+  .showcaseVideo {
+    height: 300px;
+    max-width: 250px;
+  }
+  
+  .showcase {
+    padding: 2rem 0;
+  }
+  
+  .showcaseButtons {
+    justify-content: center;
+  }
+}

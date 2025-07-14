@@ -4,20 +4,20 @@ import type * as Preset from "@docusaurus/preset-classic";
 import tailwindPlugin from "./plugins/tailwind-config.cjs";
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  title: "kvidAI Documentation",
+  tagline: "AI Generation Platform Specialized for K-pop & K-beauty",
+  favicon: "img/logo_kvidai_favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://docs.kvid.ai",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "epicmobile-reserve", // Usually your GitHub org/user name.
+  projectName: "kvidai-documentation", // Usually your repo name.
 
   // onBrokenLinks: "throw",
   onBrokenLinks: "warn",
@@ -28,7 +28,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "ko"],
   },
 
   plugins: [tailwindPlugin],
@@ -42,14 +42,14 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/epicmobile-reserve/kvidai-documentation/tree/master/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/epicmobile-reserve/kvidai-documentation/tree/master/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -62,35 +62,74 @@ const config: Config = {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "kvidAI",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "kvidAI Logo",
+        src: "img/logo_kvidai_android-chrome-192x192.png",
       },
       items: [
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "Docs",
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
+          href: "https://app.kvid.ai",
+          label: "Try App",
           position: "right",
         },
+        {
+          href: "https://discord.gg/wvsecByF",
+          label: "Discord",
+          position: "right",
+        },
+        // {
+        //   href: "https://github.com/epicmobile-reserve/kvidai-documentation",
+        //   label: "GitHub",
+        //   position: "right",
+        // },
       ],
     },
     footer: {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
-              label: "Tutorial",
+              label: "Getting Started",
               to: "/docs/intro",
+            },
+            {
+              label: "API Services",
+              to: "/docs/api-services/overview",
+            },
+            {
+              label: "Console Guide",
+              to: "/docs/console-guide/content-scheduling",
+            },
+          ],
+        },
+        {
+          title: "Services",
+          items: [
+            {
+              label: "Main App",
+              href: "https://app.kvid.ai",
+            },
+            {
+              label: "Console",
+              href: "https://console.kvid.ai",
+            },
+            {
+              label: "Developer Portal",
+              href: "https://developers.kvid.ai",
+            },
+            {
+              label: "Shopping Mall",
+              href: "https://kvid.ai.kr",
             },
           ],
         },
@@ -98,34 +137,21 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://discord.gg/wvsecByF",
             },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
             {
               label: "Blog",
               to: "/blog",
             },
-            {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
-            },
+            // {
+            //   label: "GitHub",
+            //   href: "https://github.com/epicmobile-reserve/kvidai-documentation",
+            // },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} kvidAI. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Read(references_deprecated/제품서비스매뉴얼_from-notion-export_20250714/**)"
+    ],
+    "deny": [
+      "Read(.git/**)",
+      "Read(.google-apps-script/**)",
+      "Read(.patches/**)",
+
+      // "Read(references_deprecated/**)",
+      // "Read(**/references_deprecated/**)",
+
+      "Read(node_modules/**)",
+      "Read(package-lock.json)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
+  },
+  "enableAllProjectMcpServers": true
+}

@@ -1,0 +1,10 @@
+{
+  "enabledMcpjsonServers": [
+    "context7",
+    "sequential-thinking",
+    "notionApi",
+    "playwright",
+    "taskmaster-ai"
+  ],
+  "enableAllProjectMcpServers": true
+}

@@ -162,3 +162,28 @@ collections:
         widget: "list"
         required: false
       - { name: body, label: 내용, widget: markdown }
+
+  ## 아 불편하고 복잡함;; 파일 올려서 url호스팅으로 접속 되게 기능 만들어볼려고 했는데;;
+  ## 파일이 업로드 되고 글이 작성되도, 서버 호스팅된 storage에 바로 저장이 안되는건가?;; 뭔가 설정을 잘못한건가? 모르겠음;;
+  ## docusaurus가 static asset을 관리하고 있어서;; decapcms에서 static asset hosting 컨트롤이 쉽게 불가능함 -> 그냥 docs 문서 올리는 용도로만 쓰자;;
+  # - name: "uploads"
+  #   label: "File Uploads"
+  #   folder: "static/uploads"
+  #   media_folder: "" # 빈 문자열로 설정하여 파일이 직접 static/uploads에 저장되도록 함
+  #   public_folder: "/uploads"
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields:
+  #     - name: title
+  #       label: "Title"
+  #       widget: string
+  #     - name: description
+  #       label: "Description"
+  #       widget: text
+  #       required: false
+  #     - name: file
+  #       label: "Upload File"
+  #       widget: file
+  #       allow_multiple: false
+  #       media_folder: "/uploads"
+  #       public_folder: "/uploads"

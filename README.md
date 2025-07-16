@@ -2,6 +2,17 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), [Decap CMS](https://decapcms.org/docs/docusaurus/) - a modern static website generator.
 
+## 작업 history
+### 20250717 decapcms에 이용약관 파일 올리고 url 쓸 수 있나 했는데... 실패함; 일반 wordpress 같은 cms 시스템이 아닌 것 같음
+```
+git연동기반 외에, 아 불편하고 복잡함;; 파일 올려서 url 호스팅으로 접속 되게 기능 만들어볼려고 했는데;;
+파일이 업로드 되고 글이 작성되도, 서버 호스팅된 storage에 바로 저장이 안되는건가?;; 뭔가 설정을 잘못한건가? 모르겠음;;
+docusaurus가 static asset을 관리하고 있어서;; decapcms에서 static asset hosting 컨트롤이 쉽게 불가능함 -> 그냥 docs 문서 올리는 용도로만 쓰자;;
+
+=> 이용약관 같은 법적문서 url로 제공할 때는, 그냥 [google drive, onedrive, 아니면 aws s3(compatible) storage 하나 까서 파일이나 올리는 용도+ftp client tool] 쓰는게 낫겠음
+```
+
+
 
 ## [scripts](./scripts)
 

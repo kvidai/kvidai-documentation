@@ -1,8 +1,15 @@
-# example netlify.toml
+## https://docs.netlify.com/build/configure-builds/file-based-configuration/
 [build]
   command = "yarn build"
   functions = "netlify/functions"
   publish = "build"
+
+
+[build.environment]
+  NODE_VERSION = "22"
+  YARN_VERSION = "4.9.2"
+  YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
+
 
 ## Uncomment to use this redirect for Single Page Applications like create-react-app.
 ## Not needed for static site generators.

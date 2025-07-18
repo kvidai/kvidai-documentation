@@ -1,8 +1,0 @@
-{
-  "label": "API 서비스",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "kvidAI API 서비스 소개 및 사용법"
-  }
-}

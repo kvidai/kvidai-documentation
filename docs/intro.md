@@ -1,7 +1,9 @@
 ---
 sidebar_position: 1
 title: Getting Started with kvidAI
-description: Complete guide to kvidAI platform services and API usage
+description: Complete guide to kvidAI platform services and API usage. Learn how to use video generation, image generation, and text generation APIs specialized for K-pop and K-beauty content.
+keywords: [kvidAI, getting started, AI API, K-pop AI, K-beauty AI, video generation, image generation, text generation, API documentation]
+image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: intro
 ---
 

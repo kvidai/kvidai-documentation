@@ -85,21 +85,6 @@ curl -X POST https://api.kvid.ai/ai-model/qwen/v1/chat/completions \
 | **developer** (system) | 사용자 메시지보다 우선순위가 높은 모델에 대한 지시사항. 이전에는 `system` 프롬프트라고 불림 | 모델 행동 정의, 역할 설정 |
 | **assistant** | 모델에 의해 생성된 메시지. 이전 생성 요청에서 나온 응답 | 대화 컨텍스트 유지 |
 
-## 💰 요금 및 크레딧
-
-### 토큰 기반 과금 시스템
-"**단가 × 사용량**" 만큼 보유 크레딧이 차감됩니다.
-
-| 구분 | 단가 (1,000토큰 기준) |
-|------|---------------------|
-| **Input** | $0.0012 |
-| **Output** | $0.0036 |
-
-### 가격 예시 (환율 1,446원 기준)
-| 구분 | 크레딧 (1,000토큰 기준) |
-|------|------------------------|
-| **Input** | 17.352 크레딧 |
-| **Output** | 52.056 크레딧 |
 
 ## 📝 Python SDK 사용 예제
 
@@ -209,6 +194,10 @@ for chunk in stream:
 - [API 키 발급](https://developers.kvid.ai)
 - [콘솔 관리](https://console.kvid.ai)
 - [사용량 모니터링](https://console.kvid.ai/usage)
+
+## 💰 요금 정보
+
+Text Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing#📝-text-generation-llm-ai-요금)를 참고해 주세요.
 
 ## 📞 지원 및 문의
 

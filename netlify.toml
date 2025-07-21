@@ -16,11 +16,28 @@
   #  to = "/index.html"
   #  status = 200
 
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
+## https://docs.netlify.com/build/configure-builds/file-based-configuration/#functions
+# [functions]
+#   # Sets a custom directory for Netlify Functions
+#   directory = "myfunctions/"
+  # directory = "netlify/functions/"
 
-  ## more info on configuring this file: https://ntl.fyi/file-based-build-config
+#   # Specifies `esbuild` for functions bundling
+#   node_bundler = "esbuild"
+
+#   # Flags "package-1" as an external node module for all functions
+#   external_node_modules = ["package-1"]
+
+#   # Includes all Markdown files inside the "files/" directory.
+#   included_files = ["files/*.md"]
+
+
+## (optional) Settings for Netlify Dev
+## https://docs.netlify.com/api-and-cli-guides/cli-guides/local-development/
+[dev]
+  command = "yarn start" # Command to start your dev server
+  targetPort = 3000 # Port that the dev server will be listening on
+  port = 8888 # Port for Netlify Dev proxy
+  publish = "build" # Folder with the static content for _redirect file
+
+## more info on configuring this file: https://ntl.fyi/file-based-build-config

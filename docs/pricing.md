@@ -32,32 +32,28 @@ All kvidAI API services use a credit-based pricing system. Here's a detailed bre
 
 | Plan | Monthly Credits | Price (USD) | Price (KRW) | Recommended For |
 |------|----------------|-------------|-------------|-----------------|
-| **Standard** | 4,500 credits | $45/month | ₩67,500/month | Individuals & Small Teams |
-| **Professional** | 10,000 credits | $90/month | ₩135,000/month | SMBs |
+| **Standard** | 3,000 credits | $30/month | ₩45,000/month | Individuals & Small Teams |
+| **Professional** | 6,000 credits | $60/month | ₩90,000/month | SMBs |
 | **Enterprise** | Custom | Contact Sales | Contact Sales | Large Organizations |
 
 > 💡 **Tip**: Get 10% bonus credits with monthly subscriptions!
 
 ## 🎬 Video Generation API Pricing
 
-### Video Generation v1 (wan model)
+### wan model (기존 최적화)
 
 | Resolution | Duration | Credits | USD Price | KRW Price |
 |------------|----------|---------|-----------|-----------|
-| **480p** | 5-6s | 90 credits | $0.90 | ₩1,350 |
-| **580p** | 5-6s | 125 credits | $1.25 | ₩1,875 |
-| **720p** | 5-6s | 160 credits | $1.60 | ₩2,400 |
+| **480p** | 5-6s | 60 credits | $0.60 | ₩900 |
+| **720p** | 5-6s | 120 credits | $1.20 | ₩1,800 |
 
-### Video Generation v2 (Latest Model)
+### seadance model (신규 추가)
 
 | Resolution | Duration | Credits | USD Price | KRW Price |
 |------------|----------|---------|-----------|-----------|
-| **480p** | 5s | 60 credits | $0.60 | ₩900 |
-| **720p** | 5s | 81 credits | $0.81 | ₩1,215 |
-| **1080p** | 5s | 134 credits | $1.34 | ₩2,010 |
-| **480p** | 10s | 120 credits | $1.20 | ₩1,800 |
-| **720p** | 10s | 162 credits | $1.62 | ₩2,430 |
-| **1080p** | 10s | 268 credits | $2.68 | ₩4,020 |
+| **480p** | 5s | 39 credits | $0.39 | ₩585 |
+| **720p** | 5s | 54 credits | $0.54 | ₩810 |
+| **1080p** | 5s | 89 credits | $0.89 | ₩1,335 |
 
 ### Mode-based Pricing
 
@@ -68,17 +64,17 @@ All kvidAI API services use a credit-based pricing system. Here's a detailed bre
 
 ## 🎨 Image Generation AI Pricing
 
-### FLUX.1 dev Model (16 credits per megapixel)
+### FLUX.1 dev Model (7.5 credits per megapixel)
 
 | Resolution | Megapixels | Credits | USD Price | KRW Price | Use Case |
 |------------|------------|---------|-----------|-----------|----------|
-| **512×512** | 0.26 mpx | 4 credits | $0.04 | ₩60 | Social profiles, icons |
-| **768×512** | 0.39 mpx | 6 credits | $0.06 | ₩90 | Landscape banners |
-| **512×768** | 0.39 mpx | 6 credits | $0.06 | ₩90 | Portrait posters |
-| **768×768** | 0.59 mpx | 9 credits | $0.09 | ₩135 | Standard images |
-| **1024×768** | 0.79 mpx | 13 credits | $0.13 | ₩195 | High-quality landscape |
-| **768×1024** | 0.79 mpx | 13 credits | $0.13 | ₩195 | High-quality portrait |
-| **1024×1024** | 1.05 mpx | 16 credits | $0.16 | ₩240 | High-quality square |
+| **512×512** | 0.26 mpx | 2 credits | $0.02 | ₩30 | Social profiles, icons |
+| **768×512** | 0.39 mpx | 3 credits | $0.03 | ₩45 | Landscape banners |
+| **512×768** | 0.39 mpx | 3 credits | $0.03 | ₩45 | Portrait posters |
+| **768×768** | 0.59 mpx | 4 credits | $0.04 | ₩60 | Standard images |
+| **1024×768** | 0.79 mpx | 6 credits | $0.06 | ₩90 | High-quality landscape |
+| **768×1024** | 0.79 mpx | 6 credits | $0.06 | ₩90 | High-quality portrait |
+| **1024×1024** | 1.05 mpx | 8 credits | $0.08 | ₩120 | High-quality square |
 
 ### Batch Generation Discounts
 

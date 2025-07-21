@@ -1,6 +1,8 @@
 ---
 title: Video Generation AI API
-description: kvidAI Video Generation API usage guide and technical specifications
+description: kvidAI Video Generation API usage guide and technical specifications. Create professional videos from text prompts or images, specialized for K-pop and K-beauty content creation.
+keywords: [video generation API, AI video, text to video, image to video, K-pop video AI, K-beauty video AI, kvidAI video API, video synthesis]
+image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: video-api
 tags: [API, Video, AI, Generation]
 sidebar_position: 2

@@ -1,8 +1,9 @@
 {
   "mcpServers": {
     "context7": {
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp"
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "description": "https://github.com/upstash/context7"
     },
     "sequential-thinking": {
       "command": "npx",
@@ -19,9 +20,7 @@
       ],
       "env": {
         "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer ntn_r927224387267***\", \"Notion-Version\": \"2022-06-28\" }"
-      },
-      "description": "https://github.com/makenotion/notion-mcp-server",
-      "description2": "Integration Name: epicmobile_제품서비스매뉴얼"
+      }
     },
     "playwright": {
       "type": "stdio",
@@ -30,16 +29,17 @@
         "@playwright/mcp@latest"
       ],
       "env": {},
-      "description": "https://playwright.dev/docs/mcp",
+      "description": "https://github.com/microsoft/playwright-mcp   https://playwright.dev/docs/browsers",
       "description2": "claude mcp add playwright -s project npx @playwright/mcp@latest"
     },
     "taskmaster-ai": {
       "command": "npx",
-      "args": ["-y", "--package=task-master-ai", "task-master-ai"],
-      "env": {
-      },
-      "description": "https://github.com/task-master-ai/task-master-ai",
-      "description2": "claude mcp add taskmaster-ai -s project npx -y --package=task-master-ai task-master-ai"
+      "args": [
+        "-y",
+        "--package=task-master-ai",
+        "task-master-ai"
+      ],
+      "env": {}
     }
   }
 }

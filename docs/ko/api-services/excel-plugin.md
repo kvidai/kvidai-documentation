@@ -28,28 +28,6 @@ Excel의 `=F(x)` 수식 형태로 사용 가능:
 - **RUNGPT_ASYNC_RESULT(TaskID)**: 비동기 작업 결과 조회
 - **JSON 데이터 가공**: 각종 JSON 형태 데이터 파싱 및 처리 Helper Function
 
-## 💰 요금 및 크레딧
-
-### 과금 방식
-**"unit price × 사용량"**만큼 보유 크레딧이 차감됩니다.
-
-- **Function call 단가**: 기능별로 $0.01 ~ $0.1 크레딧 차감
-- **가격 차이 요인**: 
-  - 클라우드 함수 내 코드 실행 시간
-  - 개발 구현 및 유지보수 난이도
-  - 외부 리소스 사용 금액 반영
-
-### 요금 예시
-
-**기본 예시:**
-- $10 결제 시 → 1실행당 $0.01 function을 1000번 실행 가능
-- 예: 10열 × 100행 = 1000회 실행
-
-**복합 함수 예시:**
-```excel
-=RUN_GPT(PARSE_JSON(B1))
-```
-- RUN_GPT: $0.01 + PARSE_JSON: $0.05 = **총 $0.06 per 실행**
 
 ## 🎬 동영상 생성 기능
 
@@ -159,6 +137,10 @@ B1: =RUN_GPT(PARSE_JSON(A1))
 - [콘솔 사이트](https://console.kvid.ai): 생성된 콘텐츠 관리 및 미디어 라이브러리
 - [API 문서](/docs/api-services/overview): 연동 가능한 외부 API 정보
 - [초기 설정 가이드](/docs/console-guide/initial-setup): 계정 및 크레딧 설정
+
+## 💰 요금 정보
+
+Excel Plugin의 자세한 요금 정보는 [요금제 페이지](/ko/pricing#📊-excel-plugin-요금)를 참고해 주세요.
 
 ---
 

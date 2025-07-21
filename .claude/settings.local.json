@@ -1,10 +1,24 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(yarn build)",
+      "WebFetch(domain:docusaurus.io)",
+      "Bash(yarn add:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(curl:*)",
+      "Bash(cp:*)",
+      "Bash(node:*)",
+      "Bash(mv:*)",
+      "WebFetch(domain:docs.fal.ai)",
+      "WebFetch(domain:app.klingai.com)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "context7",
     "sequential-thinking",
     "notionApi",
     "playwright",
     "taskmaster-ai"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

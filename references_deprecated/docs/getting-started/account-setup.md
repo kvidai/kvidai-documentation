@@ -48,5 +48,5 @@ kvidAI 서비스를 이용하기 위한 계정 생성 및 초기 설정 방법�
 ## 문의사항
 
 서비스 이용 중 문의사항이 있으시면:
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **이메일**: support@kvid.ai

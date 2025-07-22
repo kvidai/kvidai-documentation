@@ -239,7 +239,7 @@ API 이벤트를 외부 시스템으로 전송:
 도움이 필요하시면 언제든 연락하세요:
 
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 - **전화**: 1588-1234 (평일 9-18시)
 

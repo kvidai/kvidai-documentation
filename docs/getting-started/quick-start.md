@@ -132,7 +132,7 @@ Once setup is complete:
 
 ## 🆘 Need Help?
 
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 - **Email**: support@kvid.ai
 
 ## 💡 K-pop & K-beauty Tips

@@ -141,7 +141,7 @@
 
 ## 📞 문의 및 지원
 
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 - **Email**: support@kvid.ai
 - **결제 문의**: 1588-0000 (평일 09:00-18:00)
 

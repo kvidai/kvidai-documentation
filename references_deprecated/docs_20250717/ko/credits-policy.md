@@ -150,7 +150,7 @@ keywords: [kvidAI, 크레딧, 가격, 정책, 결제, 구독, K-pop AI, K-뷰티
 - SLA 보장
 
 ### 엔터프라이즈 문의
-- 디스코드: [#enterprise-support](https://discord.gg/wvsecByF)
+- 디스코드: [#enterprise-support](https://discord.gg/yzgyCx8Jpt)
 - 최소 주문: 10억 크레딧
 - 맞춤 계약 가능
 
@@ -181,4 +181,4 @@ A: 국제 결제는 곧 지원 예정입니다. 현재는 한국 결제 수단�
 
 ---
 
-자세한 정보나 지원이 필요하시면 [디스코드 커뮤니티](https://discord.gg/wvsecByF)에 참여하거나 콘솔을 통해 지원팀에 문의하세요.
+자세한 정보나 지원이 필요하시면 [디스코드 커뮤니티](https://discord.gg/yzgyCx8Jpt)에 참여하거나 콘솔을 통해 지원팀에 문의하세요.

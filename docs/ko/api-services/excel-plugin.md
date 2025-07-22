@@ -131,7 +131,7 @@ B1: =RUN_GPT(PARSE_JSON(A1))
 
 ### 문의 방법
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 
 ### 관련 서비스
 - [콘솔 사이트](https://console.kvid.ai): 생성된 콘텐츠 관리 및 미디어 라이브러리

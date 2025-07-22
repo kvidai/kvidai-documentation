@@ -27,6 +27,6 @@ SUB 판매 솔루션
 - [developers.kvid.ai](http://developers.kvid.ai) - api_key발급
 - [kvid.ai.kr](https://kvid.ai.kr/) - cafe24 한국 쇼핑몰
 - [docs.kvid.ai](http://docs.kvid.ai) - 매뉴얼   ~~cloudflare에는 CNAME docs    [notion2.oopy.io](http://notion2.oopy.io) 추가를 해놨는데, 20250708 cloudflare dns에서 아직 적용은 안된듯;    https://dnschecker.org/#CNAME/docs.kvid.ai 확인필요~~
-- https://discord.gg/wvsecByF - kvidAI 디스코드
+- https://discord.gg/yzgyCx8Jpt - kvidAI 디스코드
 
 

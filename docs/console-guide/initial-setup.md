@@ -153,7 +153,7 @@ Check if you have completed all the following items:
 Contact us anytime during the setup process:
 
 - **Email**: support@kvid.ai
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 
 ## 🎯 Next Steps
 

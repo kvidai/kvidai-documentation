@@ -128,7 +128,7 @@ curl -X POST "https://api.kvid.ai/ai-model/flux-1/v1/text-to-image" \
 
 ## 🆘 도움이 필요하시면
 
-- **Discord**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **이메일**: support@kvid.ai
 
 ## 💡 K-pop & K-beauty 활용 팁

@@ -48,7 +48,7 @@ slug: intro
 
 ## 💬 Support & Community
 
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 - **Email**: support@kvid.ai
 
 :::tip Quick Start

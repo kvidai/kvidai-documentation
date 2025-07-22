@@ -47,7 +47,7 @@ While our APIs are designed for developers, we also offer user-friendly tools:
 - **Pro plan**: 300 requests per minute
 - **Enterprise**: Custom limits available
 
-Contact [Discord support](https://discord.gg/wvsecByF) for higher limits.
+Contact [Discord support](https://discord.gg/yzgyCx8Jpt) for higher limits.
 
 ### Is there a sandbox or test environment?
 
@@ -97,7 +97,7 @@ Yes! All new accounts receive 10,000 free credits for testing. Use these credits
 
 - Unused credits can be refunded within 7 days of purchase
 - Partially used credit packages are non-refundable
-- Contact support via [Discord](https://discord.gg/wvsecByF) for refund requests
+- Contact support via [Discord](https://discord.gg/yzgyCx8Jpt) for refund requests
 
 ### Are there discounts for high-volume usage?
 
@@ -121,7 +121,7 @@ Contact us on Discord for enterprise pricing.
 
 Yes, check our service status at:
 - API health: Monitor via your [developer dashboard](http://developers.kvid.ai)
-- Announcements: [Discord #announcements](https://discord.gg/wvsecByF)
+- Announcements: [Discord #announcements](https://discord.gg/yzgyCx8Jpt)
 
 ### Can I use generated content commercially?
 
@@ -195,7 +195,7 @@ Yes, you can request account deletion:
 
 ### How do I get technical support?
 
-1. **Discord Community**: [discord.gg/wvsecByF](https://discord.gg/wvsecByF) (fastest response)
+1. **Discord Community**: [discord.gg/wvsecByF](https://discord.gg/yzgyCx8Jpt) (fastest response)
 2. **Documentation**: [docs.kvid.ai](http://docs.kvid.ai)
 3. **Developer Portal**: [developers.kvid.ai](http://developers.kvid.ai)
 
@@ -243,4 +243,4 @@ Ideal for:
 
 ---
 
-Still have questions? Join our [Discord community](https://discord.gg/wvsecByF) or check our [documentation](http://docs.kvid.ai) for more details!
+Still have questions? Join our [Discord community](https://discord.gg/yzgyCx8Jpt) or check our [documentation](http://docs.kvid.ai) for more details!

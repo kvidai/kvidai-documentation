@@ -236,7 +236,7 @@ Local RAG 솔루션은 기업별 맞춤 구성과 설치가 필요한 엔터프�
 
 ### 문의 방법
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 
 ### 상담 시 제공 정보
 더 정확한 상담을 위해 다음 정보를 함께 제공해 주세요:

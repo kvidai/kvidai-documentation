@@ -101,7 +101,7 @@ curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
 
 ## 🆘 지원
 
-- **Discord**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **이메일**: support@kvid.ai
 
 ---

@@ -215,5 +215,5 @@ for chunk in stream:
 문의사항이 있으시면 다음 경로로 연락해 주세요:
 
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **문의 폼**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)

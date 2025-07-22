@@ -398,4 +398,4 @@ Image Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pri
 문의사항이 있으시면 다음 경로로 연락해 주세요:
 
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)

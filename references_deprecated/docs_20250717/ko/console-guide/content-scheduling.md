@@ -87,7 +87,7 @@ sidebar_position: 2
 
 서비스 이용 중 문의사항이 있으시면:
 
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **이메일**: support@kvid.ai
 
 ---

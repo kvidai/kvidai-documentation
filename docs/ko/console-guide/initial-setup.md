@@ -151,7 +151,7 @@ curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
 설정 과정에서 도움이 필요하시면 언제든 연락하세요:
 
 - **이메일**: support@kvid.ai
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 
 ## 🎯 다음 단계
 

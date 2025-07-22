@@ -44,7 +44,7 @@ slug: intro
 
 ## 💬 지원 및 커뮤니티
 
-- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/wvsecByF)
+- **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
 - **이메일**: support@kvid.ai
 
 :::tip 빠른 시작

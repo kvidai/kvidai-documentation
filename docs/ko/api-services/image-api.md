@@ -365,16 +365,88 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 ## ⚠️ 제한사항 및 주의사항
 
 ### 기술적 제한
-- **최대 해상도**: 1024×1024
-- **배치 크기**: 최대 4개 이미지
+- **최대 해상도**: 1280×1280
 - **처리 시간**: 30초-2분
-- **파일 형식**: JPEG, PNG
+- **파일 형식**: PNG
+- **프롬프트**: 영어와 기본 특수문자만 사용 가능
 
 ### 콘텐츠 정책
 - 성인 콘텐츠 생성 금지
 - 실제 인물 얼굴 복제 금지
 - 저작권 침해 콘텐츠 금지
 - 폭력적이거나 혐오 콘텐츠 금지
+
+## 🚨 오류 응답
+
+### 오류 응답 형식
+```json
+{
+  "success": false,
+  "error": "ERROR_CODE",
+  "message": "오류 메시지",
+  "details": "상세 설명"
+}
+```
+
+### 주요 오류 코드
+
+| 오류 코드 | 설명 | HTTP 상태 | 해결 방법 |
+|----------|------|-----------|-----------|
+| `PROMPT_VALIDATION_ERROR` | 프롬프트 검증 실패 | 400 | 프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요 |
+| `USER_NOT_FOUND` | 사용자를 찾을 수 없음 | 404 | 등록된 이메일인지 확인해주세요 |
+| `CONFIGURATION_ERROR` | 서버 설정 오류 | 500 | 서버 설정을 확인해주세요. 관리자에게 문의하세요 |
+| `GENERATION_ERROR` | 이미지 생성 실패 | 500 | 이미지 생성 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요 |
+| `INSUFFICIENT_CREDITS` | 크레딧 부족 | 402 | 크레딧이 부족합니다. 크레딧을 충전해주세요 |
+
+### 오류 응답 예시
+
+**프롬프트 검증 오류:**
+```json
+{
+  "success": false,
+  "error": "PROMPT_VALIDATION_ERROR",
+  "message": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다.",
+  "details": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요."
+}
+```
+
+**사용자 인증 오류:**
+```json
+{
+  "success": false,
+  "error": "USER_NOT_FOUND",
+  "message": "사용자를 찾을 수 없습니다.",
+  "details": "등록된 이메일인지 확인해주세요."
+}
+```
+
+**크레딧 부족 오류:**
+```json
+{
+  "success": false,
+  "reason": "Not enough credit"
+}
+```
+
+**이미지 생성 오류:**
+```json
+{
+  "success": false,
+  "error": "GENERATION_ERROR",
+  "message": "이미지 생성 중 오류가 발생했습니다.",
+  "details": "생성 요청이 제대로 완료되지 않았을 수 있습니다."
+}
+```
+
+**서버 설정 오류:**
+```json
+{
+  "success": false,
+  "error": "CONFIGURATION_ERROR",
+  "message": "KEY 환경변수가 설정되지 않았습니다.",
+  "details": "서버 설정을 확인해주세요."
+}
+```
 
 ### 품질 최적화 팁
 - **구체적인 설명**: "아름다운 여성" → "파스텔 핑크 머리의 K-pop 아이돌"
@@ -384,18 +456,17 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 
 ## 🔗 관련 링크
 
-- [API 키 발급](https://developers.kvid.ai)
 - [콘솔 관리](https://console.kvid.ai)
 - [크레딧 구매](https://app.kvid.ai/credits)
 - [갤러리 샘플](https://app.kvid.ai/gallery)
 
 ## 💰 요금 정보
 
-Image Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing#🎨-image-generation-ai-요금)를 참고해 주세요.
+Image Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing)를 참고해 주세요.
 
 ## 📞 지원
 
 문의사항이 있으시면 다음 경로로 연락해 주세요:
 
-- **이메일**: support@kvid.ai
+- **이메일**: kvid030@gmail.com
 - **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)

@@ -218,7 +218,7 @@ else:
 
 ### Text-to-Video 매개변수
 
-#### v1 모델 (wan-t2v)
+#### v1 모델
 
 | 매개변수 | 타입 | 기본값 | 설명 |
 |----------|------|--------|------|
@@ -233,8 +233,7 @@ else:
 | `enable_safety_checker` | boolean | true | 안전 필터 활성화 |
 | `enable_prompt_expansion` | boolean | true | 프롬프트 확장 활성화 |
 
-#### v2 모델 (bytedance/seedance)
-
+#### v2 모델
 | 매개변수 | 타입 | 기본값 | 설명 |
 |----------|------|--------|------|
 | `prompt` | string | *필수* | 비디오 생성을 위한 텍스트 프롬프트 |
@@ -247,8 +246,7 @@ else:
 
 ### Image-to-Video 매개변수
 
-#### v1 모델 (wan-i2v)
-
+#### v1 모델
 Text-to-Video v1과 동일한 매개변수에 추가로:
 
 | 매개변수 | 타입 | 기본값 | 설명 |
@@ -257,7 +255,7 @@ Text-to-Video v1과 동일한 매개변수에 추가로:
 | `image_file` | string | - | Base64 인코딩된 이미지 데이터 |
 | `aspect_ratio` | string | "auto" | 화면 비율 ("auto", "16:9", "9:16", "1:1") |
 
-#### v2 모델 (bytedance/seedance)
+#### v2 모델
 
 Text-to-Video v2와 동일한 매개변수에 추가로:
 
@@ -306,6 +304,186 @@ Text-to-Video v2와 동일한 매개변수에 추가로:
     "size": 15420
   },
   "message": "Video result retrieved successfully"
+}
+```
+
+### 오류 응답 스키마
+
+#### 기본 오류 응답 형식
+```json
+{
+  "success": false,
+  "data": {
+    "success": false,
+    "error": "ValidationError",
+    "message": "오류 메시지",
+    "details": {
+      "error_type": "오류_타입",
+      "error_message": "상세 오류 메시지",
+      "location": ["body", "parameter_name"],
+      "validation_context": {},
+      "help_url": "https://docs.fal.ai/errors#error_type",
+      "input_value": "입력값",
+      "http_status": 422,
+      "full_details": []
+    }
+  }
+}
+```
+
+#### 주요 오류 타입
+
+| 오류 타입 | 설명 | HTTP 상태 | 해결 방법 |
+|-----------|------|-----------|-----------|
+| `RESULT_FETCH_ERROR` | 결과를 가져오는데 실패 | 400 | 요청이 아직 진행 중이거나 오류가 발생했습니다. 상태를 확인해주세요 |
+| `PROMPT_VALIDATION_ERROR` | 프롬프트 검증 실패 | 400 | 프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요 |
+| `NEGATIVE_PROMPT_VALIDATION_ERROR` | 네거티브 프롬프트 검증 실패 | 400 | 네거티브 프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요 |
+| `USER_NOT_FOUND` | 사용자를 찾을 수 없음 | 404 | 등록된 이메일인지 확인해주세요 |
+| `CONFIGURATION_ERROR` | 서버 설정 오류 | 500 | 서버 설정을 확인해주세요. 관리자에게 문의하세요 |
+| `ValidationError` | 입력값 검증 실패 | 422 | 요청 파라미터를 확인하고 수정해주세요 |
+| `internal_server_error` | 내부 서버 오류 | 500 | 잠시 후 다시 시도해주세요 |
+| `generation_timeout` | 생성 시간 초과 | 504 | 더 간단한 프롬프트나 낮은 해상도로 시도해보세요 |
+| `content_policy_violation` | 콘텐츠 정책 위반 | 422 | 프롬프트가 안전 정책을 위반했습니다. 내용을 수정해주세요 |
+| `downstream_service_error` | 외부 서비스 오류 | 503 | AI 모델 서비스에 문제가 있습니다. 잠시 후 시도해주세요 |
+| `downstream_service_unavailable` | 외부 서비스 사용 불가 | 503 | AI 모델 서비스가 일시적으로 사용할 수 없습니다 |
+
+#### 검증 오류 세부 타입
+
+| error_type | 설명 | validation_context 예시 |
+|------------|------|------------------------|
+| `image_too_small` | 이미지가 너무 작음 | `{"min_height": 300, "min_width": 300}` |
+| `image_too_large` | 이미지가 너무 큼 | `{"max_height": 6000, "max_width": 6000}` |
+| `image_load_error` | 이미지 로드 실패 | `{"url": "invalid_url"}` |
+| `file_download_error` | 파일 다운로드 실패 | `{"url": "unreachable_url"}` |
+| `greater_than` | 최소값보다 작음 | `{"limit_value": 0}` |
+| `less_than` | 최대값보다 큼 | `{"limit_value": 100}` |
+| `sequence_too_short` | 시퀀스가 너무 짧음 | `{"min_length": 1}` |
+| `sequence_too_long` | 시퀀스가 너무 김 | `{"max_length": 4}` |
+| `one_of` | 허용되지 않은 값 | `{"allowed_values": ["480p", "720p", "1080p"]}` |
+
+#### 오류 응답 예시
+
+**이미지 크기 검증 오류:**
+```json
+{
+  "success": false,
+  "data": {
+    "success": false,
+    "error": "ValidationError",
+    "message": "Image dimensions are too small. Minimum dimensions required: 300x300 pixels.",
+    "details": {
+      "error_type": "image_too_small",
+      "error_message": "Image dimensions are too small. Minimum dimensions required: 300x300 pixels.",
+      "location": ["body", "image_url"],
+      "validation_context": {
+        "min_height": 300,
+        "min_width": 300
+      },
+      "help_url": "https://docs.fal.ai/errors#image_too_small",
+      "input_value": "https://example.com/small-image.png",
+      "http_status": 422,
+      "full_details": [
+        {
+          "loc": ["body", "image_url"],
+          "msg": "Image dimensions are too small. Minimum dimensions required: 300x300 pixels.",
+          "type": "image_too_small",
+          "url": "https://docs.fal.ai/errors#image_too_small",
+          "ctx": {
+            "min_height": 300,
+            "min_width": 300
+          },
+          "input": "https://example.com/small-image.png"
+        }
+      ]
+    }
+  }
+}
+```
+
+**해상도 값 검증 오류:**
+```json
+{
+  "success": false,
+  "data": {
+    "success": false,
+    "error": "ValidationError",
+    "message": "Input should be '480p', '720p' or '1080p'",
+    "details": {
+      "error_type": "one_of",
+      "error_message": "Input should be '480p', '720p' or '1080p'",
+      "location": ["body", "resolution"],
+      "validation_context": {
+        "allowed_values": ["480p", "720p", "1080p"]
+      },
+      "help_url": "https://docs.kvid.ai//docs/ko/api-services/video-api",
+      "input_value": "4K",
+      "http_status": 422
+    }
+  }
+}
+```
+
+**결과 조회 오류:**
+```json
+{
+  "success": false,
+  "data": {
+    "success": false,
+    "error": "RESULT_FETCH_ERROR",
+    "message": "결과를 가져오는데 실패했습니다.",
+    "details": {
+      "error_type": "RESULT_FETCH_ERROR",
+      "error_message": "요청이 아직 진행 중이거나 오류가 발생했습니다. 상태를 확인해주세요.",
+      "location": ["query", "request_id"],
+      "validation_context": {},
+      "help_url": "https://docs.kvid.ai/errors#result_fetch_error",
+      "input_value": "req_invalid_id",
+      "http_status": 400,
+      "full_details": []
+    }
+  }
+}
+```
+
+**프롬프트 검증 오류:**
+```json
+{
+  "success": false,
+  "error": "PROMPT_VALIDATION_ERROR",
+  "message": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다.",
+  "details": {
+    "help_url": "https://docs.kvid.ai/docs/ko/api-services/video-api",
+    "http_status": 400,
+    "error_message": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요."
+  }
+}
+```
+
+**사용자 인증 오류:**
+```json
+{
+  "success": false,
+  "error": "USER_NOT_FOUND",
+  "message": "사용자를 찾을 수 없습니다.",
+  "details": {
+    "help_url": "https://docs.kvid.ai/docs/ko/api-services/video-api",
+    "http_status": 404,
+    "error_message": "등록된 이메일인지 확인해주세요."
+  }
+}
+```
+
+**서버 설정 오류:**
+```json
+{
+  "success": false,
+  "error": "CONFIGURATION_ERROR",
+  "message": "FAL_KEY 환경변수가 설정되지 않았습니다.",
+  "details": {
+    "help_url": "https://docs.kvid.ai/docs/ko/api-services/video-api",
+    "http_status": 500,
+    "error_message": "서버 설정을 확인해주세요."
+  }
 }
 ```
 
@@ -387,6 +565,7 @@ Text-to-Video v2와 동일한 매개변수에 추가로:
 - **v2 모델**: 5초 또는 10초, 최대 1080p
 - **카메라 앵글**: 카메라 앵글 조작 프롬프트가 항상 정확하게 작동하지 않을 수 있음
 - **처리 시간**: 해상도와 길이에 따라 1-5분 소요
+- **이미지 입력 제한**: 동영상 생성을 위한 기반 이미지의 크기는 300*300 - 6000*6000 사이 제한
 
 ### 최적화 팁
 - **구체적인 프롬프트**: 세부적이고 명확한 설명 제공
@@ -395,13 +574,12 @@ Text-to-Video v2와 동일한 매개변수에 추가로:
 
 ## 🔗 관련 링크
 
-- [API 키 발급](https://developers.kvid.ai)
 - [콘솔 관리](https://console.kvid.ai)
 - [사용량 모니터링](https://console.kvid.ai/usage)
 
 ## 💰 요금 정보
 
-Video Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing#🎬-video-generation-api-요금)를 참고해 주세요.
+Video Generation API의 자세한 요금 정보는 [요금제 페이지](/pricing)를 참고해 주세요.
 
 ## 📞 지원 및 문의
 

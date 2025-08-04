@@ -25,7 +25,6 @@ K-pop과 K-beauty 콘텐츠 제작을 위한 AI 플랫폼입니다.
 
 - [앱 사용해보기](https://app.kvid.ai) - 웹에서 바로 체험
 - [콘솔](https://console.kvid.ai) - API 키 관리 및 사용량 확인
-- [개발자 포털](https://developers.kvid.ai) - API 키 발급
 
 ## 💬 커뮤니티
 

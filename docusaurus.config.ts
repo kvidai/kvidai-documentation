@@ -188,15 +188,15 @@ const config: Config = {
           items: [
             {
               label: "Getting Started",
-              to: "/docs/intro",
+              to: "/docs/ko/intro",
             },
             {
               label: "API Services",
-              to: "/docs/api-services/overview",
+              to: "/docs/ko/api-services/overview",
             },
             {
               label: "Console Guide",
-              to: "/docs/console-guide/content-scheduling",
+              to: "/docs/ko/console-guide/content-scheduling",
             },
           ],
         },

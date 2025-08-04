@@ -13,13 +13,13 @@ kvidAI는 K-pop과 K-beauty에 특화된 AI 생성 플랫폼으로, 다양한 AP
 ### 1. Video 생성 AI API
 - **기능**: 텍스트나 이미지를 5-6초 비디오로 변환
 - **특화**: K-pop 댄스, K-beauty 콘텐츠 최적화
-- **가격**: $0.86 (124.356 크레딧) per 비디오
-- **해상도**: 480p, 720p 지원
+- **가격**: 39-89 크레딧
+- **해상도**: 480p, 720p, 1080p 지원
 
 ### 2. Image 생성 AI API  
 - **기능**: FLUX.1 dev 모델 기반 이미지 생성
 - **특화**: K-pop 아이돌, K-beauty 모델 스타일
-- **가격**: 1-3 크레딧 (해상도별 차등)
+- **가격**: 2-8 크레딧 ( 7.5 per mpx )
 - **최대 해상도**: 1024x1024
 
 ### 3. Text 생성 LLM API
@@ -42,36 +42,38 @@ kvidAI는 K-pop과 K-beauty에 특화된 AI 생성 플랫폼으로, 다양한 AP
 ## 🔑 API 시작하기
 
 ### 1단계: API 키 발급
-1. [개발자 포털](https://developers.kvid.ai)에서 회원가입
-2. [콘솔](https://console.kvid.ai)에 동일한 이메일로 가입
-3. API 키 생성 및 크레딧 설정
+1. [콘솔 사이트](https://console.kvid.ai)에  가입
+2. API 키 생성
 
 ### 2단계: 첫 API 호출
 ```bash
-# Text API 예제
-curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
-  -H "API-KEY: Bearer YOUR_API_KEY" \
+curl -X POST "https://api.kvid.ai/ai/image/generate" \
+  -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen2.5-72b-instruct",
-    "messages": [
-      {"role": "user", "content": "K-pop 가사 작성해줘"}
-    ]
+    "prompt": "K-pop concert stage with colorful lights",
+    "negative_prompt": "blurry, low quality",
+    "image_size": {
+      "width": 512,
+      "height": 512
+    },
+    "num_inference_steps": 50,
+    "guidance_scale": 7.5
   }'
 ```
 
 ## 💰 요금 체계
 
 ### 크레딧 시스템
-- **기준 환율**: 1,446원 = 1 USD
+- **기준 환율**: 1,500원 = 1 USD
 - **단가 × 사용량**만큼 크레딧 차감
 - **선불 충전** 방식으로 운영
 
 ### 서비스별 요금
 | 서비스 | 단가 | 크레딧 |
 |--------|------|--------|
-| Video 생성 | $0.86 | 124.356 크레딧 |
-| Image 생성 | $0.0007-$0.002 | 1-3 크레딧 |
+| Video 생성 | $0.39-$0.89 | 39-89 크레딧 |
+| Image 생성 | $0.02-$0.08 | 2-8 크레딧(7.5/mpx) |
 | Text 생성 (Input) | $0.0012/1K | 17.352 크레딧 |
 | Text 생성 (Output) | $0.0036/1K | 52.056 크레딧 |
 | Excel 함수 | $0.01-$0.1 | 14-144 크레딧 |
@@ -102,7 +104,7 @@ curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
 ## 🆘 지원
 
 - **Discord**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
-- **이메일**: support@kvid.ai
+- **이메일**: kvid030@gmail.com
 
 ---
 

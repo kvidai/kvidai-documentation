@@ -14,17 +14,13 @@ kvidAI API를 처음 사용하시는 분들을 위한 단계별 설정 가이드
 
 **중요**: 크레딧 구매시 입력한 이메일과 **동일한 이메일**로 가입해야 합니다!
 
-1. **개발자 포털 가입**
-   - [developers.kvid.ai](https://developers.kvid.ai) 접속
-   - 회원가입 (이메일, 비밀번호 입력)
-
 2. **콘솔 사이트 가입**  
    - [console.kvid.ai](https://console.kvid.ai) 접속
    - **동일한 이메일**로 회원가입
 
 ### 2단계: API 키 발급
 
-1. [developers.kvid.ai](https://developers.kvid.ai)에 로그인
+1. [console.kvid.ai](https://console.kvid.ai)에 로그인
 2. "API Keys" 또는 "키 관리" 메뉴 선택
 3. "새 API 키 생성" 클릭
 4. 원하는 API 서비스 선택:

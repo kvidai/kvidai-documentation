@@ -8,6 +8,27 @@ sidebar_position: 1
 
 K-pop과 K-beauty 콘텐츠 제작을 위한 AI 플랫폼입니다.
 
+## 🎬 플랫폼 소개 영상
+
+<div style={{maxWidth: '800px', margin: '20px auto'}}>
+  <video 
+    width="100%" 
+    controls 
+    style={{
+      borderRadius: '12px', 
+      boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+      backgroundColor: '#000'
+    }}
+  >
+    <source src="/img/video-api/KVID_제작예시_영상.mp4" type="video/mp4" />
+    영상을 재생할 수 없습니다.
+  </video>
+</div>
+
+:::info 영상 소개
+kvidAI를 활용한 실제 콘텐츠 제작 예시를 확인해보세요. K-pop과 K-beauty에 특화된 AI 생성 결과물을 보실 수 있습니다.
+:::
+
 ## 🚀 빠른 시작
 
 ### API 서비스

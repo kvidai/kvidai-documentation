@@ -54,14 +54,39 @@ AI를 활용하여 생성된 이미지나 비디오, 비디오 생성을 위해 
 
 ## 🔑 3단계: API 키 발급
 
-### 3.1 개발자 포털에서 API 키 생성
+### 3.1 영상 가이드
+
+API 키 발급 과정을 영상으로 쉽게 따라해보세요.
+
+<details>
+<summary>📹 API 키 발급 가이드 영상 보기</summary>
+
+<div style={{marginTop: '16px', marginBottom: '20px'}}>
+  <video 
+    width="100%" 
+    controls 
+    style={{
+      maxWidth: '720px',
+      borderRadius: '8px', 
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+      backgroundColor: '#000'
+    }}
+  >
+    <source src="/img/video-api/KVID_API키_발급_가이드영상.mp4" type="video/mp4" />
+    영상을 재생할 수 없습니다.
+  </video>
+</div>
+
+</details>
+
+### 3.2 API 키 생성 단계
 
 1. [console.kvid.ai](https://console.kvid.ai/)에 로그인
 2. **"API Key Manager"** 또는 **"API 키 관리자"** 메뉴 선택
 3. **"API 키 생성"** 버튼 클릭
 4. API 키 생성 완료
 
-### 3.2 API 키 확인
+### 3.3 API 키 확인
 
 :::warning 보안 주의
 API 키를 활용하면 크레딧이 소모 됩니다. 반드시 외부에 노출 되지 않게 주의해 주세요!

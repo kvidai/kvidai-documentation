@@ -40,14 +40,14 @@ All kvidAI API services use a credit-based pricing system. Here's a detailed bre
 
 ## 🎬 Video Generation API Pricing
 
-### wan model (기존 최적화)
+### v1 model (기존 최적화)
 
 | Resolution | Duration | Credits | USD Price | KRW Price |
 |------------|----------|---------|-----------|-----------|
 | **480p** | 5-6s | 60 credits | $0.60 | ₩900 |
 | **720p** | 5-6s | 120 credits | $1.20 | ₩1,800 |
 
-### seadance model (신규 추가)
+### v2 model (신규 추가)
 
 | Resolution | Duration | Credits | USD Price | KRW Price |
 |------------|----------|---------|-----------|-----------|
@@ -64,7 +64,7 @@ All kvidAI API services use a credit-based pricing system. Here's a detailed bre
 
 ## 🎨 Image Generation AI Pricing
 
-### FLUX.1 dev Model (7.5 credits per megapixel)
+### Model (7.5 credits per megapixel)
 
 | Resolution | Megapixels | Credits | USD Price | KRW Price | Use Case |
 |------------|------------|---------|-----------|-----------|----------|

@@ -82,11 +82,11 @@ export default function Pricing(): JSX.Element {
               title="Video Generation API"
               subtitle="Choose between wan or seadance models"
               items={[
-                { label: "wan - 480p Resolution", price: "60 credits", credit: 60 },
-                { label: "wan - 720p Resolution", price: "120 credits", credit: 120 },
-                { label: "seadance - 480p Resolution", price: "39 credits", credit: 39 },
-                { label: "seadance - 720p Resolution", price: "54 credits", credit: 54 },
-                { label: "seadance - 1080p Resolution", price: "89 credits", credit: 89 }
+                { label: "v1 - 480p Resolution", price: "60 credits", credit: 60 },
+                { label: "v1 - 720p Resolution", price: "120 credits", credit: 120 },
+                { label: "v2 - 480p Resolution", price: "39 credits", credit: 39 },
+                { label: "v2 - 720p Resolution", price: "54 credits", credit: 54 },
+                { label: "v2 - 1080p Resolution", price: "89 credits", credit: 89 }
               ]}
             />
           </div>

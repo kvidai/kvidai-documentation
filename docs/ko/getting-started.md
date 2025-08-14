@@ -37,6 +37,13 @@ kvidAI API를 처음 사용하시는 분들을 위한 단계별 설정 가이드
 2. 크래딧 상품 구매
   - console.kvid.ai 이메일 입력 필수
 
+### 4단계: 미디어 생성 해보기
+
+1. [app.kvid.ai](https://app.kvid.ai) 접속
+2. 이미지 생성이나 비디오 생성 클릭
+3. console.kvid.ai에서 생성한 key 입력 후 미디어 생성
+
+
 ## 🧪 첫 API 호출 테스트
 
 ### Text API 테스트

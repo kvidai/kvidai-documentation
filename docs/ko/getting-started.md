@@ -23,10 +23,6 @@ kvidAI API를 처음 사용하시는 분들을 위한 단계별 설정 가이드
 1. [console.kvid.ai](https://console.kvid.ai)에 로그인
 2. "API Keys" 또는 "키 관리" 메뉴 선택
 3. "새 API 키 생성" 클릭
-4. 원하는 API 서비스 선택:
-   - ✅ Video 생성 AI API
-   - ✅ Image 생성 AI API
-   - ✅ Text 생성 LLM AI API
 5. API 키 복사 후 안전한 곳에 저장
 
 ⚠️ **주의**: API 키는 생성 시 한 번만 표시됩니다!

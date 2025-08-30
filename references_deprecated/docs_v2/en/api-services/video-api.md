@@ -254,7 +254,7 @@ Seed used for generation.
 For questions or assistance:
 
 - **Email**: support@kvid.ai
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 - **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ---

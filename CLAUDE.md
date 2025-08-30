@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Docusaurus-based documentation site for kvidAI, a K-pop and K-beauty specialized AI service platform offering video/image generation APIs and AI tools.
 
+api-services에는 model-기능 [옵션설명, 사용법 등] 사용방법 같은 기술설명 사용방법 내용만 적고, api-services 각 페이지에 credit 사용량도 적지 말고, @docs/pricing.md 파일로 옮겨줘.
+모델-기능 작동별 credit 소모량도 1개월에 1번씩 정기적으로 변경되어서, pricing 내용 관리가 편하게, 하나의 파일 or pricing 전용 문서를 만들어서 관리하려고 한다.
+
+https://cloud.google.com/compute/docs/release-notes 구글클라우드 는 가격정보 page가 아예 따로 있고, docs 에는 기술내용 사용방법 만 작성됨
+
+https://aws.amazon.com/ko/rds/pricing/   aws도 가격정보 page에는 가격정보만 적고, docs에는 기술내용 사용방법 만 작성함
+
+
 **kvidAI Services:**
 - Video 생성 AI API
 - Image 생성 AI API  
@@ -19,7 +27,7 @@ This is a Docusaurus-based documentation site for kvidAI, a K-pop and K-beauty s
 - [developers.kvid.ai](http://developers.kvid.ai) - API key issuance, developer portal - Check key api request usage
 - [docs.kvid.ai](http://docs.kvid.ai) - Documentation site (this project)
 - [kvid.ai.kr](https://kvid.ai.kr/) - buy api credit shopping mall - For Korean credit payments only
-- [Discord](https://discord.gg/wvsecByF) - kvidAI discord community
+- [Discord](https://discord.gg/yzgyCx8Jpt) - kvidAI discord community
 
 ## Development Commands
 
@@ -114,11 +122,18 @@ vercel --prod                           # Deploy to Vercel
 
 ## Scripts and Utilities
 
-**Notion Export Processing** (`scripts/notion_export_hash_removal_scripts/`):
-- Remove hash suffixes from exported Notion filenames
-- Update internal markdown links
-- Handle Korean character filenames
-- Processing scripts for bulk content migration
+**Utility Scripts:**
+- **Notion Export Processing** (`scripts/notion_export_hash_removal_scripts/`):
+  - Remove hash suffixes from exported Notion filenames
+  - Update internal markdown links
+  - Handle Korean character filenames
+  - Processing scripts for bulk content migration
+- **Build Files Copy** (`scripts/copy-build-files.js`):
+  - Flexible script that copies specified files from build to static directory
+  - Accepts file names as command line arguments
+  - Currently configured to copy: llms.txt, llms-full.txt, sitemap.xml
+  - Automatically runs after build process
+  - Ensures generated files are accessible via URL in all environments
 
 ## Content Guidelines
 
@@ -209,3 +224,68 @@ vercel --prod                           # Deploy to Vercel
 - Real endpoint URLs (api.kvid.ai domain)
 - Actual code examples tested with live services
 - Practical use cases with K-pop/K-beauty focus
+
+## SEO Improvements (2025-01-16)
+
+**Completed SEO enhancements for better social media sharing and search engine visibility:**
+
+1. **Open Graph & Twitter Card Meta Tags**
+   - Added comprehensive meta tags in `docusaurus.config.ts`
+   - Social preview image: `logo4_kvidai_가로.jpg`
+   - Properly configured title, description, and image for SNS sharing
+
+2. **Structured Data (JSON-LD)**
+   - Added WebSite schema markup for better search understanding
+   - Organization information with logo
+
+3. **Search Engine Optimization Files**
+   - Created `robots.txt` with sitemap reference
+   - Configured sitemap plugin for automatic `sitemap.xml` generation
+   - Added crawl-delay and bot-specific rules
+   - Sitemap.xml automatically copied to static directory for proper serving
+
+4. **Page-Level Metadata**
+   - Enhanced key pages with detailed keywords and descriptions
+   - Added Open Graph images to individual pages
+   - Improved meta descriptions for better CTR
+
+5. **Global SEO Configuration**
+   - Added canonical URLs
+   - Configured locale settings (en_US, ko_KR)
+   - Added author and keyword metadata
+
+**Testing Tools:**
+- Facebook Debugger: https://developers.facebook.com/tools/debug/
+- Twitter Card Validator: https://cards-dev.twitter.com/validator
+- LinkedIn Post Inspector: https://www.linkedin.com/post-inspector/
+
+## LLMs.txt Generation (2025-01-16)
+
+**Implemented @signalwire/docusaurus-plugin-llms-txt for AI/LLM consumption:**
+
+1. **Plugin Configuration**
+   - Installed `@signalwire/docusaurus-plugin-llms-txt` package
+   - Configured in `docusaurus.config.ts` with:
+     - Site title and description
+     - Depth level 3 for categorization
+     - Enabled blog and pages inclusion
+     - Enabled full content generation (llms-full.txt)
+
+2. **Generated Files**
+   - `llms.txt` - Index file with markdown links to all content
+   - `llms-full.txt` - Comprehensive file with full content included
+   - Files generated in build directory and accessible via:
+     - https://docs.kvid.ai/llms.txt
+     - https://docs.kvid.ai/llms-full.txt
+
+3. **File Serving Configuration**
+   - Created `scripts/copy-build-files.js` - flexible script to copy any generated files to static directory
+   - Updated `package.json` build script to copy specific files: `llms.txt`, `llms-full.txt`, `sitemap.xml`
+   - Added generated files to `.gitignore`: `static/llms.txt`, `static/llms-full.txt`, `static/sitemap.xml`
+   - Files are now properly served in both development and production environments
+
+4. **Benefits**
+   - Enables AI models to better understand site structure
+   - Provides clean, structured content for LLM consumption
+   - Supports both index-only and full-content access patterns
+   - Automatically updates with each build

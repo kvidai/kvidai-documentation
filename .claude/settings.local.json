@@ -1,47 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)",
-      "Bash(ls:*)",
-      "Bash(mv:*)",
-      "Bash(./remove_hash_suffixes.sh:*)",
-      "Bash(timeout:*)",
-      "Bash(chmod:*)",
-      "Bash(./remove_hash_suffixes_v2.sh:*)",
-      "Bash(./debug_test.sh:*)",
-      "Bash(./debug_test_v2.sh:*)",
-      "Bash(./remove_hash_suffixes_v3.sh:*)",
-      "Bash(./remove_hash_suffixes_final.sh:*)",
+      "Bash(yarn build)",
+      "WebFetch(domain:docusaurus.io)",
+      "Bash(yarn add:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(curl:*)",
       "Bash(cp:*)",
-      "Bash(pkill:*)",
-      "Bash(true)",
-      "Bash(./simple_rename.sh)",
-      "Bash(./batch_rename.sh:*)",
-      "Bash(./final_cleanup.sh)",
-      "Bash(./direct_rename.sh)",
-      "Bash(bash:*)",
-      "Bash(python:*)",
-      "Bash(grep:*)",
-      "Bash(mkdir:*)",
-      "Bash(rm:*)",
-      "Bash(./scripts/notion_export_hash_removal_scripts/remove_hash_suffixes_final.sh:*)",
-      "Bash(./scripts/notion_export_hash_removal_scripts/direct_rename.sh:*)",
-      "Bash(./scripts/notion_export_hash_removal_scripts/complete_hash_removal.sh:*)",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_install",
-      "Bash(yarn start)",
-      "Bash(yarn install)",
-      "Bash(cat:*)",
-      "WebFetch(domain:docs.kvid.ai)",
-      "WebFetch(domain:docusaurus.io)"
-    ],
-    "deny": []
+      "Bash(node:*)",
+      "Bash(mv:*)",
+      "WebFetch(domain:docs.fal.ai)",
+      "WebFetch(domain:app.klingai.com)"
+    ]
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "context7",
     "sequential-thinking",
     "notionApi",
-    "playwright"
+    "playwright",
+    "taskmaster-ai"
   ]
 }

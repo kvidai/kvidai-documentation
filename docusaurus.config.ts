@@ -5,6 +5,7 @@ import tailwindPlugin from "./plugins/tailwind-config.cjs";
 
 const config: Config = {
   title: "kvidAI Documentation",
+  // staticDirectories: ["public", "static"],
   tagline: "AI Generation Platform Specialized for K-pop & K-beauty",
   favicon: "img/logo_kvidai_favicon.ico",
 
@@ -13,6 +14,36 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
+
+
+  // SEO head tags
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'canonical',
+        href: 'https://docs.kvid.ai',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'kvidAI Documentation',
+        'url': 'https://docs.kvid.ai',
+        'description': 'AI generation platform specialized for K-pop and K-beauty content creation',
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'kvidAI',
+          'logo': 'https://docs.kvid.ai/img/logo_kvidai_android-chrome-512x512.png'
+        }
+      }),
+    },
+  ],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -31,7 +62,22 @@ const config: Config = {
     locales: ["en", "ko"],
   },
 
-  plugins: [tailwindPlugin],
+  plugins: [
+    tailwindPlugin,
+    [
+      '@signalwire/docusaurus-plugin-llms-txt',
+      {
+        siteTitle: 'kvidAI Documentation',
+        siteDescription: 'AI generation platform specialized for K-pop and K-beauty content creation. Comprehensive API documentation and guides for video, image, and text generation APIs.',
+        depth: 3,
+        content: {
+          includeBlog: true,
+          includePages: true,
+          enableLlmsFullTxt: true,
+        },
+      },
+    ],
+  ],
 
   // Docusaurus 3.8 Build Performance Optimizations
   future: {
@@ -68,13 +114,34 @@ const config: Config = {
         theme: {
           customCss: "./src/css/custom.css",
         },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/logo4_kvidai_가로.jpg",
+    metadata: [
+      {name: 'description', content: 'kvidAI - K-pop & K-beauty specialized AI platform for video, image, and text generation. Professional AI APIs and tools for content creators.'},
+      {name: 'keywords', content: 'kvidAI, K-pop AI, K-beauty AI, video generation API, image generation API, AI platform, content creation, Korean AI'},
+      {property: 'og:title', content: 'kvidAI Documentation - AI Generation Platform'},
+      {property: 'og:description', content: 'K-pop & K-beauty specialized AI platform offering video, image, and text generation APIs. Create professional content with our advanced AI tools.'},
+      {property: 'og:image', content: 'https://docs.kvid.ai/img/logo4_kvidai_가로.jpg'},
+      {property: 'og:url', content: 'https://docs.kvid.ai'},
+      {property: 'og:site_name', content: 'kvidAI Documentation'},
+      {property: 'og:type', content: 'website'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'twitter:title', content: 'kvidAI - AI Generation Platform for K-pop & K-beauty'},
+      {name: 'twitter:description', content: 'Professional AI APIs for video, image, and text generation specialized in Korean content.'},
+      {name: 'twitter:image', content: 'https://docs.kvid.ai/img/logo4_kvidai_가로.jpg'},
+    ],
     navbar: {
       title: "kvidAI",
       logo: {
@@ -89,13 +156,14 @@ const config: Config = {
           label: "Docs",
         },
         { to: "/blog", label: "Blog", position: "left" },
+        { to: "/pricing", label: "Pricing", position: "left" },
         {
           href: "https://app.kvid.ai",
           label: "Try App",
           position: "right",
         },
         {
-          href: "https://discord.gg/wvsecByF",
+          href: "https://discord.gg/yzgyCx8Jpt",
           label: "Discord",
           position: "right",
         },
@@ -158,7 +226,7 @@ const config: Config = {
           items: [
             {
               label: "Discord",
-              href: "https://discord.gg/wvsecByF",
+              href: "https://discord.gg/yzgyCx8Jpt",
             },
             {
               label: "Blog",

@@ -105,7 +105,7 @@ curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
 
 ## 🆘 Support
 
-- **Discord**: [kvidAI Community](https://discord.gg/wvsecByF)
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
 - **Email**: support@kvid.ai
 - **Contact Form**: [Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 

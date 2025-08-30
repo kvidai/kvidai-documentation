@@ -1,9 +1,9 @@
 {
   "mcpServers": {
     "context7": {
-      "type": "http",
-      "url": "https://mcp.context7.com/mcp",
-      "description": "https://github.com/upstash/context7?tab=readme-ov-file#cursor-remote-server-connection"
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "description": "https://github.com/upstash/context7"
     },
     "sequential-thinking": {
       "command": "npx",
@@ -20,7 +20,7 @@
         "@notionhq/notion-mcp-server"
       ],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer ntn_r927224387267inONLVTlZrcQDNfGuaIWYy45TTh7eJ8FL\", \"Notion-Version\": \"2022-06-28\" }"
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer ntn_r927224387267i***\", \"Notion-Version\": \"2022-06-28\" }"
       }
     },
     "playwright": {

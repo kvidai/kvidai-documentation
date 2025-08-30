@@ -1,3 +1,4 @@
+import React from "react";
 import clsx from "clsx";
 import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
@@ -5,7 +6,7 @@ import styles from "./styles.module.css";
 type FeatureItem = {
   title: string;
   video?: string;
-  description: JSX.Element;
+  description: React.JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -119,7 +120,7 @@ function AdditionalShowcase(): JSX.Element {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.JSX.Element {
   return (
     <>
       <section className={styles.features}>

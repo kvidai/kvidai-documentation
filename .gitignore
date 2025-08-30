@@ -7,6 +7,9 @@
 # Generated files
 .docusaurus
 .cache-loader
+/static/llms.txt
+/static/llms-full.txt
+/static/sitemap.xml
 
 # Misc
 .DS_Store
@@ -20,9 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local Netlify folder
-# .netlify
+.netlify
 
-# .vercel
+.vercel
 
 # Playwright
 node_modules/

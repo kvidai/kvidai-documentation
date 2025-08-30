@@ -189,5 +189,9 @@ The Vercel CLI will automatically detect that this is a Docusaurus project and c
 
 
 ## 참고자료
+- .claude/README.md
+- .cursor/README.md
+- context7.md : https://www.notion.so/epicmoble/cursor-vscode-claude-ide-_ai-Tool-208228ab36a08089b2c7e8036cca3e52?v=63484b3e771b4266af394cadb6921b60&source=copy_link#25f228ab36a08049ad6aff8bc91fd202
+
 - notion mcp 연동: https://www.notion.so/profile/integrations
 - notion epicmobile apikey: https://www.notion.so/epicmoble/notion-epicmobile-22f228ab36a080b5a1b6febc825406e5?source=copy_link

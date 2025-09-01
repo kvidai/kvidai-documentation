@@ -6,15 +6,27 @@
       // "Read(references_deprecated/제품서비스매뉴얼_from-notion-export_20250714/**)"
     ],
     "deny": [
+      // claude code 에는, .claudeignore 는 공식문서에 내용 없음. -> https://github.com/anthropics/claude-code/issues/579
       "Read(.git/**)",
+      "Read(node_modules/**)",
+      "Read(package-lock.json)",
+
       "Read(.google-apps-script/**)",
       "Read(.patches/**)",
-
       "Read(references_deprecated/**)",
       "Read(**/references_deprecated/**)",
 
-      "Read(node_modules/**)",
-      "Read(package-lock.json)"
+      // AI 도구 간, MEMORY 파일 중복 READ 방지
+      "Read(GEMINI.md)",
+      "Read(AGENT.md)",
+      "Read(**/GEMINI.md)",
+      "Read(**/AGENT.md)",
+
+      // 기타 불필요한 파일들
+      "Read(*.log)",
+      "Read(.env.local)",
+      "Read(.DS_Store)",
+      "Read(Thumbs.db)"
     ]
   },
   "env": {

@@ -17,3 +17,6 @@ references_deprecated/
 # .cursorrulesignore
 
 .env
+
+CLAUDE.md
+GEMINI.md

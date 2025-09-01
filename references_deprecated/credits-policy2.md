@@ -171,7 +171,7 @@ Credits are consumed based on validity period:
 - SLA guarantees
 
 ### Contact for Enterprise
-- Discord: [#enterprise-support](https://discord.gg/wvsecByF)
+- Discord: [#enterprise-support](https://discord.gg/yzgyCx8Jpt)
 - Minimum order: 1B credits
 - Custom contracts available
 
@@ -202,4 +202,4 @@ A: International payments coming soon. Currently, use [kvid.ai.kr](https://kvid.
 
 ---
 
-For more information or support, join our [Discord community](https://discord.gg/wvsecByF) or contact support through the console.
+For more information or support, join our [Discord community](https://discord.gg/yzgyCx8Jpt) or contact support through the console.

@@ -163,7 +163,7 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "https://discord.gg/wvsecByF",
+          href: "https://discord.gg/yzgyCx8Jpt",
           label: "Discord",
           position: "right",
         },
@@ -226,7 +226,7 @@ const config: Config = {
           items: [
             {
               label: "Discord",
-              href: "https://discord.gg/wvsecByF",
+              href: "https://discord.gg/yzgyCx8Jpt",
             },
             {
               label: "Blog",

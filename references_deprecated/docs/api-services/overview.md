@@ -51,7 +51,7 @@ API 상품을 구매할 때 콘솔 계정 아이디를 정확히 입력해야 �
 [Google Forms 문의신청](https://docs.google.com/forms/d/e/1FAIpQLScp4wRUI-oCmOYOSYQxSbsUX5xouo0PbnspNzktHi068ikvYQ/viewform)
 
 ### 💬 커뮤니티
-[kvidAI 디스코드](https://discord.gg/wvsecByF)
+[kvidAI 디스코드](https://discord.gg/yzgyCx8Jpt)
 
 ## 플랫폼 링크
 

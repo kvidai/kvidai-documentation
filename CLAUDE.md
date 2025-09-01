@@ -27,7 +27,7 @@ https://aws.amazon.com/ko/rds/pricing/   aws도 가격정보 page에는 가격�
 - [developers.kvid.ai](http://developers.kvid.ai) - API key issuance, developer portal - Check key api request usage
 - [docs.kvid.ai](http://docs.kvid.ai) - Documentation site (this project)
 - [kvid.ai.kr](https://kvid.ai.kr/) - buy api credit shopping mall - For Korean credit payments only
-- [Discord](https://discord.gg/wvsecByF) - kvidAI discord community
+- [Discord](https://discord.gg/yzgyCx8Jpt) - kvidAI discord community
 
 ## Development Commands
 

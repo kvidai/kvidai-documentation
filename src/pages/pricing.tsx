@@ -45,7 +45,7 @@ export default function Pricing(): JSX.Element {
           <div className={styles.pricingHeader}>
             <h1 className={styles.title}>Simple, Transparent Pricing</h1>
             <p className={styles.subtitle}>
-              One subscription plan with 4,500 credits per month
+              One subscription plan with 3,000 credits per month
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Pricing(): JSX.Element {
             <div className={styles.subscriptionCard}>
               <h2 className={styles.subscriptionTitle}>Monthly Subscription</h2>
               <div className={styles.subscriptionPrice}>
-                <span className={styles.priceAmount}>4,500</span>
+                <span className={styles.priceAmount}>3,000</span>
                 <span className={styles.priceUnit}>credits/month</span>
               </div>
               <p className={styles.subscriptionDesc}>
@@ -74,19 +74,19 @@ export default function Pricing(): JSX.Element {
             <PricingCard
               title="Image Generation API"
               items={[
-                { label: "Per Megapixel", price: "16 credits/mpx", credit: 16 }
+                { label: "Per Megapixel", price: "7.5 credits/mpx", credit: 7.5 }
               ]}
             />
 
             <PricingCard
               title="Video Generation API"
-              subtitle="Choose between v1 or v2 models"
+              subtitle="Choose between wan or seadance models"
               items={[
-                { label: "v1 - 480p Resolution", price: "90 credits", credit: 90 },
-                { label: "v1 - 720p Resolution", price: "160 credits", credit: 160 },
-                { label: "v2 - 480p Resolution", price: "60 credits", credit: 60 },
-                { label: "v2 - 720p Resolution", price: "81 credits", credit: 81 },
-                { label: "v2 - 1080p Resolution", price: "134 credits", credit: 134 }
+                { label: "wan - 480p Resolution", price: "60 credits", credit: 60 },
+                { label: "wan - 720p Resolution", price: "120 credits", credit: 120 },
+                { label: "seadance - 480p Resolution", price: "39 credits", credit: 39 },
+                { label: "seadance - 720p Resolution", price: "54 credits", credit: 54 },
+                { label: "seadance - 1080p Resolution", price: "89 credits", credit: 89 }
               ]}
             />
           </div>

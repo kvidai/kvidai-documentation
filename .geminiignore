@@ -1,0 +1,23 @@
+## https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md
+
+# Ignore specific file `config.json`
+# config.json
+
+# Ignore `dist` directory and all files inside
+dist/
+logs/
+**/logs
+**/logs/**
+
+
+references_deprecated/
+
+.cursorignore
+.geminiignore
+# .cursorrules
+# .cursorrulesignore
+
+.env
+
+CLAUDE.md
+AGENT.md

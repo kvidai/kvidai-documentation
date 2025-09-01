@@ -18,9 +18,9 @@
 
       // AI 도구 간, MEMORY 파일 중복 READ 방지
       "Read(GEMINI.md)",
-      "Read(AGENT.md)",
+      "Read(AGENTS.md)",
       "Read(**/GEMINI.md)",
-      "Read(**/AGENT.md)",
+      "Read(**/AGENTS.md)",
 
       // 기타 불필요한 파일들
       "Read(*.log)",

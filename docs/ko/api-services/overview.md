@@ -1,110 +1,58 @@
 ---
 title: API 서비스 개요
-description: kvidAI API 서비스 전체 개요 및 가격 정보
+description: kvidAI의 Video, Image Generation API 기술 개요
 sidebar_position: 1
 ---
 
 # API 서비스 개요
 
-kvidAI는 K-pop과 K-beauty에 특화된 AI 생성 플랫폼으로, 다양한 API 서비스를 제공합니다.
+kvidAI의 모든 API는 `https://api.kvid.ai` 에서 제공되며, 하나의 계정으로 발급한 **단일 API 키**와 **단일 크레딧 잔액**을 모든 서비스가 공유합니다.
 
-## 🎯 주요 API 서비스
+## 서비스 한눈에 보기
 
-### 1. Video 생성 AI API
-- **기능**: 텍스트나 이미지를 5-6초 비디오로 변환
-- **특화**: K-pop 댄스, K-beauty 콘텐츠 최적화
-- **가격**: 39-89 크레딧
-- **해상도**: 480p, 720p, 1080p 지원
+| 서비스 | 설명 | 문서 |
+|--------|------|------|
+| **Video Generation** | Text-to-Video / Image-to-Video (v1 / v2 / v3 모델) | [Video API](./video-api) |
+| **Image Generation** | Nano Banana 기반 정지 이미지 생성 | [Image API](./image-api) |
 
-### 2. Image 생성 AI API  
-- **기능**: FLUX.1 dev 모델 기반 이미지 생성
-- **특화**: K-pop 아이돌, K-beauty 모델 스타일
-- **가격**: 2-8 크레딧 ( 7.5 per mpx )
-- **최대 해상도**: 1024x1024
+## 시작하기
 
-### 3. Text 생성 LLM API
-- **모델**: Qwen2.5-72B-Instruct, Qwen2.5-VL-72B-Instruct
-- **특화**: 한국어 및 K-culture 콘텐츠 생성
-- **가격**: 
-  - Input: $0.0012 (17.352 크레딧) per 1K tokens
-  - Output: $0.0036 (52.056 크레딧) per 1K tokens
+### 1. 계정 생성 및 크레딧 구매
 
-### 4. Excel Plugin
-- **기능**: Excel에서 직접 AI 기능 사용
-- **함수**: RUNGPT_TEXT(), RUNGPT_IMAGE_TO_TEXT(), RUNGPT_ASYNC_RESULT()
-- **가격**: $0.01-$0.1 per 함수 호출
+모든 작업은 kvid.ai 한 곳에서 끝납니다.
 
-### 5. Local RAG 솔루션
-- **기능**: 온프레미스 AI 시스템 구축
-- **특화**: 기업용 맞춤형 AI 솔루션
-- **구성**: LangChain, Streamlit, ChromaDB 기반
+1. [kvid.ai](https://kvid.ai) 에서 회원가입 (이메일 인증 필수)
+2. [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 에서 크레딧 구매
 
-## 🔑 API 시작하기
+### 2. API 키 생성
 
-### 1단계: API 키 발급
-1. [콘솔 사이트](https://console.kvid.ai)에  가입
-2. API 키 생성
+[kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) 에서 새 API 구독을 생성합니다. **Primary** 와 **Secondary** 키가 발급되며, 둘 중 어느 것이든 API 호출에 사용할 수 있습니다.
 
-### 2단계: 첫 API 호출
+### 3. 첫 API 호출
+
 ```bash
 curl -X POST "https://api.kvid.ai/ai/image/generate" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "prompt": "K-pop concert stage with colorful lights",
-    "negative_prompt": "blurry, low quality",
-    "image_size": {
-      "width": 512,
-      "height": 512
-    },
-    "num_inference_steps": 50,
-    "guidance_scale": 7.5
+    "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
 
-## 💰 요금 체계
+## 요금
 
-### 크레딧 시스템
-- **기준 환율**: 1,500원 = 1 USD
-- **단가 × 사용량**만큼 크레딧 차감
-- **선불 충전** 방식으로 운영
+모든 서비스는 **단일 크레딧 잔액**으로 과금됩니다. 현재 단가는 [요금 안내](/docs/ko/pricing) 페이지를 참고하세요.
 
-### 서비스별 요금
-| 서비스 | 단가 | 크레딧 |
-|--------|------|--------|
-| Video 생성 | $0.39-$0.89 | 39-89 크레딧 |
-| Image 생성 | $0.02-$0.08 | 2-8 크레딧(7.5/mpx) |
-| Text 생성 (Input) | $0.0012/1K | 17.352 크레딧 |
-| Text 생성 (Output) | $0.0036/1K | 52.056 크레딧 |
-| Excel 함수 | $0.01-$0.1 | 14-144 크레딧 |
+## K-pop & K-beauty 특화
 
-## 🎨 K-pop & K-beauty 특화 기능
+- **Video**: 아이돌 안무, 무대 카메라 앵글, 한국 문화 맥락에 최적화된 프롬프트
+- **Image**: K-beauty 메이크업·한국 패션 스타일이 반영된 튜닝
 
-### Video API 특화
-- K-pop 댄스 동작 최적화
-- 아이돌 스타일 카메라 앵글
-- 한국 전통 요소 결합
+## 지원
 
-### Image API 특화  
-- K-beauty 메이크업 스타일
-- 한국 패션 트렌드 반영
-- 아이돌 포토 스타일 지원
-
-### Text API 특화
-- 한국어 자연어 처리 최적화
-- K-culture 콘텐츠 생성
-- 한국식 표현 및 문화 맥락 이해
-
-## 🚀 다음 단계
-
-- [시작하기 가이드](/docs/ko/getting-started) - 계정 설정부터 첫 API 호출까지
-- [전체 기술 문서](/docs/api-services/overview) - 상세한 API 명세 (영어)
-- [콘솔 가이드](/docs/console-guide/initial-setup) - 계정 및 크레딧 관리
-
-## 🆘 지원
-
-- **Discord**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
-- **이메일**: kvid030@gmail.com
+- Discord: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)
+- 이메일: support@kvid.ai
 
 ---
 

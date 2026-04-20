@@ -53,7 +53,7 @@ keywords: [kvidAI, 크레딧, 가격, 정책, 결제, 구독, K-pop AI, K-뷰티
 
 ## 3. 가격 정보
 
-상세한 가격 구조 및 크레딧 소비율은 [요금제](/ko/pricing) 페이지를 참조하세요.
+상세한 가격 구조 및 크레딧 소비율은 [요금 안내](/docs/ko/pricing) 페이지를 참조하세요.
 
 ### 추가 옵션
 
@@ -75,17 +75,17 @@ keywords: [kvidAI, 크레딧, 가격, 정책, 결제, 구독, K-pop AI, K-뷰티
 ## 5. 크레딧 사용 가능 항목
 
 ### 지원 기능
-- ✅ 모든 AI 생성 API (Video, Image, Text)
-- ✅ RAG AI 연동 Excel 플러그인
-- ✅ 개발자 포털을 통한 API 호출
+- ✅ Video Generation API (Text-to-Video / Image-to-Video)
+- ✅ Image Generation API
+- ✅ 웹앱 기능 (Storyboard, Video Editor, Generate 페이지)
 - ✅ 배치 처리 작업
 - ✅ 테스트 및 개발
 
 ## 6. 크레딧 관리
 
 ### 잔액 확인
-1. **콘솔 대시보드**: [console.kvid.ai](https://console.kvid.ai)
-2. **개발자 포털**: [developers.kvid.ai](http://developers.kvid.ai)
+1. **대시보드**: [kvid.ai/dashboard](https://kvid.ai/dashboard)
+2. **크레딧 내역**: [kvid.ai/credits](https://kvid.ai/credits)
 3. **API 응답 헤더**: 각 API 응답에 크레딧 잔액 포함
 
 ### 사용 내역
@@ -127,18 +127,13 @@ keywords: [kvidAI, 크레딧, 가격, 정책, 결제, 구독, K-pop AI, K-뷰티
 - 기본 요청 한도
 - 커뮤니티 지원
 
-## 9. 국제 결제
+## 9. 결제 수단
 
 ### 현재 이용 가능
-- **한국 카드**: 모든 주요 한국 신용/체크 카드
-- **한국 전자지갑**: 카카오페이, 네이버페이, 토스
-- **계좌이체**: 한국 은행만 가능
+- **국제 카드**: Dodo Payments를 통한 Visa, Mastercard, American Express
+- **결제 통화**: USD (국내 카드는 카드사 환율로 원화 환산)
 
-### 추후 지원 예정
-- 국제 신용카드 (Visa, Mastercard, Amex)
-- PayPal 연동
-- 암호화폐 결제
-- 기업용 송금
+[kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 에서 구매하세요.
 
 ## 10. 엔터프라이즈 솔루션
 
@@ -177,7 +172,7 @@ A: 네, 유효 기간은 다음과 같습니다:
 A: 미사용 크레딧에 한해 구매 후 7일 이내에만 환불 가능합니다.
 
 ### Q: 해외에서 크레딧을 구매하려면 어떻게 해야 하나요?
-A: 국제 결제는 곧 지원 예정입니다. 현재는 한국 결제 수단으로 [kvid.ai.kr](https://kvid.ai.kr)을 이용하세요.
+A: [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 에서 Dodo Payments를 통해 국제 카드(Visa, Mastercard, American Express)로 구매할 수 있습니다.
 
 ---
 

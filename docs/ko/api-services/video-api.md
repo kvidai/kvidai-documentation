@@ -574,12 +574,13 @@ Text-to-Video v2와 동일한 매개변수에 추가로:
 
 ## 🔗 관련 링크
 
-- [콘솔 관리](https://console.kvid.ai)
-- [사용량 모니터링](https://console.kvid.ai/usage)
+- [API 키 발급](https://kvid.ai/settings/api-keys)
+- [크레딧 구매](https://kvid.ai/credits/purchase)
+- [요금 안내](/docs/ko/pricing#비디오-생성)
 
-## 💰 요금 정보
+## 💰 요금
 
-Video Generation API의 자세한 요금 정보는 [요금제 페이지](/pricing)를 참고해 주세요.
+크레딧 단가는 모델(v1 / v2 / v3)과 해상도에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성) 을 참고하세요.
 
 ## 📞 지원 및 문의
 

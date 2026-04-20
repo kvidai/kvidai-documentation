@@ -2,18 +2,18 @@
 title: Image 생성 AI API
 description: kvidAI Image 생성 API 사용 가이드 및 기술 명세
 slug: image-api
-tags: [API, Image, AI, 이미지생성, FLUX]
+tags: [API, Image, AI, 이미지생성, Nano Banana]
 ---
 
 # Image 생성 AI API
 
-kvidAI의 Image 생성 AI API는 FLUX.1 dev 모델을 기반으로 한 고품질 이미지 생성 서비스입니다. K-pop과 K-뷰티에 특화된 프롬프트 최적화를 제공합니다.
+kvidAI의 Image 생성 AI API는 Nano Banana 모델을 기반으로 한 고품질 이미지 생성 서비스입니다. K-pop과 K-뷰티에 특화된 프롬프트 최적화를 제공합니다.
 
 ## 🎯 서비스 개요
 
 ### 핵심 기능
 - **Text-to-Image**: 텍스트 프롬프트로 이미지 생성
-- **FLUX.1 dev**: 최신 AI 모델 사용
+- **Nano Banana**: 기본 이미지 생성 모델
 - **K-컨텐츠 특화**: K-pop, K-뷰티 최적화
 - **고해상도**: 최대 1024x1024 지원
 
@@ -456,13 +456,13 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 
 ## 🔗 관련 링크
 
-- [콘솔 관리](https://console.kvid.ai)
-- [크레딧 구매](https://app.kvid.ai/credits)
-- [갤러리 샘플](https://app.kvid.ai/gallery)
+- [API 키 발급](https://kvid.ai/settings/api-keys)
+- [크레딧 구매](https://kvid.ai/credits/purchase)
+- [갤러리 샘플](https://kvid.ai/gallery)
 
-## 💰 요금 정보
+## 💰 요금
 
-Image Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing)를 참고해 주세요.
+Image Generation API의 자세한 요금 정보는 [요금 안내 → 이미지 생성](/docs/ko/pricing#이미지-생성)을 참고해 주세요.
 
 ## 📞 지원
 

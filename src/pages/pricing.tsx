@@ -59,8 +59,8 @@ export default function Pricing(): JSX.Element {
               <p className={styles.subscriptionDesc}>
                 Use your credits for any of our AI generation APIs
               </p>
-              <a href="https://kvid.ai.kr" className={styles.subscribeButton}>
-                Subscribe Now
+              <a href="https://kvid.ai/credits/purchase" className={styles.subscribeButton}>
+                Buy Credits
               </a>
             </div>
           </div>
@@ -95,22 +95,22 @@ export default function Pricing(): JSX.Element {
             <div className={styles.infoCard}>
               <h3>How It Works</h3>
               <p>
-                Subscribe monthly and receive 4,500 credits. Use them across 
-                all our AI APIs based on your needs.
+                Buy a Starter pack of 3,000 credits for $30 (valid 30 days)
+                and spend them across all AI APIs based on your needs.
               </p>
             </div>
             <div className={styles.infoCard}>
               <h3>Flexible Models</h3>
               <p>
-                Choose between different models and resolutions. 
+                Choose between different models and resolutions.
                 v2 offers better quality at lower credit cost.
               </p>
             </div>
             <div className={styles.infoCard}>
               <h3>Track Usage</h3>
               <p>
-                Monitor your credit usage in real-time through 
-                our developer portal.
+                Monitor your credit usage in real-time on
+                your kvid.ai dashboard.
               </p>
             </div>
           </div>
@@ -118,11 +118,11 @@ export default function Pricing(): JSX.Element {
           <div className={styles.ctaSection}>
             <h2>Ready to Get Started?</h2>
             <div className={styles.ctaButtons}>
-              <a href="https://developers.kvid.ai" className={styles.primaryButton}>
+              <a href="https://kvid.ai/settings/api-keys" className={styles.primaryButton}>
                 Get API Key
               </a>
-              <a href="https://console.kvid.ai" className={styles.secondaryButton}>
-                View Console
+              <a href="https://kvid.ai/dashboard" className={styles.secondaryButton}>
+                Dashboard
               </a>
             </div>
           </div>

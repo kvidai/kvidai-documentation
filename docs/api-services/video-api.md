@@ -165,16 +165,9 @@ Seed used for generation.
 }
 ```
 
-## 💰 Pricing & Credits
+## 💰 Pricing
 
-### Credit Consumption
-
-"**Unit Price × Usage**" amount of credits will be deducted from your balance.
-
-| Model | Unit Price | Credits (1,446 KRW rate) |
-|-------|------------|---------------------------|
-| **Text-to-Video** | $0.86 / 5-6sec video | 124.356 credits |
-| **Image-to-Video** | $0.86 / 5-6sec video | 124.356 credits |
+Credit costs vary by model and resolution (v1 / v2 / v3). See [Pricing → Video Generation](/docs/pricing#video-generation) for the current rates.
 
 ## 🎬 Usage Examples
 
@@ -247,9 +240,9 @@ Seed used for generation.
 
 ## 🔗 Related Links
 
-- [API Key Issuance](https://developers.kvid.ai)
-- [Console Management](https://console.kvid.ai)
-- [Usage Monitoring](https://console.kvid.ai/usage)
+- [Create an API key](https://kvid.ai/settings/api-keys)
+- [Buy credits](https://kvid.ai/credits/purchase)
+- [Pricing](/docs/pricing#video-generation)
 
 ## 📞 Support & Contact
 

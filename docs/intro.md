@@ -1,56 +1,63 @@
 ---
 sidebar_position: 1
 title: Getting Started with kvidAI
-description: Complete guide to kvidAI platform services and API usage. Learn how to use video generation, image generation, and text generation APIs specialized for K-pop and K-beauty content.
-keywords: [kvidAI, getting started, AI API, K-pop AI, K-beauty AI, video generation, image generation, text generation, API documentation]
+description: Complete guide to kvidAI — an AI video and image generation platform. Sign up, buy credits, and access every service from a single account at kvid.ai.
+keywords: [kvidAI, getting started, AI API, K-pop AI, K-beauty AI, video generation, image generation, API documentation]
 image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: intro
 ---
 
-# Getting Started with kvidAI
+# Welcome to kvidAI
 
 > **한국어로 보기**: [시작하기 가이드](/docs/ko/intro) | **View in English** (current page)
 
-**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation. 
+**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation. Everything runs under one account at **[kvid.ai](https://kvid.ai)** — sign up, buy credits, generate content, and manage API keys from a single place.
 
-## 🚀 Main Services
+## What you can do
 
-### AI Generation APIs
-- **Video Generation AI API** - Create videos from text/images
-- **Image Generation AI API** - Generate K-pop/K-beauty specialized images
-- **Text Generation LLM API** - Korean-optimized language model
-- **Excel Plugin with RAG AI** - AI functions directly in Excel
+### Web App (at [kvid.ai](https://kvid.ai))
+- **AI Storyboard Editor** — describe the video you want in natural language, let the agent build a scene-by-scene composition.
+- **AI Video Editor** — Remotion-based editor: timeline, layers, captions, audio, and server-rendered final output.
+- **Gallery** — browse and import shared compositions from the community.
+- **Voice Library** — browse and preview ElevenLabs voices; copy a Voice ID straight into your template.
+- **Generate pages** — direct text-to-video, image-to-video, image generation, image-to-image, and talk-to-video (lip sync).
 
-### Enterprise Solutions
-- **Local RAG Solution** - On-premises AI system for enterprises
+### API Services (at `https://api.kvid.ai`)
+- **Video Generation** — text-to-video, image-to-video (v1 / v2 / v3 models).
+- **Image Generation** — Nano Banana based still image generation.
 
-## 📚 Documentation Structure
+## Quick Start
 
-### [Console Guide](/docs/console-guide/initial-setup)
-- Account setup and initial configuration
-- API key issuance process
-- Console usage instructions
-- Cafe content scheduling features
+1. **Sign up** at [kvid.ai](https://kvid.ai) and verify your email.
+2. **Buy credits** at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). One $30 pack = 3,000 credits, valid for 30 days.
+3. **Use the web app** immediately, or **create an API key** at [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) for programmatic access.
 
-### [API Services](/docs/api-services/overview)
-- Complete API service overview
-- Individual API usage guides
-- Developer documentation
+See the [Quick Start guide](./getting-started/quick-start) for step-by-step instructions.
 
-## 🔗 Platform Links
+## Documentation
 
-| Service | URL | Description |
-|---------|-----|-------------|
-| **Main App** | [app.kvid.ai](http://app.kvid.ai) | Try AI features directly |
-| **Console** | [console.kvid.ai](https://console.kvid.ai) | Manage API keys & usage |
-| **Developer Portal** | [developers.kvid.ai](http://developers.kvid.ai) | Get API keys |
-| **API Credit Shop** | [kvid.ai.kr](https://kvid.ai.kr/) | Buy API credits (Korean payments) |
+### [Getting Started](./getting-started/quick-start)
+Sign up, buy credits, create an API key.
 
-## 💬 Support & Community
+### [Web App Features](./web-app/storyboard)
+Guides for Storyboard, Video Editor, Gallery, and Voice Library.
 
-- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
-- **Email**: support@kvid.ai
+### [API Services](./api-services/overview)
+Full API reference — endpoints, parameters, code examples.
 
-:::tip Quick Start
-New users should start with the [Console Initial Setup Guide](/docs/console-guide/initial-setup)!
-:::
+### [Pricing](./pricing)
+Credit packages and per-service rates (single source of truth).
+
+## Platform Links
+
+| Service | URL | Purpose |
+|---------|-----|---------|
+| **Main App** | [kvid.ai](https://kvid.ai) | Sign up, web app, settings, API keys, billing |
+| **Docs** | [docs.kvid.ai](https://docs.kvid.ai) | This site |
+| **API Endpoint** | `https://api.kvid.ai` | For code calling the API |
+| **Discord** | [Community](https://discord.gg/yzgyCx8Jpt) | Support and community |
+
+## Support
+
+- Email: support@kvid.ai
+- Discord: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)

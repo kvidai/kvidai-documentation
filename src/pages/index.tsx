@@ -24,7 +24,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--primary button--lg"
-            to="https://app.kvid.ai"
+            to="https://kvid.ai"
             target="_blank"
             rel="noopener noreferrer">
             Try kvidAI Now

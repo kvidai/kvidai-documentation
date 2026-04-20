@@ -149,16 +149,12 @@ const config: Config = {
         src: "img/logo_kvidai_android-chrome-192x192.png",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Docs",
-        },
+        // Docs link — href is rewritten per locale by src/theme/Navbar/index.tsx
+        { to: "/docs/intro", label: "Docs", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         { to: "/pricing", label: "Pricing", position: "left" },
         {
-          href: "https://app.kvid.ai",
+          href: "https://kvid.ai",
           label: "Try App",
           position: "right",
         },
@@ -188,15 +184,11 @@ const config: Config = {
           items: [
             {
               label: "Getting Started",
-              to: "/docs/ko/intro",
+              to: "/docs/intro",
             },
             {
-              label: "API Services",
-              to: "/docs/ko/api-services/overview",
-            },
-            {
-              label: "Console Guide",
-              to: "/docs/ko/console-guide/content-scheduling",
+              label: "Pricing",
+              to: "/pricing",
             },
           ],
         },
@@ -204,20 +196,12 @@ const config: Config = {
           title: "Services",
           items: [
             {
-              label: "Main App",
-              href: "https://app.kvid.ai",
+              label: "kvidAI App",
+              href: "https://kvid.ai",
             },
             {
-              label: "Console",
-              href: "https://console.kvid.ai",
-            },
-            {
-              label: "Developer Portal",
-              href: "https://developers.kvid.ai",
-            },
-            {
-              label: "API Credit Shop",
-              href: "https://kvid.ai.kr",
+              label: "API Endpoint",
+              href: "https://api.kvid.ai",
             },
           ],
         },

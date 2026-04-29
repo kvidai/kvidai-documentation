@@ -32,8 +32,10 @@ The Image Generation API is **asynchronous** — submit a job, poll the unified 
 |--------|------|---------|
 | `POST` | `/ai/generation/text-to-image/generate-async` | Submit a text-to-image job |
 | `POST` | `/ai/generation/image-to-image/generate-async` | Submit an image edit / image-to-image job |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | Check job status |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | Fetch completed result |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result |
+
+> The `api-key` header identifies the user and their subscription. You don't need to include `email` or `product_code` in the request body or query string — the backend resolves both from the API key.
 
 ### 1. Create a text-to-image job
 
@@ -43,8 +45,6 @@ api-key: YOUR_API_KEY
 Content-Type: application/json
 
 {
-  "email": "you@example.com",
-  "product_code": "image-text-to-image",
   "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
   "negative_prompt": "blurry, low quality, distorted",
   "image_size": { "width": 1024, "height": 1024 },
@@ -72,7 +72,7 @@ Content-Type: application/json
 ### 2. Check job status
 
 ```http
-GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq
 api-key: YOUR_API_KEY
 ```
 
@@ -96,7 +96,7 @@ api-key: YOUR_API_KEY
 ### 3. Fetch the completed result
 
 ```http
-GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq
 api-key: YOUR_API_KEY
 ```
 
@@ -124,8 +124,6 @@ api-key: YOUR_API_KEY
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `email` | string | yes | Account email — used for job ownership and credit accounting |
-| `product_code` | string | yes | `image-text-to-image` or `image-image-to-image` |
 | `prompt` | string | yes | Positive prompt |
 | `negative_prompt` | string | no | Things to avoid |
 | `image_size.width` / `image_size.height` | integer | no | 256–1024 (multiples of 64 recommended) |

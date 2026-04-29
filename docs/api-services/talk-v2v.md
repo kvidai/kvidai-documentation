@@ -41,8 +41,10 @@ Talk-V2V is **asynchronous** — submit a job to receive a `job_id`, poll the un
 | Method | Path | Purpose |
 |--------|------|---------|
 | `POST` | `/ai/generation/talk-v2v/generate-async` | Submit a Talk-V2V job |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | Check job status |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | Fetch completed result |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result |
+
+> The `api-key` header identifies the user and their subscription. You don't need to include `email` or `product_code` in the request body or query string — the backend resolves both from the API key.
 
 ### 1. Submit a Talk-V2V job
 
@@ -53,8 +55,6 @@ url = "https://api.kvid.ai/ai/generation/talk-v2v/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "YOUR_PRODUCT_CODE",
     "input_video": "https://your-host.example/source.mp4",
     "audio_file": "https://your-host.example/voice.mp3",
     "resolution": "720p",
@@ -95,9 +95,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "tlk_1777360165746_xyz789"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -113,9 +112,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "tlk_1777360165746_xyz789"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -146,8 +144,6 @@ print(response.json())
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `email` | string | ✅ | Account email — used for job ownership and credit accounting |
-| `product_code` | string | ✅ | Your API subscription product code (from [API keys page](https://kvid.ai/settings/api-keys)) |
 | `input_video` | string (URL) | ✅ | HTTPS URL of the source video |
 | `audio_file` | string (URL) | ✅ | HTTPS URL of the audio that should drive the lip sync |
 | `prompt` | string | – | Optional text prompt to guide style |

@@ -37,8 +37,10 @@ Talk-V2V는 **비동기 방식**입니다. 작업 제출 → `job_id` 수신 →
 | Method | Path | 용도 |
 |--------|------|------|
 | `POST` | `/ai/generation/talk-v2v/generate-async` | Talk-V2V 작업 제출 |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | 작업 상태 조회 |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | 완료된 결과 조회 |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | 작업 상태 조회 |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | 완료된 결과 조회 |
+
+> `api-key` 헤더로 사용자와 구독 정보가 식별되므로 request body나 query string에 `email`·`product_code`를 따로 보낼 필요가 없습니다. 백엔드가 API 키로부터 두 값을 모두 해석합니다.
 
 ### 1. Talk-V2V 작업 제출
 
@@ -49,8 +51,6 @@ url = "https://api.kvid.ai/ai/generation/talk-v2v/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "YOUR_PRODUCT_CODE",
     "input_video": "https://your-host.example/source.mp4",
     "audio_file": "https://your-host.example/voice.mp3",
     "resolution": "720p",
@@ -92,9 +92,8 @@ import time
 
 api_key = "YOUR_API_KEY"
 job_id = "tlk_1777360165746_xyz789"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}"
 headers = {"api-key": api_key}
 
 while True:
@@ -119,9 +118,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "tlk_1777360165746_xyz789"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -150,8 +148,6 @@ print(response.json())
 
 | 매개변수 | 타입 | 필수 | 설명 |
 |----------|------|------|------|
-| `email` | string | ✅ | 계정 이메일 — 작업 소유권 및 크레딧 정산용 |
-| `product_code` | string | ✅ | API 구독 product code ([API 키 페이지](https://kvid.ai/settings/api-keys)에서 확인) |
 | `input_video` | string (URL) | ✅ | 소스 비디오의 HTTPS URL |
 | `audio_file` | string (URL) | ✅ | 립싱크 기준이 될 오디오의 HTTPS URL |
 | `prompt` | string | – | 스타일 가이드용 선택적 프롬프트 |

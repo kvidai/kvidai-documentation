@@ -39,8 +39,10 @@ Video Generation API는 **비동기 방식**입니다. POST로 작업을 제출�
 |--------|------|------|
 | `POST` | `/ai/generation/text-to-video/generate-async` | Text-to-Video 작업 제출 |
 | `POST` | `/ai/generation/image-to-video/generate-async` | Image-to-Video 작업 제출 |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | 작업 상태 조회 |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | 완료된 결과 조회 |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | 작업 상태 조회 |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | 완료된 결과 조회 |
+
+> `api-key` 헤더로 사용자와 구독 정보가 식별되므로 request body나 query string에 `email`·`product_code`를 따로 보낼 필요가 없습니다. 백엔드가 API 키로부터 두 값을 모두 해석합니다.
 
 ### 1. Text-to-Video 작업 생성
 
@@ -51,8 +53,6 @@ url = "https://api.kvid.ai/ai/generation/text-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "video-text-to-video",
     "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
     "model": "v2",          # v1 / v2 / v3
     "resolution": "720p",   # 480p / 720p / 1080p (모델 별 상이)
@@ -92,8 +92,6 @@ url = "https://api.kvid.ai/ai/generation/image-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "video-image-to-video",
     "prompt": "The tiger briefly pulls back its tongue, blinks, tilts its head slightly.",
     "image_url": "https://your-host.example/tiger.jpg",
     "model": "v2",
@@ -117,9 +115,8 @@ import time
 
 api_key = "YOUR_API_KEY"
 job_id = "vid_1777360165746_abc123"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}"
 headers = {"api-key": api_key}
 
 while True:
@@ -148,9 +145,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "vid_1777360165746_abc123"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -190,8 +186,6 @@ else:
 
 | 매개변수 | 타입 | 필수 | 설명 |
 |----------|------|------|------|
-| `email` | string | ✅ | 계정 이메일 — 작업 소유권 및 크레딧 정산용 |
-| `product_code` | string | ✅ | `video-text-to-video` 또는 `video-image-to-video` |
 | `prompt` | string | ✅ | 비디오 생성 프롬프트 |
 | `model` | string | – | `v1` / `v2`(기본) / `v3` |
 | `resolution` | string | – | `480p` / `720p` / `1080p` (모델 별 상이). 기본 `720p` |

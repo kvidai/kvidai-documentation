@@ -40,8 +40,10 @@ Image Generation API는 **비동기 방식**입니다. 작업을 제출 → 통�
 |--------|------|------|
 | `POST` | `/ai/generation/text-to-image/generate-async` | Text-to-Image 작업 제출 |
 | `POST` | `/ai/generation/image-to-image/generate-async` | Image-to-Image (편집) 작업 제출 |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | 작업 상태 조회 |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | 완료된 결과 조회 |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | 작업 상태 조회 |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | 완료된 결과 조회 |
+
+> `api-key` 헤더로 사용자와 구독 정보가 식별되므로 request body나 query string에 `email`·`product_code`를 따로 보낼 필요가 없습니다. 백엔드가 API 키로부터 두 값을 모두 해석합니다.
 
 ### 1. Text-to-Image 작업 생성
 
@@ -51,8 +53,6 @@ api-key: YOUR_API_KEY
 Content-Type: application/json
 
 {
-  "email": "you@example.com",
-  "product_code": "image-text-to-image",
   "prompt": "K-pop idol wearing colorful stage outfit, professional photography",
   "negative_prompt": "blurry, low quality, distorted",
   "image_size": { "width": 1024, "height": 1024 },
@@ -80,7 +80,7 @@ Content-Type: application/json
 ### 2. 작업 상태 확인
 
 ```http
-GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq
 api-key: YOUR_API_KEY
 ```
 
@@ -104,7 +104,7 @@ api-key: YOUR_API_KEY
 ### 3. 결과 가져오기
 
 ```http
-GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq
 api-key: YOUR_API_KEY
 ```
 
@@ -134,8 +134,6 @@ api-key: YOUR_API_KEY
 
 | 매개변수 | 타입 | 필수 | 설명 |
 |----------|------|------|------|
-| `email` | string | ✅ | 계정 이메일 — 작업 소유권 및 크레딧 정산용 |
-| `product_code` | string | ✅ | `image-text-to-image` 또는 `image-image-to-image` |
 | `prompt` | string | ✅ | 이미지 생성 프롬프트 |
 | `negative_prompt` | string | – | 제외할 요소 설명 |
 | `image_size` | object | – | `{ width, height }` (256–1024, 64의 배수 권장) |
@@ -171,8 +169,6 @@ api-key: YOUR_API_KEY
 
 ```json
 {
-  "email": "you@example.com",
-  "product_code": "image-text-to-image",
   "prompt": "K-pop idol in glittery stage outfit, dynamic pose",
   "negative_prompt": "blurry, low quality, distorted",
   "image_size": { "width": 1024, "height": 1024 },
@@ -188,8 +184,6 @@ api-key: YOUR_API_KEY
 
 ```json
 {
-  "email": "you@example.com",
-  "product_code": "image-text-to-image",
   "prompt": "Natural Korean beauty makeup, soft lighting",
   "negative_prompt": "harsh lighting, unnatural colors",
   "image_size": { "width": 768, "height": 768 },
@@ -205,8 +199,6 @@ api-key: YOUR_API_KEY
 
 ```json
 {
-  "email": "you@example.com",
-  "product_code": "image-text-to-image",
   "prompt": "Korean street fashion, trendy outfit",
   "negative_prompt": "old-fashioned, outdated style",
   "image_size": { "width": 768, "height": 1024 },
@@ -228,7 +220,6 @@ import time
 
 API_KEY = "YOUR_API_KEY"
 BASE_URL = "https://api.kvid.ai"
-EMAIL = "you@example.com"
 
 headers = {
     "api-key": API_KEY,
@@ -236,8 +227,6 @@ headers = {
 }
 
 payload = {
-    "email": EMAIL,
-    "product_code": "image-text-to-image",
     "prompt": "Beautiful K-pop idol with colorful hair, professional portrait",
     "negative_prompt": "blurry, low quality, distorted",
     "image_size": {"width": 1024, "height": 1024},
@@ -258,7 +247,7 @@ print(f"Job ID: {job_id}")
 # 완료 대기
 while True:
     s = requests.get(
-        f"{BASE_URL}/ai/generation/status?jobId={job_id}&email={EMAIL}",
+        f"{BASE_URL}/ai/generation/status?jobId={job_id}",
         headers=headers,
     ).json()
     status = s["data"]["status"]
@@ -272,7 +261,7 @@ while True:
 
 # 결과 조회
 r = requests.get(
-    f"{BASE_URL}/ai/generation/result?jobId={job_id}&email={EMAIL}",
+    f"{BASE_URL}/ai/generation/result?jobId={job_id}",
     headers=headers,
 ).json()
 print(f"이미지 URL: {r['data']['result_url']}")
@@ -283,7 +272,6 @@ print(f"이미지 URL: {r['data']['result_url']}")
 ```javascript
 const API_KEY = 'YOUR_API_KEY';
 const BASE_URL = 'https://api.kvid.ai';
-const EMAIL = 'you@example.com';
 
 async function generateImage() {
   const headers = {
@@ -298,8 +286,6 @@ async function generateImage() {
       method: 'POST',
       headers,
       body: JSON.stringify({
-        email: EMAIL,
-        product_code: 'image-text-to-image',
         prompt: 'Korean beauty model with natural makeup, studio lighting',
         negative_prompt: 'blurry, distorted',
         image_size: { width: 768, height: 768 },
@@ -314,7 +300,7 @@ async function generateImage() {
   // 완료 대기
   while (true) {
     const s = await fetch(
-      `${BASE_URL}/ai/generation/status?jobId=${job_id}&email=${EMAIL}`,
+      `${BASE_URL}/ai/generation/status?jobId=${job_id}`,
       { headers }
     ).then(r => r.json());
 
@@ -328,7 +314,7 @@ async function generateImage() {
 
   // 결과 조회
   const r = await fetch(
-    `${BASE_URL}/ai/generation/result?jobId=${job_id}&email=${EMAIL}`,
+    `${BASE_URL}/ai/generation/result?jobId=${job_id}`,
     { headers }
   ).then(r => r.json());
   console.log('이미지 URL:', r.data.result_url);
@@ -345,8 +331,6 @@ curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "you@example.com",
-    "product_code": "image-text-to-image",
     "prompt": "K-pop concert stage with colorful lights",
     "negative_prompt": "blurry, low quality",
     "image_size": { "width": 1024, "height": 768 },
@@ -356,11 +340,11 @@ curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   }'
 
 # 상태 확인
-curl -X GET "https://api.kvid.ai/ai/generation/status?jobId=JOB_ID&email=you@example.com" \
+curl -X GET "https://api.kvid.ai/ai/generation/status?jobId=JOB_ID" \
   -H "api-key: YOUR_API_KEY"
 
 # 결과 조회
-curl -X GET "https://api.kvid.ai/ai/generation/result?jobId=JOB_ID&email=you@example.com" \
+curl -X GET "https://api.kvid.ai/ai/generation/result?jobId=JOB_ID" \
   -H "api-key: YOUR_API_KEY"
 ```
 

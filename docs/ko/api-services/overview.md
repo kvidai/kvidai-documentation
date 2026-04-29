@@ -36,14 +36,12 @@ curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "you@example.com",
-    "product_code": "image-text-to-image",
     "prompt": "K-pop concert stage with colorful lights",
     "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
 
-응답으로 `job_id` 가 반환됩니다. `GET /ai/generation/status?jobId={id}&email={email}` 으로 폴링하여 `status: "completed"` 가 되면 `GET /ai/generation/result?jobId={id}&email={email}` 으로 결과를 조회합니다. 자세한 흐름은 [Image API 문서](./image-api) 참조.
+응답으로 `job_id` 가 반환됩니다. `GET /ai/generation/status?jobId={id}` 으로 폴링하여 `status: "completed"` 가 되면 `GET /ai/generation/result?jobId={id}` 으로 결과를 조회합니다. `api-key` 헤더로 사용자가 식별되므로 `email` 이나 `product_code` 는 별도로 보낼 필요 없습니다. 자세한 흐름은 [Image API 문서](./image-api) 참조.
 
 ## 요금
 

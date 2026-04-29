@@ -43,8 +43,10 @@ The Video Generation API is **asynchronous** — first POST a generation request
 |--------|------|---------|
 | `POST` | `/ai/generation/text-to-video/generate-async` | Submit text-to-video job |
 | `POST` | `/ai/generation/image-to-video/generate-async` | Submit image-to-video job |
-| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | Check job status |
-| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | Fetch completed result |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result |
+
+> The `api-key` header identifies the user and their subscription. You don't need to include `email` or `product_code` in the request body or query string — the backend resolves both from the API key.
 
 ### 1. Create a text-to-video job
 
@@ -57,8 +59,6 @@ url = "https://api.kvid.ai/ai/generation/text-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "video-text-to-video",
     "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
     "model": "v2",          # v1 / v2 / v3
     "resolution": "720p",   # 480p / 720p / 1080p (model-dependent)
@@ -96,8 +96,6 @@ url = "https://api.kvid.ai/ai/generation/image-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
 payload = {
-    "email": "you@example.com",
-    "product_code": "video-image-to-video",
     "prompt": "The tiger briefly pulls back its tongue, blinks, tilts its head slightly.",
     "image_url": "https://your-host.example/tiger.jpg",
     "model": "v2",
@@ -119,9 +117,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "vid_1777360165746_abc123"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -152,9 +149,8 @@ import requests
 
 api_key = "YOUR_API_KEY"
 job_id = "vid_1777360165746_abc123"
-email = "you@example.com"
 
-url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}&email={email}"
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}"
 headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
@@ -186,8 +182,6 @@ Response:
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `email` | string | yes | Account email — used for job ownership and credit accounting |
-| `product_code` | string | yes | `video-text-to-video` or `video-image-to-video` |
 | `prompt` | string | yes | Text prompt guiding generation |
 | `model` | string | no | `v1` / `v2` (default) / `v3` |
 | `resolution` | string | no | `480p` / `720p` / `1080p` (model-dependent). Default: `720p` |

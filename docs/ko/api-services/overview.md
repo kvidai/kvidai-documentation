@@ -31,14 +31,18 @@ kvidAI의 모든 API는 `https://api.kvid.ai` 에서 제공되며, 하나의 계
 ### 3. 첫 API 호출
 
 ```bash
-curl -X POST "https://api.kvid.ai/ai/image/generate" \
+curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
+    "email": "you@example.com",
+    "product_code": "image-text-to-image",
     "prompt": "K-pop concert stage with colorful lights",
     "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
+
+응답으로 `job_id` 가 반환됩니다. `GET /ai/generation/status?jobId={id}&email={email}` 으로 폴링하여 `status: "completed"` 가 되면 `GET /ai/generation/result?jobId={id}&email={email}` 으로 결과를 조회합니다. 자세한 흐름은 [Image API 문서](./image-api) 참조.
 
 ## 요금
 

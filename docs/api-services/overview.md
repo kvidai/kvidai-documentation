@@ -34,14 +34,18 @@ Go to [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) and create 
 ### 3. Make your first call
 
 ```bash
-curl -X POST "https://api.kvid.ai/ai/image/generate" \
+curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
+    "email": "you@example.com",
+    "product_code": "image-text-to-image",
     "prompt": "K-pop concert stage with colorful lights",
     "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
+
+The call returns a `job_id`. Poll `GET /ai/generation/status?jobId={id}&email={email}` until `status: "completed"`, then fetch the result with `GET /ai/generation/result?jobId={id}&email={email}`. See the [Image API reference](./image-api) for details.
 
 ## Pricing
 

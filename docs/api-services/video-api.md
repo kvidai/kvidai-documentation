@@ -12,15 +12,15 @@ sidebar_position: 2
 
 > **한국어로 보기**: [Video 생성 AI API](/docs/ko/api-services/video-api) | **View in English** (current page)
 
-kvidAI's Video Generation AI API creates high-quality 5-6 second videos from text or images, specializing in K-pop and K-beauty content.
+kvidAI's Video Generation AI API creates high-quality short videos from text or images, specializing in K-pop and K-beauty content.
 
 ## 🎯 Service Overview
 
 ### Supported Features
 - **Text-to-Video**: Generate videos from text prompts
 - **Image-to-Video**: Create videos based on input images
-- **Resolution**: 480p, 720p support (default: 720p)
-- **Duration**: 5-6 seconds
+- **Resolution**: 480p / 720p / 1080p (model-dependent)
+- **Duration**: typically 5–10 seconds (model-dependent)
 
 ### Specialized Capabilities
 - Camera angle manipulation prompts (may not be perfect)
@@ -30,140 +30,174 @@ kvidAI's Video Generation AI API creates high-quality 5-6 second videos from tex
 ## 📡 API Endpoints
 
 ### Basic Information
+
 ```
-Base URL: https://api.kvid.ai/ai-model/videogen-1/v1
-Video Generation: https://api.kvid.ai/ai-model/videogen-1/v1/video_generation
-Authentication: API-KEY Bearer Token
-Content-Type: application/json
+Base URL:       https://api.kvid.ai
+Authentication: api-key header
+Content-Type:   application/json
 ```
 
-### 1. Create Video Generation Task
+The Video Generation API is **asynchronous** — first POST a generation request to get a `job_id`, then poll the status endpoint until the job completes, and finally fetch the result.
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/ai/generation/text-to-video/generate-async` | Submit text-to-video job |
+| `POST` | `/ai/generation/image-to-video/generate-async` | Submit image-to-video job |
+| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | Check job status |
+| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | Fetch completed result |
+
+### 1. Create a text-to-video job
 
 **Python Example**
-```python
-import requests
-import json
 
-url = "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation"
-api_key = "YOUR_API_KEY"
-
-payload = json.dumps({
-    "model": "text-to-video",
-    "prompt": "[Truck left,Pan right]A woman is drinking coffee.",
-})
-headers = {
-    'API-KEY': f'Bearer {api_key}',
-    'Content-Type': 'application/json'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-print(response.text)
-```
-
-### 2. Query Generation Status
-
-**Python Example**
 ```python
 import requests
 
+url = "https://api.kvid.ai/ai/generation/text-to-video/generate-async"
 api_key = "YOUR_API_KEY"
-task_id = "YOUR_TASK_ID"
 
-url = f"https://api.kvid.ai/ai-model/videogen-1/v1/query/video_generation?task_id={task_id}"
-
+payload = {
+    "email": "you@example.com",
+    "product_code": "video-text-to-video",
+    "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
+    "model": "v2",          # v1 / v2 / v3
+    "resolution": "720p",   # 480p / 720p / 1080p (model-dependent)
+}
 headers = {
-  'API-KEY': f'Bearer {api_key}',
-  'content-type': 'application/json',
+    "api-key": api_key,
+    "Content-Type": "application/json",
 }
 
-response = requests.request("GET", url, headers=headers)
-print(response.text)
+response = requests.post(url, headers=headers, json=payload)
+print(response.json())
 ```
 
-### 3. Get Video File Download URL
+Response:
 
-**Python Example**
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "vid_1777360165746_abc123",
+    "status": "queued",
+    "message": "Job submitted",
+    "estimated_time": "30s",
+    "video_type": "text-to-video"
+  }
+}
+```
+
+### 2. Create an image-to-video job
+
 ```python
 import requests
 
-group_id = "your_group_id"  # optional
+url = "https://api.kvid.ai/ai/generation/image-to-video/generate-async"
 api_key = "YOUR_API_KEY"
-file_id = "YOUR_FILE_ID"
 
-url = f'https://api.kvid.ai/ai-model/videogen-1/v1/files/retrieve?GroupId={group_id}&file_id={file_id}'
-headers = {
-    'content-type': 'application/json',
-    'API-KEY': f'Bearer {api_key}'
+payload = {
+    "email": "you@example.com",
+    "product_code": "video-image-to-video",
+    "prompt": "The tiger briefly pulls back its tongue, blinks, tilts its head slightly.",
+    "image_url": "https://your-host.example/tiger.jpg",
+    "model": "v2",
+    "resolution": "720p",
 }
+headers = {
+    "api-key": api_key,
+    "Content-Type": "application/json",
+}
+
+response = requests.post(url, headers=headers, json=payload)
+print(response.json())
+```
+
+### 3. Check job status
+
+```python
+import requests
+
+api_key = "YOUR_API_KEY"
+job_id = "vid_1777360165746_abc123"
+email = "you@example.com"
+
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}&email={email}"
+headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
-print(response.text)
+print(response.json())
+```
+
+Response (in-progress):
+
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "vid_1777360165746_abc123",
+    "status": "processing",
+    "video_type": "text-to-video",
+    "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
+    "created_at": "2026-04-21T10:00:00Z"
+  }
+}
+```
+
+`status` is one of: `queued`, `processing`, `completed`, `failed`.
+
+### 4. Fetch the completed result
+
+```python
+import requests
+
+api_key = "YOUR_API_KEY"
+job_id = "vid_1777360165746_abc123"
+email = "you@example.com"
+
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}&email={email}"
+headers = {"api-key": api_key}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "vid_1777360165746_abc123",
+    "status": "completed",
+    "result_url": "https://cdn.kvid.ai/videos/vid_1777360165746_abc123.mp4",
+    "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
+    "width": 1280,
+    "height": 720,
+    "type": "video/mp4",
+    "used_credit": 54,
+    "created_at": "2026-04-21T10:00:00Z"
+  }
+}
 ```
 
 ## 📋 Schema
 
-### Input Parameters
+### Common request fields
 
-**`prompt`** `string` *required*
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `email` | string | yes | Account email — used for job ownership and credit accounting |
+| `product_code` | string | yes | `video-text-to-video` or `video-image-to-video` |
+| `prompt` | string | yes | Text prompt guiding generation |
+| `model` | string | no | `v1` / `v2` (default) / `v3` |
+| `resolution` | string | no | `480p` / `720p` / `1080p` (model-dependent). Default: `720p` |
+| `image_url` | string | image-to-video | URL of the input image (HTTPS) |
+| `seed` | integer | no | Random seed for reproducibility |
+| `num_inference_steps` | integer | no | Sampling steps; higher = better quality, slower |
+| `enable_safety_checker` | boolean | no | Defaults to `true` |
+| `enable_prompt_expansion` | boolean | no | Lets the backend expand prompt if `true` |
 
-Text prompt to guide video generation.
-
-**`image_url`** `string`
-
-URL of the input image.
-
-**`seed`** `integer`
-
-Random seed for reproducibility. If None, a random seed will be selected.
-
-**`resolution`** `ResolutionEnum`
-
-Resolution of the generated video (480p or 720p). Default: **`"720p"`**
-
-Possible values: **`480p, 720p`**
-
-**`num_inference_steps`** `integer`
-
-Number of inference steps for sampling. Higher values improve quality but take longer. Default: **`30`**
-
-**`enable_safety_checker`** `boolean`
-
-Enable safety checker when set to true.
-
-**`enable_prompt_expansion`** `boolean`
-
-Whether to enable prompt expansion.
-
-**Request Example**
-```json
-{
-  "prompt": "A stylish woman walks down a Tokyo street filled with warm glowing neon and animated city signage.",
-  "image_url": "https://hometip.media/files/elephant/8kkhB12hEZI2kkbU8pZPA_test.jpeg",
-  "resolution": "720p",
-  "num_inference_steps": 30,
-  "enable_safety_checker": true,
-  "enable_prompt_expansion": true
-}
-```
-
-### Output
-
-**`video`** `File` *required*
-
-Generated video file.
-
-**`seed`** `integer` *required*
-
-Seed used for generation.
-
-**Response Example**
-```json
-{
-  "video": {
-    "url": "https://hometip.media/files/elephant/Nj4jZupkZvR7g0QkNueJZ_video-1740522225.mp4"
-  }
-}
-```
+> Model availability per resolution can change. Refer to [Pricing → Video Generation](/docs/pricing#video-generation) for the currently supported combinations.
 
 ## 💰 Pricing
 
@@ -229,14 +263,14 @@ Credit costs vary by model and resolution (v1 / v2 / v3). See [Pricing → Video
 ## ⚠️ Limitations & Notes
 
 ### Technical Limitations
-- **Duration**: Fixed at 5-6 seconds
-- **Resolution**: Maximum 720p
-- **Camera Angles**: Camera angle manipulation prompts may not always work accurately
+- **Duration**: short clips (5–10 s typical, model-dependent)
+- **Resolution**: depends on selected model (see Pricing)
+- **Camera Angles**: camera angle manipulation prompts may not always work accurately
 
 ### Optimization Tips
-- **Specific Prompts**: Provide detailed and clear descriptions
-- **Camera Angles**: Use directives like [Low-angle], [Over-the-shoulder shot] when needed
-- **Appropriate Resolution**: Choose resolution based on your use case
+- **Specific Prompts**: provide detailed, clear descriptions
+- **Camera Angles**: use directives like `[Low-angle]`, `[Over-the-shoulder shot]` when needed
+- **Appropriate Resolution**: match resolution to your delivery channel
 
 ## 🔗 Related Links
 

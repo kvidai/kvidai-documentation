@@ -18,24 +18,33 @@ The Image Generation API generates high-quality still images from text prompts, 
 - **K-content tuning**: K-pop concept, stage outfits, K-beauty makeup / skincare, Korean streetwear
 - **Resolution**: up to **1024 × 1024**
 
-## Endpoint
+## Endpoints
 
 ```
 Base URL:       https://api.kvid.ai
-Authentication: API-KEY header
+Authentication: api-key header
 Content-Type:   application/json
 ```
 
-### 1. Create a generation task
+The Image Generation API is **asynchronous** — submit a job, poll the unified status endpoint, then fetch the result.
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/ai/generation/text-to-image/generate-async` | Submit a text-to-image job |
+| `POST` | `/ai/generation/image-to-image/generate-async` | Submit an image edit / image-to-image job |
+| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | Check job status |
+| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | Fetch completed result |
+
+### 1. Create a text-to-image job
 
 ```http
-POST /ai/image/generate
-```
+POST https://api.kvid.ai/ai/generation/text-to-image/generate-async
+api-key: YOUR_API_KEY
+Content-Type: application/json
 
-**Request**
-
-```json
 {
+  "email": "you@example.com",
+  "product_code": "image-text-to-image",
   "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
   "negative_prompt": "blurry, low quality, distorted",
   "image_size": { "width": 1024, "height": 1024 },
@@ -49,51 +58,85 @@ POST /ai/image/generate
 
 ```json
 {
-  "task_id": "img_abc123def456",
-  "status": "pending",
-  "estimated_time": 30
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "queued",
+    "message": "Job submitted",
+    "estimated_time": "10s",
+    "image_type": "text-to-image"
+  }
 }
 ```
 
-### 2. Check task status
+### 2. Check job status
 
 ```http
-GET /ai/image/status/{task_id}
+GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+api-key: YOUR_API_KEY
 ```
 
 **Response**
 
 ```json
 {
-  "task_id": "img_abc123def456",
-  "status": "completed",
-  "progress": 100,
-  "result": {
-    "images": [
-      {
-        "url": "https://cdn.kvid.ai/images/abc123_1.jpg",
-        "width": 1024,
-        "height": 1024,
-        "seed": 12345
-      }
-    ]
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "processing",
+    "image_type": "text-to-image",
+    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
+    "created_at": "2026-04-21T10:00:00Z"
   }
 }
 ```
 
-Possible `status` values: `pending`, `running`, `completed`, `failed`.
+`status` is one of: `queued`, `processing`, `completed`, `failed`.
+
+### 3. Fetch the completed result
+
+```http
+GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+api-key: YOUR_API_KEY
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "completed",
+    "result_url": "https://cdn.kvid.ai/images/img_1777360165746_2f4ye58gq.jpg",
+    "width": 1024,
+    "height": 1024,
+    "size": 524288,
+    "type": "image/jpeg",
+    "used_credit": 8,
+    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
+    "created_at": "2026-04-21T10:00:00Z"
+  }
+}
+```
 
 ## Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `email` | string | yes | Account email — used for job ownership and credit accounting |
+| `product_code` | string | yes | `image-text-to-image` or `image-image-to-image` |
 | `prompt` | string | yes | Positive prompt |
 | `negative_prompt` | string | no | Things to avoid |
 | `image_size.width` / `image_size.height` | integer | no | 256–1024 (multiples of 64 recommended) |
+| `aspect_ratio` | string | no | e.g. `1:1`, `16:9`, `9:16` (alternative to `image_size`) |
 | `num_inference_steps` | integer | no | 20 / 30 / 40 / 50 — higher = better quality, slower |
 | `guidance_scale` | float | no | 3 / 5 / 7.5 / 10 — prompt adherence strength |
 | `seed` | integer | no | Reproducibility |
-| `enable_safety_checker` | boolean | no | Defaults to true |
+| `num_images` | integer | no | How many images to generate in one job |
+| `output_format` | string | no | `jpeg` (default) / `png` |
+| `image_url` / `image_urls` | string / string[] | image-to-image | Source image(s) for editing |
+| `enable_safety_checker` | boolean | no | Defaults to `true` |
 
 ## Error handling
 

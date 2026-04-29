@@ -13,9 +13,10 @@ kvidAI의 Image 생성 AI API는 Nano Banana 모델을 기반으로 한 고품�
 
 ### 핵심 기능
 - **Text-to-Image**: 텍스트 프롬프트로 이미지 생성
+- **Image-to-Image**: 입력 이미지를 기반으로 한 편집·변형
 - **Nano Banana**: 기본 이미지 생성 모델
 - **K-컨텐츠 특화**: K-pop, K-뷰티 최적화
-- **고해상도**: 최대 1024x1024 지원
+- **고해상도**: 최대 1024×1024 지원
 
 ### 특화 영역
 - **K-pop 스타일**: 아이돌 컨셉, 무대 의상, 앨범 커버
@@ -26,35 +27,35 @@ kvidAI의 Image 생성 AI API는 Nano Banana 모델을 기반으로 한 고품�
 ## 📡 API 엔드포인트
 
 ### 기본 정보
+
 ```
-Base URL: https://api.kvid.ai
-Authentication: api-key Header
-Content-Type: application/json
+Base URL:       https://api.kvid.ai
+Authentication: api-key 헤더
+Content-Type:   application/json
 ```
 
-### 1. 이미지 생성 요청
+Image Generation API는 **비동기 방식**입니다. 작업을 제출 → 통합 status 엔드포인트로 폴링 → result 엔드포인트로 결과 조회.
+
+| Method | Path | 용도 |
+|--------|------|------|
+| `POST` | `/ai/generation/text-to-image/generate-async` | Text-to-Image 작업 제출 |
+| `POST` | `/ai/generation/image-to-image/generate-async` | Image-to-Image (편집) 작업 제출 |
+| `GET`  | `/ai/generation/status?jobId={job_id}&email={email}` | 작업 상태 조회 |
+| `GET`  | `/ai/generation/result?jobId={job_id}&email={email}` | 완료된 결과 조회 |
+
+### 1. Text-to-Image 작업 생성
 
 ```http
-POST /ai/image/generate
-```
+POST https://api.kvid.ai/ai/generation/text-to-image/generate-async
+api-key: YOUR_API_KEY
+Content-Type: application/json
 
-**요청 헤더**
-```json
 {
-  "api-key": "YOUR_API_KEY",
-  "Content-Type": "application/json"
-}
-```
-
-**요청 본문**
-```json
-{
+  "email": "you@example.com",
+  "product_code": "image-text-to-image",
   "prompt": "K-pop idol wearing colorful stage outfit, professional photography",
   "negative_prompt": "blurry, low quality, distorted",
-  "image_size": {
-    "width": 1024,
-    "height": 1024
-  },
+  "image_size": { "width": 1024, "height": 1024 },
   "num_inference_steps": 50,
   "guidance_scale": 7.5,
   "enable_safety_checker": true
@@ -62,84 +63,99 @@ POST /ai/image/generate
 ```
 
 **응답**
+
 ```json
 {
-  "task_id": "img_abc123def456",
-  "status": "pending",
-  "estimated_time": 30,
-  "credits_used": 16
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "queued",
+    "message": "Job submitted",
+    "estimated_time": "10s",
+    "image_type": "text-to-image"
+  }
 }
 ```
 
 ### 2. 작업 상태 확인
 
 ```http
-GET /ai/image/status/{task_id}
+GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+api-key: YOUR_API_KEY
 ```
 
 **응답**
+
 ```json
 {
-  "task_id": "img_abc123def456",
-  "status": "completed",
-  "progress": 100,
-  "result": {
-    "images": [
-      {
-        "url": "https://cdn.kvid.ai/images/abc123_1.jpg",
-        "width": 1024,
-        "height": 1024,
-        "seed": 12345
-      }
-    ]
-  },
-  "credits_used": 16
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "processing",
+    "image_type": "text-to-image",
+    "prompt": "K-pop idol wearing colorful stage outfit, professional photography",
+    "created_at": "2026-04-21T10:00:00Z"
+  }
 }
 ```
 
-### 3. 배치 생성
+`status` 값: `queued`, `processing`, `completed`, `failed`.
+
+### 3. 결과 가져오기
 
 ```http
-POST /ai/image/generate
+GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq&email=you@example.com
+api-key: YOUR_API_KEY
 ```
 
-**이미지 생성 요청 예시**
+**응답**
+
 ```json
 {
-  "prompt": "Beautiful Korean makeup look, natural lighting",
-  "negative_prompt": "blurry, low quality",
-  "image_size": {
-    "width": 512,
-    "height": 512
-  },
-  "num_inference_steps": 50,
-  "guidance_scale": 7.5,
-  "enable_safety_checker": true
+  "success": true,
+  "data": {
+    "job_id": "img_1777360165746_2f4ye58gq",
+    "status": "completed",
+    "result_url": "https://cdn.kvid.ai/images/img_1777360165746_2f4ye58gq.jpg",
+    "width": 1024,
+    "height": 1024,
+    "size": 524288,
+    "type": "image/jpeg",
+    "used_credit": 8,
+    "prompt": "K-pop idol wearing colorful stage outfit, professional photography",
+    "created_at": "2026-04-21T10:00:00Z"
+  }
 }
 ```
 
 ## 📋 매개변수 상세
 
-### 필수 매개변수
+### 공통 매개변수
 
-| 매개변수 | 타입 | 설명 | 예시 |
+| 매개변수 | 타입 | 필수 | 설명 |
 |----------|------|------|------|
-| `prompt` | string | 이미지 생성 프롬프트 (최대 1000자) | "K-pop idol in colorful stage outfit" |
+| `email` | string | ✅ | 계정 이메일 — 작업 소유권 및 크레딧 정산용 |
+| `product_code` | string | ✅ | `image-text-to-image` 또는 `image-image-to-image` |
+| `prompt` | string | ✅ | 이미지 생성 프롬프트 |
+| `negative_prompt` | string | – | 제외할 요소 설명 |
+| `image_size` | object | – | `{ width, height }` (256–1024, 64의 배수 권장) |
+| `aspect_ratio` | string | – | `1:1` / `16:9` / `9:16` 등 (`image_size` 대안) |
+| `num_inference_steps` | integer | – | 20 / 30 / 40 / 50 — 클수록 품질↑, 속도↓ |
+| `guidance_scale` | float | – | 3 / 5 / 7.5 / 10 — 프롬프트 반영 강도 |
+| `seed` | integer | – | 재현성을 위한 시드값 |
+| `num_images` | integer | – | 한 작업에서 생성할 이미지 수 |
+| `output_format` | string | – | `jpeg` (기본) / `png` |
+| `enable_safety_checker` | boolean | – | 안전 필터, 기본 `true` |
 
-### 선택 매개변수
+### Image-to-Image 추가 매개변수
 
-| 매개변수 | 타입 | 기본값 | 설명 |
-|----------|------|--------|------|
-| `negative_prompt` | string | - | 제외할 요소 설명 |
-| `image_size` | object | - | 이미지 크기 설정 객체 |
-| `image_size.width` | integer | 1024 | 이미지 폭 (512, 768, 1024) |
-| `image_size.height` | integer | 1024 | 이미지 높이 (512, 768, 1024) |
-| `num_inference_steps` | integer | 50 | 추론 단계 수 (20-100) |
-| `guidance_scale` | float | 7.5 | CFG 스케일 (1.0-20.0) |
-| `enable_safety_checker` | boolean | true | 안전 필터 활성화 여부 |
-| `seed` | integer | random | 재현성을 위한 시드값 |
+| 매개변수 | 타입 | 필수 | 설명 |
+|----------|------|------|------|
+| `image_url` 또는 `image_urls` | string / string[] | ✅ | 입력 이미지 URL(들) (HTTPS) |
+| `model` | string | – | 모델 식별자 |
+| `function` | string | – | 편집 기능 식별자 |
 
-### 지원 해상도
+### 지원 해상도 예
 
 | 크기 | 비율 | 용도 |
 |------|------|------|
@@ -149,15 +165,17 @@ POST /ai/image/generate
 | 768×512 | 3:2 | 가로형 이미지 |
 | 512×768 | 2:3 | 세로형 이미지 |
 
-
 ## 🎨 스타일 프리셋
 
 ### K-pop 스타일
+
 ```json
 {
+  "email": "you@example.com",
+  "product_code": "image-text-to-image",
   "prompt": "K-pop idol in glittery stage outfit, dynamic pose",
   "negative_prompt": "blurry, low quality, distorted",
-  "image_size": {"width": 1024, "height": 1024},
+  "image_size": { "width": 1024, "height": 1024 },
   "guidance_scale": 7.5
 }
 ```
@@ -167,11 +185,14 @@ POST /ai/image/generate
 - 현대적이고 트렌디한 스타일
 
 ### K-뷰티 스타일
+
 ```json
 {
+  "email": "you@example.com",
+  "product_code": "image-text-to-image",
   "prompt": "Natural Korean beauty makeup, soft lighting",
   "negative_prompt": "harsh lighting, unnatural colors",
-  "image_size": {"width": 768, "height": 768},
+  "image_size": { "width": 768, "height": 768 },
   "guidance_scale": 7.5
 }
 ```
@@ -181,11 +202,14 @@ POST /ai/image/generate
 - 미니멀한 배경
 
 ### 패션 스타일
+
 ```json
 {
+  "email": "you@example.com",
+  "product_code": "image-text-to-image",
   "prompt": "Korean street fashion, trendy outfit",
   "negative_prompt": "old-fashioned, outdated style",
-  "image_size": {"width": 768, "height": 1024},
+  "image_size": { "width": 768, "height": 1024 },
   "guidance_scale": 7.5
 }
 ```
@@ -202,48 +226,56 @@ POST /ai/image/generate
 import requests
 import time
 
-# API 설정
 API_KEY = "YOUR_API_KEY"
 BASE_URL = "https://api.kvid.ai"
+EMAIL = "you@example.com"
 
 headers = {
     "api-key": API_KEY,
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
 }
 
-# 이미지 생성 요청
 payload = {
+    "email": EMAIL,
+    "product_code": "image-text-to-image",
     "prompt": "Beautiful K-pop idol with colorful hair, professional portrait",
     "negative_prompt": "blurry, low quality, distorted",
-    "image_size": {
-        "width": 1024,
-        "height": 1024
-    },
+    "image_size": {"width": 1024, "height": 1024},
     "num_inference_steps": 50,
     "guidance_scale": 7.5,
-    "enable_safety_checker": True
+    "enable_safety_checker": True,
 }
 
-# 생성 요청
-response = requests.post(f"{BASE_URL}/ai/image/generate", json=payload, headers=headers)
-task_data = response.json()
-task_id = task_data["task_id"]
+# 작업 제출
+response = requests.post(
+    f"{BASE_URL}/ai/generation/text-to-image/generate-async",
+    json=payload,
+    headers=headers,
+)
+job_id = response.json()["data"]["job_id"]
+print(f"Job ID: {job_id}")
 
 # 완료 대기
 while True:
-    status_response = requests.get(f"{BASE_URL}/ai/image/status/{task_id}", headers=headers)
-    status_data = status_response.json()
-    
-    if status_data["status"] == "completed":
-        images = status_data["result"]["images"]
-        for i, img in enumerate(images):
-            print(f"이미지 {i+1}: {img['url']}")
+    s = requests.get(
+        f"{BASE_URL}/ai/generation/status?jobId={job_id}&email={EMAIL}",
+        headers=headers,
+    ).json()
+    status = s["data"]["status"]
+    print(f"Status: {status}")
+    if status == "completed":
         break
-    elif status_data["status"] == "failed":
+    if status == "failed":
         print("이미지 생성 실패")
         break
-    
-    time.sleep(5)  # 5초 대기
+    time.sleep(3)
+
+# 결과 조회
+r = requests.get(
+    f"{BASE_URL}/ai/generation/result?jobId={job_id}&email={EMAIL}",
+    headers=headers,
+).json()
+print(f"이미지 URL: {r['data']['result_url']}")
 ```
 
 ### JavaScript 예제
@@ -251,51 +283,55 @@ while True:
 ```javascript
 const API_KEY = 'YOUR_API_KEY';
 const BASE_URL = 'https://api.kvid.ai';
+const EMAIL = 'you@example.com';
 
 async function generateImage() {
-  // 이미지 생성 요청
-  const response = await fetch(`${BASE_URL}/ai/image/generate`, {
-    method: 'POST',
-    headers: {
-      'api-key': API_KEY,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      prompt: 'Korean beauty model with natural makeup, studio lighting',
-      negative_prompt: 'blurry, distorted',
-      image_size: {
-        width: 768,
-        height: 768
-      },
-      num_inference_steps: 50,
-      guidance_scale: 7.5,
-      enable_safety_checker: true
-    })
-  });
+  const headers = {
+    'api-key': API_KEY,
+    'Content-Type': 'application/json',
+  };
 
-  const taskData = await response.json();
-  const taskId = taskData.task_id;
+  // 작업 제출
+  const submit = await fetch(
+    `${BASE_URL}/ai/generation/text-to-image/generate-async`,
+    {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        email: EMAIL,
+        product_code: 'image-text-to-image',
+        prompt: 'Korean beauty model with natural makeup, studio lighting',
+        negative_prompt: 'blurry, distorted',
+        image_size: { width: 768, height: 768 },
+        num_inference_steps: 50,
+        guidance_scale: 7.5,
+        enable_safety_checker: true,
+      }),
+    }
+  );
+  const { data: { job_id } } = await submit.json();
 
   // 완료 대기
   while (true) {
-    const statusResponse = await fetch(`${BASE_URL}/ai/image/status/${taskId}`, {
-      headers: {
-        'api-key': API_KEY
-      }
-    });
+    const s = await fetch(
+      `${BASE_URL}/ai/generation/status?jobId=${job_id}&email=${EMAIL}`,
+      { headers }
+    ).then(r => r.json());
 
-    const statusData = await statusResponse.json();
-
-    if (statusData.status === 'completed') {
-      console.log('이미지 생성 완료:', statusData.result.images);
-      break;
-    } else if (statusData.status === 'failed') {
+    if (s.data.status === 'completed') break;
+    if (s.data.status === 'failed') {
       console.log('이미지 생성 실패');
-      break;
+      return;
     }
-
-    await new Promise(resolve => setTimeout(resolve, 5000)); // 5초 대기
+    await new Promise(r => setTimeout(r, 3000));
   }
+
+  // 결과 조회
+  const r = await fetch(
+    `${BASE_URL}/ai/generation/result?jobId=${job_id}&email=${EMAIL}`,
+    { headers }
+  ).then(r => r.json());
+  console.log('이미지 URL:', r.data.result_url);
 }
 
 generateImage();
@@ -304,24 +340,27 @@ generateImage();
 ### cURL 예제
 
 ```bash
-# 이미지 생성 요청
-curl -X POST "https://api.kvid.ai/ai/image/generate" \
+# 작업 제출
+curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
+    "email": "you@example.com",
+    "product_code": "image-text-to-image",
     "prompt": "K-pop concert stage with colorful lights",
     "negative_prompt": "blurry, low quality",
-    "image_size": {
-      "width": 1024,
-      "height": 768
-    },
+    "image_size": { "width": 1024, "height": 768 },
     "num_inference_steps": 50,
     "guidance_scale": 7.5,
     "enable_safety_checker": true
   }'
 
 # 상태 확인
-curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
+curl -X GET "https://api.kvid.ai/ai/generation/status?jobId=JOB_ID&email=you@example.com" \
+  -H "api-key: YOUR_API_KEY"
+
+# 결과 조회
+curl -X GET "https://api.kvid.ai/ai/generation/result?jobId=JOB_ID&email=you@example.com" \
   -H "api-key: YOUR_API_KEY"
 ```
 
@@ -333,7 +372,7 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 ```
 "K-pop idol with pastel pink hair, wearing holographic stage outfit, dramatic lighting, professional photography, high quality"
 
-**negative_prompt**:
+negative_prompt:
 "blurry, low quality, distorted, bad anatomy"
 ```
 
@@ -350,25 +389,13 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 4. **분위기**: 조명, 배경, 무드
 5. **품질**: "professional", "high quality", "detailed"
 
-### 네거티브 프롬프트 활용
-
-```json
-{
-  "prompt": "Beautiful Korean model",
-  "negative_prompt": "blurry, low quality, distorted, bad anatomy",
-  "image_size": {"width": 1024, "height": 1024},
-  "guidance_scale": 7.5,
-  "enable_safety_checker": true
-}
-```
-
 ## ⚠️ 제한사항 및 주의사항
 
 ### 기술적 제한
-- **최대 해상도**: 1280×1280
-- **처리 시간**: 30초-2분
-- **파일 형식**: PNG
-- **프롬프트**: 영어와 기본 특수문자만 사용 가능
+- **최대 해상도**: 1024×1024
+- **처리 시간**: 30초–2분
+- **파일 형식**: 기본 `jpeg` (`output_format`으로 `png` 선택 가능)
+- **프롬프트**: 영어와 기본 특수문자 권장
 
 ### 콘텐츠 정책
 - 성인 콘텐츠 생성 금지
@@ -378,75 +405,31 @@ curl -X GET "https://api.kvid.ai/ai/image/status/TASK_ID" \
 
 ## 🚨 오류 응답
 
-### 오류 응답 형식
+### 기본 형식
+
 ```json
 {
   "success": false,
   "error": "ERROR_CODE",
   "message": "오류 메시지",
-  "details": "상세 설명"
+  "details": {
+    "http_status": 400,
+    "help_url": "https://docs.kvid.ai/docs/ko/api-services/image-api"
+  }
 }
 ```
 
 ### 주요 오류 코드
 
-| 오류 코드 | 설명 | HTTP 상태 | 해결 방법 |
-|----------|------|-----------|-----------|
-| `PROMPT_VALIDATION_ERROR` | 프롬프트 검증 실패 | 400 | 프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요 |
-| `USER_NOT_FOUND` | 사용자를 찾을 수 없음 | 404 | 등록된 이메일인지 확인해주세요 |
-| `CONFIGURATION_ERROR` | 서버 설정 오류 | 500 | 서버 설정을 확인해주세요. 관리자에게 문의하세요 |
-| `GENERATION_ERROR` | 이미지 생성 실패 | 500 | 이미지 생성 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요 |
-| `INSUFFICIENT_CREDITS` | 크레딧 부족 | 402 | 크레딧이 부족합니다. 크레딧을 충전해주세요 |
-
-### 오류 응답 예시
-
-**프롬프트 검증 오류:**
-```json
-{
-  "success": false,
-  "error": "PROMPT_VALIDATION_ERROR",
-  "message": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다.",
-  "details": "프롬프트에 허용되지 않는 문자가 포함되어 있습니다. 영어와 기본 특수문자만 사용해주세요."
-}
-```
-
-**사용자 인증 오류:**
-```json
-{
-  "success": false,
-  "error": "USER_NOT_FOUND",
-  "message": "사용자를 찾을 수 없습니다.",
-  "details": "등록된 이메일인지 확인해주세요."
-}
-```
-
-**크레딧 부족 오류:**
-```json
-{
-  "success": false,
-  "reason": "Not enough credit"
-}
-```
-
-**이미지 생성 오류:**
-```json
-{
-  "success": false,
-  "error": "GENERATION_ERROR",
-  "message": "이미지 생성 중 오류가 발생했습니다.",
-  "details": "생성 요청이 제대로 완료되지 않았을 수 있습니다."
-}
-```
-
-**서버 설정 오류:**
-```json
-{
-  "success": false,
-  "error": "CONFIGURATION_ERROR",
-  "message": "KEY 환경변수가 설정되지 않았습니다.",
-  "details": "서버 설정을 확인해주세요."
-}
-```
+| 오류 코드 | 설명 | HTTP | 해결 방법 |
+|----------|------|------|-----------|
+| `INSUFFICIENT_CREDITS` | 크레딧 부족 | 402 | [크레딧 충전](https://kvid.ai/credits/purchase) |
+| `PROMPT_VALIDATION_ERROR` | 프롬프트 검증 실패 | 400 | 영어와 기본 특수문자만 사용 |
+| `USER_NOT_FOUND` | 사용자 없음 | 404 | 등록된 이메일 확인 |
+| `SAFETY_CHECK_FAILED` | 안전 필터에 의해 거부 | 422 | 프롬프트 수정 |
+| `RATE_LIMITED` | 요청 과다 | 429 | 백오프 후 재시도 |
+| `GENERATION_ERROR` | 이미지 생성 실패 | 500 | 잠시 후 재시도 |
+| `CONFIGURATION_ERROR` | 서버 설정 오류 | 500 | 관리자에게 문의 |
 
 ### 품질 최적화 팁
 - **구체적인 설명**: "아름다운 여성" → "파스텔 핑크 머리의 K-pop 아이돌"
@@ -468,5 +451,5 @@ Image Generation API의 자세한 요금 정보는 [요금 안내 → 이미지 
 
 문의사항이 있으시면 다음 경로로 연락해 주세요:
 
-- **이메일**: kvid030@gmail.com
+- **이메일**: support@kvid.ai
 - **디스코드**: [kvidAI 커뮤니티](https://discord.gg/yzgyCx8Jpt)

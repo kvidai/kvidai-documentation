@@ -17,6 +17,7 @@ kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service share
 |---------|-------------|-----------|
 | **Video Generation** | Text-to-video and image-to-video generation (v1 / v2 / v3 models) | [Video API](./video-api) |
 | **Image Generation** | Still-image generation based on Nano Banana | [Image API](./image-api) |
+| **Talk-V2V (Lip-Sync)** | Drive an existing video with new audio for localized / re-voiced clips | [Talk-V2V API](./talk-v2v) |
 
 ## Getting Started
 

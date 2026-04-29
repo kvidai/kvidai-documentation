@@ -14,6 +14,7 @@ kvidAI의 모든 API는 `https://api.kvid.ai` 에서 제공되며, 하나의 계
 |--------|------|------|
 | **Video Generation** | Text-to-Video / Image-to-Video (v1 / v2 / v3 모델) | [Video API](./video-api) |
 | **Image Generation** | Nano Banana 기반 정지 이미지 생성 | [Image API](./image-api) |
+| **Talk-V2V (립싱크)** | 기존 비디오에 새 오디오를 입혀 립싱크 비디오 생성 | [Talk-V2V API](./talk-v2v) |
 
 ## 시작하기
 

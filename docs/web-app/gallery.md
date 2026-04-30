@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # Gallery
 
-> **한국어**: [갤러리](/docs/ko/web-app/gallery)
+> **한국어**: [갤러리](/ko/docs/web-app/gallery)
 
 The **Gallery** is where users share finished compositions and where you can find templates to import into your own projects.
 

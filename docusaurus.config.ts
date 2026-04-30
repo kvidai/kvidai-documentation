@@ -60,6 +60,10 @@ const config: Config = {
   i18n: {
     defaultLocale: "en",
     locales: ["en", "ko"],
+    localeConfigs: {
+      en: { label: "English", direction: "ltr" },
+      ko: { label: "한국어", direction: "ltr" },
+    },
   },
 
   plugins: [
@@ -163,12 +167,7 @@ const config: Config = {
           label: "Discord",
           position: "right",
         },
-        {
-          href: "/docs/ko/intro",
-          label: "한국어",
-          position: "right",
-          className: "navbar-language-switch",
-        },
+        { type: "localeDropdown", position: "right" },
         // {
         //   href: "https://github.com/epicmobile-reserve/kvidai-documentation",
         //   label: "GitHub",

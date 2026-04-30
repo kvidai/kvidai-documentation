@@ -2,26 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(find:*)",
-      "Bash(ls:*)",
+      "Bash(ls:*)"
       // "Read(references_deprecated/제품서비스매뉴얼_from-notion-export_20250714/**)"
     ],
     "deny": [
       // claude code 에는, .claudeignore 는 공식문서에 내용 없음. -> https://github.com/anthropics/claude-code/issues/579
-      "Read(.git/**)",
-      "Read(node_modules/**)",
       "Read(package-lock.json)",
-
+      "Read(docs-internal/ai-query-list/**)",
       "Read(.google-apps-script/**)",
       "Read(.patches/**)",
       "Read(references_deprecated/**)",
       "Read(**/references_deprecated/**)",
-
       // AI 도구 간, MEMORY 파일 중복 READ 방지
       "Read(GEMINI.md)",
       "Read(AGENTS.md)",
       "Read(**/GEMINI.md)",
       "Read(**/AGENTS.md)",
-
       // 기타 불필요한 파일들
       "Read(*.log)",
       "Read(.env.local)",
@@ -29,6 +25,22 @@
       "Read(Thumbs.db)"
     ]
   },
+  "permissions_deprecated": {
+    "allow": [
+      "Read(references_deprecated/제품서비스매뉴얼_from-notion-export_20250714/**)"
+    ],
+    "deny": [
+      "Read(.git/**)",
+      "Read(node_modules/**)",
+      "Read(*.log)",
+      "claude code 에는, .claudeignore 는 공식문서에 내용 없음. -> https://github.com/anthropics/claude-code/issues/579",
+      "// AI 도구 간, MEMORY 파일 중복 READ 방지",
+      "Read(GEMINI.md)",
+      "// 기타 불필요한 파일들",
+      "Read(*.log)"
+    ]
+  },
+  "plansDirectory": ".claude/plans",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1"
   },

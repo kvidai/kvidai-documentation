@@ -65,7 +65,7 @@ sidebar_position: 1
 
 ## 요금
 
-이미지·영상·TTS 생성에는 일반 API 요금이 적용됩니다. [요금 안내](/docs/ko/pricing) 를 참고하세요.
+이미지·영상·TTS 생성에는 일반 API 요금이 적용됩니다. [요금 안내](/docs/pricing) 를 참고하세요.
 
 ## 관련 문서
 

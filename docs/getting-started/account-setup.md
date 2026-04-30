@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # Account Setup
 
-> **한국어**: [계정 설정](/docs/ko/getting-started/account-setup)
+> **한국어**: [계정 설정](/ko/docs/getting-started/account-setup)
 
 ## Register
 

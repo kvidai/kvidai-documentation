@@ -398,7 +398,7 @@ negative_prompt:
   "message": "오류 메시지",
   "details": {
     "http_status": 400,
-    "help_url": "https://docs.kvid.ai/docs/ko/api-services/image-api"
+    "help_url": "https://docs.kvid.ai/docs/api-services/image-api"
   }
 }
 ```
@@ -429,7 +429,7 @@ negative_prompt:
 
 ## 💰 요금
 
-Image Generation API의 자세한 요금 정보는 [요금 안내 → 이미지 생성](/docs/ko/pricing#이미지-생성)을 참고해 주세요.
+Image Generation API의 자세한 요금 정보는 [요금 안내 → 이미지 생성](/docs/pricing#이미지-생성)을 참고해 주세요.
 
 ## 📞 지원
 

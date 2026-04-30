@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # API Services Overview
 
-> **한국어로 보기**: [API 서비스 개요](/docs/ko/api-services/overview) | **View in English** (current page)
+> **한국어로 보기**: [API 서비스 개요](/ko/docs/api-services/overview) | **View in English** (current page)
 
 kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service shares a single credit balance and a single API key issued from the web app.
 

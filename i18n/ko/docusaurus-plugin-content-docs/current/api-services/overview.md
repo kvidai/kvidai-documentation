@@ -45,7 +45,7 @@ curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
 
 ## 요금
 
-모든 서비스는 **단일 크레딧 잔액**으로 과금됩니다. 현재 단가는 [요금 안내](/docs/ko/pricing) 페이지를 참고하세요.
+모든 서비스는 **단일 크레딧 잔액**으로 과금됩니다. 현재 단가는 [요금 안내](/docs/pricing) 페이지를 참고하세요.
 
 ## K-pop & K-beauty 특화
 

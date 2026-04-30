@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # Buy Credits
 
-> **한국어**: [크레딧 구매](/docs/ko/getting-started/buy-credits)
+> **한국어**: [크레딧 구매](/ko/docs/getting-started/buy-credits)
 
 All kvidAI services are billed from a **single credit balance**. Credits work across the web app (Storyboard, Video Editor, Generate pages) and the API.
 

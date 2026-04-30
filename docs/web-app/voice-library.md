@@ -7,7 +7,7 @@ sidebar_position: 4
 
 # Voice Library
 
-> **한국어**: [Voice Library](/docs/ko/web-app/voice-library)
+> **한국어**: [Voice Library](/ko/docs/web-app/voice-library)
 
 The Voice Library browses ElevenLabs voices that kvidAI can use for text-to-speech in Storyboard narrations and elsewhere.
 

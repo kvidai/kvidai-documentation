@@ -89,4 +89,4 @@ sidebar_position: 2
 
 ## 요금
 
-편집 자체는 무료이며, 채팅이나 Generate 패널에서 호출하는 AI 작업(이미지 / 영상 / TTS) 에만 크레딧이 차감됩니다. [요금 안내](/docs/ko/pricing) 참고.
+편집 자체는 무료이며, 채팅이나 Generate 패널에서 호출하는 AI 작업(이미지 / 영상 / TTS) 에만 크레딧이 차감됩니다. [요금 안내](/docs/pricing) 참고.

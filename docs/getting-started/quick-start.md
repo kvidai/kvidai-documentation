@@ -8,7 +8,7 @@ sidebar_position: 1
 
 # Quick Start
 
-> **한국어**: [빠른 시작](/docs/ko/getting-started/quick-start)
+> **한국어**: [빠른 시작](/ko/docs/getting-started/quick-start)
 
 Everything you need is in one place: sign up at [kvid.ai](https://kvid.ai), buy credits, and either use the web app or call the API with a key.
 

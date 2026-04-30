@@ -12,6 +12,7 @@
 /static/sitemap.xml
 
 # Misc
+.omc
 .DS_Store
 .env.local
 .env.development.local

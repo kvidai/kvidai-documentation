@@ -169,7 +169,7 @@ print(response.json())
 
 ## 💰 요금
 
-Talk-V2V 크레딧 단가는 출력 해상도와 길이에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성)을 참고하세요.
+Talk-V2V 크레딧 단가는 출력 해상도와 길이에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/pricing#비디오-생성)을 참고하세요.
 
 ## ⚠️ 제한사항 및 주의사항
 
@@ -182,7 +182,7 @@ Talk-V2V 크레딧 단가는 출력 해상도와 길이에 따라 다릅니다. 
 
 - [API 키 발급](https://kvid.ai/settings/api-keys)
 - [크레딧 구매](https://kvid.ai/credits/purchase)
-- [요금 안내](/docs/ko/pricing#비디오-생성)
+- [요금 안내](/docs/pricing#비디오-생성)
 - [Video 생성 API](./video-api) — text-to-video / image-to-video
 
 ## 📞 지원 및 문의

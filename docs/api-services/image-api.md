@@ -8,7 +8,7 @@ sidebar_position: 3
 
 # Image Generation AI API
 
-> **한국어**: [Image 생성 AI API](/docs/ko/api-services/image-api)
+> **한국어**: [Image 생성 AI API](/ko/docs/api-services/image-api)
 
 The Image Generation API generates high-quality still images from text prompts, built on the Nano Banana model with K-pop and K-beauty prompt optimization.
 

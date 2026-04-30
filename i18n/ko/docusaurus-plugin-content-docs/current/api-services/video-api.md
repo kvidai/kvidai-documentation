@@ -201,7 +201,7 @@ else:
 | `image_url` | string | ✅ | 입력 이미지 URL (HTTPS) |
 | `aspect_ratio` | string | – | `auto` / `16:9` / `9:16` / `1:1` 등 |
 
-> 모델별로 지원하는 해상도/길이가 달라질 수 있습니다. 현재 지원 조합은 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성) 참조.
+> 모델별로 지원하는 해상도/길이가 달라질 수 있습니다. 현재 지원 조합은 [요금 안내 → 비디오 생성](/docs/pricing#비디오-생성) 참조.
 
 ## 🚨 오류 응답
 
@@ -214,7 +214,7 @@ else:
   "message": "크레딧이 부족합니다.",
   "details": {
     "http_status": 402,
-    "help_url": "https://docs.kvid.ai/docs/ko/api-services/video-api"
+    "help_url": "https://docs.kvid.ai/docs/api-services/video-api"
   }
 }
 ```
@@ -323,11 +323,11 @@ else:
 
 - [API 키 발급](https://kvid.ai/settings/api-keys)
 - [크레딧 구매](https://kvid.ai/credits/purchase)
-- [요금 안내](/docs/ko/pricing#비디오-생성)
+- [요금 안내](/docs/pricing#비디오-생성)
 
 ## 💰 요금
 
-크레딧 단가는 모델(v1 / v2 / v3)과 해상도에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성) 을 참고하세요.
+크레딧 단가는 모델(v1 / v2 / v3)과 해상도에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/pricing#비디오-생성) 을 참고하세요.
 
 ## 📞 지원 및 문의
 

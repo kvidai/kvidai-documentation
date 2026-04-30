@@ -8,307 +8,232 @@ sidebar_position: 2
 
 # Video 생성 AI API
 
-kvidAI의 Video 생성 AI API는 텍스트나 이미지를 입력으로 받아 5-6초 길이의 고품질 비디오를 생성하는 서비스입니다.
+kvidAI의 Video 생성 AI API는 텍스트나 이미지를 입력으로 받아 짧은 길이의 고품질 비디오를 생성하는 서비스입니다.
 
 ## 🎯 서비스 개요
 
 ### 지원 기능
 - **Text-to-Video**: 텍스트 프롬프트로 비디오 생성
 - **Image-to-Video**: 이미지를 기반으로 한 비디오 생성
-- **v1 모델**: 480p, 580p, 720p 지원 (5-6초)
-- **v2 모델**: 480p, 720p, 1080p 지원 (5초 또는 10초)
+- **해상도**: 480p / 720p / 1080p (모델 별 상이)
+- **길이**: 보통 5–10초 (모델 별 상이)
 
 ### 특화 기능
 - 카메라 앵글 조작 프롬프트 지원 (완벽하지 않을 수 있음)
 - 다양한 생성 옵션 및 제어 가능
+- K-pop 안무·K-beauty 콘텐츠 최적화
 
 ## 📡 API 엔드포인트
 
 ### 기본 정보
+
 ```
-Base URL: https://api.kvid.ai
-api-key: api_key Header
-Content-Type: application/json
+Base URL:       https://api.kvid.ai
+Authentication: api-key 헤더
+Content-Type:   application/json
 ```
 
-### API 엔드포인트
+Video Generation API는 **비동기 방식**입니다. POST로 작업을 제출하면 `job_id` 가 반환되고, status 엔드포인트를 폴링해서 완료된 시점에 result 엔드포인트로 결과를 조회합니다.
 
-#### Text-to-Video
-- **생성**: `POST https://api.kvid.ai/ai/video/text-to-video/generate`
-- **상태 확인**: `GET https://api.kvid.ai/ai/video/text-to-video/status?request_id={request_id}`
-- **결과 가져오기**: `GET https://api.kvid.ai/ai/video/text-to-video/result?request_id={request_id}`
+| Method | Path | 용도 |
+|--------|------|------|
+| `POST` | `/ai/generation/text-to-video/generate-async` | Text-to-Video 작업 제출 |
+| `POST` | `/ai/generation/image-to-video/generate-async` | Image-to-Video 작업 제출 |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | 작업 상태 조회 |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | 완료된 결과 조회 |
 
-#### Image-to-Video
-- **생성**: `POST https://api.kvid.ai/ai/video/image-to-video/generate`
-- **상태 확인**: `GET https://api.kvid.ai/ai/video/image-to-video/status?request_id={request_id}`
-- **결과 가져오기**: `GET https://api.kvid.ai/ai/video/image-to-video/result?request_id={request_id}`
+> `api-key` 헤더로 사용자와 구독 정보가 식별되므로 request body나 query string에 `email`·`product_code`를 따로 보낼 필요가 없습니다. 백엔드가 API 키로부터 두 값을 모두 해석합니다.
 
-### 1. Text-to-Video 생성
+### 1. Text-to-Video 작업 생성
 
-**v1 모델 요청 예제**
 ```python
 import requests
-import json
 
-url = "https://api.kvid.ai/ai/video/text-to-video/generate"
+url = "https://api.kvid.ai/ai/generation/text-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
-# v1 모델 (wan-t2v)
-payload = json.dumps({
-    "prompt": "A waterfall flowing down a mountain, nature documentary style",
-    "negative_prompt": "low quality, bad anatomy",
-    "num_frames": 81,
-    "frames_per_second": 16,
-    "seed": None,
-    "resolution": "720p",
-    "aspect_ratio": "16:9",
-    "num_inference_steps": 30,
-    "enable_safety_checker": True,
-    "enable_prompt_expansion": True
-})
-
+payload = {
+    "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
+    "model": "v2",          # v1 / v2 / v3
+    "resolution": "720p",   # 480p / 720p / 1080p (모델 별 상이)
+}
 headers = {
-    'api-key': api_key,
-    'Content-Type': 'application/json'
+    "api-key": api_key,
+    "Content-Type": "application/json",
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.post(url, headers=headers, json=payload)
 result = response.json()
-request_id = result['data']['request_id']
-print(f"Request ID: {request_id}")
+job_id = result["data"]["job_id"]
+print(f"Job ID: {job_id}")
 ```
 
-**v2 모델 요청 예제**
-```python
-# v2 모델 (bytedance/seedance)
-payload = json.dumps({
-    "prompt": "A beautiful sunset over the ocean",
-    "aspect_ratio": "16:9",
-    "resolution": "1080p",
-    "duration": "5",
-    "camera_fixed": False,
-    "seed": None,
-    "model": "bytedance/seedance/v1/lite/text-to-video"
-})
+응답:
 
-response = requests.request("POST", url, headers=headers, data=payload)
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "vid_1777360165746_abc123",
+    "status": "queued",
+    "message": "Job submitted",
+    "estimated_time": "30s",
+    "video_type": "text-to-video"
+  }
+}
 ```
 
-### 2. Image-to-Video 생성
+### 2. Image-to-Video 작업 생성
 
-**v1 모델 요청 예제**
 ```python
 import requests
-import json
 
-url = "https://api.kvid.ai/ai/video/image-to-video/generate"
+url = "https://api.kvid.ai/ai/generation/image-to-video/generate-async"
 api_key = "YOUR_API_KEY"
 
-# v1 모델 (wan-i2v)
-payload = json.dumps({
-    "prompt": "Make the subject move naturally",
-    "negative_prompt": "low quality, bad anatomy",
-    "num_frames": 81,
-    "frames_per_second": 16,
-    "seed": None,
+payload = {
+    "prompt": "The tiger briefly pulls back its tongue, blinks, tilts its head slightly.",
+    "image_url": "https://your-host.example/tiger.jpg",
+    "model": "v2",
     "resolution": "720p",
-    "aspect_ratio": "auto",
-    "num_inference_steps": 30,
-    "enable_safety_checker": True,
-    "enable_prompt_expansion": True,
-    "image_url": "https://your-image-url.jpg"
-})
-
+}
 headers = {
-    'api-key': api_key,
-    'Content-Type': 'application/json'
+    "api-key": api_key,
+    "Content-Type": "application/json",
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.post(url, headers=headers, json=payload)
 result = response.json()
-request_id = result['data']['request_id']
-print(f"Request ID: {request_id}")
+job_id = result["data"]["job_id"]
 ```
 
-**v2 모델 요청 예제**
-```python
-# v2 모델 (bytedance/seedance)
-payload = json.dumps({
-    "prompt": "Camera panning across the scene",
-    "resolution": "1080p",
-    "duration": "5",
-    "camera_fixed": False,
-    "seed": None,
-    "model": "bytedance/seedance/v1/lite/image-to-video",
-    "image_url": "https://your-image-url.jpg"
-})
+### 3. 작업 상태 조회
 
-response = requests.request("POST", url, headers=headers, data=payload)
-```
-
-### 3. 생성 상태 조회
-
-**상태 확인 예제**
 ```python
 import requests
 import time
 
 api_key = "YOUR_API_KEY"
-request_id = "req_12345abcdef"  # 생성 요청에서 받은 request_id
+job_id = "vid_1777360165746_abc123"
 
-# Text-to-Video 상태 확인
-url = f"https://api.kvid.ai/ai/video/text-to-video/status?request_id={request_id}"
+url = f"https://api.kvid.ai/ai/generation/status?jobId={job_id}"
+headers = {"api-key": api_key}
 
-headers = {
-    'api-key': api_key
-}
-
-# 상태 폴링
 while True:
     response = requests.get(url, headers=headers)
     result = response.json()
-    
-    status = result['data']['status']
-    progress = result['data']['progress']
-    
-    print(f"Status: {status}, Progress: {progress}%")
-    
-    if status == 'COMPLETED':
+
+    status = result["data"]["status"]
+    print(f"Status: {status}")
+
+    if status == "completed":
         print("비디오 생성 완료!")
         break
-    elif status == 'FAILED':
+    if status == "failed":
         print("비디오 생성 실패")
         break
-    
-    time.sleep(5)  # 5초 대기
+
+    time.sleep(5)
 ```
 
-### 4. 비디오 결과 가져오기
+`status` 값: `queued`, `processing`, `completed`, `failed`.
 
-**결과 조회 예제**
+### 4. 결과 가져오기
+
 ```python
 import requests
 
 api_key = "YOUR_API_KEY"
-request_id = "req_12345abcdef"
+job_id = "vid_1777360165746_abc123"
 
-# Text-to-Video 결과 조회
-url = f"https://api.kvid.ai/ai/video/text-to-video/result?request_id={request_id}"
-
-headers = {
-    'api-key': api_key
-}
+url = f"https://api.kvid.ai/ai/generation/result?jobId={job_id}"
+headers = {"api-key": api_key}
 
 response = requests.get(url, headers=headers)
 result = response.json()
 
-if result['success']:
-    video_url = result['data']['url']
-    video_name = result['data']['name']
-    video_size = result['data']['size']
-    
-    print(f"비디오 URL: {video_url}")
-    print(f"파일명: {video_name}")
-    print(f"파일 크기: {video_size} KB")
+if result["success"]:
+    data = result["data"]
+    print(f"비디오 URL: {data['result_url']}")
+    print(f"해상도: {data.get('width')}x{data.get('height')}")
+    print(f"사용 크레딧: {data.get('used_credit')}")
 else:
-    print(f"오류: {result['message']}")
+    print(f"오류: {result.get('message')}")
+```
+
+응답:
+
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "vid_1777360165746_abc123",
+    "status": "completed",
+    "result_url": "https://cdn.kvid.ai/videos/vid_1777360165746_abc123.mp4",
+    "prompt": "[Truck left, Pan right] A woman is drinking coffee.",
+    "width": 1280,
+    "height": 720,
+    "type": "video/mp4",
+    "used_credit": 54,
+    "created_at": "2026-04-21T10:00:00Z"
+  }
+}
 ```
 
 ## 📋 매개변수 상세
 
-### Text-to-Video 매개변수
+### 공통 매개변수
 
-#### v1 모델 (wan-t2v)
+| 매개변수 | 타입 | 필수 | 설명 |
+|----------|------|------|------|
+| `prompt` | string | ✅ | 비디오 생성 프롬프트 |
+| `model` | string | – | `v1` / `v2`(기본) / `v3` |
+| `resolution` | string | – | `480p` / `720p` / `1080p` (모델 별 상이). 기본 `720p` |
+| `seed` | integer | – | 재현성을 위한 시드값 |
+| `num_inference_steps` | integer | – | 추론 단계 수 (높을수록 품질↑, 속도↓) |
+| `enable_safety_checker` | boolean | – | 안전 필터, 기본 `true` |
+| `enable_prompt_expansion` | boolean | – | 프롬프트 자동 확장 |
 
-| 매개변수 | 타입 | 기본값 | 설명 |
-|----------|------|--------|------|
-| `prompt` | string | *필수* | 비디오 생성을 위한 텍스트 프롬프트 |
-| `negative_prompt` | string | "" | 제외할 요소 설명 |
-| `num_frames` | integer | 81 | 프레임 수 (81-100) |
-| `frames_per_second` | integer | 16 | 초당 프레임 수 (5-24) |
-| `seed` | integer/null | null | 재현성을 위한 시드값 |
-| `resolution` | string | "720p" | 해상도 ("480p", "580p", "720p") |
-| `aspect_ratio` | string | "16:9" | 화면 비율 ("16:9", "9:16") |
-| `num_inference_steps` | integer | 30 | 추론 단계 수 |
-| `enable_safety_checker` | boolean | true | 안전 필터 활성화 |
-| `enable_prompt_expansion` | boolean | true | 프롬프트 확장 활성화 |
+### Image-to-Video 추가 매개변수
 
-#### v2 모델 (bytedance/seedance)
+| 매개변수 | 타입 | 필수 | 설명 |
+|----------|------|------|------|
+| `image_url` | string | ✅ | 입력 이미지 URL (HTTPS) |
+| `aspect_ratio` | string | – | `auto` / `16:9` / `9:16` / `1:1` 등 |
 
-| 매개변수 | 타입 | 기본값 | 설명 |
-|----------|------|--------|------|
-| `prompt` | string | *필수* | 비디오 생성을 위한 텍스트 프롬프트 |
-| `aspect_ratio` | string | "16:9" | 화면 비율 ("16:9", "4:3", "1:1", "9:21") |
-| `resolution` | string | "720p" | 해상도 ("480p", "720p", "1080p") |
-| `duration` | string | "5" | 비디오 길이 ("5", "10") |
-| `camera_fixed` | boolean | false | 카메라 고정 여부 |
-| `seed` | integer/null | null | 재현성을 위한 시드값 |
-| `model` | string | *필수* | "bytedance/seedance/v1/lite/text-to-video" |
+> 모델별로 지원하는 해상도/길이가 달라질 수 있습니다. 현재 지원 조합은 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성) 참조.
 
-### Image-to-Video 매개변수
+## 🚨 오류 응답
 
-#### v1 모델 (wan-i2v)
+### 기본 형식
 
-Text-to-Video v1과 동일한 매개변수에 추가로:
-
-| 매개변수 | 타입 | 기본값 | 설명 |
-|----------|------|--------|------|
-| `image_url` | string | *필수* | 입력 이미지 URL |
-| `image_file` | string | - | Base64 인코딩된 이미지 데이터 |
-| `aspect_ratio` | string | "auto" | 화면 비율 ("auto", "16:9", "9:16", "1:1") |
-
-#### v2 모델 (bytedance/seedance)
-
-Text-to-Video v2와 동일한 매개변수에 추가로:
-
-| 매개변수 | 타입 | 기본값 | 설명 |
-|----------|------|--------|------|
-| `image_url` | string | *필수* | 입력 이미지 URL |
-| `image_file` | string | - | Base64 인코딩된 이미지 데이터 |
-| `end_image_url` | string/null | null | 종료 이미지 URL (선택) |
-
-### API 응답 형식
-
-#### Generate 응답
 ```json
 {
-  "success": true,
-  "data": {
-    "request_id": "req_12345abcdef"
-  },
-  "message": "Video generation request submitted successfully"
+  "success": false,
+  "error": "INSUFFICIENT_CREDITS",
+  "message": "크레딧이 부족합니다.",
+  "details": {
+    "http_status": 402,
+    "help_url": "https://docs.kvid.ai/docs/ko/api-services/video-api"
+  }
 }
 ```
 
-#### Status 응답
-```json
-{
-  "success": true,
-  "data": {
-    "status": "PROCESSING",
-    "progress": 45,
-    "logs": [
-      "2024-01-15 10:30:00 - Video generation started",
-      "2024-01-15 10:30:15 - Processing frame 1-20"
-    ]
-  },
-  "message": "Video generation in progress"
-}
-```
+### 주요 오류 타입
 
-#### Result 응답
-```json
-{
-  "success": true,
-  "data": {
-    "url": "https://storage.kvid.ai/videos/req_12345abcdef.mp4",
-    "name": "generated_video.mp4",
-    "size": 15420
-  },
-  "message": "Video result retrieved successfully"
-}
-```
-
+| 오류 타입 | 설명 | HTTP | 해결 방법 |
+|-----------|------|------|-----------|
+| `INSUFFICIENT_CREDITS` | 크레딧 부족 | 402 | [크레딧 충전](https://kvid.ai/credits/purchase) |
+| `PROMPT_VALIDATION_ERROR` | 프롬프트 검증 실패 | 400 | 프롬프트의 허용되지 않는 문자를 제거 |
+| `USER_NOT_FOUND` | 사용자 없음 | 404 | 등록된 이메일 확인 |
+| `RESULT_FETCH_ERROR` | 결과 조회 실패 | 400 | 작업이 진행 중이거나 실패한 상태일 수 있음. status 먼저 확인 |
+| `ValidationError` | 입력값 검증 실패 | 422 | 요청 파라미터 확인 |
+| `image_too_small` | 이미지 크기 부족 | 422 | 최소 300×300 이상 이미지 사용 |
+| `image_too_large` | 이미지 크기 초과 | 422 | 최대 6000×6000 이하 이미지 사용 |
+| `content_policy_violation` | 콘텐츠 정책 위반 | 422 | 안전 정책에 맞춰 프롬프트 수정 |
+| `generation_timeout` | 생성 시간 초과 | 504 | 더 단순한 프롬프트, 낮은 해상도로 재시도 |
+| `RATE_LIMITED` | 요청 과다 | 429 | 백오프 후 재시도 |
+| `internal_server_error` | 내부 서버 오류 | 500 | 잠시 후 재시도 |
 
 ## 🎬 사용 예제
 
@@ -383,25 +308,26 @@ Text-to-Video v2와 동일한 매개변수에 추가로:
 ## ⚠️ 제한사항 및 주의사항
 
 ### 기술적 제한
-- **v1 모델**: 5-6초 고정, 최대 720p
-- **v2 모델**: 5초 또는 10초, 최대 1080p
+- **길이**: 짧은 클립 (5–10초, 모델별 상이)
+- **해상도**: 모델별 지원 범위 다름 (요금 페이지 참고)
 - **카메라 앵글**: 카메라 앵글 조작 프롬프트가 항상 정확하게 작동하지 않을 수 있음
-- **처리 시간**: 해상도와 길이에 따라 1-5분 소요
+- **처리 시간**: 해상도와 길이에 따라 1–5분 소요
+- **이미지 입력**: Image-to-Video의 입력 이미지는 300×300 ~ 6000×6000 범위
 
 ### 최적화 팁
 - **구체적인 프롬프트**: 세부적이고 명확한 설명 제공
-- **카메라 앵글**: 필요시 [Low-angle], [Over-the-shoulder shot] 등의 지시어 사용
+- **카메라 앵글**: 필요시 `[Low-angle]`, `[Over-the-shoulder shot]` 등의 지시어 사용
 - **적절한 해상도**: 용도에 맞는 해상도 선택
 
 ## 🔗 관련 링크
 
-- [API 키 발급](https://developers.kvid.ai)
-- [콘솔 관리](https://console.kvid.ai)
-- [사용량 모니터링](https://console.kvid.ai/usage)
+- [API 키 발급](https://kvid.ai/settings/api-keys)
+- [크레딧 구매](https://kvid.ai/credits/purchase)
+- [요금 안내](/docs/ko/pricing#비디오-생성)
 
-## 💰 요금 정보
+## 💰 요금
 
-Video Generation API의 자세한 요금 정보는 [요금제 페이지](/ko/pricing#🎬-video-generation-api-요금)를 참고해 주세요.
+크레딧 단가는 모델(v1 / v2 / v3)과 해상도에 따라 다릅니다. 현재 단가는 [요금 안내 → 비디오 생성](/docs/ko/pricing#비디오-생성) 을 참고하세요.
 
 ## 📞 지원 및 문의
 

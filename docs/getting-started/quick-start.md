@@ -1,160 +1,70 @@
 ---
-title: Quick Start Guide
-description: Step-by-step guide for first-time kvidAI API users
+title: Quick Start
+description: Sign up, buy credits, and make your first API call — all from a single kvid.ai account.
 slug: quick-start
 tags: [Getting Started, API, Tutorial]
 sidebar_position: 1
 ---
 
-# Quick Start Guide
+# Quick Start
 
-> **한국어로 보기**: [시작하기 가이드](/docs/ko/getting-started) | **View in English** (current page)
+> **한국어**: [빠른 시작](/docs/ko/getting-started/quick-start)
 
-A step-by-step setup guide for first-time kvidAI API users.
+Everything you need is in one place: sign up at [kvid.ai](https://kvid.ai), buy credits, and either use the web app or call the API with a key.
 
-## 🚀 Get Started in 5 Minutes
+## 1. Create an account
 
-### Step 1: Account Creation
+1. Go to [kvid.ai/register](https://kvid.ai/register).
+2. Enter username, email, and a password (8+ chars with upper/lower/digit).
+3. Check your email for the verification link — **you must verify before logging in**.
+4. Sign in at [kvid.ai/login](https://kvid.ai/login).
 
-**Important**: You must use the **same email address** for both sites!
+Details: [Account Setup →](./account-setup)
 
-1. **Developer Portal Registration**
-   - Visit [developers.kvid.ai](https://developers.kvid.ai)
-   - Sign up (enter email and password)
+## 2. Buy credits
 
-2. **Console Site Registration**  
-   - Visit [console.kvid.ai](https://console.kvid.ai)
-   - Sign up with the **same email address**
+1. Open [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) (sign-in required).
+2. Click **Purchase Now** — you'll be redirected to Dodo Payments (international card checkout).
+3. Complete checkout and you'll return with **3,000 credits** added to your balance, valid for 30 days.
 
-### Step 2: API Key Issuance
+Details: [Buy Credits →](./buy-credits)
 
-1. Log in to [developers.kvid.ai](https://developers.kvid.ai)
-2. Select "API Keys" or "Key Management" menu
-3. Click "Generate New API Key"
-4. Select desired API services:
-   - ✅ Video Generation AI API
-   - ✅ Image Generation AI API
-   - ✅ Text Generation LLM AI API
-5. Copy and securely store your API key
+## 3A. Use the web app immediately
 
-⚠️ **Warning**: API keys are only displayed once during creation!
+Go back to [kvid.ai](https://kvid.ai) and try any of these:
 
-### Step 3: Credits & Permissions Setup
+- **Storyboard** — build a video from a natural-language brief: [kvid.ai/storyboard](https://kvid.ai/storyboard)
+- **Image generation** — [kvid.ai/generate/image](https://kvid.ai/generate/image)
+- **Text-to-Video** — [kvid.ai/generate/text-to-video](https://kvid.ai/generate/text-to-video)
+- **Gallery** — browse community-shared compositions: [kvid.ai/gallery](https://kvid.ai/gallery)
 
-Manual setup is currently required:
+No separate API key needed for the web app.
 
-1. Log in to [console.kvid.ai](https://console.kvid.ai)
-2. Contact customer support for:
-   - Credit top-up request
-   - Set user role to "api-user"
+## 3B. Or call the API from code
 
-## 🧪 First API Call Test
+1. Create an API key at [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys).
+2. Copy the primary key — you'll need it in the `API-KEY` header.
+3. Make your first call:
 
-### Text API Test
 ```bash
-curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
-  -H "API-KEY: Bearer YOUR_API_KEY" \
+curl -X POST "https://api.kvid.ai/ai/image/generate" \
+  -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen2.5-72b-instruct",
-    "messages": [
-      {"role": "user", "content": "Write a short K-pop related article!"}
-    ]
+    "prompt": "K-pop concert stage with colorful lights",
+    "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
 
-### Video API Test
-```bash
-curl -X POST "https://api.kvid.ai/ai-model/videogen-1/v1/video_generation" \
-  -H "API-KEY: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "text-to-video",
-    "prompt": "K-pop dancer performing choreography"
-  }'
-```
+Details: [API Keys →](./api-keys)
 
-### Image API Test
-```bash
-curl -X POST "https://api.kvid.ai/ai-model/flux-1/v1/text-to-image" \
-  -H "API-KEY: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": "Beautiful woman with K-beauty makeup",
-    "width": 1024,
-    "height": 1024
-  }'
-```
+## Next steps
 
-## 💰 Understanding Pricing
+- [Web App Features](../web-app/storyboard) — deep-dive guides for each web feature.
+- [API Services](../api-services/overview) — full API reference.
+- [Pricing](../pricing) — current credit rates.
 
-### Credit System
-- **1 USD = 144.6 credits** (based on 1,446 KRW exchange rate)
-- Usage-based credit deduction
-- Prepaid top-up system
+## Need help?
 
-### Main Service Pricing
-- **Video Generation**: 124.356 credits (≈$0.86) per 5-6 second video
-- **Image Generation**: 1-3 credits (varies by resolution)
-- **Text Generation**: 17-52 credits per 1,000 tokens
-
-## ✅ Setup Completion Checklist
-
-- [ ] Developer portal registration completed
-- [ ] Console site registration completed (same email)
-- [ ] API key issued and saved
-- [ ] Credit top-up requested
-- [ ] User role set to "api-user"
-- [ ] First API call test successful
-
-## 🔧 Common Issues
-
-### Q: API key not working
-**A**: Check the following:
-- Developer portal and console site email addresses match
-- No spaces or special characters when copying API key
-- Credit balance and user permissions
-
-### Q: No credits available
-**A**: Manual setup is currently required. Request credit top-up from customer support.
-
-### Q: Strange Korean API results
-**A**: Qwen models are optimized for Korean. Try writing more specific prompts.
-
-## 🎯 Next Steps
-
-Once setup is complete:
-
-1. **Explore API Services**: [API Services Overview](/docs/api-services/overview)
-2. **Detailed Documentation**: Check complete API specifications
-3. **Excel Plugin**: [Using AI in Excel](/docs/api-services/excel-plugin)
-4. **Console Management**: [Console Guide](/docs/console-guide/initial-setup)
-
-## 🆘 Need Help?
-
-- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
-- **Email**: support@kvid.ai
-
-## 💡 K-pop & K-beauty Tips
-
-### Video API Usage
-```bash
-# K-pop dance video
-"prompt": "[Low-angle shot] Female K-pop dancer performing dynamic choreography"
-
-# K-beauty product promotion
-"prompt": "[Close-up] Elegant application of K-beauty lipstick with bright lighting"
-```
-
-### Text API Usage
-```bash
-# K-pop lyrics generation
-"content": "Write K-pop ballad lyrics about love in Korean"
-
-# K-beauty product description
-"content": "Write a blog post about K-beauty skincare routine"
-```
-
----
-
-**Language**: **English** (current page) | [한국어](/docs/ko/getting-started)
+- Email: support@kvid.ai
+- Discord: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)

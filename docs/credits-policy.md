@@ -76,9 +76,9 @@ Credits are consumed based on validity period:
 ## 5. What Can Credits Be Used For?
 
 ### Supported Features
-- ✅ All AI generation APIs (Video, Image, Text)
-- ✅ Excel Plugin with RAG AI integration
-- ✅ API calls via developer portal
+- ✅ Video Generation API (Text-to-Video / Image-to-Video)
+- ✅ Image Generation API
+- ✅ Web app features (Storyboard, Video Editor, Generate pages)
 - ✅ Batch processing operations
 - ✅ Testing and development
 
@@ -86,13 +86,12 @@ Credits are consumed based on validity period:
 ## 6. Credit Management
 
 ### Checking Your Balance
-1. **Console Dashboard**: [console.kvid.ai](https://console.kvid.ai)
-2. **Developer Portal**: [developers.kvid.ai](http://developers.kvid.ai)
-3. **API Response Headers**: Credit balance included in each API response
+1. **Dashboard**: [kvid.ai/dashboard](https://kvid.ai/dashboard)
+2. **Credit History**: [kvid.ai/credits](https://kvid.ai/credits)
+3. **API Response Headers**: credit balance is included in each API response
 
 ### Usage History
-- Detailed transaction history available in console
-- Export usage reports (CSV/JSON)
+- Detailed transaction history available on the dashboard
 - Real-time credit consumption tracking
 - API-level usage breakdown
 
@@ -129,18 +128,13 @@ Credits are consumed based on validity period:
 - Basic rate limits
 - Community support
 
-## 9. International Payments
+## 9. Payment Methods
 
 ### Currently Available
-- **Korean Cards**: All major Korean credit/debit cards
-- **Korean E-wallets**: Kakao Pay, Naver Pay, Toss
-- **Bank Transfer**: Korean banks only
+- **International cards**: Visa, Mastercard, American Express via Dodo Payments
+- **Billing currency**: USD (converted by your card issuer for non-USD cards)
 
-### Coming Soon
-- International credit cards (Visa, Mastercard, Amex)
-- PayPal integration
-- Cryptocurrency payments
-- Wire transfers for enterprise
+Purchase at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase).
 
 ## 10. Enterprise Solutions
 
@@ -173,7 +167,7 @@ A: Yes, purchased and promotional credits remain valid regardless of membership 
 A: Refunds available within 14 days of purchase for unused credits only.
 
 ### Q: How do I purchase credits internationally?
-A: International payments coming soon. 20250717 Currently, only use [kvid.ai.kr](https://kvid.ai.kr) with Korean payment methods.
+A: Credits are purchased at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) through Dodo Payments, supporting major international cards (Visa, Mastercard, American Express).
 
 ---
 

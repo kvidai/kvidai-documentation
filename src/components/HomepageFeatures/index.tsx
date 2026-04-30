@@ -99,7 +99,7 @@ function AdditionalShowcase(): JSX.Element {
               <div className={styles.showcaseButtons}>
                 <a 
                   className="button button--primary button--lg" 
-                  href="https://app.kvid.ai"
+                  href="https://kvid.ai"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

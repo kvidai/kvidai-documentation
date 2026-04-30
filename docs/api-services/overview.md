@@ -1,7 +1,6 @@
 ---
 title: API Services Overview
-description: Complete overview of kvidAI API services specialized for K-pop and K-beauty content
-slug: api-overview
+description: Technical overview of kvidAI API services — Video Generation and Image Generation.
 tags: [API, Services, K-pop, K-beauty]
 sidebar_position: 1
 ---
@@ -10,104 +9,53 @@ sidebar_position: 1
 
 > **한국어로 보기**: [API 서비스 개요](/docs/ko/api-services/overview) | **View in English** (current page)
 
-**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation, offering comprehensive API services for developers and businesses.
+kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service shares a single credit balance and a single API key issued from the web app.
 
-## 🎯 Main API Services
+## Services at a Glance
 
-### 1. Video Generation AI API
-- **Function**: Convert text or images into 5-6 second videos
-- **Specialization**: K-pop dance moves, K-beauty content optimization
-- **Pricing**: $0.86 (124.356 credits) per video
-- **Resolution**: 480p, 720p support
+| Service | Description | Reference |
+|---------|-------------|-----------|
+| **Video Generation** | Text-to-video and image-to-video generation (v1 / v2 / v3 models) | [Video API](./video-api) |
+| **Image Generation** | Still-image generation based on Nano Banana | [Image API](./image-api) |
+| **Talk-V2V (Lip-Sync)** | Drive an existing video with new audio for localized / re-voiced clips | [Talk-V2V API](./talk-v2v) |
 
-### 2. Image Generation AI API  
-- **Function**: FLUX.1 dev model-based image generation
-- **Specialization**: K-pop idol style, K-beauty model aesthetics
-- **Pricing**: 1-3 credits (varies by resolution)
-- **Max Resolution**: 1024x1024
+## Getting Started
 
-### 3. Text Generation LLM API
-- **Models**: Qwen2.5-72B-Instruct, Qwen2.5-VL-72B-Instruct
-- **Specialization**: Korean language and K-culture content generation
-- **Pricing**: 
-  - Input: $0.0012 (17.352 credits) per 1K tokens
-  - Output: $0.0036 (52.056 credits) per 1K tokens
+### 1. Sign up and buy credits
 
-### 4. Excel Plugin with RAG AI
-- **Function**: Use AI functions directly in Excel
-- **Functions**: RUNGPT_TEXT(), RUNGPT_IMAGE_TO_TEXT(), RUNGPT_ASYNC_RESULT()
-- **Pricing**: $0.01-$0.1 per function call
+Everything happens in one place:
 
-### 5. Local RAG Solution
-- **Function**: On-premises AI system deployment
-- **Specialization**: Enterprise-grade custom AI solutions
-- **Architecture**: LangChain, Streamlit, ChromaDB based
+1. Create an account at [kvid.ai](https://kvid.ai) (email verification required).
+2. Buy credits at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase).
 
-## 🔑 Getting Started with APIs
+### 2. Create an API key
 
-### Step 1: API Key Issuance
-1. Sign up at [Developer Portal](https://developers.kvid.ai)
-2. Register at [Console](https://console.kvid.ai) with the same email
-3. Generate API keys and set up credits
+Go to [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) and create a new API subscription. You will receive a **primary** and **secondary** key; either can be used with the API.
 
-### Step 2: First API Call
+### 3. Make your first call
+
 ```bash
-# Text API Example
-curl -X POST "https://api.kvid.ai/ai-model/qwen/v1/chat/completions" \
-  -H "API-KEY: Bearer YOUR_API_KEY" \
+curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
+  -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "qwen2.5-72b-instruct",
-    "messages": [
-      {"role": "user", "content": "Write K-pop lyrics about friendship"}
-    ]
+    "prompt": "K-pop concert stage with colorful lights",
+    "image_size": { "width": 1024, "height": 1024 }
   }'
 ```
 
-## 💰 Pricing Structure
+The call returns a `job_id`. Poll `GET /ai/generation/status?jobId={id}` until `status: "completed"`, then fetch the result with `GET /ai/generation/result?jobId={id}`. The `api-key` header identifies the user — no separate `email` or `product_code` field is required. See the [Image API reference](./image-api) for details.
 
-### Credit System
-- **Exchange Rate**: 1,446 KRW = 1 USD
-- **Usage-based**: Pay per usage × unit price
-- **Prepaid**: Credit top-up system
+## Pricing
 
-### Service Pricing Table
-| Service | Unit Price | Credits |
-|---------|------------|---------|
-| Video Generation | $0.86 | 124.356 credits |
-| Image Generation | $0.0007-$0.002 | 1-3 credits |
-| Text Generation (Input) | $0.0012/1K | 17.352 credits |
-| Text Generation (Output) | $0.0036/1K | 52.056 credits |
-| Excel Functions | $0.01-$0.1 | 14-144 credits |
+All services are priced on the shared credit balance. See [Pricing](/docs/pricing) for the current rates.
 
-## 🎨 K-pop & K-beauty Specializations
+## K-pop & K-beauty Specialization
 
-### Video API Features
-- K-pop dance move optimization
-- Idol-style camera angles
-- Korean traditional element integration
+- **Video**: optimized prompting for idol choreography, stage camera angles, and Korean cultural contexts
+- **Image**: K-beauty makeup and Korean fashion styling baked into model tuning
 
-### Image API Features  
-- K-beauty makeup styles
-- Korean fashion trend reflection
-- Idol photo style support
+## Support
 
-### Text API Features
-- Korean natural language processing optimization
-- K-culture content generation
-- Korean expression and cultural context understanding
-
-## 🚀 Next Steps
-
-- [Getting Started Guide](/docs/getting-started) - From account setup to first API call
-- [Console Guide](/docs/console-guide/initial-setup) - Account and credit management
-- [한국어 문서](/docs/ko/api-services/overview) - Complete documentation in Korean
-
-## 🆘 Support
-
-- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
-- **Email**: support@kvid.ai
-
----
-
-**Language**: **English** (current page) | [한국어](/docs/ko/api-services/overview)
+- Discord: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
+- Email: support@kvid.ai

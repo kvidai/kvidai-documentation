@@ -56,6 +56,19 @@ From surreal fantasy and daily life documentaries to professional-grade commerci
   text는 전부 영어 default로 표시 - 해외 결제도 곧 지원함
 ```
 
+```
+@docs-kvidai-documentation/qa/qa-report-test-cases.md 해당 repo QA Table 내용 작성해줘
+
+-- 작성방법 참고
+## QA Table 메타데이터 공통내용 정의 - notion QA table 컬럼별 옵션 값과 
+  동일하게 맞추기
+  Selected 21 lines from docs-kvidai-documentation/qa/qa-report-test-cases.md
+
+너무 디테일한 부분까지 qa내용 table에 작성 할 필요는 없고,
+작업완료 내용 참고: @claude.md  파일에 어떤게 구현이 완료 됬는지 적혀 있으니까, 확인해서 QA내용 작성해줘
+```
+
+
 
 ## Installation
 
@@ -189,5 +202,9 @@ The Vercel CLI will automatically detect that this is a Docusaurus project and c
 
 
 ## 참고자료
+- .claude/README.md
+- .cursor/README.md
+- context7.md : https://www.notion.so/epicmoble/cursor-vscode-claude-ide-_ai-Tool-208228ab36a08089b2c7e8036cca3e52?v=63484b3e771b4266af394cadb6921b60&source=copy_link#25f228ab36a08049ad6aff8bc91fd202
+
 - notion mcp 연동: https://www.notion.so/profile/integrations
 - notion epicmobile apikey: https://www.notion.so/epicmoble/notion-epicmobile-22f228ab36a080b5a1b6febc825406e5?source=copy_link

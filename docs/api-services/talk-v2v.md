@@ -10,7 +10,7 @@ sidebar_position: 4
 
 # Talk-V2V (Lip-Sync) API
 
-> **한국어로 보기**: [Talk-V2V (립싱크) API](/docs/ko/api-services/talk-v2v) | **View in English** (current page)
+> **한국어로 보기**: [Talk-V2V (립싱크) API](/ko/docs/api-services/talk-v2v) | **View in English** (current page)
 
 The Talk-V2V API takes an existing **video** and a separate **audio file**, then drives the speaker's mouth and motion in the video to match the audio — producing a lip-synced video.
 
@@ -188,4 +188,4 @@ Talk-V2V cost depends on output resolution and duration. See [Pricing → Video 
 
 ---
 
-**Language**: **English** (current page) | [한국어](/docs/ko/api-services/talk-v2v)
+**Language**: **English** (current page) | [한국어](/ko/docs/api-services/talk-v2v)

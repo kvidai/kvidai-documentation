@@ -1,17 +1,18 @@
-# example netlify.toml
+## https://docs.netlify.com/build/configure-builds/file-based-configuration/
 [build]
-  command = "yarn build"
+  command = "pnpm build"
   functions = "netlify/functions"
   publish = "build"
 
+
 [build.environment]
   NODE_VERSION = "22"
-  YARN_VERSION = "4.9.2"
-  YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
+  PNPM_VERSION = "9.0.0"
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-  #[[redirects]]
+
+## Uncomment to use this redirect for Single Page Applications like create-react-app.
+## Not needed for static site generators.
+#[[redirects]]
   #  from = "/*"
   #  to = "/index.html"
   #  status = 200
@@ -35,7 +36,7 @@
 ## (optional) Settings for Netlify Dev
 ## https://docs.netlify.com/api-and-cli-guides/cli-guides/local-development/
 [dev]
-  command = "yarn start" # Command to start your dev server
+  command = "pnpm start" # Command to start your dev server
   targetPort = 3000 # Port that the dev server will be listening on
   port = 8888 # Port for Netlify Dev proxy
   publish = "build" # Folder with the static content for _redirect file

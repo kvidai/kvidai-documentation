@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import language switcher styles */
-@import './language-switcher.css';
 
 /* You can override the default Infima variables here. */
 :root {

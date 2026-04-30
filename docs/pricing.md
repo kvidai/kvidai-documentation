@@ -9,7 +9,7 @@ slug: pricing
 
 # Pricing
 
-> **View in Korean**: [요금 안내](/docs/ko/pricing)
+> **View in Korean**: [요금 안내](/ko/docs/pricing)
 
 All kvidAI services use a single credit balance. Buy credits at **[kvid.ai/credits/purchase](https://kvid.ai/credits/purchase)** and use them across every API and every feature in the web app.
 

@@ -7,7 +7,7 @@ sidebar_position: 1
 
 # Storyboard Editor
 
-> **한국어**: [Storyboard 에디터](/docs/ko/web-app/storyboard)
+> **한국어**: [Storyboard 에디터](/ko/docs/web-app/storyboard)
 
 The **Storyboard editor** is the fastest way to get a complete video out of a short brief. Describe what you want in natural language, and an AI agent builds a scene-by-scene composition: image prompts, narration, subtitles, and motion.
 

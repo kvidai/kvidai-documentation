@@ -7,7 +7,7 @@ sidebar_position: 2
 
 # AI Video Editor
 
-> **한국어**: [AI 비디오 에디터](/docs/ko/web-app/video-editor)
+> **한국어**: [AI 비디오 에디터](/ko/docs/web-app/video-editor)
 
 The Video Editor is kvidAI's browser-based editor, powered by [Remotion](https://www.remotion.dev/). It's where you land after the Storyboard agent finishes, and where you edit anything imported from the Gallery.
 

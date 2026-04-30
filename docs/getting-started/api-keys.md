@@ -7,7 +7,7 @@ sidebar_position: 4
 
 # API Keys
 
-> **한국어**: [API 키 발급](/docs/ko/getting-started/api-keys)
+> **한국어**: [API 키 발급](/ko/docs/getting-started/api-keys)
 
 You only need an API key if you plan to call kvidAI APIs from your own code. The web app (Storyboard, Video Editor, Generate pages) works without creating a key.
 

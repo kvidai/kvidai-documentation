@@ -10,7 +10,7 @@ sidebar_position: 2
 
 # Video Generation AI API
 
-> **한국어로 보기**: [Video 생성 AI API](/docs/ko/api-services/video-api) | **View in English** (current page)
+> **한국어로 보기**: [Video 생성 AI API](/ko/docs/api-services/video-api) | **View in English** (current page)
 
 kvidAI's Video Generation AI API creates high-quality short videos from text or images, specializing in K-pop and K-beauty content.
 
@@ -281,4 +281,4 @@ For questions or assistance:
 
 ---
 
-**Language**: **English** (current page) | [한국어](/docs/ko/api-services/video-api)
+**Language**: **English** (current page) | [한국어](/ko/docs/api-services/video-api)

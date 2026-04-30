@@ -113,7 +113,7 @@ collections:
 
   - name: korean-api-services
     label: "한국어 - API 서비스"
-    folder: docs/ko/api-services
+    folder: i18n/ko/docusaurus-plugin-content-docs/current/api-services
     identifier_field: title
     extension: md
     create: true
@@ -130,7 +130,41 @@ collections:
 
   - name: korean-console-guide
     label: "한국어 - 콘솔 가이드"
-    folder: docs/ko/console-guide
+    folder: i18n/ko/docusaurus-plugin-content-docs/current/console-guide
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string }
+      - { name: sidebar_position, label: 사이드바순서, widget: number, required: false }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: 내용, widget: markdown }
+
+  - name: korean-getting-started
+    label: "한국어 - 시작하기"
+    folder: i18n/ko/docusaurus-plugin-content-docs/current/getting-started
+    identifier_field: title
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: 제목, widget: string }
+      - { name: description, label: 설명, widget: string }
+      - { name: sidebar_position, label: 사이드바순서, widget: number, required: false }
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        required: false
+      - { name: body, label: 내용, widget: markdown }
+
+  - name: korean-web-app
+    label: "한국어 - 웹앱 기능"
+    folder: i18n/ko/docusaurus-plugin-content-docs/current/web-app
     identifier_field: title
     extension: md
     create: true
@@ -147,12 +181,12 @@ collections:
 
   - name: korean-root
     label: "한국어 - 루트 문서"
-    folder: docs/ko
+    folder: i18n/ko/docusaurus-plugin-content-docs/current
     identifier_field: title
     extension: md
     create: true
     slug: "{{slug}}"
-    filter: {field: "path", pattern: "^(?!.*(api-services|console-guide)/).*"}
+    filter: {field: "path", pattern: "^(?!.*(api-services|console-guide|getting-started|web-app)/).*"}
     fields:
       - { name: title, label: 제목, widget: string }
       - { name: description, label: 설명, widget: string }

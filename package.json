@@ -1,7 +1,7 @@
 {
   "name": "kvidai-documentation",
   "description": "Kvidai Documentation template-decap-cms-docusaurus",
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "pnpm@9.0.0",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,16 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "screenshots": "node scripts/copy-screenshots.js",
+    "prebuild": "node scripts/copy-screenshots.js",
+    "test": "playwright test",
+    "test:screenshot": "playwright test tests/screenshot.spec.ts --project=chromium",
+    "test:screenshot:serve": "BASE_URL=http://localhost:3000 playwright test tests/screenshot.spec.ts --project=chromium",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "deploy:preview": "netlify deploy --dir=build",
+    "deploy:prod": "netlify deploy --dir=build --prod"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",

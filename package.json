@@ -20,6 +20,7 @@
     "prebuild": "node scripts/copy-screenshots.js",
     "test": "playwright test",
     "test:screenshot": "playwright test tests/screenshot.spec.ts --project=chromium",
+    "test:screenshot:serve": "BASE_URL=http://localhost:3000 playwright test tests/screenshot.spec.ts --project=chromium",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report",
     "deploy:preview": "netlify deploy --dir=build",

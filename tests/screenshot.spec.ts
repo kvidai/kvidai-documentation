@@ -1,13 +1,26 @@
-import { test } from '@playwright/test';
+import { test, Page } from '@playwright/test';
 import path from 'path';
 import fs from 'fs';
 
-const BASE = 'http://localhost:3100';
-const OUT = path.resolve(__dirname, '../docs-internal/qa/ui-screenshots');
+const BASE = process.env.BASE_URL ?? 'http://localhost:3100';
+const OUT = path.resolve(__dirname, '../docs-internal/ui-screenshots');
+const DATE = new Date().toISOString().slice(0, 10).replace(/-/g, '');
 
 test.beforeAll(() => {
   fs.mkdirSync(OUT, { recursive: true });
 });
+
+// Adapted from scripts/screenshot-lib.ts: gotoAndWait
+// Waits for networkidle → Docusaurus navbar hydration → 2nd networkidle → settle
+async function gotoAndWait(page: Page, url: string, settleMs = 500) {
+  await page.goto(url, { timeout: 90_000 });
+  await page.waitForLoadState('networkidle', { timeout: 90_000 });
+  await page.waitForSelector('nav.navbar', { state: 'visible', timeout: 15_000 });
+  try {
+    await page.waitForLoadState('networkidle', { timeout: 10_000 });
+  } catch { /* already idle */ }
+  await page.waitForTimeout(settleMs);
+}
 
 const pages = [
   { name: 'home', url: '/' },
@@ -23,9 +36,12 @@ const pages = [
 
 for (const { name, url } of pages) {
   test(`screenshot: ${name}`, async ({ page }) => {
-    await page.goto(`${BASE}${url}`, { waitUntil: 'networkidle' });
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await gotoAndWait(page, `${BASE}${url}`);
+    // await page.goto(`${BASE}${url}`, { waitUntil: 'networkidle' });
+    // await page.waitForSelector('nav.navbar', { state: 'visible', timeout: 15000 });
     await page.screenshot({
-      path: path.join(OUT, `${name}.png`),
+      path: path.join(OUT, `${name}_${DATE}.png`),
       fullPage: true,
     });
   });

@@ -40,9 +40,11 @@ export default defineConfig({
     },
   ],
 
-  /* Kill any existing server on the port, then start a fresh docs serve */
+  globalSetup: './tests/global-setup.ts',
+
+  /* Always start a fresh docs serve on port 3100 (global-setup kills existing first) */
   webServer: {
-    command: 'sh -c "fuser -k 3100/tcp 2>/dev/null; sleep 1; node_modules/.bin/docusaurus serve --port 3100"',
+    command: 'node_modules/.bin/docusaurus serve --port 3100',
     url: process.env.BASE_URL ?? 'http://localhost:3100',
     timeout: 30_000,
     reuseExistingServer: false,

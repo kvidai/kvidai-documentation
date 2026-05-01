@@ -20,7 +20,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -40,9 +40,7 @@ export default defineConfig({
     },
   ],
 
-  globalSetup: './tests/global-setup.ts',
-
-  /* Always start a fresh docs serve on port 3100 (global-setup kills existing first) */
+  /* Always start a fresh docs serve on port 3100 (test script kills existing port first) */
   webServer: {
     command: 'node_modules/.bin/docusaurus serve --port 3100',
     url: process.env.BASE_URL ?? 'http://localhost:3100',

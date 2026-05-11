@@ -29,7 +29,7 @@ slug: intro
 ## Quick Start
 
 1. **Sign up** at [kvid.ai](https://kvid.ai) and verify your email.
-2. **Buy credits** at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). One $30 pack = 3,000 credits, valid for 30 days.
+2. **Buy credits** at [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). Starter $10 / 700 credits · Monthly Package $30 / 3,000 credits, valid for 30 days.
 3. **Use the web app** immediately, or **create an API key** at [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) for programmatic access.
 
 See the [Quick Start guide](./getting-started/quick-start) for step-by-step instructions.

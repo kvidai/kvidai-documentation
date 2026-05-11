@@ -11,21 +11,22 @@ sidebar_position: 3
 
 All kvidAI services are billed from a **single credit balance**. Credits work across the web app (Storyboard, Video Editor, Generate pages) and the API.
 
-## Package
+## Packages
 
 | Package | Credits | Price | Validity |
 |---------|---------|-------|----------|
-| Starter | 3,000 | $30 USD | 30 days |
+| Starter | 700 | $10 USD | 30 days |
+| Monthly Package | 3,000 | $30 USD | 30 days |
 
-> 30-day validity starts from the purchase date. Unused credits expire — plan usage accordingly.
+> 30-day validity starts from the purchase date. Unused credits expire — plan usage accordingly. The Monthly Package offers better value per credit than Starter.
 
 ## Checkout flow
 
 1. Open [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). You must be signed in.
-2. Click **Purchase Now**.
+2. Choose a package and click **Purchase Now**.
 3. You are redirected to **Dodo Payments** (international hosted checkout).
 4. Enter your card information (Visa / Mastercard / American Express) and submit.
-5. On success you return to `kvid.ai/checkout/success` and the 3,000 credits are added to your balance.
+5. On success you return to `kvid.ai/checkout/success` and the corresponding credits are added to your balance.
 
 ## Where to see your balance
 
@@ -42,4 +43,4 @@ See our [Refund Policy](https://kvid.ai/refund-policy) on the main site, or cont
 
 ## Enterprise / larger packages
 
-Need more than one Starter pack per month, or a custom invoice? Email **support@kvid.ai** with your expected volume.
+Need more than one Monthly Package per month, or a custom invoice? Email **support@kvid.ai** with your expected volume.

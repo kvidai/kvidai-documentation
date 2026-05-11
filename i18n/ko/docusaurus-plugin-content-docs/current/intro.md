@@ -28,7 +28,7 @@ image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 ## 빠른 시작
 
 1. [kvid.ai](https://kvid.ai) 에서 **회원가입** 및 이메일 인증
-2. [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 에서 **크레딧 구매** ($30 = 3,000 크레딧, 30일 유효)
+2. [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 에서 **크레딧 구매** — Starter $10 / 700 크레딧 · Monthly Package $30 / 3,000 크레딧, 30일 유효
 3. 웹앱을 바로 사용하거나, [kvid.ai/settings/api-keys](https://kvid.ai/settings/api-keys) 에서 **API 키** 발급
 
 자세한 단계는 [빠른 시작 가이드](./getting-started/quick-start) 를 참고하세요.

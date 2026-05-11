@@ -24,8 +24,8 @@ Details: [Account Setup →](./account-setup)
 ## 2. Buy credits
 
 1. Open [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) (sign-in required).
-2. Click **Purchase Now** — you'll be redirected to Dodo Payments (international card checkout).
-3. Complete checkout and you'll return with **3,000 credits** added to your balance, valid for 30 days.
+2. Choose a package — **Starter** ($10 / 700 credits) or **Monthly Package** ($30 / 3,000 credits) — and click **Purchase Now**. You'll be redirected to Dodo Payments (international card checkout).
+3. Complete checkout and you'll return with the corresponding credits added to your balance, valid for 30 days.
 
 Details: [Buy Credits →](./buy-credits)
 

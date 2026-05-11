@@ -22,8 +22,8 @@ kvidAI는 모든 기능이 한 곳에 있습니다: [kvid.ai](https://kvid.ai) �
 ## 2. 크레딧 구매
 
 1. [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 접속 (로그인 필요)
-2. **Purchase Now** 클릭 → Dodo Payments (국제 카드 결제) 로 이동
-3. 결제 완료 시 **3,000 크레딧** 이 잔액에 추가되고 30일간 유효
+2. 패키지 선택 — **Starter** ($10 / 700 크레딧) 또는 **Monthly Package** ($30 / 3,000 크레딧) — 후 **Purchase Now** 클릭 → Dodo Payments (국제 카드 결제) 로 이동
+3. 결제 완료 시 해당 크레딧이 잔액에 추가되고 30일간 유효
 
 자세히: [크레딧 구매 →](./buy-credits)
 

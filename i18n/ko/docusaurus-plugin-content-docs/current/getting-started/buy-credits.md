@@ -14,17 +14,18 @@ kvidAI의 모든 서비스는 **단일 크레딧 잔액** 으로 과금됩니다
 
 | 패키지 | 크레딧 | 가격 | 유효기간 |
 |--------|--------|------|---------|
-| Starter | 3,000 | $30 USD | 30일 |
+| Starter | 700 | $10 USD | 30일 |
+| Monthly Package | 3,000 | $30 USD | 30일 |
 
-> 유효기간은 구매일부터 30일입니다. 기간이 지나면 남은 크레딧은 소멸되니 사용 계획에 맞춰 구매하세요.
+> 유효기간은 구매일부터 30일입니다. 기간이 지나면 남은 크레딧은 소멸되니 사용 계획에 맞춰 구매하세요. Monthly Package 는 Starter 보다 크레딧당 가격이 저렴합니다.
 
 ## 결제 흐름
 
 1. [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) 접속 (로그인 필요)
-2. **Purchase Now** 클릭
+2. 패키지를 선택하고 **Purchase Now** 클릭
 3. **Dodo Payments** (국제 결제) 페이지로 이동
 4. 카드 정보(Visa / Mastercard / American Express) 입력 후 결제
-5. 성공 시 `kvid.ai/checkout/success` 로 돌아오고 3,000 크레딧이 추가됩니다.
+5. 성공 시 `kvid.ai/checkout/success` 로 돌아오고 해당 크레딧이 잔액에 추가됩니다.
 
 ## 잔액 확인
 
@@ -41,4 +42,4 @@ kvidAI의 모든 서비스는 **단일 크레딧 잔액** 으로 과금됩니다
 
 ## 엔터프라이즈 / 대량 구매
 
-월 1개 이상의 Starter 팩이 필요하거나 세금계산서가 필요한 경우 **support@kvid.ai** 로 예상 사용량과 함께 문의해 주세요.
+월 1개 이상의 Monthly Package 가 필요하거나 세금계산서가 필요한 경우 **support@kvid.ai** 로 예상 사용량과 함께 문의해 주세요.

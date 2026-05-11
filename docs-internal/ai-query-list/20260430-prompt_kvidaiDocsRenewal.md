@@ -1,6 +1,8 @@
 ## 20260426
 
 <prompt>
+ kvidai-documentation pre-push 실행시, 현재 port를 죽이고 재실행 하게 해줘, 다른 docs url을 스크린샷을 찍는데(내가 2개 이상 project를 동시에 작업하고 있어서)
+
 `kvidai-documentation` kvidai 구매사용 유저(내부 회사용 아님) 매뉴얼 리뉴얼
 
 - 어 master branch(docs.kvid.ai)에 보니까 이미 내용이 어느정도 적혀 있네, 이미 작성된 내용 은 삭제하면 안되겠는데

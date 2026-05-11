@@ -1,7 +1,7 @@
 ---
 sidebar_position: 90
 title: Pricing
-description: Credit-based pricing for kvidAI Video and Image Generation. Buy credits at kvid.ai — $30 for 3,000 credits.
+description: Credit-based pricing for kvidAI Video and Image Generation. Buy credits at kvid.ai — starting at $10 for 700 credits.
 keywords: [kvidAI pricing, AI credits, video generation cost, image generation cost]
 image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: pricing
@@ -19,9 +19,10 @@ All kvidAI services use a single credit balance. Buy credits at **[kvid.ai/credi
 
 ## Buy Credits
 
-| Package | Credits | Price | Validity |
-|---------|---------|-------|----------|
-| **Starter** | 3,000 credits | $30 USD | 30 days |
+| Package | Credits | Price | Validity | Price per 1,000 credits |
+|---------|---------|-------|----------|-------------------------|
+| Starter | 700 credits | $10 USD | 30 days | $14.30 |
+| **Monthly Package** ⭐ | 3,000 credits | $30 USD | 30 days | **$10.00** (best value) |
 
 - **Where to buy**: [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) (sign in required)
 - **Payment provider**: Dodo Payments (international)
@@ -84,7 +85,7 @@ Bulk generation discount: 51–100 images −10 %, 101 + custom.
 | 1024 × 1024 images | 50 | 400 |
 | **Total** | — | **940** |
 
-Easily fits inside one 3,000-credit Starter pack.
+Easily fits inside one 3,000-credit Monthly Package.
 
 ### E-commerce Product Listing
 

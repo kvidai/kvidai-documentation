@@ -1,7 +1,7 @@
 ---
 sidebar_position: 90
 title: 요금 안내
-description: kvidAI의 Video, Image Generation 크레딧 요금 안내. $30에 3,000 크레딧.
+description: kvidAI의 Video, Image Generation 크레딧 요금 안내. $10에 700 크레딧부터 시작.
 keywords: [kvidAI 요금, AI 크레딧, 비디오 생성 비용, 이미지 생성 비용]
 image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: pricing
@@ -19,9 +19,10 @@ kvidAI의 모든 서비스는 **단일 크레딧 잔액**을 공유합니다. [k
 
 ## 크레딧 구매
 
-| 패키지 | 크레딧 | 가격 | 유효기간 |
-|--------|--------|------|-----------|
-| **Starter** | 3,000 크레딧 | $30 USD | 30일 |
+| 패키지 | 크레딧 | 가격 | 유효기간 | 1,000 크레딧당 가격 |
+|--------|--------|------|-----------|---------------------|
+| Starter | 700 크레딧 | $10 USD | 30일 | $14.30 |
+| **Monthly Package** ⭐ | 3,000 크레딧 | $30 USD | 30일 | **$10.00** (가장 저렴) |
 
 - **구매 경로**: [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) (로그인 필요)
 - **결제 수단**: Dodo Payments (국제 결제)
@@ -84,7 +85,7 @@ kvidAI의 모든 서비스는 **단일 크레딧 잔액**을 공유합니다. [k
 | 1024 × 1024 이미지 | 50 | 400 |
 | **합계** | — | **940** |
 
-3,000 크레딧 Starter 1개로 충분합니다.
+3,000 크레딧 Monthly Package 1개로 충분합니다.
 
 ### 이커머스 상세 페이지
 

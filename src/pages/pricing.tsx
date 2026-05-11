@@ -35,7 +35,7 @@ function PricingCard({ title, subtitle, items, featured = false }: PricingCardPr
   );
 }
 
-export default function Pricing(): JSX.Element {
+export default function Pricing() {
   return (
     <Layout
       title="Pricing"
@@ -45,19 +45,32 @@ export default function Pricing(): JSX.Element {
           <div className={styles.pricingHeader}>
             <h1 className={styles.title}>Simple, Transparent Pricing</h1>
             <p className={styles.subtitle}>
-              One subscription plan with 3,000 credits per month
+              Starter from $10 · Monthly Package $30 (best value per credit)
             </p>
           </div>
 
           <div className={styles.subscriptionSection}>
             <div className={styles.subscriptionCard}>
-              <h2 className={styles.subscriptionTitle}>Monthly Subscription</h2>
+              <h2 className={styles.subscriptionTitle}>Starter</h2>
               <div className={styles.subscriptionPrice}>
-                <span className={styles.priceAmount}>3,000</span>
-                <span className={styles.priceUnit}>credits/month</span>
+                <span className={styles.priceAmount}>700</span>
+                <span className={styles.priceUnit}>credits · $10</span>
               </div>
               <p className={styles.subscriptionDesc}>
-                Use your credits for any of our AI generation APIs
+                Try kvidAI with low commitment — valid for 30 days
+              </p>
+              <a href="https://kvid.ai/credits/purchase" className={styles.subscribeButton}>
+                Buy Credits
+              </a>
+            </div>
+            <div className={`${styles.subscriptionCard} ${styles.featured}`}>
+              <h2 className={styles.subscriptionTitle}>Monthly Package ⭐</h2>
+              <div className={styles.subscriptionPrice}>
+                <span className={styles.priceAmount}>3,000</span>
+                <span className={styles.priceUnit}>credits · $30</span>
+              </div>
+              <p className={styles.subscriptionDesc}>
+                Best value — $10 per 1,000 credits, valid for 30 days
               </p>
               <a href="https://kvid.ai/credits/purchase" className={styles.subscribeButton}>
                 Buy Credits
@@ -95,8 +108,9 @@ export default function Pricing(): JSX.Element {
             <div className={styles.infoCard}>
               <h3>How It Works</h3>
               <p>
-                Buy a Starter pack of 3,000 credits for $30 (valid 30 days)
-                and spend them across all AI APIs based on your needs.
+                Pick the Starter ($10 / 700 credits) or Monthly Package
+                ($30 / 3,000 credits) — both valid for 30 days — and spend
+                credits across every AI API based on your needs.
               </p>
             </div>
             <div className={styles.infoCard}>

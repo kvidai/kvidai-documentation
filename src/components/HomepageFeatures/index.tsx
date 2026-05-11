@@ -69,7 +69,7 @@ function Feature({ title, video, description }: FeatureItem) {
   );
 }
 
-function AdditionalShowcase(): JSX.Element {
+function AdditionalShowcase() {
   return (
     <section className={styles.showcase}>
       <div className="container">

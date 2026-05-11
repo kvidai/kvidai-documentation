@@ -48,7 +48,7 @@ All services are billed from a single credit balance. See [Pricing](./pricing) f
 
 ### How do I buy credits?
 
-At [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). The Starter pack is **3,000 credits for $30 USD**, valid for 30 days.
+At [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase). Two packages: **Starter** ($10 / 700 credits) and **Monthly Package** ($30 / 3,000 credits) — both valid for 30 days. Monthly Package offers better value per credit.
 
 ### What payment methods are accepted?
 
@@ -56,7 +56,7 @@ International card payments via **Dodo Payments**: Visa, Mastercard, American Ex
 
 ### How long do credits last?
 
-30 days from purchase for the Starter pack. Enterprise contracts can have custom validity.
+30 days from purchase for both packages. Enterprise contracts can have custom validity.
 
 ### Can I get a refund?
 

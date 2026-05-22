@@ -229,6 +229,15 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  // MeiliSearch connection — exposed to client via useDocusaurusContext().siteConfig.customFields
+  // Search API key should be a read-only search key (not admin key)
+  // Index is scraped separately via meilisearch/docs-scraper
+  customFields: {
+    meilisearchHost: `https://${process.env.MEILISEARCH_URL ?? 'ms-7e043ce18890-48522.jpn.meilisearch.io'}`,
+    meilisearchApiKey: process.env.MEILISEARCH_SEARCH_API_KEY ?? process.env.MEILISEARCH_API_KEY ?? '',
+    meilisearchIndexUid: process.env.MEILISEARCH_INDEX_UID ?? 'docs',
+  },
 };
 
 export default config;

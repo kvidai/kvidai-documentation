@@ -65,7 +65,7 @@ export default function SearchBar(): JSX.Element {
         indexUid: meilisearchIndexUid || 'docs',
         // English locale: filter to English-only docs (hide /ko/ pages)
         // Korean locale: no filter — shows both, Korean results rank higher for Korean queries
-        ...(i18n.currentLocale === 'en' && { searchParams: { filter: 'tags = "en"' } }),
+        ...(i18n.currentLocale === 'en' && { searchParams: { filter: 'lang = "en"' } }),
       });
     });
 

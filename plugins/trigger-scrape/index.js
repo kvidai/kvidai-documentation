@@ -1,9 +1,8 @@
-// Netlify Build Plugin — triggers GitHub Actions scrape-docs workflow after deploy
-// Production → docs index (docs.kvid.ai)
-// Preview → docs-staging index (deploy preview URL)
+// Netlify Build Plugin — triggers GitHub Actions scrape-docs workflow after production deploy
+// Only runs for production context (docs-scraper can't parse Netlify preview URLs)
 export default {
   onSuccess: async ({ constants }) => {
-    const { CONTEXT, DEPLOY_URL, SITE_URL } = constants;
+    const { CONTEXT, SITE_URL } = constants;
     const githubPat = process.env.GITHUB_PAT;
 
     if (!githubPat) {
@@ -11,9 +10,13 @@ export default {
       return;
     }
 
-    const isProd = CONTEXT === 'production';
-    const startUrl = isProd ? `${SITE_URL}/` : `${DEPLOY_URL}/`;
-    const indexUid = isProd ? 'docs' : 'docs-staging';
+    if (CONTEXT !== 'production') {
+      console.log(`[trigger-scrape] context=${CONTEXT} — skipping (production only)`);
+      return;
+    }
+
+    const startUrl = `${SITE_URL}/`;
+    const indexUid = 'docs';
 
     console.log(`[trigger-scrape] context=${CONTEXT} → index=${indexUid} url=${startUrl}`);
 

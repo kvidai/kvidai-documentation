@@ -41,7 +41,7 @@ function loadCSS(href: string): void {
 }
 
 export default function SearchBar(): JSX.Element {
-  const { siteConfig, i18n } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   const { meilisearchHost, meilisearchApiKey, meilisearchIndexUid } =
     siteConfig.customFields as {
       meilisearchHost: string;
@@ -63,7 +63,6 @@ export default function SearchBar(): JSX.Element {
         host: meilisearchHost,
         apiKey: meilisearchApiKey,
         indexUid: meilisearchIndexUid || 'docs',
-        searchParams: { filter: `lang = "${i18n.currentLocale}"` },
       });
     });
 

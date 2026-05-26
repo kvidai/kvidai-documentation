@@ -19,13 +19,7 @@
     "lvl3": "article h3",
     "lvl4": "article h4",
     "lvl5": "article h5",
-    "text": "article p, article li, article td:last-child",
-    "lang": {
-      "selector": "html",
-      "attributes": ["lang"],
-      "global": true,
-      "default_value": "en"
-    }
+    "text": "article p, article li, article td:last-child"
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
@@ -46,9 +40,8 @@
       "unordered(hierarchy.lvl6)",
       "content"
     ],
-    "filterableAttributes": ["lang"],
     "distinctAttribute": "url",
-    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "lang"],
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url"],
     "attributesToHighlight": ["hierarchy", "content"],
     "attributesToSnippet": ["content:10"],
     "rankingRules": ["words", "typo", "attribute", "proximity", "exactness"]

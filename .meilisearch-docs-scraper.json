@@ -40,7 +40,7 @@
       "unordered(hierarchy.lvl6)",
       "content"
     ],
-    "filterableAttributes": ["tags"],
+    "filterableAttributes": ["lang"],
     "distinctAttribute": "url",
     "rankingRules": ["words", "typo", "attribute", "proximity", "exactness"]
   }

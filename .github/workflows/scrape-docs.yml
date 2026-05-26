@@ -103,7 +103,7 @@ jobs:
           # Patch in batches (partial update — preserves all other fields)
           for i in range(0, len(patches), 500):
               batch = patches[i:i+500]
-              resp = api('POST', f'/indexes/{index_uid}/documents?primaryKey=objectID', batch)
+              resp = api('PUT', f'/indexes/{index_uid}/documents', batch)
               print(f'Patch batch {i//500+1}/{-(-len(patches)//500)}: taskUid={resp.get("taskUid")}')
 
           ko = sum(1 for p in patches if p['lang'] == 'ko')

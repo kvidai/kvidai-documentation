@@ -186,6 +186,47 @@ Korean locale (/ko/docs/...) → 필터 없음 → en+ko 전체 (한국어 쿼�
 
 ---
 
+## Staging 환경 (Preview 배포)
+
+### 인덱스 구조
+
+| 환경 | Meilisearch 인덱스 | 데이터 소스 |
+|------|-------------------|------------|
+| Production (`docs.kvid.ai`) | `docs` | Netlify onSuccess 자동 트리거 |
+| Staging (Netlify preview) | `docs-staging` | **수동 실행 필요** |
+| 로컬 개발 | `docs` (`.env.local`) | production 인덱스 공유 |
+
+### Preview URL에서 자동 스크레이프가 안 되는 이유
+
+Netlify preview URL 형식: `https://main--kvidai-documentation.netlify.app/`
+
+`getmeili/docs-scraper` 내부의 `to_other_scheme()` 함수가 URL을 정규식으로 파싱해 http↔https 전환 URL을 만드는데, `--` 포함 서브도메인이 regex에 매칭 안 됨 → `assert match` → `AssertionError`.
+
+→ `plugins/trigger-scrape/index.js`에서 `CONTEXT !== 'production'`이면 dispatch skip하도록 처리됨.
+
+### Netlify Custom Preview Domain (`deploy-preview-123.docs.kvid.ai`)
+
+Netlify 대시보드에 deploy preview 전용 서브도메인 기능이 있으나, **Netlify DNS 관리가 필요**. `kvid.ai`는 Cloudflare DNS라서 사용 불가. Cloudflare wildcard CNAME만으로는 Netlify가 SSL 인증서를 자동 발급하지 못함. 해결하려면 `docs.kvid.ai` 서브도메인을 Netlify DNS로 위임하거나 전체 DNS를 이전해야 함.
+
+> 참고: 이 형식(`deploy-preview-123.docs.kvid.ai`)은 `--` 없는 일반 서브도메인이라 docs-scraper가 파싱 가능 → DNS 이전 시 자동 staging 스크레이프도 가능해짐.
+
+### Staging 인덱스 수동 업데이트
+
+Preview 배포에서 검색 기능 테스트가 필요할 때 실행. `docs.kvid.ai`(production URL)를 크롤링해 `docs-staging` 인덱스에 채움.
+
+```bash
+gh workflow run meilisearch-scrape-docs.yml \
+  --repo kvidai/kvidai-documentation \
+  -f index_uid=docs-staging \
+  -f start_url=https://docs.kvid.ai/
+```
+
+실행 후 Netlify preview URL 접속 → 검색 작동 확인.
+
+> staging 인덱스는 preview URL 콘텐츠가 아닌 production 기준 데이터임. 새 문서를 추가하고 preview에서 해당 문서가 검색되길 원하면 production merge 후 scrape 실행.
+
+---
+
 ## 자주 발생한 문제
 
 | 증상 | 원인 | 해결 |

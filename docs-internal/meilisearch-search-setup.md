@@ -233,7 +233,7 @@ production merge 전에 로컬에서 작성 중인 문서가 검색되는지 확
 
 ```bash
 # 1. 로컬 dev server 실행
-yarn start   # Docusaurus dev server → localhost:3000
+pnpm start   # Docusaurus dev server → localhost:3000
 
 # 2. localxpose tunnel 열기 (다른 터미널)
 #    임시 서브도메인 (매번 URL 바뀜)
@@ -249,7 +249,7 @@ gh workflow run meilisearch-scrape-docs.yml \
 # 4. Netlify preview 또는 로컬 브라우저에서 검색 확인
 ```
 
-> **주의**: dev server(`yarn start`)는 JS 렌더링 후 완성되는 콘텐츠가 있을 수 있음. scraper가 제대로 못 읽는 경우 `yarn build && yarn serve`로 production build를 띄우고 tunnel 연결.
+> **주의**: dev server(`pnpm start`)는 JS 렌더링 후 완성되는 콘텐츠가 있을 수 있음. scraper가 제대로 못 읽는 경우 `pnpm build && pnpm serve`로 production build를 띄우고 tunnel 연결.
 >
 > 임시 서브도메인은 매 실행마다 URL이 바뀜. 고정 URL이 필요하면 PRO 계정 예약 도메인 `-S` 플래그 사용.
 

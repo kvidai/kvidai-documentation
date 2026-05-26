@@ -225,6 +225,34 @@ gh workflow run meilisearch-scrape-docs.yml \
 
 > staging 인덱스는 preview URL 콘텐츠가 아닌 production 기준 데이터임. 새 문서를 추가하고 preview에서 해당 문서가 검색되길 원하면 production merge 후 scrape 실행.
 
+### 로컬 콘텐츠 검색 테스트 (localxpose tunnel 활용)
+
+production merge 전에 로컬에서 작성 중인 문서가 검색되는지 확인하고 싶을 때. GitHub Actions runner는 tunnel의 public URL로 로컬 dev server를 크롤링한다.
+
+전체 가이드: `/home/ubuntu/code_workspace/kvidai/.claude/rules/localxpose-tunnel.md`
+
+```bash
+# 1. 로컬 dev server 실행
+yarn start   # Docusaurus dev server → localhost:3000
+
+# 2. localxpose tunnel 열기 (다른 터미널)
+#    임시 서브도메인 (매번 URL 바뀜)
+/snap/bin/loclx tunnel http -t 3000 -s localdocs
+#    → public URL: https://localdocs.loclx.io
+
+# 3. tunnel URL로 docs-staging 스크레이프
+gh workflow run meilisearch-scrape-docs.yml \
+  --repo kvidai/kvidai-documentation \
+  -f index_uid=docs-staging \
+  -f start_url=https://localdocs.loclx.io/
+
+# 4. Netlify preview 또는 로컬 브라우저에서 검색 확인
+```
+
+> **주의**: dev server(`yarn start`)는 JS 렌더링 후 완성되는 콘텐츠가 있을 수 있음. scraper가 제대로 못 읽는 경우 `yarn build && yarn serve`로 production build를 띄우고 tunnel 연결.
+>
+> 임시 서브도메인은 매 실행마다 URL이 바뀜. 고정 URL이 필요하면 PRO 계정 예약 도메인 `-S` 플래그 사용.
+
 ---
 
 ## 자주 발생한 문제

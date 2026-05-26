@@ -1,0 +1,56 @@
+{
+  "index_uid": "docs",
+  "start_urls": ["https://docs.kvid.ai/"],
+  "sitemap_urls": ["https://docs.kvid.ai/sitemap.xml"],
+  "stop_urls": [
+    "/docs/tags/",
+    "/blog/tags/",
+    "/blog/authors",
+    "/blog/archive",
+    "/markdown-page"
+  ],
+  "selectors": {
+    "lvl0": {
+      "selector": ".menu__link--sublist.menu__link--active, .navbar__item.navbar__item--active",
+      "default_value": "Documentation"
+    },
+    "lvl1": "article h1, header h1",
+    "lvl2": "article h2",
+    "lvl3": "article h3",
+    "lvl4": "article h4",
+    "lvl5": "article h5",
+    "text": "article p, article li, article td:last-child",
+    "lang": {
+      "selector": "html",
+      "attributes": ["lang"],
+      "global": true,
+      "default_value": "en"
+    }
+  },
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "searchableAttributes": [
+      "unordered(hierarchy_radio.lvl0)",
+      "unordered(hierarchy_radio.lvl1)",
+      "unordered(hierarchy_radio.lvl2)",
+      "unordered(hierarchy_radio.lvl3)",
+      "unordered(hierarchy_radio.lvl4)",
+      "unordered(hierarchy_radio.lvl5)",
+      "unordered(hierarchy_radio.lvl6)",
+      "unordered(hierarchy.lvl0)",
+      "unordered(hierarchy.lvl1)",
+      "unordered(hierarchy.lvl2)",
+      "unordered(hierarchy.lvl3)",
+      "unordered(hierarchy.lvl4)",
+      "unordered(hierarchy.lvl5)",
+      "unordered(hierarchy.lvl6)",
+      "content"
+    ],
+    "filterableAttributes": ["lang"],
+    "distinctAttribute": "url",
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "lang"],
+    "attributesToHighlight": ["hierarchy", "content"],
+    "attributesToSnippet": ["content:10"],
+    "rankingRules": ["words", "typo", "attribute", "proximity", "exactness"]
+  }
+}

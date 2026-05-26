@@ -1,0 +1,68 @@
+name: Scrape docs to Meilisearch
+
+on:
+  # Triggered by Netlify Build Plugin (plugins/trigger-scrape) after successful deploy
+  # client_payload: { context, start_url, index_uid }
+  repository_dispatch:
+    types: [scrape-docs]
+  # Manual fallback trigger (uses production defaults)
+  workflow_dispatch:
+    inputs:
+      index_uid:
+        description: 'Meilisearch index UID'
+        default: 'docs'
+      start_url:
+        description: 'URL to start scraping from'
+        default: 'https://docs.kvid.ai/'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve scrape parameters
+        id: params
+        run: |
+          INDEX_UID="${{ github.event.client_payload.index_uid || github.event.inputs.index_uid || 'docs' }}"
+          START_URL="${{ github.event.client_payload.start_url || github.event.inputs.start_url || 'https://docs.kvid.ai/' }}"
+          CONTEXT="${{ github.event.client_payload.context || 'production' }}"
+          echo "index_uid=$INDEX_UID" >> $GITHUB_OUTPUT
+          echo "start_url=$START_URL" >> $GITHUB_OUTPUT
+          echo "context=$CONTEXT" >> $GITHUB_OUTPUT
+          echo "Scraping: context=$CONTEXT index=$INDEX_UID url=$START_URL"
+
+      - name: Generate scraper config
+        run: |
+          python3 - <<'EOF'
+          import json
+
+          with open('.meilisearch-docs-scraper.json') as f:
+              config = json.load(f)
+
+          config['index_uid'] = '${{ steps.params.outputs.index_uid }}'
+          config['start_urls'] = ['${{ steps.params.outputs.start_url }}']
+
+          # Use sitemap only for production (preview URLs have isolated sitemaps)
+          if '${{ steps.params.outputs.context }}' == 'production':
+              config['sitemap_urls'] = ['https://docs.kvid.ai/sitemap.xml']
+          else:
+              config.pop('sitemap_urls', None)
+
+          with open('/tmp/scraper-config.json', 'w') as f:
+              json.dump(config, f, indent=2)
+
+          print(f"Config: index={config['index_uid']} start={config['start_urls']}")
+          EOF
+
+      - name: Run docs-scraper
+        env:
+          MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+          MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_ADMIN_API_KEY }}
+        run: |
+          docker run -t --rm \
+            -e MEILISEARCH_HOST_URL \
+            -e MEILISEARCH_API_KEY \
+            -v "/tmp/scraper-config.json:/docs-scraper/config.json" \
+            getmeili/docs-scraper:latest \
+            pipenv run ./docs_scraper config.json

@@ -41,9 +41,6 @@
       "content"
     ],
     "distinctAttribute": "url",
-    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url"],
-    "attributesToHighlight": ["hierarchy", "content"],
-    "attributesToSnippet": ["content:10"],
     "rankingRules": ["words", "typo", "attribute", "proximity", "exactness"]
   }
 }

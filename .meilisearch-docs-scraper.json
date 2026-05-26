@@ -1,6 +1,9 @@
 {
   "index_uid": "docs",
-  "start_urls": ["https://docs.kvid.ai/"],
+  "start_urls": [
+    { "url": "https://docs.kvid.ai/ko/", "tags": ["ko"] },
+    { "url": "https://docs.kvid.ai/", "tags": ["en"] }
+  ],
   "sitemap_urls": ["https://docs.kvid.ai/sitemap.xml"],
   "stop_urls": [
     "/docs/tags/",
@@ -40,6 +43,7 @@
       "unordered(hierarchy.lvl6)",
       "content"
     ],
+    "filterableAttributes": ["tags"],
     "distinctAttribute": "url",
     "rankingRules": ["words", "typo", "attribute", "proximity", "exactness"]
   }

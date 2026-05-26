@@ -41,7 +41,7 @@ function loadCSS(href: string): void {
 }
 
 export default function SearchBar(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig, i18n } = useDocusaurusContext();
   const { meilisearchHost, meilisearchApiKey, meilisearchIndexUid } =
     siteConfig.customFields as {
       meilisearchHost: string;
@@ -63,6 +63,9 @@ export default function SearchBar(): JSX.Element {
         host: meilisearchHost,
         apiKey: meilisearchApiKey,
         indexUid: meilisearchIndexUid || 'docs',
+        // English locale: filter to English-only docs (hide /ko/ pages)
+        // Korean locale: no filter — shows both, Korean results rank higher for Korean queries
+        ...(i18n.currentLocale === 'en' && { searchParams: { filter: 'tags = "en"' } }),
       });
     });
 

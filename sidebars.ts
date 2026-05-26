@@ -43,6 +43,8 @@ const sidebars: SidebarsConfig = {
         'api-services/video-api',
         'api-services/image-api',
         'api-services/talk-v2v',
+        'api-services/project-management',
+        'api-services/agent-api',
       ],
     },
     'pricing',

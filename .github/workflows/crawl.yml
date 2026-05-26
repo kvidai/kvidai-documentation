@@ -1,0 +1,14 @@
+name: Crawl docs with MeiliSearch Cloud
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  crawler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: meilisearch/actions/cloud-crawler@main
+        with:
+          token: ${{ secrets.MEILISEARCH_CLOUD_CRAWLER_TOKEN }}

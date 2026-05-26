@@ -37,7 +37,7 @@ jobs:
           INDEX_UID: ${{ steps.params.outputs.index_uid }}
           START_URL: ${{ steps.params.outputs.start_url }}
           CONTEXT: ${{ steps.params.outputs.context }}
-        run: python3 scripts/generate-scraper-config.py
+        run: python3 scripts/meilisearch-generate-scraper-config.py
 
       - name: Run docs-scraper
         env:
@@ -56,4 +56,4 @@ jobs:
           MEILISEARCH_HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
           MEILISEARCH_API_KEY: ${{ secrets.MEILISEARCH_ADMIN_API_KEY }}
           INDEX_UID: ${{ steps.params.outputs.index_uid }}
-        run: python3 scripts/add-lang-field.py
+        run: python3 scripts/meilisearch-add-lang-field.py

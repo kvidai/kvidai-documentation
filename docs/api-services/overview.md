@@ -20,6 +20,8 @@ kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service share
 | **Talk-V2V (Lip-Sync)** | Drive an existing video with new audio for localized / re-voiced clips | [Talk-V2V API](./talk-v2v) |
 | **Project Management** | REST CRUD for video projects + composition mutations + rendering | [Project Management API](./project-management) |
 | **Agent (AI Editor)** | Natural-language composition editing and long-video scene planning via SSE | [Agent API](./agent-api) |
+| **Preset** | Reusable presets (voice / tone / color / scene defaults) that seed new projects | [Preset API](./preset-api) |
+| **Media** | Direct CDN upload via presigned URL — pass `cdnUrl` to the agent without round-tripping the binary through the server | [Media API](./media-api) |
 
 ## Getting Started
 

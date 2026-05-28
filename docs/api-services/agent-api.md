@@ -27,7 +27,7 @@ Responses are streamed as **Server-Sent Events (SSE)** so you can show progress 
 
 - **`projectId`** — Long-running jobs are tied to a project (see [Project Management API](./project-management.md)). The agent reads/writes the project's composition.
 - **`composition`** — Sent in the request body so the agent can reason over the current state without an extra round trip. The agent returns mutated composition snapshots via `checkpoint` and `done` events.
-- **`templateId`** — Optional Strapi `video-template` ID. Sets voice, tone, color palette, and so on. Omit it and the system falls back to `system_default` then to locale-aware defaults.
+- **`presetId`** — Optional preset to apply (voice, tone, color palette, scene defaults). Omit it and the agent falls back to `system_default` then to locale-aware defaults. Create/manage presets via the [Preset API](./overview#preset-api). Legacy field name `templateId` is still accepted for backward compatibility.
 - **`locale`** — `en` / `ko` / `es`. Drives the final user-facing message language **and** the default voice for narration when no template is selected.
 
 ### Authentication
@@ -75,8 +75,8 @@ Response style: text/event-stream (SSE) on success; application/json on early-re
 | `email` | string | yes | Owner. |
 | `apiKey` | string | yes | Per-user kvidAI API key. (This is in the body, not the header — the field is forwarded internally to the AI gateway.) |
 | `locale` | string | no | `en` (default) / `ko` / `es`. |
-| `templateId` | string | no | Strapi template to apply. Omitting falls back to `system_default`. |
-| `attachedFiles` | array | no | Image / video / audio / PDF / text uploads. Each: `{ name, type, mimeType, size, base64 }`. |
+| `presetId` | string | no | Preset to apply (see [Preset API](./overview#preset-api)). Omitting falls back to `system_default`. Legacy alias: `templateId`. |
+| `attachedFiles` | array | no | Image / video / audio / PDF / text uploads. Each: `{ name, type, mimeType, size, base64? \| cdnUrl? }`. Pass `cdnUrl` (obtained from the [Media API](./overview#media-api)) for large files; `base64` is the legacy inline path that the web editor uses. PDF / text accept only `base64`. |
 | `chatHistory` | array | no | Past messages condensed by your client (saves tokens on long sessions). |
 | `selectedItemContext` | object | no | If the user has selected a single image/video in their UI, pass `{ itemId, type, assetId, remoteUrl?, sourceImageUrl?, from, durationInFrames }`. The agent will scope its edit to that item. |
 | `autoSave` | boolean | no | Default `true`. Set `false` if you want to PATCH the composition yourself after `done`. |
@@ -121,7 +121,7 @@ body = {
     "email": EMAIL,
     "apiKey": API_KEY,
     "locale": "en",
-    "templateId": "sod",
+    "presetId": "sod",
 }
 
 with httpx.stream(

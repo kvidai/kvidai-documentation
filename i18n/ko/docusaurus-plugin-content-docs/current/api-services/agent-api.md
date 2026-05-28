@@ -25,7 +25,7 @@ kvidAI Agent API 로 [kvid.ai](https://kvid.ai) 에디터를 구동하는 동일
 
 - **`projectId`** — 장시간 작업은 프로젝트에 묶입니다 ([Project 관리 API](./project-management.md) 참조). Agent 가 해당 프로젝트의 composition 을 읽고 씁니다.
 - **`composition`** — 요청 body 에 포함해서 agent 가 추가 round trip 없이 현재 상태를 추론. Agent 는 변경된 composition snapshot 을 `checkpoint` / `done` 이벤트로 반환.
-- **`templateId`** — 선택적 Strapi `video-template` ID. 음성, 톤, 색상 팔레트 등 결정. 미지정 시 `system_default` fallback → locale 기반 default.
+- **`presetId`** — 선택적 프리셋 ID. 음성, 톤, 색상 팔레트, 씬 default 등 결정. 미지정 시 `system_default` fallback → locale 기반 default. 프리셋 관리는 [Preset API](./overview#preset-api) 참조. 옛 필드명 `templateId` 도 호환 위해 그대로 받음.
 - **`locale`** — `en` / `ko` / `es`. 최종 사용자 노출 메시지 언어 결정 **+** template 미선택 시 나레이션 기본 voice 결정.
 
 ### 인증
@@ -73,8 +73,8 @@ Response style: 성공 시 text/event-stream (SSE), 사전 거절 시 applicatio
 | `email` | string | 예 | 소유자. |
 | `apiKey` | string | 예 | 사용자별 kvidAI API 키. (헤더가 아니라 body 에 — 내부적으로 AI gateway 에 forwarding 되기 때문.) |
 | `locale` | string | 아니오 | `en` (default) / `ko` / `es`. |
-| `templateId` | string | 아니오 | 적용할 Strapi 템플릿. 미지정 시 `system_default` fallback. |
-| `attachedFiles` | array | 아니오 | 이미지 / 비디오 / 오디오 / PDF / 텍스트 업로드. 각각: `{ name, type, mimeType, size, base64 }`. |
+| `presetId` | string | 아니오 | 적용할 프리셋 ID (자세히는 [Preset API](./overview#preset-api)). 미지정 시 `system_default` fallback. 옛 alias: `templateId`. |
+| `attachedFiles` | array | 아니오 | 이미지 / 비디오 / 오디오 / PDF / 텍스트 업로드. 각각: `{ name, type, mimeType, size, base64? \| cdnUrl? }`. 대용량 파일은 `cdnUrl` ([Media API](./overview#media-api) 로 발급), 웹 에디터의 기존 inline 경로는 `base64`. PDF / text 는 `base64` 만 지원. |
 | `chatHistory` | array | 아니오 | 클라이언트에서 압축한 이전 메시지 (긴 세션에서 토큰 절약). |
 | `selectedItemContext` | object | 아니오 | UI 에서 사용자가 이미지/비디오 1개 선택 중이면 `{ itemId, type, assetId, remoteUrl?, sourceImageUrl?, from, durationInFrames }`. Agent 가 그 아이템 한정으로 편집. |
 | `autoSave` | boolean | 아니오 | 기본 `true`. `done` 후 직접 composition 을 PATCH 하고 싶으면 `false`. |
@@ -119,7 +119,7 @@ body = {
     "email": EMAIL,
     "apiKey": API_KEY,
     "locale": "ko",
-    "templateId": "sod",
+    "presetId": "sod",
 }
 
 with httpx.stream(

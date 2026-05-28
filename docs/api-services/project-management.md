@@ -18,9 +18,9 @@ You use this API when you want to build your own client around the same project 
 
 ### Concepts
 
-- **Project** — a JSON record per video editor session. Owned by a user (`email`), holds the `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed` / `failed`), an optional `template_id`, and a `thumbnail_url`.
+- **Project** — a JSON record per video editor session. Owned by a user (`email`), holds the `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed` / `failed`), an optional `preset_id`, and a `thumbnail_url`.
 - **Composition** — Remotion-compatible JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. Mutated through `PATCH /composition` so you don't have to re-send the entire record.
-- **Template** — a Strapi `video-template` record selected at creation time. Drives the default voice, tone, color palette, and so on. Set with `templateId` in `create`.
+- **Preset** — a reusable JSON config (voice / tone / color palette / scene defaults) selected at creation time. Set with `presetId` in `create`. Managed via the [Preset API](./overview#preset-api). Legacy field name `templateId` is still accepted.
 
 ### Authentication
 
@@ -66,7 +66,7 @@ Content-Type:   application/json
 | `name` | string | no | Defaults to `"Untitled Project"`. |
 | `composition` | object | no | Initial composition. Defaults to an empty 1920×1080 composition. |
 | `settings` | object | no | Free-form per-project preferences. |
-| `templateId` | string | no | Strapi `video-template.templateId`. `null` falls back to `system_default`. |
+| `presetId` | string | no | Preset to attach (see [Preset API](./overview#preset-api)). `null` falls back to `system_default`. Legacy alias: `templateId`. Stored as `preset_id` on the project record. |
 
 **Python**
 
@@ -85,7 +85,7 @@ resp = requests.post(
     json={
         "email": EMAIL,
         "name": "Sunset Beach Promo",
-        "templateId": "review-owl",
+        "presetId": "review-owl",
     },
 )
 resp.raise_for_status()
@@ -105,7 +105,7 @@ const res = await fetch("https://api.kvid.ai/api/video-project", {
   body: JSON.stringify({
     email: "you@example.com",
     name: "Sunset Beach Promo",
-    templateId: "review-owl",
+    presetId: "review-owl",
   }),
 });
 const { data: project } = await res.json();
@@ -124,7 +124,7 @@ console.log(project.id, project.status);
     "composition": { "fps": 30, "compositionWidth": 1920, "compositionHeight": 1080, "tracks": [], "items": {}, "assets": {} },
     "status": "draft",
     "thumbnail_url": null,
-    "template_id": "review-owl",
+    "preset_id": "review-owl",
     "last_edited_at": "2026-05-26T09:00:00.000Z"
   }
 }
@@ -176,7 +176,7 @@ Project summaries omit `composition` and `chat_history` to keep responses small.
 
 `GET /api/video-project/:id?email={email}`
 
-Returns the full record including `composition`, `chat_history`, `settings`, and `template_id`.
+Returns the full record including `composition`, `chat_history`, `settings`, and `preset_id`.
 
 ```python
 resp = requests.get(
@@ -256,7 +256,7 @@ The endpoint also recomputes `thumbnail_url` from the first image asset, so you 
 
 `POST /api/video-project/:id/duplicate`
 
-Clones composition, settings, and `template_id`. Chat history is **not** copied. The new project starts as `draft`.
+Clones composition, settings, and `preset_id`. Chat history is **not** copied. The new project starts as `draft`.
 
 ```javascript
 const res = await fetch(`https://api.kvid.ai/api/video-project/${id}/duplicate`, {
@@ -345,11 +345,11 @@ import requests
 API_KEY = "YOUR_API_KEY"
 EMAIL   = "you@example.com"
 
-# 1. Create a project (pick a template up front so the agent gets sensible defaults)
+# 1. Create a project (pick a preset up front so the agent gets sensible defaults)
 project = requests.post(
     "https://api.kvid.ai/api/video-project",
     headers={"api-key": API_KEY, "Content-Type": "application/json"},
-    json={"email": EMAIL, "name": "Tech Review", "templateId": "sod"},
+    json={"email": EMAIL, "name": "Tech Review", "presetId": "sod"},
 ).json()["data"]
 
 # 2. Hand the project to the Agent API — see ./agent-api.md for the streaming protocol

@@ -17,6 +17,8 @@ kvidAI의 모든 API는 `https://api.kvid.ai` 에서 제공되며, 하나의 계
 | **Talk-V2V (립싱크)** | 기존 비디오에 새 오디오를 입혀 립싱크 비디오 생성 | [Talk-V2V API](./talk-v2v) |
 | **Project 관리** | 비디오 프로젝트 REST CRUD + composition 수정 + 렌더링 | [Project 관리 API](./project-management) |
 | **Agent (AI 에디터)** | SSE 기반 자연어 composition 편집 + long-video 씬 플래닝 | [Agent API](./agent-api) |
+| **Preset** | 음성·톤·색상·씬 default 등을 묶은 재사용 가능 프리셋. 새 프로젝트 생성 시 seed | [프리셋 API](./preset-api) |
+| **Media** | presigned URL 로 CDN 직접 업로드. 파일을 서버 거치지 않고 `cdnUrl` 만 agent 에 전달 | [미디어 API](./media-api) |
 
 ## 시작하기
 

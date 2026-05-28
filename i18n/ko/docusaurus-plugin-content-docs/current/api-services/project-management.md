@@ -16,9 +16,9 @@ kvidAI의 Project 관리 API는 비디오 편집 작업을 **프로젝트** 단�
 
 ### 핵심 개념
 
-- **Project (프로젝트)** — 비디오 에디터 세션 하나당 JSON 레코드. 소유자는 `email`, 보관 항목은 `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed` / `failed`), 선택적 `template_id`, `thumbnail_url`.
+- **Project (프로젝트)** — 비디오 에디터 세션 하나당 JSON 레코드. 소유자는 `email`, 보관 항목은 `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed` / `failed`), 선택적 `preset_id`, `thumbnail_url`.
 - **Composition** — Remotion 호환 JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. 전체 레코드를 다시 보내지 않고 `PATCH /composition` 으로 부분 수정 가능.
-- **Template** — 프로젝트 생성 시 선택하는 Strapi `video-template` 레코드. 기본 음성·톤·색상 팔레트 등을 결정. `create` 의 `templateId` 필드로 지정.
+- **Preset (프리셋)** — 프로젝트 생성 시 선택하는 재사용 가능한 JSON config. 음성·톤·색상·씬 default 등을 결정. `create` 의 `presetId` 필드로 지정. 관리는 [Preset API](./overview#preset-api). 옛 필드명 `templateId` 도 호환 위해 그대로 받음.
 
 ### 인증
 
@@ -64,7 +64,7 @@ Content-Type:   application/json
 | `name` | string | 아니오 | 기본값 `"Untitled Project"`. |
 | `composition` | object | 아니오 | 초기 composition. 기본값은 빈 1920×1080. |
 | `settings` | object | 아니오 | 프로젝트 별 자유 형식 설정. |
-| `templateId` | string | 아니오 | Strapi `video-template.templateId`. `null` 이면 `system_default` fallback. |
+| `presetId` | string | 아니오 | 적용할 프리셋 ID ([Preset API](./overview#preset-api)). `null` 이면 `system_default` fallback. 옛 alias: `templateId`. DB column 은 `preset_id`. |
 
 **Python**
 
@@ -83,7 +83,7 @@ resp = requests.post(
     json={
         "email": EMAIL,
         "name": "Sunset Beach Promo",
-        "templateId": "review-owl",
+        "presetId": "review-owl",
     },
 )
 resp.raise_for_status()
@@ -103,7 +103,7 @@ const res = await fetch("https://api.kvid.ai/api/video-project", {
   body: JSON.stringify({
     email: "you@example.com",
     name: "Sunset Beach Promo",
-    templateId: "review-owl",
+    presetId: "review-owl",
   }),
 });
 const { data: project } = await res.json();
@@ -122,7 +122,7 @@ console.log(project.id, project.status);
     "composition": { "fps": 30, "compositionWidth": 1920, "compositionHeight": 1080, "tracks": [], "items": {}, "assets": {} },
     "status": "draft",
     "thumbnail_url": null,
-    "template_id": "review-owl",
+    "preset_id": "review-owl",
     "last_edited_at": "2026-05-26T09:00:00.000Z"
   }
 }
@@ -174,7 +174,7 @@ curl -G "https://api.kvid.ai/api/video-project" \
 
 `GET /api/video-project/:id?email={email}`
 
-`composition`, `chat_history`, `settings`, `template_id` 포함 전체 레코드를 반환합니다.
+`composition`, `chat_history`, `settings`, `preset_id` 포함 전체 레코드를 반환합니다.
 
 ```python
 resp = requests.get(
@@ -254,7 +254,7 @@ requests.patch(
 
 `POST /api/video-project/:id/duplicate`
 
-composition / settings / `template_id` 를 복사합니다. 채팅 히스토리는 **복사되지 않습니다**. 새 프로젝트는 `draft` 상태로 시작.
+composition / settings / `preset_id` 를 복사합니다. 채팅 히스토리는 **복사되지 않습니다**. 새 프로젝트는 `draft` 상태로 시작.
 
 ```javascript
 const res = await fetch(`https://api.kvid.ai/api/video-project/${id}/duplicate`, {
@@ -347,7 +347,7 @@ EMAIL   = "you@example.com"
 project = requests.post(
     "https://api.kvid.ai/api/video-project",
     headers={"api-key": API_KEY, "Content-Type": "application/json"},
-    json={"email": EMAIL, "name": "Tech Review", "templateId": "sod"},
+    json={"email": EMAIL, "name": "Tech Review", "presetId": "sod"},
 ).json()["data"]
 
 # 2. Agent API 로 프로젝트 전달 — 스트리밍 프로토콜은 ./agent-api.md 참조

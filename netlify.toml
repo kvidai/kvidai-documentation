@@ -41,4 +41,9 @@
   port = 8888 # Port for Netlify Dev proxy
   publish = "build" # Folder with the static content for _redirect file
 
+## Trigger Meilisearch scrape after every successful deploy
+## Production → docs index, Preview → docs-staging index
+[[plugins]]
+  package = "./plugins/trigger-scrape"
+
 ## more info on configuring this file: https://ntl.fyi/file-based-build-config

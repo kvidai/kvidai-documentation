@@ -31,23 +31,23 @@ https://aws.amazon.com/ko/rds/pricing/   aws도 가격정보 page에는 가격�
 
 **Installation:**
 ```bash
-yarn install
+pnpm install
 ```
 
 **Development:**
 ```bash
-yarn start        # Start local development server
-yarn build        # Build for production
-yarn serve        # Serve production build locally
-yarn clear        # Clear Docusaurus cache
-yarn typecheck    # Run TypeScript type checking
+pnpm start        # Start local development server
+pnpm build        # Build for production
+pnpm serve        # Serve production build locally
+pnpm clear        # Clear Docusaurus cache
+pnpm typecheck    # Run TypeScript type checking
 ```
 
 **Deployment:**
 ```bash
-yarn deploy                              # Deploy to GitHub Pages
-USE_SSH=true yarn deploy                 # Deploy using SSH
-GIT_USER=<username> yarn deploy          # Deploy with specific Git user
+pnpm deploy                              # Deploy to GitHub Pages
+USE_SSH=true pnpm deploy                 # Deploy using SSH
+GIT_USER=<username> pnpm deploy          # Deploy with specific Git user
 netlify deploy --prod                    # Deploy to Netlify (recommended)
 vercel --prod                           # Deploy to Vercel
 ```
@@ -161,8 +161,8 @@ vercel --prod                           # Deploy to Vercel
 
 ## Important Notes
 
-- Always run `yarn typecheck` before committing changes
-- Test builds locally with `yarn build` before deployment
+- Always run `pnpm typecheck` before committing changes
+- Test builds locally with `pnpm build` before deployment
 - Netlify deployment recommended for full CMS functionality
 - GitHub OAuth required for Decap CMS admin access
 - **Primary language**: English as default with Korean support (i18n configured)

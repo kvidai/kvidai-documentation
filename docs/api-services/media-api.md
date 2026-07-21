@@ -27,40 +27,40 @@ This is the **recommended** path for any external client (Skills, CLI, server-to
 | Auth | api-key on every byte | api-key on the URL request only; PUT uses the signed URL |
 | Best for | small base64 from a browser | external clients, large files |
 
-A 14 MB MP4 test measured ~12s on both flows over the same uplink, but multipart adds an extra server-side write to CDN (so the gap widens with larger files and more remote backends).
-
 ### Concepts
 
-- **`uploadUrl`** — Signed `https://...digitaloceanspaces.com/...` PUT URL. Single-use within TTL.
-- **`headers`** — Two headers the client must send during PUT: `Content-Type` (matching `mimeType`) and `x-amz-acl: public-read`. Without `x-amz-acl`, the object is stored private and `cdnUrl` returns 403.
+- **`uploadUrl`** — Signed `https://...digitaloceanspaces.com/...` PUT URL. Single-use within its TTL.
 - **`cdnUrl`** — Final public URL on the CDN domain (e.g. `ht-wp-prod1.sfo3.cdn.digitaloceanspaces.com/...`). Lifetime is unlimited — it's a stable CDN path, not a signed URL.
-- **`key`** — Object key inside the bucket. Structured as `{directory}/presigned-uploads/{email-hash}/{uuid}/{sanitized-filename}` for collision-free, owner-correlatable storage.
+- **`key`** — Object key inside the bucket. Structured as `presigned-uploads/{email-hash}/{uuid}/{sanitized-filename}` for collision-free, owner-correlatable storage.
 - **`expiresInSeconds`** — Default 1800 (30 min). Generous so large uploads don't time out mid-transfer.
 
 ### Authentication
 
-- `api-key` header on the metadata request — your kvidAI API key
-- APIM injects the owner email as `X-Kvidai-User-Email`, used to scope ownership in the object key. No `email` field in the body.
+- `api-key` header on the metadata request — your kvidAI API key.
+- The APIM gateway resolves the key to the owner and scopes ownership in the object key. You **never pass `email` in the body**.
 
-The PUT to DO Spaces uses the signed URL only — no API key passed there.
+The PUT to DO Spaces uses the signed URL only — no API key is passed there.
 
 ## 📡 API Endpoints
+
+### Base Information
 
 ```
 Base URL:       https://api.kvid.ai/media
 Authentication: api-key header (for metadata requests; PUT uses the signed URL)
+Content-Type:   application/json
 ```
 
 | Method | Path | Purpose |
 |--------|------|---------|
 | `POST`   | `/media/presigned-upload-url`   | Issue a presigned PUT URL |
 | `GET`    | `/media/files`                  | List the caller's files (Strapi-managed metadata) |
-| `GET`    | `/media/files/{fileId}`         | Get a single file's metadata |
-| `PUT`    | `/media/files/{fileId}`         | Update file metadata (name, alt text, caption) |
-| `DELETE` | `/media/files/{fileId}`         | Delete a file (caller must be owner) |
+| `GET`    | `/media/files/:id`              | Get a single file's metadata |
+| `PUT`    | `/media/files/:id`              | Update file metadata |
+| `DELETE` | `/media/files/:id`              | Delete a file (caller must be owner) |
 | `GET`    | `/media/stats`                  | Storage stats (count, total size, by type) |
 
-> **Heads up** — `GET /media/files` only returns files that have a Strapi DB row. The presigned upload flow stores the binary on DO Spaces but does **not** create a Strapi row, so files uploaded that way don't appear in `/media/files` listings. They're still public on the returned `cdnUrl`. (A future endpoint will let clients register the upload as a Strapi row.)
+> **Heads up** — a presigned-only upload puts the binary on DO Spaces but doesn't create a Strapi row, so it may not appear in `GET /media/files` listings until a `complete-upload` follow-up registers it. The file is still public on the returned `cdnUrl`.
 
 ---
 
@@ -73,8 +73,15 @@ Authentication: api-key header (for metadata requests; PUT uses the signed URL)
 | Field | Type | Required | Notes |
 |---|---|---|---|
 | `filename` | string | yes | Original filename. Sanitized server-side and preserved at the end of the key. |
-| `mimeType` | string | yes | Send the **same value** as `Content-Type` during PUT — DO Spaces signs both. |
-| `size` | integer | no | Validation. Currently rejects > 200 MB with 413. |
+| `mimeType` | string | yes | Send the **same value** as `Content-Type` during PUT — DO Spaces signs both (e.g. `image/png`, `video/mp4`). |
+| `size` | integer | no | Validation only. Rejects files larger than **200 MB** with `413`. |
+
+```bash
+curl -X POST "https://api.kvid.ai/media/presigned-upload-url" \
+  -H "api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "filename": "logo.png", "mimeType": "image/png", "size": 102400 }'
+```
 
 **Response**
 
@@ -82,8 +89,7 @@ Authentication: api-key header (for metadata requests; PUT uses the signed URL)
 {
   "success": true,
   "data": {
-    "uploadUrl": "https://ht-wp-prod1.sfo3.digitaloceanspaces.com/...?X-Amz-Signature=...",
-    "headers": { "Content-Type": "image/png", "x-amz-acl": "public-read" },
+    "uploadUrl": "https://ht-wp-prod1.sfo3.digitaloceanspaces.com/path?X-Amz-Signature=...",
     "key": "presigned-uploads/{email-hash}/{uuid}/logo.png",
     "cdnUrl": "https://ht-wp-prod1.sfo3.cdn.digitaloceanspaces.com/.../logo.png",
     "expiresInSeconds": 1800
@@ -93,32 +99,30 @@ Authentication: api-key header (for metadata requests; PUT uses the signed URL)
 
 **Errors**
 
-| Status | Code | Cause |
-|---|---|---|
-| 400 | `FILENAME_REQUIRED` / `MIMETYPE_REQUIRED` | Body missing required field |
-| 400 | `EMAIL_REQUIRED` | Header / body had no resolvable owner email |
-| 404 | `USER_NOT_FOUND` | Owner email not registered in kvidAI |
-| 413 | `FILE_TOO_LARGE` | `size` exceeded the server cap |
+| Status | Cause |
+|---|---|
+| `400` | `filename` / `mimeType` missing. |
+| `404` | Owner email not registered in kvidAI. |
+| `413` | `size` exceeded 200 MB. |
 
 ---
 
 ### 2. Upload the file (PUT to DO Spaces)
 
-This step happens **outside the kvidAI API surface** — directly to the CDN.
+This step happens **outside the kvidAI API surface** — directly to the CDN. Send `Content-Type` matching the `mimeType` you requested:
 
 ```bash
-curl -X PUT "$UPLOAD_URL" \
+curl -X PUT "$uploadUrl" \
   -H "Content-Type: image/png" \
-  -H "x-amz-acl: public-read" \
   --data-binary @logo.png
+# → 200
+curl -I "$cdnUrl"   # → 200
 ```
-
-Both headers are mandatory. The server-returned `headers` object can be spread directly:
 
 ```javascript
 await fetch(presign.uploadUrl, {
   method: 'PUT',
-  headers: presign.headers,  // { 'Content-Type': '...', 'x-amz-acl': 'public-read' }
+  headers: { 'Content-Type': 'image/png' },  // matches the requested mimeType
   body: fileBuffer,
 });
 ```
@@ -129,7 +133,7 @@ After a `200`, the `cdnUrl` is immediately resolvable.
 
 ### 3. Use the cdnUrl with the Agent API
 
-The Agent API's `attachedFiles[]` accepts either `base64` or `cdnUrl`. For large media, prefer `cdnUrl`:
+The Agent API's `attachedFiles[]` accepts either `base64` or `cdnUrl`. For large media, prefer `cdnUrl` — and note there's no `email` or `apiKey` in the body; the `api-key` header is the identity:
 
 ```bash
 curl -X POST "https://api.kvid.ai/agent/generate" \
@@ -144,7 +148,7 @@ curl -X POST "https://api.kvid.ai/agent/generate" \
         \"type\": \"image\",
         \"mimeType\": \"image/png\",
         \"size\": 102400,
-        \"cdnUrl\": \"$CDN_URL\"
+        \"cdnUrl\": \"$cdnUrl\"
       }
     ]
   }"
@@ -154,9 +158,62 @@ PDF / text attachments **don't** support `cdnUrl` yet — the agent needs the bi
 
 ---
 
-### 4. List, get, update, delete
+### 4. List files
 
-Standard CRUD on Strapi-managed file metadata. Each request is scoped to the caller's own files via the email-hash in the file's `caption`. See the Bruno collection (`api-tests/azure-api-management/media/`) for example payloads.
+`GET /media/files`
+
+Returns only files that have a Strapi DB row, scoped to the caller.
+
+**Optional query parameters**
+
+| Parameter | Type | Default | Constraint | Notes |
+|---|---|---|---|---|
+| `page` | number | `1` | ≥ 1 | Page number. |
+| `pageSize` | number | `20` | ≤ 50 | Items per page. |
+| `sort` | string | `createdAt:desc` | Strapi sort syntax | Sort order. |
+
+```bash
+curl -G "https://api.kvid.ai/media/files" \
+  -H "api-key: YOUR_API_KEY" \
+  --data-urlencode "page=1" \
+  --data-urlencode "pageSize=20" \
+  --data-urlencode "sort=createdAt:desc"
+```
+
+```json
+{
+  "success": true,
+  "data": [ { "id": 42, "name": "logo.png", "url": "...", "mime": "image/png", "size": 102.4 } ],
+  "meta": { "pagination": { "page": 1, "pageSize": 20, "total": 12, "pageCount": 1 } }
+}
+```
+
+`GET /media/files/:id`, `PUT /media/files/:id`, and `DELETE /media/files/:id` are standard CRUD on the same Strapi-managed metadata, each scoped to the caller's own files.
+
+---
+
+### 5. Storage stats
+
+`GET /media/stats`
+
+Total file count, total size, and a per-type breakdown for the caller.
+
+```bash
+curl -H "api-key: YOUR_API_KEY" "https://api.kvid.ai/media/stats"
+```
+
+```json
+{
+  "success": true,
+  "data": {
+    "totalFiles": 12,
+    "totalSize": 145678901,
+    "byType": { "image": 7, "video": 3, "audio": 1, "other": 1 }
+  }
+}
+```
+
+---
 
 ## End-to-end example (Node)
 
@@ -174,10 +231,10 @@ const presignRes = await fetch('https://api.kvid.ai/media/presigned-upload-url',
 });
 const { data: presign } = await presignRes.json();
 
-// 2. PUT the binary
+// 2. PUT the binary (Content-Type matches the requested mimeType)
 await fetch(presign.uploadUrl, {
   method: 'PUT',
-  headers: presign.headers,
+  headers: { 'Content-Type': 'image/png' },
   body: file,
 });
 
@@ -202,6 +259,6 @@ await fetch('https://api.kvid.ai/agent/generate', {
 ## Notes
 
 - **Key prefix is a hash**, not raw email — clients can't enumerate other users' uploads by guessing keys.
-- **Object is `public-read`** by design — the agent and downstream Remotion renderer both need to fetch by URL. Don't upload sensitive material.
-- **TTL is for the PUT only**. Once uploaded, the `cdnUrl` is permanent.
-- **Why no automatic Strapi row?** Keeping the flow stateless avoids a second round-trip for the common "upload + immediately use with agent" case. If you need browseable files, use the legacy multipart `POST /api/media-management/upload` endpoint or wait for the future `POST /media/complete-upload`.
+- **Object is public** by design — the agent and downstream Remotion renderer both need to fetch by URL. Don't upload sensitive material.
+- **TTL is for the PUT only.** Once uploaded, the `cdnUrl` is permanent.
+- **Why no automatic Strapi row?** Keeping the flow stateless avoids a second round-trip for the common "upload + immediately use with agent" case. If you need browseable files, wait for the future `complete-upload` endpoint.

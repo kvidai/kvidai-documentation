@@ -1,6 +1,6 @@
 ---
 title: Project Management API
-description: kvidAI Project Management API — create, list, update, duplicate, and render video projects through a REST interface.
+description: kvidAI Project Management API — create, list, fetch, update, and patch the composition of video projects through a REST interface.
 keywords: [project management API, video project API, composition API, kvidAI API, video editor backend, REST API]
 image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: project-management
@@ -10,25 +10,27 @@ sidebar_position: 5
 
 # Project Management API
 
+> **한국어로 보기**: [프로젝트 관리 API](/ko/docs/api-services/project-management) | **View in English** (current page)
+
 kvidAI's Project Management API is a REST interface for organizing video editing work into **projects** — long-lived containers that hold a Remotion-style **composition** (tracks, items, assets) plus chat history, rendering status, and per-project metadata.
 
-You use this API when you want to build your own client around the same project model that powers [kvid.ai](https://kvid.ai) — for example a bulk-import script, a Slack bot that triggers renders, or an integration pipeline that hands a composition to the [Agent API](./agent-api.md) for AI editing.
+You use this API when you want to build your own client around the same project model that powers [kvid.ai](https://kvid.ai) — for example a bulk-import script, an integration pipeline, or a workflow that hands a composition to the [Agent API](./agent-api.md) for AI editing.
 
 ## 🎯 Service Overview
 
 ### Concepts
 
-- **Project** — a JSON record per video editor session. Owned by a user (`email`), holds the `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed` / `failed`), an optional `preset_id`, and a `thumbnail_url`.
-- **Composition** — Remotion-compatible JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. Mutated through `PATCH /composition` so you don't have to re-send the entire record.
-- **Preset** — a reusable JSON config (voice / tone / color palette / scene defaults) selected at creation time. Set with `presetId` in `create`. Managed via the [Preset API](./overview#preset-api). Legacy field name `templateId` is still accepted.
+- **Project** — a JSON record per video editor session. Owned by the caller, holds the `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed`), an optional `preset_id`, and a `thumbnail_url`.
+- **Composition** — Remotion-compatible JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. Mutated through `PATCH /:id/composition` so you don't have to re-send the entire record every time.
+- **Preset** — a reusable JSON config (voice / tone / color palette / scene defaults) selected at creation time via `presetId`. Managed via the [Preset API](./preset-api.md). Legacy field name `templateId` is still accepted.
 
 ### Authentication
 
-Every endpoint identifies the caller by **`email`** (passed in the request body or as a query parameter) plus an **API key** delivered in the `api-key` header. The backend verifies the key resolves to that email — keys cannot read or mutate other users' projects.
+Every endpoint is authenticated with a single **`api-key`** header. The APIM gateway resolves that key to the owning user and injects the identity for you — **you never pass `email` in the body or query**. Keys cannot read or mutate other users' projects.
 
 Get an API key at [kvid.ai/dashboard/api-keys](https://kvid.ai/dashboard/api-keys).
 
-> Pricing for AI-driven operations (rendering, generation triggered via the agent) is documented in [Pricing](../pricing.md). Plain CRUD calls on this API are free.
+> Plain CRUD calls on this API are free. Pricing for AI-driven operations (generation triggered via the agent) is documented in [Pricing](../pricing.md).
 
 ## 📡 API Endpoints
 
@@ -42,31 +44,31 @@ Content-Type:   application/json
 
 | Method | Path | Purpose |
 |--------|------|---------|
-| `POST`   | `/api/video-project` | Create a new project |
-| `GET`    | `/api/video-project` | List projects for a user (paginated) |
-| `GET`    | `/api/video-project/:id` | Fetch one project (includes composition) |
-| `PUT`    | `/api/video-project/:id` | Update top-level fields (name, status, thumbnail) |
-| `PATCH`  | `/api/video-project/:id/composition` | Patch the composition tree |
-| `POST`   | `/api/video-project/:id/duplicate` | Clone a project (composition + template) |
-| `POST`   | `/api/video-project/:id/render` | Kick off a render job |
-| `POST`   | `/api/video-project/:id/chat` | Append a message to the project's chat history |
-| `DELETE` | `/api/video-project/:id` | Delete a project |
+| `POST`   | `/video-project/create`             | Create a new project |
+| `GET`    | `/video-project`                    | List the caller's projects (paginated) |
+| `GET`    | `/video-project/:id`                | Fetch one project (includes composition) |
+| `PUT`    | `/video-project/:id`                | Update top-level fields / whole composition |
+| `PATCH`  | `/video-project/:id/composition`    | Patch the composition tree (fine-grained ops) |
 
 ---
 
 ### 1. Create a project
 
-`POST /api/video-project`
+`POST /video-project/create`
 
-**Request body**
+Creates a new project. The caller becomes the owner.
 
-| Field | Type | Required | Notes |
-|-------|------|----------|-------|
-| `email` | string | yes | Owner's email (matches API key). |
-| `name` | string | no | Defaults to `"Untitled Project"`. |
-| `composition` | object | no | Initial composition. Defaults to an empty 1920×1080 composition. |
-| `settings` | object | no | Free-form per-project preferences. |
-| `presetId` | string | no | Preset to attach (see [Preset API](./overview#preset-api)). `null` falls back to `system_default`. Legacy alias: `templateId`. Stored as `preset_id` on the project record. |
+**Optional body**
+
+| Field | Type | Default | Notes |
+|-------|------|---------|-------|
+| `name` | string | `"Untitled Project"` | Display name. |
+| `composition` | object | 1080×1920 @ 30fps, empty tracks | Initial composition: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. Any item's `durationInFrames < 1` is clamped to `1`. |
+| `settings` | object | `{}` | Free-form per-project preferences (editor state, etc.). |
+| `presetId` / `preset_id` | string | `null` | Preset to attach (voice / tone / color seed). When omitted, the agent falls back to `system_default`. |
+| `templateId` / `template_id` | string | `null` | Legacy alias for `presetId` — send either one. |
+
+**Auto-set fields**: `status = "draft"`, `chat_history = []`, `last_edited_at = now()`, and `thumbnail_url` is auto-extracted from the first image asset in the composition (else `null`).
 
 **Python**
 
@@ -74,18 +76,25 @@ Content-Type:   application/json
 import requests
 
 API_KEY = "YOUR_API_KEY"
-EMAIL   = "you@example.com"
 
 resp = requests.post(
-    "https://api.kvid.ai/api/video-project",
+    "https://api.kvid.ai/video-project/create",
     headers={
         "api-key": API_KEY,
         "Content-Type": "application/json",
     },
     json={
-        "email": EMAIL,
-        "name": "Sunset Beach Promo",
+        "name": "Sample project",
         "presetId": "review-owl",
+        "composition": {
+            "fps": 30,
+            "compositionWidth": 1080,
+            "compositionHeight": 1920,
+            "tracks": [],
+            "items": {},
+            "assets": {},
+        },
+        "settings": {},
     },
 )
 resp.raise_for_status()
@@ -96,15 +105,14 @@ print(project["id"], project["status"])
 **JavaScript (Node)**
 
 ```javascript
-const res = await fetch("https://api.kvid.ai/api/video-project", {
+const res = await fetch("https://api.kvid.ai/video-project/create", {
   method: "POST",
   headers: {
     "api-key": process.env.KVIDAI_API_KEY,
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    email: "you@example.com",
-    name: "Sunset Beach Promo",
+    name: "Sample project",
     presetId: "review-owl",
   }),
 });
@@ -119,40 +127,46 @@ console.log(project.id, project.status);
   "success": true,
   "data": {
     "id": 1234,
-    "name": "Sunset Beach Promo",
-    "email": "you@example.com",
-    "composition": { "fps": 30, "compositionWidth": 1920, "compositionHeight": 1080, "tracks": [], "items": {}, "assets": {} },
+    "name": "Sample project",
+    "composition": { "fps": 30, "compositionWidth": 1080, "compositionHeight": 1920, "tracks": [], "items": {}, "assets": {} },
     "status": "draft",
     "thumbnail_url": null,
     "preset_id": "review-owl",
-    "last_edited_at": "2026-05-26T09:00:00.000Z"
+    "chat_history": [],
+    "settings": {},
+    "last_edited_at": "2026-06-02T10:00:00.000Z",
+    "createdAt": "2026-06-02T10:00:00.000Z",
+    "updatedAt": "2026-06-02T10:00:00.000Z"
   }
 }
 ```
 
+- `data.id` — the `projectId` used by every subsequent call.
+- `data.status ∈ { draft, rendering, completed }` — new projects are always `draft`.
+
 ---
 
-### 2. List a user's projects
+### 2. List the caller's projects
 
-`GET /api/video-project?email={email}`
+`GET /video-project`
 
-**Query parameters**
+Returns the caller's projects. The `composition` payload is omitted from the list (payload optimization) — use `GET /video-project/:id` for the full record.
 
-| Parameter | Default | Notes |
-|-----------|---------|-------|
-| `email` | required | Owner |
-| `page` | `1` | 1-based |
-| `pageSize` | `12` | Max `50` |
-| `search` | — | Case-insensitive partial match on `name` |
-| `sort` | `latest` | `latest` / `oldest` / `name-asc` / `name-desc` |
-| `status` | — | Filter to one of `draft` / `rendering` / `completed` |
+**Optional query parameters**
+
+| Parameter | Type | Default | Constraint | Notes |
+|-----------|------|---------|------------|-------|
+| `page` | number | `1` | ≥ 1 | Page number. |
+| `pageSize` | number | `12` | ≤ 50 | Items per page. |
+| `search` | string | — | — | Case-insensitive substring match on `name`. |
+| `sort` | string | `latest` | `latest` \| `oldest` \| `name-asc` \| `name-desc` | Sort order. |
+| `status` | string | — | `draft` \| `rendering` \| `completed` | Status filter. |
 
 ```bash
-curl -G "https://api.kvid.ai/api/video-project" \
+curl -G "https://api.kvid.ai/video-project" \
   -H "api-key: $KVIDAI_API_KEY" \
-  --data-urlencode "email=you@example.com" \
   --data-urlencode "page=1" \
-  --data-urlencode "pageSize=20" \
+  --data-urlencode "pageSize=12" \
   --data-urlencode "sort=latest"
 ```
 
@@ -160,200 +174,235 @@ curl -G "https://api.kvid.ai/api/video-project" \
 {
   "success": true,
   "data": [
-    { "id": 1234, "name": "Sunset Beach Promo", "status": "draft", "thumbnail_url": "https://...", "last_edited_at": "..." }
+    {
+      "id": 253,
+      "name": "My project",
+      "status": "draft",
+      "thumbnail_url": null,
+      "preset_id": "review-owl",
+      "last_edited_at": "2026-06-02T...",
+      "createdAt": "2026-05-27T...",
+      "updatedAt": "2026-06-02T..."
+    }
   ],
-  "meta": {
-    "pagination": { "page": 1, "pageSize": 20, "total": 37, "pageCount": 2 }
-  }
+  "meta": { "pagination": { "page": 1, "pageSize": 12, "total": 47, "pageCount": 4 } }
 }
 ```
-
-Project summaries omit `composition` and `chat_history` to keep responses small. Use the `GET /:id` endpoint to fetch the full record.
 
 ---
 
 ### 3. Fetch one project
 
-`GET /api/video-project/:id?email={email}`
+`GET /video-project/:id`
 
-Returns the full record including `composition`, `chat_history`, `settings`, and `preset_id`.
+Returns the full record — `composition` (tracks / items / assets), `chat_history`, `settings`, `preset_id`, `thumbnail_url`, `status`, and timestamps.
+
+**Path parameter**: `id` — projectId (integer), the `data.id` from `POST /video-project/create`.
 
 ```python
 resp = requests.get(
-    f"https://api.kvid.ai/api/video-project/{project_id}",
+    f"https://api.kvid.ai/video-project/{project_id}",
     headers={"api-key": API_KEY},
-    params={"email": EMAIL},
 )
 project = resp.json()["data"]
 print(len(project["composition"]["tracks"]), "tracks")
 ```
 
+```json
+{
+  "success": true,
+  "data": {
+    "id": 253,
+    "name": "My project",
+    "composition": {
+      "fps": 30,
+      "compositionWidth": 1080,
+      "compositionHeight": 1920,
+      "tracks": [{ "id": "track-1", "items": ["item-1"], "hidden": false, "muted": false }],
+      "items": {
+        "item-1": { "id": "item-1", "type": "text", "text": "Hello", "from": 0, "durationInFrames": 90 }
+      },
+      "assets": {}
+    },
+    "status": "draft",
+    "thumbnail_url": null,
+    "preset_id": "review-owl",
+    "chat_history": [{ "role": "user", "content": "..." }],
+    "settings": {},
+    "last_edited_at": "2026-05-27T10:00:00.000Z",
+    "createdAt": "2026-05-27T09:00:00.000Z",
+    "updatedAt": "2026-05-27T10:00:00.000Z"
+  }
+}
+```
+
 ---
 
-### 4. Update top-level fields
+### 4. Update a project
 
-`PUT /api/video-project/:id`
+`PUT /video-project/:id`
 
-Use this for non-composition edits — renaming, marking complete, attaching a thumbnail, swapping settings.
+Updates only the fields you send. The composition can be replaced here too — but for fine-grained edits prefer [`PATCH /video-project/:id/composition`](#5-patch-the-composition).
+
+**Path parameter**: `id` — projectId (integer).
+
+**Optional body — only the fields you send are updated**
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `name` | string | Display name. |
+| `composition` | object | Full replacement (sanitized; `durationInFrames < 1` → `1`). |
+| `status` | string | `draft` \| `rendering` \| `completed`. |
+| `settings` | object | Free-form per-project preferences. |
+| `thumbnail_url` | string | Used as-is if sent. If omitted while the composition changes, it is auto-extracted from the first image asset. |
+
+`last_edited_at` is always set to `now()`.
 
 ```javascript
-await fetch(`https://api.kvid.ai/api/video-project/${id}`, {
+await fetch(`https://api.kvid.ai/video-project/${id}`, {
   method: "PUT",
   headers: {
     "api-key": API_KEY,
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    email: "you@example.com",
-    name: "Sunset Beach Promo — final cut",
+    name: "renamed via APIM",
     status: "completed",
   }),
 });
 ```
 
-To patch the composition, use `PATCH /:id/composition` instead — that endpoint understands `replace` / `merge` operations and only ships the diff.
+```json
+{ "success": true, "data": { "id": 186, "name": "renamed via APIM", "status": "completed" } }
+```
 
 ---
 
 ### 5. Patch the composition
 
-`PATCH /api/video-project/:id/composition`
+`PATCH /video-project/:id/composition`
 
-**Request body**
+Applies a single fine-grained change to the composition. The controller supports **exactly six** operations: `add_item`, `update_item`, `delete_item`, `add_track`, `add_asset`, and `replace`. After every operation the composition is re-sanitized, `last_edited_at` is refreshed, and `thumbnail_url` is re-extracted from the first image asset.
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `email` | string | Owner. |
-| `operation` | `"replace"` \| `"merge"` | `replace` overwrites the entire composition. `merge` shallow-merges top-level keys. |
-| `data.composition` | object | The new composition (full or partial depending on `operation`). |
+**Required body**
 
-```python
-new_composition = {
-    "fps": 30,
-    "compositionWidth": 1920,
-    "compositionHeight": 1080,
-    "tracks": [{ "id": "track-1", "trackType": "video", "name": "Main", "items": ["item-1"] }],
-    "items": {
-        "item-1": { "id": "item-1", "type": "video", "assetId": "asset-1", "from": 0, "durationInFrames": 150 },
-    },
-    "assets": {
-        "asset-1": { "id": "asset-1", "type": "video", "remoteUrl": "https://cdn.kvid.ai/.../clip.mp4", "durationInSeconds": 5 },
-    },
+| Field | Where | Notes |
+|-------|-------|-------|
+| `id` | path | projectId (integer). |
+| `operation` | body | One of the six operations below. |
+| `data` | body | Payload specific to the operation. |
+
+> There is **no `remove_item`, `remove_asset`, or `patch_item` operation.** Delete an item with `delete_item`; to remove an asset, use `replace` with the full composition (or the `deletedAssets` array, which `replace` processes automatically).
+
+#### `operation: "replace"` — replace the whole composition
+
+The most common flow: after the agent's SSE `done`, save the mutated composition wholesale.
+
+```jsonc
+{
+  "operation": "replace",
+  "data": {
+    "composition": {
+      "fps": 30,
+      "compositionWidth": 1080,
+      "compositionHeight": 1920,
+      "tracks": [{ "id": "track-1", "items": [], "hidden": false, "muted": false }],
+      "items": {},
+      "assets": {},
+      "deletedAssets": []
+    }
+  }
 }
-
-requests.patch(
-    f"https://api.kvid.ai/api/video-project/{project_id}/composition",
-    headers={"api-key": API_KEY, "Content-Type": "application/json"},
-    json={"email": EMAIL, "operation": "replace", "data": {"composition": new_composition}},
-)
 ```
 
-The endpoint also recomputes `thumbnail_url` from the first image asset, so you don't need to upload a thumbnail separately.
+| Field (`data.composition.*`) | Type | Description |
+|---|---|---|
+| `fps` | integer | Frame rate (usually 30). |
+| `compositionWidth` | integer | Resolution width. |
+| `compositionHeight` | integer | Resolution height. |
+| `tracks` | array | Array of `{ id, items[], hidden, muted }`. |
+| `items` | object | `itemId → item` map. Each item's `durationInFrames < 1` is clamped to `1`. |
+| `assets` | object | `assetId → asset` metadata map. |
 
----
+#### `operation: "add_item"` — add a single item
 
-### 6. Duplicate a project
-
-`POST /api/video-project/:id/duplicate`
-
-Clones composition, settings, and `preset_id`. Chat history is **not** copied. The new project starts as `draft`.
-
-```javascript
-const res = await fetch(`https://api.kvid.ai/api/video-project/${id}/duplicate`, {
-  method: "POST",
-  headers: {
-    "api-key": API_KEY,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    email: "you@example.com",
-    name: "Sunset Beach Promo (variant B)",
-  }),
-});
-const { data: clone } = await res.json();
+```jsonc
+{
+  "operation": "add_item",
+  "data": {
+    "trackId": "track-1",
+    "item": { "id": "item-7", "type": "text", "text": "Hello", "from": 0, "durationInFrames": 90 }
+  }
+}
 ```
 
----
+The item lands in `composition.items[item.id]` and is pushed onto the `items[]` of the track named by `trackId`.
 
-### 7. Start a render
+#### `operation: "update_item"` — merge fields into an item
 
-`POST /api/video-project/:id/render`
-
-Triggers a server-side render. Returns immediately; poll `GET /:id` for `status` transitions (`draft` → `rendering` → `completed` / `failed`) and read `render_url` on success.
-
-```python
-requests.post(
-    f"https://api.kvid.ai/api/video-project/{project_id}/render",
-    headers={"api-key": API_KEY, "Content-Type": "application/json"},
-    json={"email": EMAIL},
-)
-
-# Poll until completed
-import time
-while True:
-    project = requests.get(
-        f"https://api.kvid.ai/api/video-project/{project_id}",
-        headers={"api-key": API_KEY},
-        params={"email": EMAIL},
-    ).json()["data"]
-    if project["status"] in ("completed", "failed"):
-        break
-    time.sleep(5)
-
-print(project["render_url"])
+```jsonc
+{ "operation": "update_item", "data": { "itemId": "item-3", "updates": { "from": 60, "durationInFrames": 120 } } }
 ```
 
----
+Merges `{ ...existing, ...updates }`. Ignored if the item doesn't exist.
 
-### 8. Append a chat message
+#### `operation: "delete_item"` — delete a single item
 
-`POST /api/video-project/:id/chat`
+```jsonc
+{ "operation": "delete_item", "data": { "itemId": "item-3" } }
+```
 
-Stores a message in the project's persistent chat history. The [Agent API](./agent-api.md) calls this automatically; explicit use is mainly for surfacing system notes from your own pipeline.
+Removes `composition.items[itemId]` and drops that id from every track's `items[]`.
 
-```javascript
-await fetch(`https://api.kvid.ai/api/video-project/${id}/chat`, {
-  method: "POST",
-  headers: { "api-key": API_KEY, "Content-Type": "application/json" },
-  body: JSON.stringify({
-    email: "you@example.com",
-    message: { role: "system", content: "Imported 12 clips from Dropbox folder /sunset-shoot" },
-  }),
-});
+#### `operation: "add_track"` — add a track
+
+```jsonc
+{ "operation": "add_track", "data": { "track": { "id": "track-2", "items": [], "hidden": false, "muted": false } } }
+```
+
+#### `operation: "add_asset"` — add an asset
+
+```jsonc
+{
+  "operation": "add_asset",
+  "data": {
+    "asset": {
+      "id": "asset_1",
+      "type": "image",
+      "filename": "logo.png",
+      "remoteUrl": "https://...cdn.../logo.png",
+      "size": 102400,
+      "mimeType": "image/png",
+      "width": 512, "height": 512
+    }
+  }
+}
+```
+
+**Response**
+
+```json
+{ "success": true, "data": { "id": 186, "composition": { "..." : "full updated project" } } }
 ```
 
 ---
 
-### 9. Delete a project
-
-`DELETE /api/video-project/:id?email={email}`
-
-Hard delete — the record is removed and cannot be restored. Render outputs already stored on CDN are not deleted automatically; track them separately if you need to clean up media.
-
-```bash
-curl -X DELETE "https://api.kvid.ai/api/video-project/1234?email=you@example.com" \
-  -H "api-key: $KVIDAI_API_KEY"
-```
-
----
-
-## End-to-End: Build a project, then let the agent edit it
+## End-to-End: build a project, then let the agent edit it
 
 ```python
 import requests
 
 API_KEY = "YOUR_API_KEY"
-EMAIL   = "you@example.com"
 
 # 1. Create a project (pick a preset up front so the agent gets sensible defaults)
 project = requests.post(
-    "https://api.kvid.ai/api/video-project",
+    "https://api.kvid.ai/video-project/create",
     headers={"api-key": API_KEY, "Content-Type": "application/json"},
-    json={"email": EMAIL, "name": "Tech Review", "presetId": "sod"},
+    json={"name": "Tech Review", "presetId": "sod"},
 ).json()["data"]
 
 # 2. Hand the project to the Agent API — see ./agent-api.md for the streaming protocol
-#    (the Agent API will mutate the composition through /composition under the hood)
+#    (the Agent API mutates the composition through /composition under the hood)
 ```
 
 See the [Agent API guide](./agent-api.md) for the streaming side of the flow.
@@ -362,13 +411,11 @@ See the [Agent API guide](./agent-api.md) for the streaming side of the flow.
 
 ## Error Responses
 
-| HTTP | Body example | When |
-|------|--------------|------|
-| `400` | `{ "error": "EMAIL_REQUIRED" }` | Missing required field |
-| `401` | `{ "error": "UNAUTHORIZED" }` | Bad or missing API key |
-| `403` | `{ "error": "FORBIDDEN" }` | API key does not own the target project |
-| `404` | `{ "error": "PROJECT_NOT_FOUND" }` | `id` doesn't exist |
-| `409` | `{ "error": "CONCURRENT_LIMIT" }` | Another long-running job (render / agent) is already in flight |
-| `500` | `{ "error": "INTERNAL_ERROR" }` | Unexpected failure — inspect `message` |
+All errors share the shape `{ "success": false, "error": "...", "message": "...", "data": ... }` so a single client helper can render them.
 
-All error responses share the shape `{ "success": false, "error": "...", "message": "...", "data": { ... } }` so a single client helper can render them.
+| HTTP | When |
+|------|------|
+| `401` | Unauthenticated — `api-key` header missing or invalid. |
+| `403` | Access denied — the key does not own the target project. |
+| `404` | `PROJECT_NOT_FOUND` — `id` doesn't exist. |
+| `400` | `Unknown operation: <name>` — composition `operation` outside the six supported values. |

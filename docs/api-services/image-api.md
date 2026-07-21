@@ -1,24 +1,29 @@
 ---
 title: Image Generation AI API
-description: kvidAI Image Generation API — Nano Banana based image generation with K-pop and K-beauty tuning.
+description: kvidAI Image Generation API — text-to-image and image-to-image generation with K-pop and K-beauty tuning.
+keywords: [image generation API, AI image, text to image, image to image, image editing API, nano banana, kvidAI image API]
+image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: image-api
-tags: [API, Image, AI, Generation, Nano Banana]
+tags: [API, Image, AI, Generation]
 sidebar_position: 3
 ---
 
 # Image Generation AI API
 
-> **한국어**: [Image 생성 AI API](/ko/docs/api-services/image-api)
+> **한국어로 보기**: [Image 생성 AI API](/ko/docs/api-services/image-api) | **View in English** (current page)
 
-The Image Generation API generates high-quality still images from text prompts, built on the Nano Banana model with K-pop and K-beauty prompt optimization.
+kvidAI's Image Generation API generates high-quality still images from text prompts and edits existing images, with K-pop and K-beauty prompt optimization.
 
-## Overview
+## 🎯 Service Overview
 
-- **Text-to-Image** with the Nano Banana model
+### Supported Features
+- **Text-to-Image**: generate images from text prompts (`txt2img`)
+- **Image-to-Image**: edit an existing image with a prompt (`img2img`)
 - **K-content tuning**: K-pop concept, stage outfits, K-beauty makeup / skincare, Korean streetwear
-- **Resolution**: up to **1024 × 1024**
 
-## Endpoints
+## 📡 API Endpoints
+
+### Basic Information
 
 ```
 Base URL:       https://api.kvid.ai
@@ -26,16 +31,18 @@ Authentication: api-key header
 Content-Type:   application/json
 ```
 
-The Image Generation API is **asynchronous** — submit a job, poll the unified status endpoint, then fetch the result.
+The Image Generation API is **asynchronous** — submit a job, poll the shared status endpoint, then fetch the result.
 
 | Method | Path | Purpose |
 |--------|------|---------|
 | `POST` | `/ai/generation/text-to-image/generate-async` | Submit a text-to-image job |
 | `POST` | `/ai/generation/image-to-image/generate-async` | Submit an image edit / image-to-image job |
-| `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status |
-| `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result |
+| `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status (shared endpoint) |
+| `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result (shared endpoint) |
 
-> The `api-key` header identifies the user and their subscription. You don't need to include `email` or `product_code` in the request body or query string — the backend resolves both from the API key.
+> **Authentication & credit identification.** Every request must send the `api-key` header. In addition, the AI-generation endpoints **require exactly one of `product_id` / `product_code` / `email` in the request body** to identify the credit pool to charge. Include one of them in every generate request.
+>
+> A separate dev routing surface exists (`api.hometip.net` + `/ai/generation-clone/...`); this page documents the **production** paths on `api.kvid.ai`.
 
 ### 1. Create a text-to-image job
 
@@ -45,12 +52,16 @@ api-key: YOUR_API_KEY
 Content-Type: application/json
 
 {
+  "product_id": "pdt_XXXXXXXXXXXX",
   "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
-  "negative_prompt": "blurry, low quality, distorted",
-  "image_size": { "width": 1024, "height": 1024 },
-  "num_inference_steps": 50,
-  "guidance_scale": 7.5,
-  "enable_safety_checker": true
+  "model": "nano-banana",
+  "function": "txt2img",
+  "image_size": "portrait_4_3",
+  "num_inference_steps": 25,
+  "guidance_scale": 3.0,
+  "num_images": 1,
+  "enable_safety_checker": true,
+  "seed": 5834
 }
 ```
 
@@ -60,20 +71,35 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "job_id": "img_1777360165746_2f4ye58gq",
+    "job_id": "img_1764225237210_1zxvh4sgm",
     "status": "queued",
-    "message": "Job submitted",
-    "estimated_time": "10s",
+    "message": "Image generation started",
+    "estimated_time": "10-20s",
     "image_type": "text-to-image"
   }
 }
 ```
 
-### 2. Check job status
+### 2. Create an image-to-image (edit) job
+
+Edit one or more source images with a prompt. Uses the nano-banana edit family.
 
 ```http
-GET https://api.kvid.ai/ai/generation/status?jobId=img_1777360165746_2f4ye58gq
+POST https://api.kvid.ai/ai/generation/image-to-image/generate-async
 api-key: YOUR_API_KEY
+Content-Type: application/json
+
+{
+  "product_id": "pdt_XXXXXXXXXXXX",
+  "prompt": "make the sky a dramatic sunset, keep the subject unchanged",
+  "model": "nano-banana",
+  "function": "img2img",
+  "image_urls": ["https://your-host.example/source.png"],
+  "num_images": 1,
+  "aspect_ratio": "auto",
+  "output_format": "png",
+  "sync_mode": false
+}
 ```
 
 **Response**
@@ -82,21 +108,19 @@ api-key: YOUR_API_KEY
 {
   "success": true,
   "data": {
-    "job_id": "img_1777360165746_2f4ye58gq",
-    "status": "processing",
-    "image_type": "text-to-image",
-    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
-    "created_at": "2026-04-21T10:00:00Z"
+    "job_id": "img_1768540311147_4mcdv65c7",
+    "status": "queued",
+    "message": "Image generation started",
+    "estimated_time": "10-20s",
+    "image_type": "image-to-image"
   }
 }
 ```
 
-`status` is one of: `queued`, `processing`, `completed`, `failed`.
-
-### 3. Fetch the completed result
+### 3. Check job status
 
 ```http
-GET https://api.kvid.ai/ai/generation/result?jobId=img_1777360165746_2f4ye58gq
+GET https://api.kvid.ai/ai/generation/status?jobId=img_1764225237210_1zxvh4sgm
 api-key: YOUR_API_KEY
 ```
 
@@ -106,65 +130,108 @@ api-key: YOUR_API_KEY
 {
   "success": true,
   "data": {
-    "job_id": "img_1777360165746_2f4ye58gq",
+    "job_id": "img_1764225237210_1zxvh4sgm",
+    "status": "processing",
+    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
+    "result_url": null,
+    "error_message": null
+  }
+}
+```
+
+`status` is one of: `queued`, `processing`, `completed`, `failed`, `canceled`. Recommended polling interval for image jobs: **3–5 seconds**.
+
+### 4. Fetch the completed result
+
+```http
+GET https://api.kvid.ai/ai/generation/result?jobId=img_1764225237210_1zxvh4sgm
+api-key: YOUR_API_KEY
+```
+
+**Response**
+
+```json
+{
+  "success": true,
+  "data": {
+    "job_id": "img_1764225237210_1zxvh4sgm",
     "status": "completed",
-    "result_url": "https://cdn.kvid.ai/images/img_1777360165746_2f4ye58gq.jpg",
-    "width": 1024,
+    "result_url": "https://cdn.kvid.ai/images/img_1764225237210_1zxvh4sgm.png",
+    "created_at": "2026-05-27T09:00:00.000Z",
+    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
+    "width": 768,
     "height": 1024,
     "size": 524288,
-    "type": "image/jpeg",
-    "used_credit": 8,
-    "prompt": "K-pop idol wearing a colorful stage outfit, professional photography",
-    "created_at": "2026-04-21T10:00:00Z"
+    "file_size": 524288,
+    "type": "text-to-image",
+    "used_credit": 6
   }
 }
 ```
 
-## Parameters
+## 📋 Schema
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `prompt` | string | yes | Positive prompt |
-| `negative_prompt` | string | no | Things to avoid |
-| `image_size.width` / `image_size.height` | integer | no | 256–1024 (multiples of 64 recommended) |
-| `aspect_ratio` | string | no | e.g. `1:1`, `16:9`, `9:16` (alternative to `image_size`) |
-| `num_inference_steps` | integer | no | 20 / 30 / 40 / 50 — higher = better quality, slower |
-| `guidance_scale` | float | no | 3 / 5 / 7.5 / 10 — prompt adherence strength |
-| `seed` | integer | no | Reproducibility |
-| `num_images` | integer | no | How many images to generate in one job |
-| `output_format` | string | no | `jpeg` (default) / `png` |
-| `image_url` / `image_urls` | string / string[] | image-to-image | Source image(s) for editing |
-| `enable_safety_checker` | boolean | no | Defaults to `true` |
+### Common request fields
 
-## Error handling
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `product_id` / `product_code` / `email` | string | ✅ (one of) | Identifies the credit pool to charge |
+| `prompt` | string | ✅ | Positive prompt |
+| `model` | string | – | Model identifier (`nano-banana`, `flux`, `sdxl`, …) |
+| `function` | string | – | `txt2img` / `img2img` (matches the endpoint) |
+| `negative_prompt` | string | – | Things to avoid (`"blurry, low quality"`) |
+| `image_size` | string \| object | – | Preset name or `{ width, height }` object. Default: `square` |
+| `aspect_ratio` | string | – | Ratio hint when using a preset (`"4:3"`, `"16:9"`) or output ratio for edits |
+| `num_inference_steps` | integer | – | 10–50; higher = better quality, slower. Default: `25` |
+| `guidance_scale` | number | – | 1.0–10.0; prompt adherence strength. Default: `3.0` |
+| `num_images` | integer | – | Images to generate per job (1–4). Default: `1` |
+| `output_format` | string | – | `png` (default) / `jpeg` / `webp` |
+| `sync_mode` | boolean | – | `true` for synchronous (small jobs only; not recommended). Default: `false` |
+| `acceleration` | string | – | `regular` / `high` priority processing |
+| `enable_safety_checker` | boolean | – | NSFW filter. Default: `true` (`false` is enterprise-only) |
+| `seed` | integer | – | Random seed for reproducibility |
 
-Common errors:
+### Image-to-Image specific
 
-| Code | Meaning | HTTP | Notes |
-|------|---------|------|-------|
-| `INVALID_PROMPT` | Prompt empty/invalid | 400 | Check prompt |
-| `INSUFFICIENT_CREDITS` | Out of credits | 402 | [Top up](https://kvid.ai/credits/purchase) |
-| `SAFETY_CHECK_FAILED` | Prompt rejected by safety filter | 422 | Refine prompt |
-| `RATE_LIMITED` | Too many requests | 429 | Back off |
-| `SERVER_ERROR` | Internal | 500+ | Retry, contact support |
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `image_urls` / `image_url` | string[] \| string | ✅ | Source image(s) to edit. Array (`image_urls`) recommended; single (`image_url`) accepted |
 
-## Prompting tips
+### `image_size` presets
+
+`square`, `square_hd`, `portrait_4_3`, `portrait_16_9`, `landscape_4_3`, `landscape_16_9`, or a custom `{ "width": <int>, "height": <int> }` object.
+
+> Model availability and exact per-model params — see [Pricing](/docs/pricing) and model docs.
+
+## ⚠️ Error handling
+
+| Code | HTTP | Meaning |
+|------|------|---------|
+| `MISSING_PARAMETERS` / `INVALID_PARAMETERS` | 400 | Missing prompt/image or invalid `image_size` |
+| `INSUFFICIENT_CREDIT` | 402 | Not enough credits |
+| — | 403 | `api-key` invalid |
+| `JOB_NOT_FOUND` | 404 | `jobId` not found (or not owned by caller) — result endpoint |
+| `JOB_NOT_COMPLETED` | 400 | Status is still `queued`/`processing` — result endpoint |
+| `JOB_FAILED` | 400 | Status is `failed`; see `error_message` from the status endpoint |
+
+## 💡 Prompting tips
 
 - Use **style keywords**: `photography`, `digital art`, `cinematic`, `pastel`, `studio lighting`.
 - Use a **strong negative prompt** to suppress artifacts (`blurry, low quality, extra limbs, distorted hands`).
 - For K-pop / K-beauty work, anchor on concept vocabulary: `idol stage outfit`, `glass skin makeup`, `streetwear lookbook`.
 
-## Pricing
+## 🔗 Related Links
 
-See [Pricing → Image Generation](/docs/pricing#image-generation) for the current per-megapixel rate and bulk discounts.
-
-## Related
-
-- [API key issuance](https://kvid.ai/settings/api-keys)
+- [Create an API key](https://kvid.ai/settings/api-keys)
 - [Buy credits](https://kvid.ai/credits/purchase)
-- [Gallery samples](https://kvid.ai/gallery)
+- [Pricing](/docs/pricing)
+- [Video Generation API](./video-api)
 
-## Support
+## 📞 Support & Contact
 
-- Email: support@kvid.ai
-- Discord: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
+- **Email**: support@kvid.ai
+- **Discord**: [kvidAI Community](https://discord.gg/yzgyCx8Jpt)
+
+---
+
+**Language**: **English** (current page) | [한국어](/ko/docs/api-services/image-api)

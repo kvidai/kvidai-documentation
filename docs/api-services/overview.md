@@ -15,11 +15,14 @@ kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service share
 
 | Service | Description | Reference |
 |---------|-------------|-----------|
-| **Video Generation** | Text-to-video and image-to-video generation (v1 / v2 / v3 models) | [Video API](./video-api) |
-| **Image Generation** | Still-image generation based on Nano Banana | [Image API](./image-api) |
+| **Video Generation** | Text-to-video, image-to-video, and reference-to-video (`wan` / `seedance` / `veo3.1` models) | [Video API](./video-api) |
+| **Image Generation** | Text-to-image and image-to-image (`nano-banana` / `flux` / `sdxl`) | [Image API](./image-api) |
 | **Talk-V2V (Lip-Sync)** | Drive an existing video with new audio for localized / re-voiced clips | [Talk-V2V API](./talk-v2v) |
-| **Project Management** | REST CRUD for video projects + composition mutations + rendering | [Project Management API](./project-management) |
+| **Voice (TTS)** | ElevenLabs-based text-to-speech with character-level timing for subtitle sync | [Voice API](./voice-api) |
+| **Speech-to-Text** | ElevenLabs Scribe transcription (words + timestamps) from a file or CDN URL | [Speech-to-Text API](./speech-to-text) |
+| **AI Edit** | Media summary (STT + LLM) and silence-cut, streamed over SSE | [AI Edit API](./ai-edit-api) |
 | **Agent (AI Editor)** | Natural-language composition editing and long-video scene planning via SSE | [Agent API](./agent-api) |
+| **Project Management** | REST CRUD for video projects + composition mutations | [Project Management API](./project-management) |
 | **Preset** | Reusable presets (voice / tone / color / scene defaults) that seed new projects | [Preset API](./preset-api) |
 | **Media** | Direct CDN upload via presigned URL — pass `cdnUrl` to the agent without round-tripping the binary through the server | [Media API](./media-api) |
 
@@ -43,12 +46,15 @@ curl -X POST "https://api.kvid.ai/ai/generation/text-to-image/generate-async" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
+    "product_id": "YOUR_PRODUCT_ID",
     "prompt": "K-pop concert stage with colorful lights",
-    "image_size": { "width": 1024, "height": 1024 }
+    "model": "nano-banana"
   }'
 ```
 
-The call returns a `job_id`. Poll `GET /ai/generation/status?jobId={id}` until `status: "completed"`, then fetch the result with `GET /ai/generation/result?jobId={id}`. The `api-key` header identifies the user — no separate `email` or `product_code` field is required. See the [Image API reference](./image-api) for details.
+The call returns a `job_id`. Poll `GET /ai/generation/status?jobId={id}` until `status: "completed"`, then fetch the result with `GET /ai/generation/result?jobId={id}`. See the [Image API reference](./image-api) for details.
+
+> **Identifying the credit pool** — the AI generation endpoints (image / video / talk-v2v / voice) require **one of** `product_id`, `product_code`, or `email` in the request body so the platform knows which credit balance to charge. The platform endpoints (Preset, Media, Project, Agent, AI Edit) don't need this — the `api-key` header alone identifies you.
 
 ## Pricing
 

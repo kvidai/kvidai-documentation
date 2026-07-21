@@ -6,6 +6,7 @@ image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 slug: talk-v2v
 tags: [API, Video, AI, Generation, Talk-V2V, Lip-Sync]
 sidebar_position: 4
+unlisted: true
 ---
 
 # Talk-V2V (Lip-Sync) API

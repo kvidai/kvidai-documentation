@@ -14,7 +14,6 @@ kvidAI의 모든 API는 `https://api.kvid.ai` 에서 제공되며, 하나의 계
 |--------|------|------|
 | **Video Generation** | Text-to-Video / Image-to-Video / Reference-to-Video (`wan` / `seedance` / `veo3.1` 모델) | [Video API](./video-api) |
 | **Image Generation** | Text-to-Image / Image-to-Image (`nano-banana` / `flux` / `sdxl`) | [Image API](./image-api) |
-| **Talk-V2V (립싱크)** | 기존 비디오에 새 오디오를 입혀 립싱크 비디오 생성 | [Talk-V2V API](./talk-v2v) |
 | **Voice (TTS)** | ElevenLabs 기반 음성 합성. 자막 싱크용 character 단위 타이밍 제공 | [음성 API](./voice-api) |
 | **Speech-to-Text** | ElevenLabs Scribe 전사. 파일 또는 CDN URL 로 단어+타임스탬프 반환 | [음성 전사 API](./speech-to-text) |
 | **AI Edit** | 미디어 요약(STT+LLM) 및 무음 컷. SSE 스트리밍 | [AI 편집 API](./ai-edit-api) |

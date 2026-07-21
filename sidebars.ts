@@ -42,7 +42,6 @@ const sidebars: SidebarsConfig = {
         'api-services/overview',
         'api-services/video-api',
         'api-services/image-api',
-        'api-services/talk-v2v',
         'api-services/voice-api',
         'api-services/speech-to-text',
         'api-services/ai-edit-api',

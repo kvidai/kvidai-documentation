@@ -17,7 +17,6 @@ kvidAI exposes a unified HTTPS API at `https://api.kvid.ai`. Every service share
 |---------|-------------|-----------|
 | **Video Generation** | Text-to-video, image-to-video, and reference-to-video (`wan` / `seedance` / `veo3.1` models) | [Video API](./video-api) |
 | **Image Generation** | Text-to-image and image-to-image (`nano-banana` / `flux` / `sdxl`) | [Image API](./image-api) |
-| **Talk-V2V (Lip-Sync)** | Drive an existing video with new audio for localized / re-voiced clips | [Talk-V2V API](./talk-v2v) |
 | **Voice (TTS)** | ElevenLabs-based text-to-speech with character-level timing for subtitle sync | [Voice API](./voice-api) |
 | **Speech-to-Text** | ElevenLabs Scribe transcription (words + timestamps) from a file or CDN URL | [Speech-to-Text API](./speech-to-text) |
 | **AI Edit** | Media summary (STT + LLM) and silence-cut, streamed over SSE | [AI Edit API](./ai-edit-api) |

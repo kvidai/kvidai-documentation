@@ -4,6 +4,7 @@ description: kvidAI Talk-V2V API — 기존 비디오에 새 오디오를 입혀
 slug: talk-v2v
 tags: [API, Video, AI, 립싱크, Talk-V2V]
 sidebar_position: 4
+unlisted: true
 ---
 
 # Talk-V2V (립싱크) API

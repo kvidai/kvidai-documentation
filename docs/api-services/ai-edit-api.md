@@ -12,10 +12,11 @@ sidebar_position: 7
 
 > **한국어로 보기**: [AI 편집 (요약·무음컷) API](/ko/docs/api-services/ai-edit-api) | **View in English** (current page)
 
-The AI Edit API takes a public media URL (audio or video) and returns editing decisions as **Server-Sent Events (SSE)**. Two endpoints:
+The AI Edit API takes a public media URL (audio or video) and returns editing decisions as **Server-Sent Events (SSE)**. Three endpoints:
 
 - **`/ai-edit/summary`** — transcribes the media (**STT via ElevenLabs Scribe**) then runs an **LLM** to pick the segments worth keeping, each with an importance score. The editor stitches those segments into a summary cut.
 - **`/ai-edit/silence-cut`** — removes silent stretches with **FFmpeg** and returns a new MP4 on the CDN. No STT/LLM — pure audio silence analysis.
+- **`/ai-edit/shorts`** — transcribes then runs an **LLM** to find short-form **highlight candidates** (each a start/end + title/reason). Returns the candidate list only — you pick and cut on your side (same "decision-returning" model as summary; only silence-cut returns an actual MP4).
 
 Both stream progress while working (a 50-minute video can take a minute or more). The terminal `done` event carries the result plus the run's total credit spend (`cost`).
 
@@ -60,6 +61,7 @@ Response style: text/event-stream (SSE) on success; application/json on early-re
 |--------|------|---------|
 | `POST` | `/ai-edit/summary` | Summarize media into keep-segments (STT + LLM) |
 | `POST` | `/ai-edit/silence-cut` | Remove silent stretches, return a new MP4 URL |
+| `POST` | `/ai-edit/shorts` | Find short-form highlight candidates (STT + LLM) — returns timestamps, not a cut |
 
 ---
 
@@ -320,10 +322,67 @@ while (true) {
 
 ---
 
+### 3. Shorts
+
+`POST /ai-edit/shorts`
+
+Transcribes the media (**STT**) then runs an **LLM** to find self-contained **short-form highlight candidates** (think Shorts / Reels). Returns the candidate list — **it does not cut or pick**. Same "decision-returning" model as summary: you receive timestamps + a title/reason per candidate and cut the clips you want on your side. (Only `silence-cut` returns an actual MP4, because removing silence needs no human decision.)
+
+#### Request Body
+
+| Field | Type | Constraint | Description |
+|-------|------|-----------|-------------|
+| `mediaUrl` | string | public https URL | Media (audio/video) CDN URL. **External callers only need this.** One of `mediaUrl` / `fileKey` is required (`mediaUrl` wins if both). |
+| `instruction` | string | optional | Steer candidate selection. Omit for automatic impact-based selection. |
+| `maxClips` | number | optional, default `6` | Max candidates. Clamped to **1–12**. |
+| `fileKey` | string | optional | Alternative to `mediaUrl` — a media key from the upload API. External callers normally use `mediaUrl`. |
+| `projectId` | number | optional | Project id to associate the result with. |
+
+#### SSE Events
+
+| Event | When | Payload |
+|-------|------|---------|
+| `job_created` | first | `{ jobId }` |
+| `transcribing` | STT starts | `{ jobId }` |
+| `analyzing` | LLM highlight selection starts | `{ jobId }` |
+| `done` | complete | `{ success: true, data: { kind, captions, clips, cost } }` |
+| `error` | failure | `{ error }` |
+
+#### done.data
+
+```jsonc
+{
+  "kind": "shorts",
+  "captions": [ /* full word-level transcript (ms) */ ],
+  "clips": [                                   // highlight candidates, best first, non-overlapping
+    {
+      "startMs": 12000,                        // candidate start (ms)
+      "endMs": 38000,                          // candidate end (ms)
+      "title": "The moment the price flipped", // short, catchy clip title (transcript language)
+      "reason": "twist + number impact"        // one line on why it works as a short
+    }
+  ],
+  "cost": { /* same shape as summary — ledger-summed run credit */ }
+}
+```
+
+`clips` are **candidate ranges, not ready-made MP4s** — cut them yourself from `startMs`/`endMs`. Empty `clips: []` means nothing qualified.
+
+#### Errors
+
+| Status | error | Cause |
+|--------|-------|-------|
+| 400 | `missing_params` | Missing one of `email`, `kind`, `mediaUrl` / `fileKey` |
+| 401 | `forbidden_origin` | Origin gate failed (e.g. not via APIM) |
+| 4xx/5xx | `Transcription failed` | STT failed (no/broken audio) — emitted as an SSE `error` event |
+
+---
+
 ## Notes
 
 - A Bruno `bru run` cannot wait for the full SSE stream — call from a UI or an external SSE client.
 - Summary `overview` mode requires `instruction`. For an unguided auto-summary, use `mode: "trailer"`.
+- Shorts returns **candidates only** (timestamps + title/reason) — you pick and cut the clips yourself; it never returns a video. Only `silence-cut` returns an MP4.
 - A video with no silence returns `removed_duration = 0` (output = input) — this is normal.
 
 ## Related

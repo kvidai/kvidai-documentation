@@ -12,10 +12,11 @@ sidebar_position: 7
 
 > **View in English**: [AI Edit API](/docs/api-services/ai-edit-api) | **한국어로 보기** (현재 페이지)
 
-AI Edit API 는 공개 미디어 URL (오디오·영상) 을 받아 편집 결정을 **Server-Sent Events (SSE)** 로 반환합니다. 두 개의 엔드포인트:
+AI Edit API 는 공개 미디어 URL (오디오·영상) 을 받아 편집 결정을 **Server-Sent Events (SSE)** 로 반환합니다. 세 개의 엔드포인트:
 
 - **`/ai-edit/summary`** — 미디어를 전사(**STT via ElevenLabs Scribe**)한 뒤 **LLM** 으로 유지할 구간을 골라냅니다. 각 구간에는 importance 점수가 붙습니다. 편집기가 이 구간들을 이어붙여 요약 컷을 만듭니다.
 - **`/ai-edit/silence-cut`** — **FFmpeg** 로 무음 구간을 제거한 새 MP4 를 CDN 에 반환합니다. STT/LLM 불필요 — 순수 오디오 무음 분석.
+- **`/ai-edit/shorts`** — 전사한 뒤 **LLM** 으로 숏폼 **하이라이트 후보**(각각 시작/끝 + 제목/이유)를 찾습니다. **후보 리스트만 반환** — 컷/선택은 하지 않으며, 호출자가 골라서 자체적으로 자릅니다(summary 와 동일한 '결정 반환' 모델; 실제 MP4 를 반환하는 것은 silence-cut 뿐).
 
 두 엔드포인트 모두 처리 중 진행 상황을 스트리밍합니다 (50분 영상은 1분 이상 걸릴 수 있음). 종료 `done` 이벤트에 결과와 이 실행의 총 credit 사용량(`cost`) 이 담깁니다.
 
@@ -60,6 +61,7 @@ Response style: 성공 시 text/event-stream (SSE); early-reject 시 application
 |--------|------|------|
 | `POST` | `/ai-edit/summary` | 미디어를 유지 구간으로 요약 (STT + LLM) |
 | `POST` | `/ai-edit/silence-cut` | 무음 구간 제거, 새 MP4 URL 반환 |
+| `POST` | `/ai-edit/shorts` | 숏폼 하이라이트 후보 추출 (STT + LLM) — 컷이 아닌 timestamps 반환 |
 
 ---
 
@@ -320,10 +322,67 @@ while (true) {
 
 ---
 
+### 3. 숏츠 (Shorts)
+
+`POST /ai-edit/shorts`
+
+전사(**STT**) 후 **LLM** 으로 독립적인 **숏폼 하이라이트 후보**(Shorts/Reels 용)를 찾습니다. **후보 리스트만 반환** — 컷/선택은 하지 않습니다. summary 와 동일한 '결정 반환' 모델로, 후보별 timestamp + 제목/이유를 받아 원하는 클립을 호출자가 자릅니다. (silence-cut 만 실제 MP4 를 반환 — 무음 제거는 사람 결정이 불필요하기 때문.)
+
+#### Request Body
+
+| Field | Type | 제약 | 설명 |
+|-------|------|------|------|
+| `mediaUrl` | string | 공개 https URL | 미디어(오디오/영상) CDN URL. **외부 호출은 이 값만 주면 됨.** `fileKey` 와 둘 중 하나 필수(둘 다면 `mediaUrl` 우선). |
+| `instruction` | string | 선택 | 후보 선정 방향 지시. 없으면 임팩트 기준 자동 선정. |
+| `maxClips` | number | 선택, 기본 `6` | 최대 후보 수. **1~12 로 클램프.** |
+| `fileKey` | string | 선택 | (대안) 업로드 API 가 발급한 media key. 외부 호출은 보통 `mediaUrl` 사용. |
+| `projectId` | number | 선택 | 결과를 연결할 프로젝트 id. |
+
+#### SSE Events
+
+| Event | 시점 | Payload |
+|-------|------|---------|
+| `job_created` | 최초 | `{ jobId }` |
+| `transcribing` | STT 시작 | `{ jobId }` |
+| `analyzing` | LLM 하이라이트 선정 시작 | `{ jobId }` |
+| `done` | 완료 | `{ success: true, data: { kind, captions, clips, cost } }` |
+| `error` | 실패 | `{ error }` |
+
+#### done.data
+
+```jsonc
+{
+  "kind": "shorts",
+  "captions": [ /* 전체 단어 단위 전사(ms) */ ],
+  "clips": [                                   // 하이라이트 후보 (best first, 서로 겹치지 않음)
+    {
+      "startMs": 12000,                        // 후보 시작(ms)
+      "endMs": 38000,                          // 후보 끝(ms)
+      "title": "가격이 뒤집힌 순간",             // 짧고 후킹되는 제목(전사 언어)
+      "reason": "반전 + 수치 임팩트"             // 왜 숏폼으로 좋은지 한 줄
+    }
+  ],
+  "cost": { /* summary 와 동일 — 원장 합산 run credit */ }
+}
+```
+
+`clips` 는 **자를 준비가 된 MP4 가 아니라 후보 구간** — `startMs`/`endMs` 로 호출자가 자릅니다. `clips: []` 는 조건 충족 구간 없음.
+
+#### Errors
+
+| Status | error | 원인 |
+|--------|-------|------|
+| 400 | `missing_params` | `email`, `kind`, `mediaUrl` / `fileKey` 중 누락 |
+| 401 | `forbidden_origin` | origin 게이트 실패(APIM 미경유 등) |
+| 4xx/5xx | `Transcription failed` | STT 실패(오디오 없음/손상) — SSE `error` 이벤트 |
+
+---
+
 ## 주의
 
 - Bruno `bru run` 은 SSE 끝까지 못 기다립니다 — UI 또는 외부 SSE client 로 호출하세요.
 - 요약 `overview` 모드는 `instruction` 필수. 지시 없이 자동 요약을 원하면 `mode: "trailer"`.
+- 숏츠는 **후보만 반환**(timestamps + 제목/이유) — 클립은 호출자가 직접 자릅니다. 영상은 반환하지 않음(silence-cut 만 MP4 반환).
 - 무음이 없는 영상은 `removed_duration = 0` (출력 = 입력) — 정상 동작.
 
 ## 관련 문서

@@ -40,13 +40,15 @@ This is the same backend that powers the local **`transcribe.py`** skill, so it'
 ## 📡 API Endpoints
 
 ```
-Base URL:       https://api.kvid.ai/v1/speech-to-text
+Base URL:       https://api.kvid.ai/ai/speech-to-text
 Authentication: api-key header
 ```
 
 | Method | Path | Purpose |
 |--------|------|---------|
-| `POST` | `/v1/speech-to-text` | Transcribe audio to text (Scribe v1) |
+| `POST` | `/ai/speech-to-text` | Transcribe audio to text (Scribe v1) |
+
+> **Path note:** `/ai/speech-to-text` is the canonical path, consistent with the other `ai/…` APIs. The legacy `/v1/speech-to-text` still works as a **deprecated alias** — please migrate to `/ai/speech-to-text`.
 
 Two request modes are supported on the same endpoint:
 
@@ -74,7 +76,7 @@ Upload a binary audio file (WAV, MP3, M4A, etc.) as the `file` field.
 | `num_speakers` | string | no | — | Expected number of speakers; improves diarization. |
 
 ```bash
-curl -X POST "https://api.kvid.ai/v1/speech-to-text" \
+curl -X POST "https://api.kvid.ai/ai/speech-to-text" \
   -H "api-key: YOUR_API_KEY" \
   -F "file=@interview.mp3" \
   -F "model_id=scribe_v1" \
@@ -99,7 +101,7 @@ Point at a public CDN URL of a video or audio file (up to 2 GB). Useful when the
 | `email` | string | no* | — | Billing email. *Required only on direct/non-gateway calls; via `api.kvid.ai` it's injected from the api-key as `X-Kvidai-User-Email`. |
 
 ```bash
-curl -X POST "https://api.kvid.ai/v1/speech-to-text" \
+curl -X POST "https://api.kvid.ai/ai/speech-to-text" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

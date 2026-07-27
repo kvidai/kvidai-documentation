@@ -40,13 +40,15 @@ sidebar_position: 6
 ## 📡 API 엔드포인트
 
 ```
-Base URL:       https://api.kvid.ai/v1/speech-to-text
+Base URL:       https://api.kvid.ai/ai/speech-to-text
 Authentication: api-key 헤더
 ```
 
 | Method | Path | 용도 |
 |--------|------|-----|
-| `POST` | `/v1/speech-to-text` | 오디오를 텍스트로 전사 (Scribe v1) |
+| `POST` | `/ai/speech-to-text` | 오디오를 텍스트로 전사 (Scribe v1) |
+
+> **경로 안내:** `/ai/speech-to-text` 가 정식 경로입니다 (다른 `ai/…` API 와 일관). 구 `/v1/speech-to-text` 는 **deprecated alias** 로 계속 동작하지만, `/ai/speech-to-text` 로 이전을 권장합니다.
 
 동일 엔드포인트에서 두 가지 요청 모드를 지원합니다:
 
@@ -74,7 +76,7 @@ Authentication: api-key 헤더
 | `num_speakers` | string | 아니오 | — | 예상 화자 수; 화자 분리 정확도 향상. |
 
 ```bash
-curl -X POST "https://api.kvid.ai/v1/speech-to-text" \
+curl -X POST "https://api.kvid.ai/ai/speech-to-text" \
   -H "api-key: YOUR_API_KEY" \
   -F "file=@interview.mp3" \
   -F "model_id=scribe_v1" \
@@ -99,7 +101,7 @@ curl -X POST "https://api.kvid.ai/v1/speech-to-text" \
 | `email` | string | 아니오* | — | 과금용 email. *직접/게이트웨이 우회 호출에서만 필수; `api.kvid.ai` 를 통하면 api-key 로부터 `X-Kvidai-User-Email` 로 주입됨. |
 
 ```bash
-curl -X POST "https://api.kvid.ai/v1/speech-to-text" \
+curl -X POST "https://api.kvid.ai/ai/speech-to-text" \
   -H "api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

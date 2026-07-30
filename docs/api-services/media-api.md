@@ -54,13 +54,16 @@ Content-Type:   application/json
 | Method | Path | Purpose |
 |--------|------|---------|
 | `POST`   | `/media/presigned-upload-url`   | Issue a presigned PUT URL |
-| `GET`    | `/media/files`                  | List the caller's files (Strapi-managed metadata) |
-| `GET`    | `/media/files/:id`              | Get a single file's metadata |
+| `POST`   | `/media/complete-upload`        | Register a PUT object as an owned Strapi row (→ browseable) |
+| `GET`    | `/media/files`                  | List the caller's files — requires `?email=` |
+| `GET`    | `/media/files/:id`              | Get a single file's metadata — requires `?email=` |
 | `PUT`    | `/media/files/:id`              | Update file metadata |
-| `DELETE` | `/media/files/:id`              | Delete a file (caller must be owner) |
-| `GET`    | `/media/stats`                  | Storage stats (count, total size, by type) |
+| `DELETE` | `/media/files/:id`              | Delete a file (caller must be owner) — requires `?email=` |
+| `GET`    | `/media/stats`                  | Storage stats (count, total size, by type) — requires `?email=` |
 
-> **Heads up** — a presigned-only upload puts the binary on DO Spaces but doesn't create a Strapi row, so it may not appear in `GET /media/files` listings until a `complete-upload` follow-up registers it. The file is still public on the returned `cdnUrl`.
+> **Heads up** — a presigned-only upload puts the binary on DO Spaces but doesn't create a Strapi row, so it will **not** appear in `GET /media/files` listings (the object is anonymous). Follow up with `POST /media/complete-upload` to register ownership and make it browseable. The file is public on the returned `cdnUrl` either way.
+>
+> **Auth asymmetry** — upload routes (`presigned-upload-url`, `complete-upload`) resolve the owner from the api-key (APIM injects the email) and need no `email` in the request. The owner-scoped **read** routes (`files`, `files/:id`, `stats`) do **not** get the injected header and instead require the email as a `?email=` query param (omitting it → `400 EMAIL_REQUIRED`).
 
 ---
 
@@ -256,9 +259,41 @@ await fetch('https://api.kvid.ai/agent/generate', {
 });
 ```
 
+## Register ownership (`complete-upload`)
+
+Presigned upload alone is stateless — it avoids a second round-trip for the common "upload + immediately hand to agent" case. When you instead need the file to be **browseable as the user's own content** (e.g. an edited reference image the user should see in their web media library), follow the PUT with `POST /media/complete-upload`.
+
+`POST /media/complete-upload`
+
+| | |
+|---|---|
+| Headers | `Content-Type: application/json`, `api-key: <KVIDAI_API_KEY>` |
+| Body (required) | `key`, `cdnUrl`, `filename`, `mimeType` — all already in hand from the presigned response/input |
+| Body (optional) | `size` |
+| Owner | resolved by APIM from the api-key (`X-Kvidai-User-Email`) — **no `email` in the body** |
+| Response | `{ success: true, data: { id, url, name, mime, size } }` — `data.id` is the `fileId` used by the file routes |
+
+Errors: `400 MISSING_PARAMETERS` (one of the four required fields missing), `400 EMAIL_REQUIRED` (auth couldn't resolve the owner), `500 COMPLETE_UPLOAD_FAILED` (Strapi registration failed).
+
+```javascript
+// After step 2 (PUT), register ownership so the file is browseable:
+const doneRes = await fetch('https://api.kvid.ai/media/complete-upload', {
+  method: 'POST',
+  headers: { 'api-key': API_KEY, 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    key: presign.key,
+    cdnUrl: presign.cdnUrl,
+    filename: 'logo.png',
+    mimeType: 'image/png',
+    size: file.length,
+  }),
+});
+const { data: registered } = await doneRes.json();   // registered.id = fileId
+```
+
 ## Notes
 
 - **Key prefix is a hash**, not raw email — clients can't enumerate other users' uploads by guessing keys.
 - **Object is public** by design — the agent and downstream Remotion renderer both need to fetch by URL. Don't upload sensitive material.
 - **TTL is for the PUT only.** Once uploaded, the `cdnUrl` is permanent.
-- **Why no automatic Strapi row?** Keeping the flow stateless avoids a second round-trip for the common "upload + immediately use with agent" case. If you need browseable files, wait for the future `complete-upload` endpoint.
+- **Two upload modes.** Presigned-only = fast, anonymous, agent-ready. Presigned + `complete-upload` = owner-registered, browseable in the web media library. Choose per use case.

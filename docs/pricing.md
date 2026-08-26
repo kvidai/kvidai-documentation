@@ -23,6 +23,7 @@ All kvidAI services use a single credit balance. Buy credits at **[kvid.ai/credi
 |---------|---------|-------|----------|-------------------------|
 | Starter | 700 credits | $10 USD | 30 days | $14.30 |
 | **Monthly Package** ⭐ | 3,000 credits | $30 USD | 30 days | **$10.00** (best value) |
+| **Hypeagent 1-Month Reservation** | 8,760 credits | $65.70 USD | 31 days | **$7.50** (25% off — see [Hypeagent Compute](#hypeagent-cloud-agent-compute) below) |
 
 - **Where to buy**: [kvid.ai/credits/purchase](https://kvid.ai/credits/purchase) (sign in required)
 - **Payment provider**: Dodo Payments (international)
@@ -39,6 +40,25 @@ Larger / enterprise packages: contact support@kvid.ai.
 
 - **1 credit ≈ $0.01 USD**
 - Services that charge a fraction of a credit per unit are rounded up.
+
+---
+
+## Hypeagent (Cloud Agent) Compute
+
+Hypeagent instances are billed for reserved compute, per minute, while the instance is up — same model as standard cloud VM pricing (charged whether idle or actively processing a turn, not just while generating output).
+
+| Item | Rate |
+|------|------|
+| Reserved compute (2 vCPU / 2 GB RAM / 10 GB disk) | **0.2 credits per minute** |
+| On-demand equivalent, one month always-on | 8,760 credits (730 hr) ≈ $87.60 |
+
+### Reservation Package
+
+Buying the **Hypeagent 1-Month Reservation** (see the table above) gets the same 8,760 credits for **$65.70** — 25% below the on-demand equivalent. Purchase it on the same [credits page](https://kvid.ai/credits/purchase) as any other package.
+
+Reservation credits are **not** ring-fenced: they land in your single kvidAI credit balance and are spendable on video generation, image generation, or anything else. The package is a price discount, not a separate wallet or a time-limited entitlement.
+
+A 1-year reservation (105,120 credits, 35% off — $683.28) is planned but not yet on sale. Contact support@kvid.ai for early access.
 
 ---
 

@@ -13,10 +13,6 @@
 | forgot-password.png | `/en/auth/forgot-password` |
 | credits-purchase.png | `/en/credits/purchase` |
 | openclaw.png | `/en/openclaw` (비로그인 시 인증 필요 메시지) |
-| blog-list.png | `/en/blog` (PC) |
-| blog-list-mobile.png | `/en/blog` (Mobile iPhone 12) |
-| blog-post.png | `/en/blog/getting-started-with-kvid-ai` (PC) |
-| blog-post-mobile.png | `/en/blog/getting-started-with-kvid-ai` (Mobile iPhone 12) |
 
 ## 로그인 후 (Authenticated)
 

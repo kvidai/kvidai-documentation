@@ -10,7 +10,7 @@ image: https://docs.kvid.ai/img/logo4_kvidai_가로.jpg
 
 > **View in English**: [Getting Started](/docs/intro) | **한국어** (현재 페이지)
 
-**kvidAI** 는 K-pop, K-beauty 콘텐츠 제작에 특화된 AI 생성 플랫폼입니다. 회원가입·크레딧 충전·콘텐츠 생성·API 키 관리 모두 **[kvid.ai](https://kvid.ai)** 한 곳에서 처리합니다.
+**kvidAI** 는 AI 영상·이미지 생성을 한곳에서 처리하는 올인원 AI 생성 플랫폼입니다. 회원가입·크레딧 충전·콘텐츠 생성·API 키 관리 모두 **[kvid.ai](https://kvid.ai)** 한 곳에서 처리합니다. 소셜 숏폼·광고·마케팅부터 전문 영상 제작까지 모든 크리에이터를 위한 플랫폼입니다.
 
 ## 무엇을 할 수 있나요?
 

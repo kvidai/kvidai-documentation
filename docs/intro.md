@@ -11,7 +11,7 @@ slug: intro
 
 > **한국어로 보기**: [시작하기 가이드](/ko/docs/intro) | **View in English** (current page)
 
-**kvidAI** is an AI generation platform specialized for K-pop and K-beauty content creation. Everything runs under one account at **[kvid.ai](https://kvid.ai)** — sign up, buy credits, generate content, and manage API keys from a single place.
+**kvidAI** is an all-in-one AI video and image generation platform. Everything runs under one account at **[kvid.ai](https://kvid.ai)** — sign up, buy credits, generate content, and manage API keys from a single place. It's built for creators of every kind — from social shorts and marketing to professional video production.
 
 ## What you can do
 

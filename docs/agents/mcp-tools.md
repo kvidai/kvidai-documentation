@@ -230,25 +230,6 @@ Parameters:
 - `project_name` (string, optional): Optional custom name for the video project. Defaults to "&lt;product_name&gt; — 홍보영상".
 - `kvidai_token` (string, optional): KVIDAI JWT token. Optional if KVIDAI_API_TOKEN env var is set.
 
-### `kvidai_start_video_render`
-
-Start a server-side video render (mp4) of a KVIDAI video project. Returns immediately; poll kvidai_get_video_render_status for progress. Credits are charged by actual usage after completion. The finished mp4 is copied into the user media library and attached to the project. Errors: 402 insufficient credit, 409 a render is already running.
-
-Parameters:
-
-- `projectId` (number, required): KVIDAI video project ID
-- `codec` (string, optional): Output codec (default: server default) One of: `h264`, `vp8`.
-- `kvidai_api_key` (string, optional): KVIDAI APIM subscription key. Optional if KVIDAI_API_KEY env var is set.
-
-### `kvidai_get_video_render_status`
-
-Get the server video render status of a project: idle | rendering | completed | failed. When completed, returns the CDN renderUrl and the media library entry \{ id, url \}.
-
-Parameters:
-
-- `projectId` (number, required): KVIDAI video project ID
-- `kvidai_api_key` (string, optional): KVIDAI APIM subscription key. Optional if KVIDAI_API_KEY env var is set.
-
 ### `kvidai_list_templates`
 
 List all available KVIDAI video templates
@@ -316,23 +297,6 @@ Validate a KVIDAI Composition JSON object before saving or rendering. Returns \{
 Parameters:
 
 - `composition` (object, required): Full Composition JSON object to validate
-
-### `kvidai_start_video_render`
-
-Start a server-side video render of a KVID video project into an MP4. Returns immediately (the render runs in the background); call kvidai_get_video_render_status to poll until it is completed. Cost: credits are charged by actual usage after the render completes, not at start. If the balance is too low the start is refused and no render begins. A failed render is not charged. When completed, the finished video is added to the user's media library and attached to the project (visible via kvidai_list_project_media).
-
-Parameters:
-
-- `projectId` (number | string, optional): Project ID. Defaults to the active project in the current session.
-- `codec` (string, optional): Video codec. Defaults to h264 (MP4). One of: `h264`, `vp8`.
-
-### `kvidai_get_video_render_status`
-
-Get the status of a project's server video render: idle | rendering | completed | failed. While rendering it returns progress; when completed it returns the render URL and the media-library entry (the video is in the user's media library and attached to the project). Credits are charged by actual usage once the render completes. Poll every few seconds after kvidai_start_video_render.
-
-Parameters:
-
-- `projectId` (number | string, optional): Project ID. Defaults to the active project in the current session.
 
 ## Shopify
 

@@ -71,13 +71,18 @@ const config: Config = {
     [
       '@signalwire/docusaurus-plugin-llms-txt',
       {
-        siteTitle: 'kvidAI Documentation',
-        siteDescription: 'AI generation platform specialized for K-pop and K-beauty content creation. Comprehensive API documentation and guides for video, image, and text generation APIs.',
-        depth: 3,
+        // llms.txt / llms-full.txt are read by AI agents (kvid.ai/llms*.txt serves these same files): docs only, absolute links, no blog/tag noise.
+        siteTitle: 'kvidAI',
+        siteDescription: 'kvidAI is an AI video, image and voice generation platform. People and AI agents create video projects from text, images and product pages, edit them with an AI editor and export finished videos, through the web app (https://kvid.ai), a REST API (https://api.kvid.ai) and a remote MCP server. Usage is paid with prepaid credits. Agents: start with "Use kvidAI from your AI agent" and the MCP tool reference.',
+        depth: 2,
+        includeOrder: ['/docs/agents/**', '/docs/getting-started/**', '/docs/api-services/**'],
         content: {
-          includeBlog: true,
-          includePages: true,
+          includeBlog: false,
+          includePages: false,
+          includeGeneratedIndex: false,
+          relativePaths: false,
           enableLlmsFullTxt: true,
+          excludeRoutes: ['/docs/tags/**', '/blog/**', '/markdown-page', '/search'],
         },
       },
     ],

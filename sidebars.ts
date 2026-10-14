@@ -51,6 +51,12 @@ const sidebars: SidebarsConfig = {
         'api-services/media-api',
       ],
     },
+    {
+      type: 'category',
+      label: 'Agents & MCP',
+      link: { type: 'doc', id: 'agents/overview' },
+      items: ['agents/overview', 'agents/mcp-tools'],
+    },
     'pricing',
     'credits-policy',
     'faq',

@@ -262,8 +262,8 @@ vercel --prod                           # Deploy to Vercel
    - Installed `@signalwire/docusaurus-plugin-llms-txt` package
    - Configured in `docusaurus.config.ts` with:
      - Site title and description
-     - Depth level 3 for categorization
-     - Enabled blog and pages inclusion
+     - Depth level 2 for categorization (3 until 2026-10-14)
+     - Blog and pages excluded since 2026-10-14 (see item 4)
      - Enabled full content generation (llms-full.txt)
 
 2. **Generated Files**
@@ -279,7 +279,14 @@ vercel --prod                           # Deploy to Vercel
    - Added generated files to `.gitignore`: `static/llms.txt`, `static/llms-full.txt`, `static/sitemap.xml`
    - Files are now properly served in both development and production environments
 
-4. **Benefits**
+4. **Agent-facing tuning (2026-10-14)**
+   - `https://kvid.ai/llms.txt` and `/llms-full.txt` (web-service) serve these same generated files, so they are the single source for AI agents.
+   - Config: docs only (`includeBlog: false`, `includePages: false`, tags/blog/markdown-page excluded, no generated-index pages), absolute links (`relativePaths: false`), accurate `siteDescription`, `includeOrder` puts `docs/agents/**` first.
+   - `docs/agents/overview.md`: how agents connect (MCP / REST / skills), concepts, credit lifecycle, good practice. Hand-written; no prices (prices live in `docs/pricing.md`). Cross-directory links use URL paths (`/docs/pricing`) because relative `../x.md` links do not resolve in the `ko` locale build, which has no translation of this page.
+   - `docs/agents/mcp-tools.md`: GENERATED from the remote MCP server code by `scripts/generate-mcp-tool-reference.ts` in the kvidai monorepo. Do not edit by hand; regenerate there and commit the output here.
+   - Test: `tests/llms-txt.spec.ts` (Playwright, HTTP only, against the built site on :3100): run `pnpm build` then `node_modules/.bin/playwright test tests/llms-txt.spec.ts --project=chromium`.
+
+5. **Benefits**
    - Enables AI models to better understand site structure
    - Provides clean, structured content for LLM consumption
    - Supports both index-only and full-content access patterns

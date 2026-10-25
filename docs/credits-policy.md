@@ -104,7 +104,7 @@ Credits are consumed based on validity period:
 
 ### Non-Refundable
 - Used credits cannot be refunded
-- Unused credits refundable within 7 days of purchase only
+- Unused credits refundable within 14 days of purchase only
 - Expired credits are non-refundable
 
 ### Account Termination

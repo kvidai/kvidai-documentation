@@ -1,0 +1,50 @@
+{
+  "scope": "Actual documentation screenshots from the completed merged whole-suite run:18 passing Playwright cases",
+  "captures": [
+    {
+      "file": "home_20261028.png",
+      "sha256": "2d15ce1b39a9665acf62725ec963feaaa0e50c519f3713fe14f904aa29972c0d",
+      "sameAsEarlierRetainedCapture": false
+    },
+    {
+      "file": "docs-en-intro_20261028.png",
+      "sha256": "1c50e5d914c6985075b6f9f80a5526a54a0b954358413367b718d41921ca1799",
+      "sameAsEarlierRetainedCapture": false
+    },
+    {
+      "file": "docs-en-pricing_20261028.png",
+      "sha256": "e48e0fc85ad71da35f70f400214883ceccb3cf01ce6bc3a8e1c03ec7ea5d1184",
+      "sameAsEarlierRetainedCapture": false
+    },
+    {
+      "file": "docs-en-getting-started_20261028.png",
+      "sha256": "00621a541d56de4bfe42f5711e2605d1fd9036bd1703eeda2b03af7258914a9e",
+      "sameAsEarlierRetainedCapture": false
+    },
+    {
+      "file": "docs-en-api-overview_20261028.png",
+      "sha256": "985e46b3e36c3af3049fae4d2d9134017caff477dc324b46f856fc1a0f406758",
+      "sameAsEarlierRetainedCapture": true
+    },
+    {
+      "file": "docs-ko-intro_20261028.png",
+      "sha256": "ac2b787cb22756c9c3f6a4d2ff94e4de89972941710053a6b7f31d36e87d826b",
+      "sameAsEarlierRetainedCapture": false
+    },
+    {
+      "file": "docs-ko-pricing_20261028.png",
+      "sha256": "727943072aa8b3852d425d4d87364b43052462d7f91339d951789304901b88e8",
+      "sameAsEarlierRetainedCapture": true
+    },
+    {
+      "file": "blog_20261028.png",
+      "sha256": "362512a67734503ebaef883f494c8c2d4a97c142054c52162d2f0fa50e910755",
+      "sameAsEarlierRetainedCapture": true
+    },
+    {
+      "file": "blog-welcome_20261028.png",
+      "sha256": "aeb0ea247fdc655b70d5b2887663778895953100c7f7018fa4456260ec9e81cd",
+      "sameAsEarlierRetainedCapture": true
+    }
+  ]
+}

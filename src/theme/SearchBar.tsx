@@ -40,7 +40,7 @@ function loadCSS(href: string): void {
   document.head.appendChild(l);
 }
 
-export default function SearchBar(): JSX.Element {
+export default function SearchBar(): React.JSX.Element {
   const { siteConfig, i18n } = useDocusaurusContext();
   const { meilisearchHost, meilisearchApiKey, meilisearchIndexUid } =
     siteConfig.customFields as {

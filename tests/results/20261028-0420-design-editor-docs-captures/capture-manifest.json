@@ -1,0 +1,41 @@
+{
+  "scope": "Actual documentation Playwright screenshots from18 passing cases;generated files moved from docs-internal to their framework result folder",
+  "captures": [
+    {
+      "file": "home_20261028.png",
+      "sha256": "dc205407a2d4b6a6b640963dfaccdfbe26d53adf4a8bbf740b92efd6c5a47981"
+    },
+    {
+      "file": "docs-en-intro_20261028.png",
+      "sha256": "243c96546768b21ab87663d15f1ffa3a1694bf0b8d53a78169da5388ee7ae626"
+    },
+    {
+      "file": "docs-en-pricing_20261028.png",
+      "sha256": "1304e1b875ba88614f122f6c7f195faf636a0dd7d34ac2347d4742a8db55e9ef"
+    },
+    {
+      "file": "docs-en-getting-started_20261028.png",
+      "sha256": "c9b1774daac51b9f57fbafb5178f82376311f3038e32c7d5d4f8cd43f4fd53f0"
+    },
+    {
+      "file": "docs-en-api-overview_20261028.png",
+      "sha256": "985e46b3e36c3af3049fae4d2d9134017caff477dc324b46f856fc1a0f406758"
+    },
+    {
+      "file": "docs-ko-intro_20261028.png",
+      "sha256": "97571836d71fae3fad698faa5047fadb7c09f1f166fd1ea0ee442ba802d062a3"
+    },
+    {
+      "file": "docs-ko-pricing_20261028.png",
+      "sha256": "727943072aa8b3852d425d4d87364b43052462d7f91339d951789304901b88e8"
+    },
+    {
+      "file": "blog_20261028.png",
+      "sha256": "362512a67734503ebaef883f494c8c2d4a97c142054c52162d2f0fa50e910755"
+    },
+    {
+      "file": "blog-welcome_20261028.png",
+      "sha256": "aeb0ea247fdc655b70d5b2887663778895953100c7f7018fa4456260ec9e81cd"
+    }
+  ]
+}

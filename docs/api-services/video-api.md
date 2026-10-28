@@ -20,6 +20,7 @@ kvidAI's Video Generation AI API creates high-quality videos from text, images, 
 - **Text-to-Video**: Generate videos from text prompts (`txt2vid`)
 - **Image-to-Video**: Animate an input image with a motion prompt (`img2vid`)
 - **Reference-to-Video**: Generate consistent videos from reference images/videos/audio (`ref2vid`)
+- **Video-to-Video**: Transform an existing video with a text prompt — restyle / re-render (`v2v`)
 - **Resolution**: 480p / 720p / 1080p (model-dependent)
 - **Duration**: typically 4–15 seconds (model-dependent)
 
@@ -45,6 +46,7 @@ The Video Generation API is **asynchronous** — first POST a generation request
 | `POST` | `/ai/generation/text-to-video/generate-async` | Submit text-to-video job |
 | `POST` | `/ai/generation/image-to-video/generate-async` | Submit image-to-video job |
 | `POST` | `/ai/generation/reference-to-video/generate-async` | Submit reference-to-video job |
+| `POST` | `/ai/generation/video-to-video/generate-async` | Submit video-to-video job |
 | `GET`  | `/ai/generation/status?jobId={job_id}` | Check job status (shared endpoint) |
 | `GET`  | `/ai/generation/result?jobId={job_id}` | Fetch completed result (shared endpoint) |
 
@@ -159,7 +161,48 @@ print(response.json())
 
 > **Reference constraints**: up to 9 images, up to 3 videos (≤ 15 s combined), up to 3 audio clips (≤ 15 s combined). Total references (image + video + audio) ≤ 12. If `audio_urls` is provided, at least one image or video reference is also required.
 
-### 4. Check job status
+### 4. Create a video-to-video job
+
+Transform an **existing video** with a text prompt (restyle / re-render). Takes a single input video URL plus a prompt.
+
+```python
+import requests
+
+url = "https://api.kvid.ai/ai/generation/video-to-video/generate-async"
+api_key = "YOUR_API_KEY"
+
+payload = {
+    "product_id": "pdt_XXXXXXXXXXXX",   # or product_code / email — required
+    "prompt": "repaint the scene in a watercolor animation style, keep the motion",
+    "model": "bytedance/seedance-2.5/reference-to-video",
+    "function": "v2v",
+    "input_video_url": "https://your-host.example/source-clip.mp4",   # single HTTPS URL (required)
+    "resolution": "720p",
+    "duration": 5,              # 4–30 (integer) or "auto"
+    "aspect_ratio": "auto",
+    "generate_audio": True,     # keep/generate audio (mapped per model)
+    "seed": 5834
+}
+headers = {
+    "api-key": api_key,
+    "Content-Type": "application/json",
+}
+
+response = requests.post(url, headers=headers, json=payload)
+print(response.json())
+```
+
+**Available `model` values** (pick one, same endpoint):
+
+| Model | Notes |
+|-------|-------|
+| `bytedance/seedance-2.5/reference-to-video` | SeeDance 2.5 — supports `duration` `"auto"` and `4`–`30` s |
+| `alibaba/wan-3.0/reference-to-video` | Wan 3.0 |
+| `fal-ai/kling-video/o3/pro/video-to-video/reference` | Kling o3 Pro |
+
+> `input_video_url` must be a single HTTPS URL to an accessible video. `generate_audio` is mapped to each model's native audio field automatically — just send the boolean.
+
+### 5. Check job status
 
 ```python
 import requests
@@ -193,7 +236,7 @@ Response (in-progress):
 
 Recommended polling interval for video jobs: **10–15 seconds** (generation can take tens of seconds to a few minutes).
 
-### 5. Fetch the completed result
+### 6. Fetch the completed result
 
 ```python
 import requests
@@ -238,10 +281,10 @@ Response:
 | `product_id` / `product_code` / `email` | string | ✅ (one of) | Identifies the credit pool to charge |
 | `prompt` | string | ✅ | Text prompt guiding generation |
 | `model` | string | – | Model identifier (`wan`, `seedance`, `veo3.1`, …). Default: `wan` |
-| `function` | string | – | `txt2vid` / `img2vid` / `ref2vid` (matches the endpoint) |
+| `function` | string | – | `txt2vid` / `img2vid` / `ref2vid` / `v2v` (matches the endpoint) |
 | `negative_prompt` | string | – | Elements to exclude |
-| `resolution` | string | – | `480p` / `720p` / `1080p`. Default: `480p` (model-dependent upper bound) |
-| `duration` | integer \| string | – | Clip length in seconds; alternative to `num_frames`. ref2vid accepts `4`–`15` or `"auto"` |
+| `resolution` | string | – | `480p` / `720p` / `1080p`. Default: `480p` (`v2v` default `720p`; model-dependent upper bound) |
+| `duration` | integer \| string | – | Clip length in seconds; alternative to `num_frames`. `ref2vid` accepts `4`–`15` or `"auto"`; `v2v` accepts `4`–`30` or `"auto"` |
 | `aspect_ratio` | string | – | `16:9` / `9:16` / `1:1` / `auto` |
 | `seed` | integer | – | Random seed for reproducibility |
 
@@ -259,6 +302,14 @@ Response:
 | `video_urls` | string[] | `[]` | Reference videos (max 3, ≤ 15 s combined) |
 | `audio_urls` | string[] | `[]` | Reference audio (max 3, ≤ 15 s combined) |
 | `generate_audio` | boolean | `true` | Generate audio alongside the video |
+
+### Video-to-Video specific
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `input_video_url` | string | ✅ | Single HTTPS URL of the source video to transform |
+| `model` | string | ✅ | One of: `bytedance/seedance-2.5/reference-to-video`, `alibaba/wan-3.0/reference-to-video`, `fal-ai/kling-video/o3/pro/video-to-video/reference` |
+| `generate_audio` | boolean | `true` | Keep/generate audio; mapped to each model's native audio field automatically |
 
 ### V1 (self-hosted) model parameters
 

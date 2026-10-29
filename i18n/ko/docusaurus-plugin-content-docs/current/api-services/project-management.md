@@ -49,6 +49,9 @@ Content-Type:   application/json
 | `GET`    | `/video-project/:id`                | 단건 조회 (composition 포함) |
 | `PUT`    | `/video-project/:id`                | 최상위 필드 / composition 전체 수정 |
 | `PATCH`  | `/video-project/:id/composition`    | composition 트리 부분 업데이트 (세밀한 op) |
+| `GET`    | `/video-project/:id/media`          | 프로젝트 미디어 풀 목록 |
+| `POST`   | `/video-project/:id/media`          | 풀에 파일 첨부 (`fileId` 또는 저장된 `url`) |
+| `DELETE` | `/video-project/:id/media/:fileId`  | 풀에서 파일 detach (관계만 해제) |
 
 ---
 
@@ -384,6 +387,53 @@ item 은 `composition.items[item.id]` 에 들어가고, `trackId` 에 해당하�
 ```json
 { "success": true, "data": { "id": 186, "composition": { "..." : "full updated project" } } }
 ```
+
+---
+
+### 6. 프로젝트 미디어 풀
+
+프로젝트별 **미디어 풀** — 프로젝트에 첨부한 파일(이미지/영상/오디오/마크다운·텍스트) 큐레이션 목록. 웹 에디터·AI 에이전트(풀 자산을 배치하거나 풀의 `.md` 를 참조로 읽음)·외부 클라이언트가 공유합니다. 풀 항목은 **이미 업로드된 파일을 프로젝트에 link** 하는 것 — 바이트를 올리지는 않습니다(Media API 로 먼저 업로드 후 `fileId` 로 첨부).
+
+`GET /video-project/:id/media` — 풀 목록.
+
+```python
+import requests
+res = requests.get(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": "YOUR_API_KEY"},
+)
+print(res.json())   # { "success": true, "data": [ { id, name, url, mime, size, width?, height? }, ... ] }
+```
+
+`POST /video-project/:id/media` — 풀에 첨부. `fileId`(Media API 로 업로드한 파일 id) **또는** `url`(이미 kvidAI 에 저장된 CDN URL 복제+첨부) 중 하나.
+
+```python
+requests.post(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": "YOUR_API_KEY", "Content-Type": "application/json"},
+    json={"fileId": 18485},
+)
+# 갱신된 풀 반환: { "success": true, "data": [ ...files ] }
+```
+
+| 필드 | 타입 | 필수 | 설명 |
+|------|------|------|------|
+| `fileId` | integer | 택1 | link 할 업로드된 파일 id(Media API) |
+| `url` | string | 택1 | 풀에 복제할, 이미 저장된 kvidAI CDN URL |
+| `filename` | string | – | `url` 첨부 시 표시 이름(선택) |
+
+> **웹페이지 리소스**(예: 브라우저 확장)를 첨부하려면 바이트를 클라이언트에서 받아 Media API 로 먼저 업로드한 뒤 반환된 `fileId` 로 첨부하세요. `url` 은 이미 kvidAI 에 저장된 URL 만 허용(임의 외부 URL 을 fetch 하지 않음).
+
+`DELETE /video-project/:id/media/:fileId` — 풀에서 detach(link 만 제거, 파일 자체는 삭제 안 함).
+
+```python
+requests.delete(
+    f"https://api.kvid.ai/video-project/{project_id}/media/18485",
+    headers={"api-key": "YOUR_API_KEY"},
+)
+```
+
+> **소유권**: 모든 풀 엔드포인트는 호출자 소유 프로젝트에만 작동 — 소유자 email 은 API 키에서 취함(요청 필드 아님). 소유하지 않은 프로젝트는 `403`.
 
 ---
 

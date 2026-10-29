@@ -18,6 +18,7 @@ kvidAI의 Video 생성 AI API는 텍스트·이미지·참조 미디어를 입�
 - **Text-to-Video**: 텍스트 프롬프트로 비디오 생성 (`txt2vid`)
 - **Image-to-Video**: 입력 이미지를 모션 프롬프트로 애니메이션 (`img2vid`)
 - **Reference-to-Video**: 참조 이미지/영상/오디오로 일관성 있는 비디오 생성 (`ref2vid`)
+- **Video-to-Video**: 기존 영상을 텍스트 프롬프트로 변환 — 리스타일/리렌더 (`v2v`)
 - **해상도**: 480p / 720p / 1080p (모델 별 상이)
 - **길이**: 보통 4–15초 (모델 별 상이)
 
@@ -43,6 +44,7 @@ Video Generation API는 **비동기 방식**입니다. POST로 작업을 제출�
 | `POST` | `/ai/generation/text-to-video/generate-async` | Text-to-Video 작업 제출 |
 | `POST` | `/ai/generation/image-to-video/generate-async` | Image-to-Video 작업 제출 |
 | `POST` | `/ai/generation/reference-to-video/generate-async` | Reference-to-Video 작업 제출 |
+| `POST` | `/ai/generation/video-to-video/generate-async` | Video-to-Video 작업 제출 |
 | `GET`  | `/ai/generation/status?jobId={job_id}` | 작업 상태 조회 (공용 엔드포인트) |
 | `GET`  | `/ai/generation/result?jobId={job_id}` | 완료된 결과 조회 (공용 엔드포인트) |
 
@@ -157,7 +159,48 @@ print(response.json())
 
 > **참조 제약**: 이미지 최대 9개, 영상 최대 3개(합산 ≤ 15초), 오디오 최대 3개(합산 ≤ 15초). 전체 참조(image + video + audio) 합계 ≤ 12개. `audio_urls` 를 보낼 경우 이미지 또는 영상 참조가 최소 1개 이상 필요합니다.
 
-### 4. 작업 상태 조회
+### 4. Video-to-Video 작업 생성
+
+**기존 영상**을 텍스트 프롬프트로 변환합니다(리스타일/리렌더). 단일 입력 영상 URL과 프롬프트를 받습니다.
+
+```python
+import requests
+
+url = "https://api.kvid.ai/ai/generation/video-to-video/generate-async"
+api_key = "YOUR_API_KEY"
+
+payload = {
+    "product_id": "pdt_XXXXXXXXXXXX",   # 또는 product_code / email — 필수
+    "prompt": "장면을 수채화 애니메이션 스타일로 다시 그리되, 모션은 유지",
+    "model": "bytedance/seedance-2.5/reference-to-video",
+    "function": "v2v",
+    "input_video_url": "https://your-host.example/source-clip.mp4",   # 단일 HTTPS URL (필수)
+    "resolution": "720p",
+    "duration": 5,              # 4–30 (정수) 또는 "auto"
+    "aspect_ratio": "auto",
+    "generate_audio": True,     # 오디오 유지/생성 (모델별 필드로 자동 매핑)
+    "seed": 5834
+}
+headers = {
+    "api-key": api_key,
+    "Content-Type": "application/json",
+}
+
+response = requests.post(url, headers=headers, json=payload)
+print(response.json())
+```
+
+**사용 가능한 `model` 값** (하나 선택, 동일 엔드포인트):
+
+| Model | 비고 |
+|-------|------|
+| `bytedance/seedance-2.5/reference-to-video` | SeeDance 2.5 — `duration` `"auto"` 및 `4`–`30`초 지원 |
+| `alibaba/wan-3.0/reference-to-video` | Wan 3.0 |
+| `fal-ai/kling-video/o3/pro/video-to-video/reference` | Kling o3 Pro |
+
+> `input_video_url` 은 접근 가능한 단일 HTTPS 영상 URL이어야 합니다. `generate_audio` 는 모델별 오디오 field로 자동 매핑되므로 boolean 값만 보내면 됩니다.
+
+### 5. 작업 상태 조회
 
 ```python
 import requests
@@ -191,7 +234,7 @@ print(response.json())
 
 비디오 작업 권장 폴링 간격: **10–15초** (생성에 수십 초 ~ 수 분 소요).
 
-### 5. 완료된 결과 조회
+### 6. 완료된 결과 조회
 
 ```python
 import requests
@@ -236,10 +279,10 @@ print(response.json())
 | `product_id` / `product_code` / `email` | string | ✅ (셋 중 하나) | 차감할 크레딧 풀 식별 |
 | `prompt` | string | ✅ | 비디오 생성 프롬프트 |
 | `model` | string | – | 모델 식별자 (`wan`, `seedance`, `veo3.1` …). 기본 `wan` |
-| `function` | string | – | `txt2vid` / `img2vid` / `ref2vid` (엔드포인트에 대응) |
+| `function` | string | – | `txt2vid` / `img2vid` / `ref2vid` / `v2v` (엔드포인트에 대응) |
 | `negative_prompt` | string | – | 제외할 요소 |
-| `resolution` | string | – | `480p` / `720p` / `1080p`. 기본 `480p` (모델 별 상한) |
-| `duration` | integer \| string | – | 초 단위 길이. `num_frames` 와 택일. ref2vid 는 `4`–`15` 또는 `"auto"` |
+| `resolution` | string | – | `480p` / `720p` / `1080p`. 기본 `480p` (`v2v` 는 기본 `720p`; 모델 별 상한) |
+| `duration` | integer \| string | – | 초 단위 길이. `num_frames` 와 택일. `ref2vid` 는 `4`–`15` 또는 `"auto"`; `v2v` 는 `4`–`30` 또는 `"auto"` |
 | `aspect_ratio` | string | – | `16:9` / `9:16` / `1:1` / `auto` |
 | `seed` | integer | – | 재현성을 위한 시드값 |
 
@@ -257,6 +300,14 @@ print(response.json())
 | `video_urls` | string[] | `[]` | 참조 영상 (최대 3개, 합산 ≤ 15초) |
 | `audio_urls` | string[] | `[]` | 참조 오디오 (최대 3개, 합산 ≤ 15초) |
 | `generate_audio` | boolean | `true` | 영상과 함께 오디오 생성 |
+
+### Video-to-Video 추가 매개변수
+
+| 매개변수 | 타입 | 필수 | 설명 |
+|----------|------|------|------|
+| `input_video_url` | string | ✅ | 변환할 원본 영상의 단일 HTTPS URL |
+| `model` | string | ✅ | 다음 중 하나: `bytedance/seedance-2.5/reference-to-video`, `alibaba/wan-3.0/reference-to-video`, `fal-ai/kling-video/o3/pro/video-to-video/reference` |
+| `generate_audio` | boolean | `true` | 오디오 유지/생성; 모델별 네이티브 오디오 field로 자동 매핑 |
 
 ### V1(self-hosted) 모델 매개변수
 

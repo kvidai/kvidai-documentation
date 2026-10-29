@@ -49,6 +49,9 @@ Content-Type:   application/json
 | `GET`    | `/video-project/:id`                | Fetch one project (includes composition) |
 | `PUT`    | `/video-project/:id`                | Update top-level fields / whole composition |
 | `PATCH`  | `/video-project/:id/composition`    | Patch the composition tree (fine-grained ops) |
+| `GET`    | `/video-project/:id/media`          | List the project's media pool |
+| `POST`   | `/video-project/:id/media`          | Attach a file (by `fileId` or stored `url`) to the pool |
+| `DELETE` | `/video-project/:id/media/:fileId`  | Detach a file from the pool (relation only) |
 
 ---
 
@@ -384,6 +387,54 @@ Removes `composition.items[itemId]` and drops that id from every track's `items[
 ```json
 { "success": true, "data": { "id": 186, "composition": { "..." : "full updated project" } } }
 ```
+
+---
+
+### 6. Project media pool
+
+A per-project **media pool** — a curated list of files (images, videos, audio, markdown/text) attached to the project. The pool is shared across the web editor, the AI agent (it can place pooled assets and read pooled `.md` as reference), and external clients. A pool entry links an uploaded file to the project; it does **not** upload the bytes (upload separately via the Media API, then attach by `fileId`).
+
+`GET /video-project/:id/media` — list the pool.
+
+```python
+import requests
+res = requests.get(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": "YOUR_API_KEY"},
+)
+print(res.json())   # { "success": true, "data": [ { id, name, url, mime, size, width?, height? }, ... ] }
+```
+
+`POST /video-project/:id/media` — attach a file to the pool. Send **either** `fileId` (an already-uploaded file id, from the Media API) **or** `url` (an already-stored kvidAI CDN URL to clone+attach).
+
+```python
+# by fileId (recommended — upload via Media API first, then attach)
+requests.post(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": "YOUR_API_KEY", "Content-Type": "application/json"},
+    json={"fileId": 18485},
+)
+# returns the updated pool: { "success": true, "data": [ ...files ] }
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `fileId` | integer | one of | Id of an already-uploaded file (Media API) to link |
+| `url` | string | one of | An already-stored kvidAI CDN URL to clone into the pool |
+| `filename` | string | – | Optional display name when attaching by `url` |
+
+> To attach a **web-page resource** (e.g. from a browser extension), fetch the bytes client-side and upload them via the Media API first, then attach the returned `fileId` here. The `url` form only accepts URLs already stored on kvidAI (it does not fetch arbitrary external URLs).
+
+`DELETE /video-project/:id/media/:fileId` — detach a file from the pool (removes the link only; the file itself is not deleted).
+
+```python
+requests.delete(
+    f"https://api.kvid.ai/video-project/{project_id}/media/18485",
+    headers={"api-key": "YOUR_API_KEY"},
+)
+```
+
+> **Ownership**: all pool endpoints act only on projects owned by the caller — the owner email is taken from the API key (never a request field). A project you don't own returns `403`.
 
 ---
 

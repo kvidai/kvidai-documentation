@@ -1,0 +1,135 @@
+ WARN  Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+[2m[WebServer] [22m(node:97304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `pnpm --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m[43m[30m WARN [39m[49m Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+[2m[WebServer] [22m
+[2m[WebServer] [22m> kvidai-documentation@0.0.0 prebuild /Users/mac/code_workspace/kvidai/apps/documentation
+[2m[WebServer] [22m> node scripts/copy-screenshots.js
+[2m[WebServer] [22m
+[2m[WebServer] [22m[copy-screenshots] Copied 36 screenshots to static/ui-screenshots/
+[2m[WebServer] [22m
+[2m[WebServer] [22m> kvidai-documentation@0.0.0 build /Users/mac/code_workspace/kvidai/apps/documentation
+[2m[WebServer] [22m> docusaurus build && node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml
+[2m[WebServer] [22m
+[2m[WebServer] [22m(node:97358) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m ------------------------------------------------------------------------------ [39m[33m [39m                                                                              [33m [39m[33m [39m                       Update available [2m3.8.1[22m → [32m3.10.2[39m                        [33m [39m[33m [39m                                                                              [33m [39m[33m [39m       To upgrade Docusaurus packages with the latest version, run the        [33m [39m[33m [39m                             following command:                               [33m [39m[33m [39m           [36m`npm i @docusaurus/core@latest @docusaurus/faster@latest[39m           [33m [39m[33m [39m   [36m@docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest[39m   [33m [39m[33m [39m            [36m@docusaurus/tsconfig@latest @docusaurus/types@latest`[39m             [33m [39m[33m [39m                                                                              [33m [39m[33m ------------------------------------------------------------------------------ [39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[36m[1m[INFO][22m[39m Website will be built for all these locales: 
+[2m[WebServer] [22m- en
+[2m[WebServer] [22m- ko
+[2m[WebServer] [22m[36m[1m[INFO][22m[39m [34m[1m[en][22m[39m Creating an optimized production build...
+[2m[WebServer] [22m[33m[1m[WARNING][22m Some blog authors used in [36m[4m"2025-07-14-first-blog-post.md"[24m[39m[33m are not defined in [36m[4m"authors.yml"[24m[39m[33m:[39m
+[2m[WebServer] [22m[33m- {"name":"kvidAI Team","title":"kvidAI","url":"https://kvid.ai","image_url":"/img/logo_kvidai_android-chrome-192x192.png","imageURL":"/img/logo_kvidai_android-chrome-192x192.png","socials":{},"key":null,"page":null}[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33mNote that we recommend to declare authors once in a [36m[4m"authors.yml"[24m[39m[33m file and reference them by key in blog posts front matter to avoid author info duplication.[39m
+[2m[WebServer] [22m[33mBut if you want to allow inline blog authors, you can disable this message by setting onInlineAuthors: 'ignore' in your blog plugin options.[39m
+[2m[WebServer] [22m[33mMore info at [36m[4mhttps://docusaurus.io/docs/blog[24m[39m[33m[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m[1m[WARNING][22m Docusaurus site warnings:[39m
+[2m[WebServer] [22m[33m- Your site is using the SWC js loader. You can safely remove the Babel config file at [36m`babel.config.js`[39m[33m.[39m
+[2m[WebServer] [22mBrowserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+[2m[WebServer] [22m  npx update-browserslist-db@latest
+[2m[WebServer] [22m  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2m[WebServer] [22m[33m[1m[WARNING][22m [docusaurus-plugin-llms-txt] WARNING: Excluded 42 routes by current config[39m
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m [docusaurus-plugin-llms-txt] Plugin completed successfully - processed 25 documents
+[2m[WebServer] [22m[33m[1m[WARNING][22m Docusaurus found broken links![39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33mPlease check the pages of your site in the list below, and make sure you don't reference any path that does not exist.[39m
+[2m[WebServer] [22m[33mNote: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33mExhaustive list of all broken links found:[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/agent-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/agent-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/ai-edit-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/ai-edit-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/image-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/image-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/media-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/media-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/overview:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/overview[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/preset-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/preset-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/project-management:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/project-management[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/speech-to-text:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/speech-to-text[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/talk-v2v:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/talk-v2v[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/video-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/video-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/api-services/voice-api:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/api-services/voice-api[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/getting-started/account-setup:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/getting-started/account-setup[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/getting-started/api-keys:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/getting-started/api-keys[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/getting-started/buy-credits:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/getting-started/buy-credits[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/getting-started/quick-start:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/getting-started/quick-start[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/intro:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/intro[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/pricing:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/pricing[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/web-app/gallery:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/web-app/gallery[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/web-app/storyboard:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/web-app/storyboard[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/web-app/video-editor:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/web-app/video-editor[39m
+[2m[WebServer] [22m[33m- Broken link on source page path = /docs/web-app/voice-library:[39m
+[2m[WebServer] [22m[33m   -> linking to /ko/docs/web-app/voice-library[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m Generated static files in [36m[4m"build"[24m[39m.
+[2m[WebServer] [22m[36m[1m[INFO][22m[39m [34m[1m[ko][22m[39m Creating an optimized production build...
+[2m[WebServer] [22m[33m[1m[WARNING][22m Some blog authors used in [36m[4m"2025-07-14-first-blog-post.md"[24m[39m[33m are not defined in [36m[4m"authors.yml"[24m[39m[33m:[39m
+[2m[WebServer] [22m[33m- {"name":"kvidAI Team","title":"kvidAI","url":"https://kvid.ai","image_url":"/img/logo_kvidai_android-chrome-192x192.png","imageURL":"/ko/img/logo_kvidai_android-chrome-192x192.png","socials":{},"key":null,"page":null}[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33mNote that we recommend to declare authors once in a [36m[4m"authors.yml"[24m[39m[33m file and reference them by key in blog posts front matter to avoid author info duplication.[39m
+[2m[WebServer] [22m[33mBut if you want to allow inline blog authors, you can disable this message by setting onInlineAuthors: 'ignore' in your blog plugin options.[39m
+[2m[WebServer] [22m[33mMore info at [36m[4mhttps://docusaurus.io/docs/blog[24m[39m[33m[39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m[1m[WARNING][22m Docusaurus site warnings:[39m
+[2m[WebServer] [22m[33m- Your site is using the SWC js loader. You can safely remove the Babel config file at [36m`babel.config.js`[39m[33m.[39m
+[2m[WebServer] [22m[33m[1m[WARNING][22m [docusaurus-plugin-llms-txt] WARNING: Excluded 13 routes by current config[39m
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m [docusaurus-plugin-llms-txt] Plugin completed successfully - processed 51 documents
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m Generated static files in [36m[4m"build/ko"[24m[39m.
+[2m[WebServer] [22m[36m[1m[INFO][22m[39m Use [36m`npm run serve`[39m command to test your build locally.
+[2m[WebServer] [22m✓ Copied llms.txt to static directory
+[2m[WebServer] [22m✓ Copied llms-full.txt to static directory
+[2m[WebServer] [22m✓ Copied sitemap.xml to static directory
+[2m[WebServer] [22m
+[2m[WebServer] [22m> kvidai-documentation@0.0.0 postbuild /Users/mac/code_workspace/kvidai/apps/documentation
+[2m[WebServer] [22m> node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml
+[2m[WebServer] [22m
+[2m[WebServer] [22m✓ Copied llms.txt to static directory
+[2m[WebServer] [22m✓ Copied llms-full.txt to static directory
+[2m[WebServer] [22m✓ Copied sitemap.xml to static directory
+[2m[WebServer] [22m(node:97531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `pnpm --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m[43m[30m WARN [39m[49m Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+[2m[WebServer] [22m(node:97556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m ------------------------------------------------------------------------------ [39m[33m [39m                                                                              [33m [39m[33m [39m                       Update available [2m3.8.1[22m → [32m3.10.2[39m                        [33m [39m[33m [39m                                                                              [33m [39m[33m [39m       To upgrade Docusaurus packages with the latest version, run the        [33m [39m[33m [39m                             following command:                               [33m [39m[33m [39m           [36m`npm i @docusaurus/core@latest @docusaurus/faster@latest[39m           [33m [39m[33m [39m   [36m@docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest[39m   [33m [39m[33m [39m            [36m@docusaurus/tsconfig@latest @docusaurus/types@latest`[39m             [33m [39m[33m [39m                                                                              [33m [39m[33m ------------------------------------------------------------------------------ [39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m Serving [36m[4m"build"[24m[39m directory at: [36m[4mhttp://localhost:3100/[24m[39m
+
+Running 7 tests using 1 worker
+
+(node:97575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:97575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/llms-txt.spec.ts:21:7 › generated llms.txt › starts with the site title and an accurate summary, not a K-pop-only one (17ms)
+  ✓  2 [chromium] › tests/llms-txt.spec.ts:32:7 › generated llms.txt › lists docs only: no blog, tag or demo pages (4ms)
+  ✓  3 [chromium] › tests/llms-txt.spec.ts:39:7 › generated llms.txt › uses only absolute https links, so the file works when served from kvid.ai (11ms)
+  ✓  4 [chromium] › tests/llms-txt.spec.ts:46:7 › generated llms.txt › every docs.kvid.ai link resolves in the built site (32ms)
+  ✓  5 [chromium] › tests/llms-txt.spec.ts:56:7 › generated llms.txt › links the agent overview and the MCP tool reference first (2ms)
+  ✓  6 [chromium] › tests/llms-txt.spec.ts:68:7 › generated llms-full.txt › contains every MCP tool of the generated tool reference page (7ms)
+  ✓  7 [chromium] › tests/llms-txt.spec.ts:77:7 › generated llms-full.txt › explains how agents connect and the credit lifecycle (2ms)
+
+  7 passed (9.1s)

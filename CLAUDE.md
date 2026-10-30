@@ -291,3 +291,7 @@ vercel --prod                           # Deploy to Vercel
    - Provides clean, structured content for LLM consumption
    - Supports both index-only and full-content access patterns
    - Automatically updates with each build
+
+## Test server ownership and cold startup (2026-10-30)
+
+Use Node22+ and install the pinned browser once with `pnpm exec playwright install chromium`. `pnpm test` builds the real static site before Playwright serves it on3100; it never kills an existing listener. An occupied default port is a failure; stop only your own server or explicitly set `BASE_URL` to an already managed site, in which case Playwright starts no server. Startup/build output and `playwright/.cache/startup-status-<pid>.json` remain visible, including failures before tests begin. Preserve final framework records under `tests/results/`; process-ownership regression is `scripts/__tests__/documentation-server-ownership.test.mjs`. Root plan: `.claude/plans/*documentation-test-startup.md` in the monorepo. Full-page review captures use monorepo-root `docs/ui-screenshots/documentation/` (standalone clone: own root docs directory); historical `docs-internal` captures are retained.

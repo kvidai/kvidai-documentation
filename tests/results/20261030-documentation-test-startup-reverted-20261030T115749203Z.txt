@@ -1,0 +1,9 @@
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m ------------------------------------------------------------------------------ [39m[33m [39m                                                                              [33m [39m[33m [39m                       Update available [2m3.8.1[22m → [32m3.10.2[39m                        [33m [39m[33m [39m                                                                              [33m [39m[33m [39m       To upgrade Docusaurus packages with the latest version, run the        [33m [39m[33m [39m                             following command:                               [33m [39m[33m [39m           [36m`npm i @docusaurus/core@latest @docusaurus/faster@latest[39m           [33m [39m[33m [39m   [36m@docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest[39m   [33m [39m[33m [39m            [36m@docusaurus/tsconfig@latest @docusaurus/types@latest`[39m             [33m [39m[33m [39m                                                                              [33m [39m[33m ------------------------------------------------------------------------------ [39m
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m Serving [36m[4m"build"[24m[39m directory at: [36m[4mhttp://localhost:3100/[24m[39m
+Error: Timed out waiting 30000ms from config.webServer.
+
+ WARN  Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+[2m[WebServer] [22m(node:97870) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)

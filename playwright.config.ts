@@ -22,7 +22,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['list'], ['./tests/startup-status-reporter.mjs'], ['html', { open: 'never' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -40,11 +40,13 @@ export default defineConfig({
     },
   ],
 
-  /* Always start a fresh docs serve on port 3100 (test script kills existing port first) */
-  webServer: {
-    command: 'node_modules/.bin/docusaurus serve --port 3100',
-    url: process.env.BASE_URL ?? 'http://localhost:3100',
-    timeout: 30_000,
+  /* Build the actual static site before serving it; an explicit BASE_URL uses an already managed server. */
+  webServer: process.env.BASE_URL ? undefined : {
+    command: 'pnpm exec docusaurus build && pnpm exec docusaurus serve --port 3100',
+    url: 'http://localhost:3100',
+    timeout: 120_000,
     reuseExistingServer: false,
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
 });

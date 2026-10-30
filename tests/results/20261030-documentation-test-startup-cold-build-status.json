@@ -1,0 +1,51 @@
+{
+  "state": "passed",
+  "phase": "finished",
+  "pid": 97293,
+  "cases": [
+    {
+      "title": "starts with the site title and an accurate summary, not a K-pop-only one",
+      "status": "passed",
+      "durationMs": 17,
+      "errors": []
+    },
+    {
+      "title": "lists docs only: no blog, tag or demo pages",
+      "status": "passed",
+      "durationMs": 4,
+      "errors": []
+    },
+    {
+      "title": "uses only absolute https links, so the file works when served from kvid.ai",
+      "status": "passed",
+      "durationMs": 11,
+      "errors": []
+    },
+    {
+      "title": "every docs.kvid.ai link resolves in the built site",
+      "status": "passed",
+      "durationMs": 32,
+      "errors": []
+    },
+    {
+      "title": "links the agent overview and the MCP tool reference first",
+      "status": "passed",
+      "durationMs": 2,
+      "errors": []
+    },
+    {
+      "title": "contains every MCP tool of the generated tool reference page",
+      "status": "passed",
+      "durationMs": 7,
+      "errors": []
+    },
+    {
+      "title": "explains how agents connect and the credit lifecycle",
+      "status": "passed",
+      "durationMs": 2,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "updatedAt": "2026-10-30T11:55:53.533Z"
+}

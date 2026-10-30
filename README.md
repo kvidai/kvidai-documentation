@@ -208,3 +208,7 @@ The Vercel CLI will automatically detect that this is a Docusaurus project and c
 
 - notion mcp 연동: https://www.notion.so/profile/integrations
 - notion epicmobile apikey: https://www.notion.so/epicmoble/notion-epicmobile-22f228ab36a080b5a1b6febc825406e5?source=copy_link
+
+## Testing
+
+Use Node22+; install the current pinned browser with `pnpm exec playwright install chromium`, then run `pnpm test`. The test runner builds and serves the actual site without terminating another service. For an already managed server, run `BASE_URL=http://localhost:3000 pnpm test`. Run `pnpm typecheck` separately. Live startup/test status is written under `playwright/.cache/`; retained verification records are under `tests/results/`.

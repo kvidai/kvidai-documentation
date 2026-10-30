@@ -1,0 +1,169 @@
+ WARN  Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+2026-10-30T11:51:30.941Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:31.252Z pw:webserver Error while checking if http://localhost:3100/ is available: connect ECONNREFUSED ::1:3100
+2026-10-30T11:51:31.253Z pw:webserver Starting WebServer process node_modules/.bin/docusaurus serve --port 3100...
+2026-10-30T11:51:31.262Z pw:webserver Process started
+2026-10-30T11:51:31.262Z pw:webserver Waiting for availability...
+2026-10-30T11:51:31.263Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:31.568Z pw:webserver Error while checking if http://localhost:3100/ is available: connect ECONNREFUSED ::1:3100
+2026-10-30T11:51:31.568Z pw:webserver Waiting 100ms
+2026-10-30T11:51:31.670Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:31.973Z pw:webserver Error while checking if http://localhost:3100/ is available: connect ECONNREFUSED ::1:3100
+2026-10-30T11:51:31.973Z pw:webserver Waiting 250ms
+[2m[WebServer] [22m(node:97019) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+[2m[WebServer] [22m[33m[39m
+[2m[WebServer] [22m[33m ------------------------------------------------------------------------------ [39m[33m [39m                                                                              [33m [39m[33m [39m                       Update available [2m3.8.1[22m → [32m3.10.2[39m                        [33m [39m[33m [39m                                                                              [33m [39m[33m [39m       To upgrade Docusaurus packages with the latest version, run the        [33m [39m[33m [39m                             following command:                               [33m [39m[33m [39m           [36m`npm i @docusaurus/core@latest @docusaurus/faster@latest[39m           [33m [39m[33m [39m   [36m@docusaurus/preset-classic@latest @docusaurus/module-type-aliases@latest[39m   [33m [39m[33m [39m            [36m@docusaurus/tsconfig@latest @docusaurus/types@latest`[39m             [33m [39m[33m [39m                                                                              [33m [39m[33m ------------------------------------------------------------------------------ [39m
+[2m[WebServer] [22m[33m[39m
+2026-10-30T11:51:32.224Z pw:webserver HTTP GET: http://localhost:3100/
+[2m[WebServer] [22m[32m[1m[SUCCESS][22m[39m Serving [36m[4m"build"[24m[39m directory at: [36m[4mhttp://localhost:3100/[24m[39m
+2026-10-30T11:51:32.533Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:32.534Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:32.539Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:32.539Z pw:webserver Waiting 500ms
+2026-10-30T11:51:33.042Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:33.043Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:33.043Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:33.047Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:33.047Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:34.050Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:34.056Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:34.058Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:34.063Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:34.064Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:35.066Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:35.070Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:35.071Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:35.080Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:35.080Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:36.083Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:36.087Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:36.088Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:36.094Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:36.095Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:37.097Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:37.099Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:37.099Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:37.105Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:37.106Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:38.108Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:38.110Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:38.111Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:38.118Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:38.118Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:39.121Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:39.122Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:39.123Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:39.127Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:39.127Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:40.129Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:40.133Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:40.134Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:40.143Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:40.143Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:41.146Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:41.150Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:41.151Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:41.158Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:41.159Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:42.161Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:42.163Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:42.164Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:42.170Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:42.171Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:43.173Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:43.176Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:43.177Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:43.183Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:43.183Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:44.186Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:44.188Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:44.188Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:44.194Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:44.194Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:45.196Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:45.199Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:45.199Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:45.206Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:45.206Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:46.207Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:46.210Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:46.211Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:46.218Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:46.218Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:47.221Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:47.223Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:47.224Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:47.230Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:47.231Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:48.233Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:48.237Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:48.237Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:48.244Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:48.244Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:49.246Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:49.250Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:49.251Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:49.256Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:49.257Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:50.259Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:50.262Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:50.262Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:50.268Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:50.269Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:51.271Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:51.274Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:51.275Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:51.281Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:51.282Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:52.284Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:52.288Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:52.288Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:52.294Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:52.294Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:53.297Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:53.299Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:53.300Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:53.305Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:53.306Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:54.308Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:54.310Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:54.310Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:54.315Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:54.316Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:55.318Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:55.321Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:55.321Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:55.327Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:55.327Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:56.330Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:56.333Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:56.334Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:56.341Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:56.341Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:57.344Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:57.347Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:57.347Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:57.355Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:57.355Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:58.357Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:58.359Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:58.360Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:58.366Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:58.366Z pw:webserver Waiting 1000ms
+2026-10-30T11:51:59.368Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:51:59.370Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:59.370Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:51:59.376Z pw:webserver HTTP Status: 404
+2026-10-30T11:51:59.376Z pw:webserver Waiting 1000ms
+2026-10-30T11:52:00.379Z pw:webserver HTTP GET: http://localhost:3100/
+2026-10-30T11:52:00.382Z pw:webserver HTTP Status: 404
+2026-10-30T11:52:00.383Z pw:webserver HTTP GET: http://localhost:3100/index.html
+2026-10-30T11:52:00.389Z pw:webserver HTTP Status: 404
+2026-10-30T11:52:00.389Z pw:webserver Waiting 1000ms
+2026-10-30T11:52:01.265Z pw:webserver Terminating the WebServer
+2026-10-30T11:52:01.280Z pw:webserver Terminated the WebServer
+Error: Timed out waiting 30000ms from config.webServer.
+2026-10-30T11:52:01.285Z pw:webserver Terminating the WebServer
+2026-10-30T11:52:01.285Z pw:webserver Terminated the WebServer
+

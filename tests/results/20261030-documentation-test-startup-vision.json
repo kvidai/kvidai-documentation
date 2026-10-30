@@ -1,0 +1,712 @@
+{
+  "batch": true,
+  "target": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation",
+  "total": 18,
+  "passCount": 18,
+  "failCount": 0,
+  "concurrency": 2,
+  "results": [
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation/blog page appears successfully loaded with visible navigation, main post content, and footer; no obvious layout breakage or error state.",
+      "signals": {
+        "width": 1920,
+        "height": 1080,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation/blog page appears successfully loaded with visible navigation, main post content, and footer; no obvious layout breakage or error state.\\\"}\",\"usage\":{\"prompt_tokens\":1320,\"completion_tokens\":51,\"total_tokens\":1371,\"cost\":0.0012195,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0012195,\"upstream_inference_prompt_cost\":0.00099,\"upstream_inference_completions_cost\":0.0002295},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "812a6a0e0cef6d328bf3660cd45dacebd43b70de5bcb9ce78d8e24e8de9feeb8",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/812a6a0e0cef6d328bf3660cd45dacebd43b70de5bcb9ce78d8e24e8de9feeb8.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "1c3c15abcee503e0a28af98bcad89dc31df8e15bfdd54b36a32fe3d8ae563b40"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation/blog page appears successfully loaded with intact navigation, main content, and footer; no obvious clipping, overlap, blank state, or error page visible.",
+      "signals": {
+        "width": 1920,
+        "height": 1080,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation/blog page appears successfully loaded with intact navigation, main content, and footer; no obvious clipping, overlap, blank state, or error page visible.\\\"}\",\"usage\":{\"prompt_tokens\":1320,\"completion_tokens\":55,\"total_tokens\":1375,\"cost\":0.0003735,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":1280,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0003735,\"upstream_inference_prompt_cost\":0.000126,\"upstream_inference_completions_cost\":0.0002475},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "812a6a0e0cef6d328bf3660cd45dacebd43b70de5bcb9ce78d8e24e8de9feeb8",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/812a6a0e0cef6d328bf3660cd45dacebd43b70de5bcb9ce78d8e24e8de9feeb8.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "1c3c15abcee503e0a28af98bcad89dc31df8e15bfdd54b36a32fe3d8ae563b40"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog-welcome_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Documentation homepage renders successfully with normal layout, visible navigation, content sections, and footer; no obvious clipping, overlap, blank state, or error shown.",
+      "signals": {
+        "width": 1920,
+        "height": 1417,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog-welcome_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Documentation homepage renders successfully with normal layout, visible navigation, content sections, and footer; no obvious clipping, overlap, blank state, or error shown.\\\"}\",\"usage\":{\"prompt_tokens\":1656,\"completion_tokens\":54,\"total_tokens\":1710,\"cost\":0.001485,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.001485,\"upstream_inference_prompt_cost\":0.001242,\"upstream_inference_completions_cost\":0.000243},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "d139519650a386b80bd0dc6c4d62c03f970a6b42ff0ec802698c949be69000ff",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/d139519650a386b80bd0dc6c4d62c03f970a6b42ff0ec802698c949be69000ff.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "358fd75da575aab5bc298d6af2b88629ad0fbb46d51ed1706fd4814b4230f49f"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog-welcome_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "The documentation homepage renders successfully with visible navigation, main content, sidebar, and footer. No obvious clipping, broken layout, blank areas, or error state is present.",
+      "signals": {
+        "width": 1920,
+        "height": 1417,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/blog-welcome_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The documentation homepage renders successfully with visible navigation, main content, sidebar, and footer. No obvious clipping, broken layout, blank areas, or error state is present.\\\"}\",\"usage\":{\"prompt_tokens\":1656,\"completion_tokens\":57,\"total_tokens\":1713,\"cost\":0.0014985,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0014985,\"upstream_inference_prompt_cost\":0.001242,\"upstream_inference_completions_cost\":0.0002565},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "d139519650a386b80bd0dc6c4d62c03f970a6b42ff0ec802698c949be69000ff",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/d139519650a386b80bd0dc6c4d62c03f970a6b42ff0ec802698c949be69000ff.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "358fd75da575aab5bc298d6af2b88629ad0fbb46d51ed1706fd4814b4230f49f"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-api-overview_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation page appears complete and functional, with visible navigation, main content, tables, code block, and footer. No obvious layout breakage, blank state, or critical clipping detected.",
+      "signals": {
+        "width": 1920,
+        "height": 2779,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-api-overview_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation page appears complete and functional, with visible navigation, main content, tables, code block, and footer. No obvious layout breakage, blank state, or critical clipping detected.\\\"}\",\"usage\":{\"prompt_tokens\":3000,\"completion_tokens\":61,\"total_tokens\":3061,\"cost\":0.0025245,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0025245,\"upstream_inference_prompt_cost\":0.00225,\"upstream_inference_completions_cost\":0.0002745},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "75e36868e212db66a14f157f44f284d1d00d04963cc93165991f6f0378d38392",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/75e36868e212db66a14f157f44f284d1d00d04963cc93165991f6f0378d38392.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "8e9e1d9ed601393f94a0fb3dcccae79ae936c7bb080185d56597043084dc1309"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-api-overview_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation page looks complete and functional, with navigation, main content, table, code block, and footer all visible without obvious layout breakage or error state.",
+      "signals": {
+        "width": 1920,
+        "height": 2779,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-api-overview_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation page looks complete and functional, with navigation, main content, table, code block, and footer all visible without obvious layout breakage or error state.\\\"}\",\"usage\":{\"prompt_tokens\":3000,\"completion_tokens\":56,\"total_tokens\":3056,\"cost\":0.0005148,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":2944,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0005148,\"upstream_inference_prompt_cost\":0.0002628,\"upstream_inference_completions_cost\":0.000252},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "75e36868e212db66a14f157f44f284d1d00d04963cc93165991f6f0378d38392",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/75e36868e212db66a14f157f44f284d1d00d04963cc93165991f6f0378d38392.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "8e9e1d9ed601393f94a0fb3dcccae79ae936c7bb080185d56597043084dc1309"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-getting-started_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation page appears loaded correctly with visible navigation, headings, body content, and footer; no obvious blank areas, broken layout, or error state.",
+      "signals": {
+        "width": 1920,
+        "height": 2359,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-getting-started_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation page appears loaded correctly with visible navigation, headings, body content, and footer; no obvious blank areas, broken layout, or error state.\\\"}\",\"usage\":{\"prompt_tokens\":2616,\"completion_tokens\":54,\"total_tokens\":2670,\"cost\":0.002205,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.002205,\"upstream_inference_prompt_cost\":0.001962,\"upstream_inference_completions_cost\":0.000243},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "1a43f96fb25d0c3b2f099ccfba15b79ea30036efda64176f3ef103ef5eb436ec",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/1a43f96fb25d0c3b2f099ccfba15b79ea30036efda64176f3ef103ef5eb436ec.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "90b3f94ef7e5a9742f132d0441aad0f2f2e9fdde3aa139d792713c64d99abde6"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-getting-started_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Documentation page renders successfully with intact navigation, headings, code block, and footer; no obvious clipping, blank areas, or broken layout.",
+      "signals": {
+        "width": 1920,
+        "height": 2359,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-getting-started_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Documentation page renders successfully with intact navigation, headings, code block, and footer; no obvious clipping, blank areas, or broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":2616,\"completion_tokens\":51,\"total_tokens\":2667,\"cost\":0.0021915,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0021915,\"upstream_inference_prompt_cost\":0.001962,\"upstream_inference_completions_cost\":0.0002295},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "d425ca5199dd13fad0a71ca531d09f88ab0d2ef24b3ed8e1e4093483a0d95046",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/d425ca5199dd13fad0a71ca531d09f88ab0d2ef24b3ed8e1e4093483a0d95046.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "a2a8a8d4ce540e03c534c6a0421c2f266618be92aa8d48df88c958ac9359c1de"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-intro_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Documentation page renders successfully with intact navigation, readable content, and no obvious layout breakage or error state.",
+      "signals": {
+        "width": 1920,
+        "height": 2461,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-intro_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Documentation page renders successfully with intact navigation, readable content, and no obvious layout breakage or error state.\\\"}\",\"usage\":{\"prompt_tokens\":2712,\"completion_tokens\":45,\"total_tokens\":2757,\"cost\":0.0022365,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0022365,\"upstream_inference_prompt_cost\":0.002034,\"upstream_inference_completions_cost\":0.0002025},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "f04e4f6243e392caa0d7fb184b72a86e0a83b1a13e33cc1652bbb0ce2be6ea30",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/f04e4f6243e392caa0d7fb184b72a86e0a83b1a13e33cc1652bbb0ce2be6ea30.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "12a1ba24d3d27bef0df55243c40baa58ea961e7e88ea8fc597855f8433d1b180"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-intro_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "The documentation page renders successfully with intact navigation, main content, sidebar, and footer visible. No obvious clipping, broken layout, blank sections, or error states are present.",
+      "signals": {
+        "width": 1920,
+        "height": 2461,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-intro_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The documentation page renders successfully with intact navigation, main content, sidebar, and footer visible. No obvious clipping, broken layout, blank sections, or error states are present.\\\"}\",\"usage\":{\"prompt_tokens\":2712,\"completion_tokens\":58,\"total_tokens\":2770,\"cost\":0.000567,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":2560,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.000567,\"upstream_inference_prompt_cost\":0.000306,\"upstream_inference_completions_cost\":0.000261},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "f04e4f6243e392caa0d7fb184b72a86e0a83b1a13e33cc1652bbb0ce2be6ea30",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/f04e4f6243e392caa0d7fb184b72a86e0a83b1a13e33cc1652bbb0ce2be6ea30.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "12a1ba24d3d27bef0df55243c40baa58ea961e7e88ea8fc597855f8433d1b180"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-pricing_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "The pricing documentation page renders successfully with visible navigation, headings, tables, and footer; no major clipping, blank areas, overlaps, or error states are apparent in the full-page screenshot.",
+      "signals": {
+        "width": 1920,
+        "height": 4674,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-pricing_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The pricing documentation page renders successfully with visible navigation, headings, tables, and footer; no major clipping, blank areas, overlaps, or error states are apparent in the full-page screenshot.\\\"}\",\"usage\":{\"prompt_tokens\":2289,\"completion_tokens\":61,\"total_tokens\":2350,\"cost\":0.00199125,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00199125,\"upstream_inference_prompt_cost\":0.00171675,\"upstream_inference_completions_cost\":0.0002745},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "1ad5aa3b4db68ffc1edb885dc184c41598458df7611fb34433564d35a2e18233",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/1ad5aa3b4db68ffc1edb885dc184c41598458df7611fb34433564d35a2e18233.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "6dbf02374ec9240438fed7feb017e4d23900844f9d504148f94e17ddb2a3353d"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-pricing_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Pricing documentation page renders successfully with visible navigation, headings, tables, and footer; no obvious clipping, blank areas, overlaps, or error states.",
+      "signals": {
+        "width": 1920,
+        "height": 4674,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-en-pricing_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Pricing documentation page renders successfully with visible navigation, headings, tables, and footer; no obvious clipping, blank areas, overlaps, or error states.\\\"}\",\"usage\":{\"prompt_tokens\":2289,\"completion_tokens\":53,\"total_tokens\":2342,\"cost\":0.00195525,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00195525,\"upstream_inference_prompt_cost\":0.00171675,\"upstream_inference_completions_cost\":0.0002385},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "d700c573928cfb2b5f59b22702f567293269a77418e775b02e80c144bf9e7d30",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/d700c573928cfb2b5f59b22702f567293269a77418e775b02e80c144bf9e7d30.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "b2619c2b10df72c3e4da333bb87d2337437699a0e1d46c28304ec75072346a55"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.97,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-intro_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Documentation page renders successfully with intact layout, visible navigation, readable content, and no obvious clipping, blank areas, or error states.",
+      "signals": {
+        "width": 1920,
+        "height": 2435,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-intro_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.97,\\\"issues\\\":[],\\\"summary\\\":\\\"Documentation page renders successfully with intact layout, visible navigation, readable content, and no obvious clipping, blank areas, or error states.\\\"}\",\"usage\":{\"prompt_tokens\":2664,\"completion_tokens\":50,\"total_tokens\":2714,\"cost\":0.002223,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.002223,\"upstream_inference_prompt_cost\":0.001998,\"upstream_inference_completions_cost\":0.000225},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "af1b3f002f9e58a778cb4e0eeb6a0cc2e96d785d572153643db5cfb8ce6db094",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/af1b3f002f9e58a778cb4e0eeb6a0cc2e96d785d572153643db5cfb8ce6db094.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "45c7efcc174dc93258aff1ed7bfa3285a9635409b49356bf717a396c4147c4ab"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.97,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-intro_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation page appears successful: main content is visible, navigation/sidebar/footer are present, and there are no obvious layout breaks, blank areas, or error states.",
+      "signals": {
+        "width": 1920,
+        "height": 2435,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-intro_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.97,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation page appears successful: main content is visible, navigation/sidebar/footer are present, and there are no obvious layout breaks, blank areas, or error states.\\\"}\",\"usage\":{\"prompt_tokens\":2664,\"completion_tokens\":56,\"total_tokens\":2720,\"cost\":0.00225,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00225,\"upstream_inference_prompt_cost\":0.001998,\"upstream_inference_completions_cost\":0.000252},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "e3c6a8e91586112af34b011f73a881b66d52f97a3765a03ca40e455d9df47910",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/e3c6a8e91586112af34b011f73a881b66d52f97a3765a03ca40e455d9df47910.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "ff65fb5f92cd0f3f7ccc1815bf6c0c952e37de73a23dc54cf683fccbb68b49c7"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-pricing_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "The documentation page renders successfully with visible navigation, main content, tables, and footer. No obvious clipping, blank areas, overlap, or error state is present in the full screenshot.",
+      "signals": {
+        "width": 1920,
+        "height": 4569,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-pricing_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The documentation page renders successfully with visible navigation, main content, tables, and footer. No obvious clipping, blank areas, overlap, or error state is present in the full screenshot.\\\"}\",\"usage\":{\"prompt_tokens\":2289,\"completion_tokens\":60,\"total_tokens\":2349,\"cost\":0.00198675,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00198675,\"upstream_inference_prompt_cost\":0.00171675,\"upstream_inference_completions_cost\":0.00027},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "bf11a41ab61e2fb0d4ca5597aa399c687e38af574d9f776528b0266d397c3988",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/bf11a41ab61e2fb0d4ca5597aa399c687e38af574d9f776528b0266d397c3988.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "05f0cba5b39db790d687e1c9d150880ca1f1c645a372e8e0b917c4e1106d7960"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-pricing_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Documentation page renders successfully with visible navigation, pricing content, tables, and sections; no obvious broken layout, blank state, or critical clipping.",
+      "signals": {
+        "width": 1920,
+        "height": 4569,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/docs-ko-pricing_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Documentation page renders successfully with visible navigation, pricing content, tables, and sections; no obvious broken layout, blank state, or critical clipping.\\\"}\",\"usage\":{\"prompt_tokens\":2289,\"completion_tokens\":52,\"total_tokens\":2341,\"cost\":0.00195075,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00195075,\"upstream_inference_prompt_cost\":0.00171675,\"upstream_inference_completions_cost\":0.000234},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "72de108ec3f481df89b872f0a1ae1eb17b8fd51888a0b369d20bad25fab88577",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/72de108ec3f481df89b872f0a1ae1eb17b8fd51888a0b369d20bad25fab88577.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "d164b0595fba772d4ba174702024b8e90762f8d6c90b404f99f31bfdf41364ba"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/home_built-site-120337987_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "Rendered documentation homepage appears complete and functional with clear header, hero, content sections, and footer; no obvious broken layout, blank areas, or critical clipping visible.",
+      "signals": {
+        "width": 1920,
+        "height": 1733,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/home_built-site-120337987_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Rendered documentation homepage appears complete and functional with clear header, hero, content sections, and footer; no obvious broken layout, blank areas, or critical clipping visible.\\\"}\",\"usage\":{\"prompt_tokens\":1992,\"completion_tokens\":56,\"total_tokens\":2048,\"cost\":0.001746,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.001746,\"upstream_inference_prompt_cost\":0.001494,\"upstream_inference_completions_cost\":0.000252},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "94319b644c03f7543f4768b9289ab7982773fc5217cc6b6cfef7d519ff93d4e8",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/94319b644c03f7543f4768b9289ab7982773fc5217cc6b6cfef7d519ff93d4e8.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "3836b7501ade202b9da3310f84996c9e7392d68f353cf91c9e3f3d4e149fd127"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.98,
+      "screenshot": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/home_built-site-120633432_20261030.png",
+      "provider": "openai-compatible",
+      "model": "openai/gpt-5.4-mini",
+      "issues": [],
+      "summary": "The page renders successfully with a complete, coherent documentation-style landing page, visible navigation, hero section, content cards, feature section, and footer. No major clipping, overlap, blank areas, or error states are visible.",
+      "signals": {
+        "width": 1920,
+        "height": 1733,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/docs/ui-screenshots/documentation/home_built-site-120633432_20261030.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The page renders successfully with a complete, coherent documentation-style landing page, visible navigation, hero section, content cards, feature section, and footer. No major clipping, overlap, blank areas, or error states are visible.\\\"}\",\"usage\":{\"prompt_tokens\":1992,\"completion_tokens\":68,\"total_tokens\":2060,\"cost\":0.0018,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0018,\"upstream_inference_prompt_cost\":0.001494,\"upstream_inference_completions_cost\":0.000306},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/apps/documentation/tests/results/20261030-documentation-test-startup-vision.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "422756eef78bb12f9fb5fa75c0860ed1dd059f66d36df42f8012534c5e838edf",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/422756eef78bb12f9fb5fa75c0860ed1dd059f66d36df42f8012534c5e838edf.json",
+        "promptHash": "04d03b0502287f416ac2d9e3c4b5dba5ecebf528baa24206bfde8fdb113d5a9a",
+        "assetHashes": [
+          "cf38c608787aabb260937d2c531ea3577068ac7b39245afab56ac55fc7f5b155"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    }
+  ]
+}

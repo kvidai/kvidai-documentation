@@ -1,0 +1,17 @@
+ WARN  Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+
+Running 7 tests using 1 worker
+
+(node:1198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/llms-txt.spec.ts:21:7 › generated llms.txt › starts with the site title and an accurate summary, not a K-pop-only one (16ms)
+  ✓  2 [chromium] › tests/llms-txt.spec.ts:32:7 › generated llms.txt › lists docs only: no blog, tag or demo pages (4ms)
+  ✓  3 [chromium] › tests/llms-txt.spec.ts:39:7 › generated llms.txt › uses only absolute https links, so the file works when served from kvid.ai (11ms)
+  ✓  4 [chromium] › tests/llms-txt.spec.ts:46:7 › generated llms.txt › every docs.kvid.ai link resolves in the built site (33ms)
+  ✓  5 [chromium] › tests/llms-txt.spec.ts:56:7 › generated llms.txt › links the agent overview and the MCP tool reference first (2ms)
+  ✓  6 [chromium] › tests/llms-txt.spec.ts:68:7 › generated llms-full.txt › contains every MCP tool of the generated tool reference page (7ms)
+  ✓  7 [chromium] › tests/llms-txt.spec.ts:77:7 › generated llms-full.txt › explains how agents connect and the credit lifecycle (3ms)
+
+  7 passed (373ms)

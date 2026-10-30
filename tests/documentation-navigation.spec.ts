@@ -1,18 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+const BASE_URL = process.env.BASE_URL ?? 'http://localhost:3100';
+
+test('documentation homepage has its platform title', async ({ page }) => {
+  await page.goto(`${BASE_URL}/`);
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  await expect(page).toHaveTitle(/kvidAI/i);
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('get started opens the local documentation', async ({ page }) => {
+  await page.goto(`${BASE_URL}/`);
 
   // Click the get started link.
   await page.getByRole('link', { name: 'Get started' }).click();
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await expect(page).toHaveURL(/\/docs\/intro\/?$/);
+
+  // The former scaffold's Installation assertion targeted playwright.dev, not this documentation site.
+  await expect(page.getByRole('heading', { name: 'Welcome to kvidAI', exact: true })).toBeVisible();
 });

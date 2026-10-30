@@ -1,0 +1,139 @@
+{
+  "state": "failed",
+  "phase": "finished",
+  "pid": 98570,
+  "cases": [
+    {
+      "title": "documentation homepage has its platform title",
+      "status": "failed",
+      "durationMs": 1,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "get started opens the local documentation",
+      "status": "failed",
+      "durationMs": 1,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "starts with the site title and an accurate summary, not a K-pop-only one",
+      "status": "passed",
+      "durationMs": 16,
+      "errors": []
+    },
+    {
+      "title": "lists docs only: no blog, tag or demo pages",
+      "status": "passed",
+      "durationMs": 4,
+      "errors": []
+    },
+    {
+      "title": "uses only absolute https links, so the file works when served from kvid.ai",
+      "status": "passed",
+      "durationMs": 11,
+      "errors": []
+    },
+    {
+      "title": "every docs.kvid.ai link resolves in the built site",
+      "status": "passed",
+      "durationMs": 33,
+      "errors": []
+    },
+    {
+      "title": "links the agent overview and the MCP tool reference first",
+      "status": "passed",
+      "durationMs": 2,
+      "errors": []
+    },
+    {
+      "title": "contains every MCP tool of the generated tool reference page",
+      "status": "passed",
+      "durationMs": 7,
+      "errors": []
+    },
+    {
+      "title": "explains how agents connect and the credit lifecycle",
+      "status": "passed",
+      "durationMs": 2,
+      "errors": []
+    },
+    {
+      "title": "screenshot: home",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-en-intro",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-en-pricing",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-en-getting-started",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-en-api-overview",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-ko-intro",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: docs-ko-pricing",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: blog",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    },
+    {
+      "title": "screenshot: blog-welcome",
+      "status": "failed",
+      "durationMs": 0,
+      "errors": [
+        "Error: browserType.launch: Executable doesn't exist at /Users/mac/Library/Caches/ms-playwright/chromium_headless_shell-1217/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     pnpm exec playwright install                           ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+      ]
+    }
+  ],
+  "errors": [],
+  "updatedAt": "2026-10-30T12:01:16.868Z"
+}

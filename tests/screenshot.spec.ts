@@ -1,10 +1,15 @@
-import { test, Page } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import path from 'path';
 import fs from 'fs';
+import { createHash } from 'node:crypto';
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:3100';
-const OUT = path.resolve(__dirname, '../docs-internal/ui-screenshots');
+const monorepoRoot = path.resolve(__dirname, '../../..');
+const OUT = fs.existsSync(path.join(monorepoRoot, '.gitmodules'))
+  ? path.join(monorepoRoot, 'docs/ui-screenshots/documentation')
+  : path.resolve(__dirname, '../docs/ui-screenshots/documentation');
 const DATE = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+const RUN_TIME = new Date().toISOString().slice(11, 23).replace(/[:.]/g, '');
 
 test.beforeAll(() => {
   fs.mkdirSync(OUT, { recursive: true });
@@ -13,7 +18,8 @@ test.beforeAll(() => {
 // Adapted from scripts/screenshot-lib.ts: gotoAndWait
 // Waits for networkidle → Docusaurus navbar hydration → 2nd networkidle → settle
 async function gotoAndWait(page: Page, url: string, settleMs = 500) {
-  await page.goto(url, { timeout: 90_000 });
+  const response = await page.goto(url, { timeout: 90_000 });
+  expect(response?.status(), url).toBe(200);
   await page.waitForLoadState('networkidle', { timeout: 90_000 });
   await page.waitForSelector('nav.navbar', { state: 'visible', timeout: 15_000 });
   try {
@@ -40,9 +46,8 @@ for (const { name, url } of pages) {
     await gotoAndWait(page, `${BASE}${url}`);
     // await page.goto(`${BASE}${url}`, { waitUntil: 'networkidle' });
     // await page.waitForSelector('nav.navbar', { state: 'visible', timeout: 15000 });
-    await page.screenshot({
-      path: path.join(OUT, `${name}_${DATE}.png`),
-      fullPage: true,
-    });
+    const capturePath = path.join(OUT, `${name}_built-site-${RUN_TIME}_${DATE}.png`);
+    const bytes = await page.screenshot({ path: capturePath, fullPage: true });
+    fs.writeFileSync(capturePath + '.meta.json', JSON.stringify({ role: 'anonymous', route: url, baseURL: BASE, viewport: page.viewportSize(), state: 'actual built documentation page', mockedBoundaries: [], sha256: createHash('sha256').update(bytes).digest('hex') }, null, 2));
   });
 }

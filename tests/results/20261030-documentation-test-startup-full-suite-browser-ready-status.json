@@ -1,0 +1,117 @@
+{
+  "state": "passed",
+  "phase": "finished",
+  "pid": 99241,
+  "cases": [
+    {
+      "title": "documentation homepage has its platform title",
+      "status": "passed",
+      "durationMs": 569,
+      "errors": []
+    },
+    {
+      "title": "get started opens the local documentation",
+      "status": "passed",
+      "durationMs": 220,
+      "errors": []
+    },
+    {
+      "title": "starts with the site title and an accurate summary, not a K-pop-only one",
+      "status": "passed",
+      "durationMs": 10,
+      "errors": []
+    },
+    {
+      "title": "lists docs only: no blog, tag or demo pages",
+      "status": "passed",
+      "durationMs": 3,
+      "errors": []
+    },
+    {
+      "title": "uses only absolute https links, so the file works when served from kvid.ai",
+      "status": "passed",
+      "durationMs": 8,
+      "errors": []
+    },
+    {
+      "title": "every docs.kvid.ai link resolves in the built site",
+      "status": "passed",
+      "durationMs": 26,
+      "errors": []
+    },
+    {
+      "title": "links the agent overview and the MCP tool reference first",
+      "status": "passed",
+      "durationMs": 2,
+      "errors": []
+    },
+    {
+      "title": "contains every MCP tool of the generated tool reference page",
+      "status": "passed",
+      "durationMs": 7,
+      "errors": []
+    },
+    {
+      "title": "explains how agents connect and the credit lifecycle",
+      "status": "passed",
+      "durationMs": 3,
+      "errors": []
+    },
+    {
+      "title": "screenshot: home",
+      "status": "passed",
+      "durationMs": 1432,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-en-intro",
+      "status": "passed",
+      "durationMs": 1305,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-en-pricing",
+      "status": "passed",
+      "durationMs": 1352,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-en-getting-started",
+      "status": "passed",
+      "durationMs": 1309,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-en-api-overview",
+      "status": "passed",
+      "durationMs": 1319,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-ko-intro",
+      "status": "passed",
+      "durationMs": 1298,
+      "errors": []
+    },
+    {
+      "title": "screenshot: docs-ko-pricing",
+      "status": "passed",
+      "durationMs": 1346,
+      "errors": []
+    },
+    {
+      "title": "screenshot: blog",
+      "status": "passed",
+      "durationMs": 1200,
+      "errors": []
+    },
+    {
+      "title": "screenshot: blog-welcome",
+      "status": "passed",
+      "durationMs": 1247,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "updatedAt": "2026-10-30T12:03:49.865Z"
+}

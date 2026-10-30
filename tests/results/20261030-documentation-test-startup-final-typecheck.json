@@ -1,0 +1,7 @@
+{
+  "command": "pnpm --dir apps/documentation typecheck",
+  "node": "22.22.2",
+  "exitCode": 0,
+  "evidence": "Observed execution session 21469 on 2026-10-30; tsc completed without diagnostics",
+  "scope": "documentation TypeScript only; aggregate root run remains failed at video-editor build"
+}

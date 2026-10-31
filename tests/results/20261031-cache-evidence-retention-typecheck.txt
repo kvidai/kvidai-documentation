@@ -1,0 +1,5 @@
+ WARN  Issue while reading "/Users/mac/code_workspace/kvidai/.npmrc". Failed to replace env in config: ${GITHUB_TOKEN}
+
+> kvidai-documentation@0.0.0 typecheck /Users/mac/code_workspace/kvidai/apps/documentation
+> tsc
+

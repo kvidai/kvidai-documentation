@@ -1,0 +1,9 @@
+{
+  "state": "passed",
+  "phase": "finished",
+  "pid": 1148,
+  "scope": "actual built docs HTTP; no mock; runner must leave externally managed server alive",
+  "exitCode": 0,
+  "managedServerSurvivedRunner": true,
+  "updatedAt": "2026-10-30T12:10:23.384Z"
+}

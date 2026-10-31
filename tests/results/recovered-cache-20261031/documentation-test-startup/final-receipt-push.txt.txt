@@ -1,0 +1,8 @@
+[submodule-check] no changed submodule pointers
+[pre-push] No package changes detected, skipping tests.
+remote: 
+remote: GitHub found 836 vulnerabilities on epicmobile18/kvidai's default branch (31 critical, 368 high, 365 moderate, 72 low). To find out more, visit:        
+remote:      https://github.com/epicmobile18/kvidai/security/dependabot        
+remote: 
+To https://github.com/epicmobile18/kvidai
+   76568f67..7a7c6398  develop-kincjf -> develop-kincjf

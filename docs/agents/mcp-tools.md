@@ -230,6 +230,79 @@ Parameters:
 - `project_name` (string, optional): Optional custom name for the video project. Defaults to "&lt;product_name&gt; — 홍보영상".
 - `kvidai_token` (string, optional): KVIDAI JWT token. Optional if KVIDAI_API_TOKEN env var is set.
 
+### `kvidai_propose_video_autocut_quote`
+
+Propose a purpose-specific recommendation and bounded quote for owned footage; no model analysis, extraction, consent acceptance or credit debit. Measures source duration and checks reusable analysis. Present the recommended outcomes, reasons, input duration, quoted analysis/editing cap and exclusions in chat. Final video rendering and other generation are excluded: never describe this as the full video price. The user must accept the exact quote in authenticated KVIDAI UI; agents cannot accept for them. Reuse requestKey for this same instruction, then read acceptance status before analysis. Experimental rollout OFF.
+
+Parameters:
+
+- `projectId` (string, required): Owned private KVIDAI video project ID.
+- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
+- `purpose` (string, required)
+- `sources` (array, required)
+- `targetDurationSeconds` (number, optional)
+- `frameIntervalSeconds` (number, optional)
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_get_video_autocut_quote`
+
+Read this owned quote, recommendation, bounded analysis/editing amounts, expiry and explicit user consent state. Reading does not accept or renew consent, execute analysis or debit credits. Wait for actual user UI acceptance; never infer permission from a suggested setting, elapsed time or a proposed quote.
+
+Parameters:
+
+- `quoteId` (string, required)
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_analyze_video_sources`
+
+**Spends credits.**
+
+Experimental server feature, rollout OFF until wallet billing is connected. When paid rollout is enabled this spends user credits within the accepted quote. A new execution requires owner-accepted quoteId for this same requestKey and source/purpose/settings. Agents must not accept quotes for the user. Analyze owned input footage for the stated video purpose. Returns a durable job; poll kvidai_get_video_autocut_job. Uses existing Media IDs/URLs, not YouTube/article URLs. Defaults to one image per second regardless of source FPS. Never promises popularity or complete action/audio understanding.
+
+Parameters:
+
+- `projectId` (string, required): Owned private KVIDAI video project ID.
+- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
+- `purpose` (string, required)
+- `sources` (array, required)
+- `targetDurationSeconds` (number, optional)
+- `frameIntervalSeconds` (number, optional)
+- `quoteId` (string, required): Owner-accepted quote ID for this same instruction/request key. An agent may not accept a quote on the user behalf.
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_extract_video_segments`
+
+**Spends credits.**
+
+Experimental server feature, rollout OFF until wallet billing is connected. When paid rollout is enabled the approved workflow spends user credits; this included extraction adds no separate fee. Extract once from a completed owned analysis under its accepted instruction quote and output-duration cap. A new instruction needs a new quote; score reuse can avoid new model analysis. Return clips can be placed in the editable project with existing video tools. Each source group must be contiguous and chronological/non-overlapping. Source versions and actual downloaded SHA256 are checked again. Returns a job; poll status.
+
+Parameters:
+
+- `projectId` (string, required): Owned private KVIDAI video project ID.
+- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
+- `analysisJobId` (string, required)
+- `targetDurationSeconds` (number, optional)
+- `segments` (array of object, optional)
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_get_video_autocut_job`
+
+Read this owned video autocut job. Completed analysis includes editable source intervals; completed extraction includes owned Media clips. A disconnected client does not imply cancellation.
+
+Parameters:
+
+- `jobId` (string, required)
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_cancel_video_autocut_job`
+
+Request cancellation of an owned video autocut job. Already consumed analysis usage is retained; provider-side processing may already have incurred cost.
+
+Parameters:
+
+- `jobId` (string, required)
+- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
 ### `kvidai_list_templates`
 
 List all available KVIDAI video templates

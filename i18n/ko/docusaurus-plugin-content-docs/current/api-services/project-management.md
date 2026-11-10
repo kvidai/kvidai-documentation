@@ -434,12 +434,12 @@ for f in resp.json()["data"]:
 
 `POST /video-project/:id/media`
 
-`fileId` (이미 [Media API](./media-api.md) 로 업로드한 파일) **또는** `url` (공개 웹페이지 리소스, 예: 이미지 URL — 서버가 CDN 으로 복사해 내 파일로 등록) 중 **하나**를 보냅니다.
+`fileId` (이미 [Media API](./media-api.md) 로 업로드한 파일) **또는** `url` (kvidAI 에 이미 저장된 파일의 CDN URL — 서버가 내 라이브러리로 복사해 그 사본을 연결) 중 **하나**를 보냅니다. 임의의 외부 URL 은 지원하지 않습니다.
 
 | 필드 | 타입 | 필수 | 설명 |
 |------|------|------|------|
 | `fileId` | integer | `fileId` / `url` 중 하나 | 내가 소유한 기존 파일 |
-| `url` | string | `fileId` / `url` 중 하나 | 복사할 원본 URL. `fileId` 가 있으면 무시됩니다. |
+| `url` | string | `fileId` / `url` 중 하나 | kvidAI 에 이미 저장된 파일의 CDN URL. 그 외 URL 은 `400`. `fileId` 가 있으면 무시됩니다. |
 | `filename` | string | 선택 | `url` 에서 복사할 때 저장할 파일 이름 |
 
 ```python
@@ -510,4 +510,4 @@ project = requests.post(
 | `403` | Access denied — 키가 대상 프로젝트의 owner 가 아님 |
 | `404` | `PROJECT_NOT_FOUND` — `id` 없음 |
 | `400` | `Unknown operation: <name>` — 6개 외의 composition `operation` |
-| `400` | `fileId or url is required` — `POST /:id/media` body 에 둘 다 없음. 복사할 수 없는 `url` 도 `400` 이며 사유는 `message` 에 담깁니다. |
+| `400` | `fileId or url is required` — `POST /:id/media` body 에 둘 다 없음. 저장된 kvidAI 파일이 아닌 `url` 은 `400` (`no stored file has this url`), 그 밖의 복사 실패도 `400` 이며 사유는 `message` 에 담깁니다. |

@@ -434,12 +434,12 @@ for f in resp.json()["data"]:
 
 `POST /video-project/:id/media`
 
-Send **either** `fileId` (a file you already uploaded through the [Media API](./media-api.md)) **or** `url` (a public web-page resource, e.g. an image URL — the server copies it to the CDN and registers it as your file).
+Send **either** `fileId` (a file you already uploaded through the [Media API](./media-api.md)) **or** `url` (the CDN URL of a file that is already stored in kvidAI — the server copies it into your library and attaches the copy). Arbitrary external URLs are not supported.
 
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
 | `fileId` | integer | one of `fileId` / `url` | Existing file you own. |
-| `url` | string | one of `fileId` / `url` | Source URL to copy. Ignored when `fileId` is set. |
+| `url` | string | one of `fileId` / `url` | CDN URL of a file already stored in kvidAI. Any other URL returns `400`. Ignored when `fileId` is set. |
 | `filename` | string | no | File name to store when copying from `url`. |
 
 ```python
@@ -510,4 +510,4 @@ All errors share the shape `{ "success": false, "error": "...", "message": "..."
 | `403` | Access denied — the key does not own the target project. |
 | `404` | `PROJECT_NOT_FOUND` — `id` doesn't exist. |
 | `400` | `Unknown operation: <name>` — composition `operation` outside the six supported values. |
-| `400` | `fileId or url is required` — `POST /:id/media` body has neither. A `url` that cannot be copied also returns `400` with the reason in `message`. |
+| `400` | `fileId or url is required` — `POST /:id/media` body has neither. A `url` that is not a stored kvidAI file returns `400` with `no stored file has this url`; other copy failures also return `400` with the reason in `message`. |

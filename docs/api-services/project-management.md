@@ -46,7 +46,7 @@ Content-Type:   application/json
 | Method | Path | Purpose |
 |--------|------|---------|
 | `POST`   | `/video-project/create`             | Create a new project |
-| `GET`    | `/video-project`                    | List the caller's projects (paginated) |
+| `GET`    | `/video-project/list`               | List the caller's projects (paginated) |
 | `GET`    | `/video-project/:id`                | Fetch one project (includes composition) |
 | `PUT`    | `/video-project/:id`                | Update top-level fields / whole composition |
 | `PATCH`  | `/video-project/:id/composition`    | Patch the composition tree (fine-grained ops) |
@@ -152,7 +152,7 @@ console.log(project.id, project.status);
 
 ### 2. List the caller's projects
 
-`GET /video-project`
+`GET /video-project/list`
 
 Returns the caller's projects. The `composition` payload is omitted from the list (payload optimization) — use `GET /video-project/:id` for the full record.
 
@@ -167,7 +167,7 @@ Returns the caller's projects. The `composition` payload is omitted from the lis
 | `status` | string | — | `draft` \| `rendering` \| `completed` | Status filter. |
 
 ```bash
-curl -G "https://api.kvid.ai/video-project" \
+curl -G "https://api.kvid.ai/video-project/list" \
   -H "api-key: $KVIDAI_API_KEY" \
   --data-urlencode "page=1" \
   --data-urlencode "pageSize=12" \

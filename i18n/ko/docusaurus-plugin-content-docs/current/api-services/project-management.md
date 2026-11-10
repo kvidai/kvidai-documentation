@@ -46,7 +46,7 @@ Content-Type:   application/json
 | Method | Path | 목적 |
 |--------|------|------|
 | `POST`   | `/video-project/create`             | 새 프로젝트 생성 |
-| `GET`    | `/video-project`                    | 호출자의 프로젝트 목록 (페이지네이션) |
+| `GET`    | `/video-project/list`               | 호출자의 프로젝트 목록 (페이지네이션) |
 | `GET`    | `/video-project/:id`                | 단건 조회 (composition 포함) |
 | `PUT`    | `/video-project/:id`                | 최상위 필드 / composition 전체 수정 |
 | `PATCH`  | `/video-project/:id/composition`    | composition 트리 부분 업데이트 (세밀한 op) |
@@ -152,7 +152,7 @@ console.log(project.id, project.status);
 
 ### 2. 호출자의 프로젝트 목록
 
-`GET /video-project`
+`GET /video-project/list`
 
 호출자의 프로젝트 목록을 반환합니다. `composition` 페이로드는 목록에서 제외됩니다 (payload 최적화) — 전체 레코드가 필요하면 `GET /video-project/:id` 를 사용하세요.
 
@@ -167,7 +167,7 @@ console.log(project.id, project.status);
 | `status` | string | — | `draft` \| `rendering` \| `completed` | 상태 필터 |
 
 ```bash
-curl -G "https://api.kvid.ai/video-project" \
+curl -G "https://api.kvid.ai/video-project/list" \
   -H "api-key: $KVIDAI_API_KEY" \
   --data-urlencode "page=1" \
   --data-urlencode "pageSize=12" \

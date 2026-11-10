@@ -23,6 +23,7 @@ kvidAI 의 프로젝트 관리 API 는 비디오 편집 작업을 **프로젝트
 - **프로젝트(Project)** — 비디오 에디터 세션마다 하나씩인 JSON 레코드. 호출자가 owner 이며 `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed`), optional `preset_id`, `thumbnail_url` 을 보관합니다.
 - **컴포지션(Composition)** — Remotion 호환 JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. `PATCH /:id/composition` 으로 부분 수정하므로 매번 전체 레코드를 다시 보낼 필요가 없습니다.
 - **프리셋(Preset)** — 생성 시점에 `presetId` 로 선택하는 재사용 가능한 JSON config (voice / tone / color palette / scene default). [Preset API](./preset-api.md) 로 관리됩니다. Legacy 필드명 `templateId` 도 여전히 허용됩니다.
+- **미디어 풀(Media pool)** — 프로젝트에 연결된 업로드 파일(이미지 / 영상 / 오디오) 목록. 에디터, agent, 직접 만든 클라이언트가 함께 재사용합니다. `/video-project/:id/media` 로 관리합니다. 첨부는 파일을 프로젝트에 연결만 하며, 분리(detach)해도 파일 자체는 삭제되지 않습니다.
 
 ### 인증
 
@@ -49,6 +50,9 @@ Content-Type:   application/json
 | `GET`    | `/video-project/:id`                | 단건 조회 (composition 포함) |
 | `PUT`    | `/video-project/:id`                | 최상위 필드 / composition 전체 수정 |
 | `PATCH`  | `/video-project/:id/composition`    | composition 트리 부분 업데이트 (세밀한 op) |
+| `GET`    | `/video-project/:id/media`          | 프로젝트 미디어 풀 목록 |
+| `POST`   | `/video-project/:id/media`          | 미디어 풀에 파일 첨부 (`fileId` 또는 `url`) |
+| `DELETE` | `/video-project/:id/media/:fileId`  | 미디어 풀에서 파일 분리 |
 
 ---
 
@@ -387,6 +391,93 @@ item 은 `composition.items[item.id]` 에 들어가고, `trackId` 에 해당하�
 
 ---
 
+### 6. 프로젝트 미디어 풀
+
+미디어 풀은 프로젝트에 연결된 파일 목록입니다. 모든 호출은 **현재 전체 풀**을 `data` 로 반환하므로, 첨부/분리 후 목록을 따로 다시 조회할 필요가 없습니다.
+
+풀 항목 필드:
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `id` | integer | 파일 id. 아래 호출의 `fileId`, 그리고 [Media API](./media-api.md) 호출에 사용합니다. |
+| `name` | string | 파일 이름 |
+| `url` | string | 파일의 CDN URL |
+| `mime` | string | MIME 타입 (예: `image/png`) |
+| `size` | number | 크기 (KB) |
+| `width`, `height` | integer | 이미지/영상이고 값을 아는 경우에만 포함, 아니면 생략 |
+
+**Path parameter** (세 호출 공통): `id` — projectId (integer).
+
+#### 6.1 미디어 풀 목록
+
+`GET /video-project/:id/media`
+
+```python
+resp = requests.get(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": API_KEY},
+)
+for f in resp.json()["data"]:
+    print(f["id"], f["name"], f["mime"])
+```
+
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 42, "name": "logo.png", "url": "https://...cdn.../logo.png", "mime": "image/png", "size": 100, "width": 512, "height": 512 }
+  ]
+}
+```
+
+#### 6.2 파일 첨부
+
+`POST /video-project/:id/media`
+
+`fileId` (이미 [Media API](./media-api.md) 로 업로드한 파일) **또는** `url` (공개 웹페이지 리소스, 예: 이미지 URL — 서버가 CDN 으로 복사해 내 파일로 등록) 중 **하나**를 보냅니다.
+
+| 필드 | 타입 | 필수 | 설명 |
+|------|------|------|------|
+| `fileId` | integer | `fileId` / `url` 중 하나 | 내가 소유한 기존 파일 |
+| `url` | string | `fileId` / `url` 중 하나 | 복사할 원본 URL. `fileId` 가 있으면 무시됩니다. |
+| `filename` | string | 선택 | `url` 에서 복사할 때 저장할 파일 이름 |
+
+```python
+resp = requests.post(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": API_KEY, "Content-Type": "application/json"},
+    json={"fileId": 42},
+)
+pool = resp.json()["data"]
+```
+
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 42, "name": "logo.png", "url": "https://...cdn.../logo.png", "mime": "image/png", "size": 100, "width": 512, "height": 512 }
+  ]
+}
+```
+
+#### 6.3 파일 분리
+
+`DELETE /video-project/:id/media/:fileId`
+
+이 프로젝트의 풀에서만 제거합니다. 파일은 내 미디어 라이브러리와 해당 파일을 쓰는 다른 프로젝트에 그대로 남습니다.
+
+```python
+resp = requests.delete(
+    f"https://api.kvid.ai/video-project/{project_id}/media/42",
+    headers={"api-key": API_KEY},
+)
+pool = resp.json()["data"]  # 제거 후의 풀
+```
+
+**Path parameter**: `id` — projectId, `fileId` — 파일 id (integer).
+
+---
+
 ## End-to-End: 프로젝트 생성 후 agent 로 편집
 
 ```python
@@ -419,3 +510,4 @@ project = requests.post(
 | `403` | Access denied — 키가 대상 프로젝트의 owner 가 아님 |
 | `404` | `PROJECT_NOT_FOUND` — `id` 없음 |
 | `400` | `Unknown operation: <name>` — 6개 외의 composition `operation` |
+| `400` | `fileId or url is required` — `POST /:id/media` body 에 둘 다 없음. 복사할 수 없는 `url` 도 `400` 이며 사유는 `message` 에 담깁니다. |

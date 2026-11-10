@@ -23,6 +23,7 @@ You use this API when you want to build your own client around the same project 
 - **Project** — a JSON record per video editor session. Owned by the caller, holds the `composition`, `chat_history`, `status` (`draft` / `rendering` / `completed`), an optional `preset_id`, and a `thumbnail_url`.
 - **Composition** — Remotion-compatible JSON: `{ fps, compositionWidth, compositionHeight, tracks[], items{}, assets{} }`. Mutated through `PATCH /:id/composition` so you don't have to re-send the entire record every time.
 - **Preset** — a reusable JSON config (voice / tone / color palette / scene defaults) selected at creation time via `presetId`. Managed via the [Preset API](./preset-api.md). Legacy field name `templateId` is still accepted.
+- **Media pool** — the set of uploaded files attached to a project (images / videos / audio the editor, the agent, and your own client can all reuse). Managed through `/video-project/:id/media`. Attaching a file only links it to the project; detaching never deletes the file itself.
 
 ### Authentication
 
@@ -49,6 +50,9 @@ Content-Type:   application/json
 | `GET`    | `/video-project/:id`                | Fetch one project (includes composition) |
 | `PUT`    | `/video-project/:id`                | Update top-level fields / whole composition |
 | `PATCH`  | `/video-project/:id/composition`    | Patch the composition tree (fine-grained ops) |
+| `GET`    | `/video-project/:id/media`          | List the project's media pool |
+| `POST`   | `/video-project/:id/media`          | Attach a file to the media pool (by `fileId` or `url`) |
+| `DELETE` | `/video-project/:id/media/:fileId`  | Detach a file from the media pool |
 
 ---
 
@@ -387,6 +391,93 @@ Removes `composition.items[itemId]` and drops that id from every track's `items[
 
 ---
 
+### 6. Project media pool
+
+The media pool is the list of files attached to a project. Every call returns the **full, current pool** as `data`, so you never need a separate list call after attaching or detaching.
+
+Each pool entry:
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `id` | integer | File id. Use it as `fileId` in the calls below and in [Media API](./media-api.md) calls. |
+| `name` | string | File name. |
+| `url` | string | CDN URL of the file. |
+| `mime` | string | MIME type, e.g. `image/png`. |
+| `size` | number | Size in KB. |
+| `width`, `height` | integer | Present for images and videos when known; omitted otherwise. |
+
+**Path parameter** (all three calls): `id` — projectId (integer).
+
+#### 6.1 List the media pool
+
+`GET /video-project/:id/media`
+
+```python
+resp = requests.get(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": API_KEY},
+)
+for f in resp.json()["data"]:
+    print(f["id"], f["name"], f["mime"])
+```
+
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 42, "name": "logo.png", "url": "https://...cdn.../logo.png", "mime": "image/png", "size": 100, "width": 512, "height": 512 }
+  ]
+}
+```
+
+#### 6.2 Attach a file
+
+`POST /video-project/:id/media`
+
+Send **either** `fileId` (a file you already uploaded through the [Media API](./media-api.md)) **or** `url` (a public web-page resource, e.g. an image URL — the server copies it to the CDN and registers it as your file).
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `fileId` | integer | one of `fileId` / `url` | Existing file you own. |
+| `url` | string | one of `fileId` / `url` | Source URL to copy. Ignored when `fileId` is set. |
+| `filename` | string | no | File name to store when copying from `url`. |
+
+```python
+resp = requests.post(
+    f"https://api.kvid.ai/video-project/{project_id}/media",
+    headers={"api-key": API_KEY, "Content-Type": "application/json"},
+    json={"fileId": 42},
+)
+pool = resp.json()["data"]
+```
+
+```json
+{
+  "success": true,
+  "data": [
+    { "id": 42, "name": "logo.png", "url": "https://...cdn.../logo.png", "mime": "image/png", "size": 100, "width": 512, "height": 512 }
+  ]
+}
+```
+
+#### 6.3 Detach a file
+
+`DELETE /video-project/:id/media/:fileId`
+
+Removes the file from this project's pool only. The file stays in your media library and in any other project that uses it.
+
+```python
+resp = requests.delete(
+    f"https://api.kvid.ai/video-project/{project_id}/media/42",
+    headers={"api-key": API_KEY},
+)
+pool = resp.json()["data"]  # the pool after removal
+```
+
+**Path parameters**: `id` — projectId, `fileId` — file id (integer).
+
+---
+
 ## End-to-End: build a project, then let the agent edit it
 
 ```python
@@ -419,3 +510,4 @@ All errors share the shape `{ "success": false, "error": "...", "message": "..."
 | `403` | Access denied — the key does not own the target project. |
 | `404` | `PROJECT_NOT_FOUND` — `id` doesn't exist. |
 | `400` | `Unknown operation: <name>` — composition `operation` outside the six supported values. |
+| `400` | `fileId or url is required` — `POST /:id/media` body has neither. A `url` that cannot be copied also returns `400` with the reason in `message`. |

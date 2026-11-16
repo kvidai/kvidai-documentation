@@ -230,78 +230,75 @@ Parameters:
 - `project_name` (string, optional): Optional custom name for the video project. Defaults to "&lt;product_name&gt; — 홍보영상".
 - `kvidai_token` (string, optional): KVIDAI JWT token. Optional if KVIDAI_API_TOKEN env var is set.
 
-### `kvidai_propose_video_autocut_quote`
+### `kvidai_search_audio_presets`
 
-Propose a purpose-specific recommendation and bounded quote for owned footage; no model analysis, extraction, consent acceptance or credit debit. Measures source duration and checks reusable analysis. Present the recommended outcomes, reasons, input duration, quoted analysis/editing cap and exclusions in chat. Final video rendering and other generation are excluded: never describe this as the full video price. The user must accept the exact quote in authenticated KVIDAI UI; agents cannot accept for them. Reuse requestKey for this same instruction, then read acceptance status before analysis. Experimental rollout OFF.
-
-Parameters:
-
-- `projectId` (string, required): Owned private KVIDAI video project ID.
-- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
-- `purpose` (string, required)
-- `sources` (array, required)
-- `targetDurationSeconds` (number, optional)
-- `frameIntervalSeconds` (number, optional)
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
-
-### `kvidai_get_video_autocut_quote`
-
-Read this owned quote, recommendation, bounded analysis/editing amounts, expiry and explicit user consent state. Reading does not accept or renew consent, execute analysis or debit credits. Wait for actual user UI acceptance; never infer permission from a suggested setting, elapsed time or a proposed quote.
+Search reviewed included SFX and BGM by English/Korean name or alias before paid search or generation. Omit query to list the small current catalog. Price:0credits; AI calls:0. Returns presetId, duration and pinned source/license evidence. Evidence URLs cannot be inserted. Use kvidai_import_audio_preset to obtain an owned Media ID, then kvidai_insert_audio_cues.
 
 Parameters:
 
-- `quoteId` (string, required)
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+- `query` (string, optional)
+- `maxResults` (integer, optional)
 
-### `kvidai_analyze_video_sources`
+### `kvidai_import_audio_preset`
 
-**Spends credits.**
-
-Experimental server feature, rollout OFF until wallet billing is connected. When paid rollout is enabled this spends user credits within the accepted quote. A new execution requires owner-accepted quoteId for this same requestKey and source/purpose/settings. Agents must not accept quotes for the user. Analyze owned input footage for the stated video purpose. Returns a durable job; poll kvidai_get_video_autocut_job. Uses existing Media IDs/URLs, not YouTube/article URLs. Defaults to one image per second regardless of source FPS. Never promises popularity or complete action/audio understanding.
+Register a reviewed SFX or BGM presetId as owned Media; concurrent/repeated requests reuse one owner file. Returns mediaId, duration/source SHA and license evidence. For background music use kvidai_insert_audio_cues with role:bgm, an in-bounds range, gain and fades. Makes no paid AI request or credit charge. Accepts no URL, uploaded bytes or caller license claim; external music links remain references.
 
 Parameters:
 
-- `projectId` (string, required): Owned private KVIDAI video project ID.
-- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
-- `purpose` (string, required)
-- `sources` (array, required)
-- `targetDurationSeconds` (number, optional)
-- `frameIntervalSeconds` (number, optional)
-- `quoteId` (string, required): Owner-accepted quote ID for this same instruction/request key. An agent may not accept a quote on the user behalf.
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+- `presetId` (string, required)
 
-### `kvidai_extract_video_segments`
+### `kvidai_search_owned_audio`
 
-**Spends credits.**
-
-Experimental server feature, rollout OFF until wallet billing is connected. When paid rollout is enabled the approved workflow spends user credits; this included extraction adds no separate fee. Extract once from a completed owned analysis under its accepted instruction quote and output-duration cap. A new instruction needs a new quote; score reuse can avoid new model analysis. Return clips can be placed in the editable project with existing video tools. Each source group must be contiguous and chronological/non-overlapping. Source versions and actual downloaded SHA256 are checked again. Returns a job; poll status.
+Find existing audio/video Media by sound name/alias and reuse cached acoustic search. Omit mediaIds to inspect matching and recent owned Media (bounded50). Price:0credits; inference provider calls:0. Returns original sourceMediaId, playableMediaId and verified indexed sourceRange when available; use sourceMediaId with kvidai_insert_audio_cues. For metadata matches the range is only the first valid window, not an acoustically identified event. Null ranges require source analysis, and missing query/source indexes are explicit, not semantic no-matches. Do not generate a replacement before searching available sounds. External listening URLs are never insertable Media.
 
 Parameters:
 
-- `projectId` (string, required): Owned private KVIDAI video project ID.
-- `requestKey` (string, required): Unique key for this user instruction. Reuse it when retrying the same request.
-- `analysisJobId` (string, required)
-- `targetDurationSeconds` (number, optional)
-- `segments` (array of object, optional)
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+- `query` (string, required)
+- `mediaIds` (array of integer, optional)
+- `maxResults` (integer, optional)
 
-### `kvidai_get_video_autocut_job`
+### `kvidai_get_audio_project_snapshot`
 
-Read this owned video autocut job. Completed analysis includes editable source intervals; completed extraction includes owned Media clips. A disconnected client does not imply cancellation.
+Read an owned saved project revision before inserting existing Media audio. Returns compositionSha256. Read the saved composition again after the job completes; keep original source offsets separate from destination time.
+
+Parameters:
+
+- `projectId` (integer, required)
+
+### `kvidai_insert_audio_cues`
+
+Queue editable SFX/BGM/ambience cues from owned Media IDs into a saved project. For search results pass mediaRevisionSha256 as expectedMediaRevisionSha256 and any non-null sourceSha256 as expectedSourceSha256; on audio_media_changed or audio_source_hash_conflict search or reindex again before selecting a range. Use its latest compositionSha256 and one stable requestKey; retries reuse the same key/input and never duplicate inserts. Poll kvidai_get_audio_edit_job. URLs from external search are reference-only and cannot be inserted. This explicit existing-Media operation dispatches no paid AI request. On409 reread the project and reconsider the edit; do not blindly change request keys. Complete available edits and report missing sounds. For role:bgm, optional ducking uses explicit existing speech item IDs to apply a timeline gain envelope, not signal detection; attack/release default to 3/6 frames. Obtain exact speech IDs from current composition or host context; the audio project snapshot returns only a revision hash.
+
+Parameters:
+
+- `projectId` (integer, required)
+- `requestKey` (string, required)
+- `expectedCompositionSha256` (string, required)
+- `cues` (array of object, required)
+
+### `kvidai_get_audio_edit_job`
+
+Read an owned canonical audio job. Poll this job ID rather than resubmitting. Completed insert decisions retain original/playable Media IDs, source ranges and source hash. For new results, appliedTimelineStartSeconds and appliedFadeInSeconds/appliedFadeOutSeconds report the actual timeline position and fade durations; the unprefixed fields retain the requested values. Earlier jobs may omit applied fields.
 
 Parameters:
 
 - `jobId` (string, required)
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
 
-### `kvidai_cancel_video_autocut_job`
+### `kvidai_cancel_audio_edit_job`
 
-Request cancellation of an owned video autocut job. Already consumed analysis usage is retained; provider-side processing may already have incurred cost.
+Request cancellation of an owned audio job. Poll its status; an already completed edit remains completed.
 
 Parameters:
 
 - `jobId` (string, required)
-- `kvidai_api_key` (string, optional): Optional KVIDAI API key; otherwise use KVIDAI_API_KEY.
+
+### `kvidai_get_audio_index_status`
+
+Check whether an owned Media file has a current searchable audio index. This read never dispatches a paid provider request. Missing indexes require the paid indexing workflow; do not describe missing as no matching sound.
+
+Parameters:
+
+- `mediaId` (integer, required)
 
 ### `kvidai_list_templates`
 

@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.93,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/account-settings_desktop_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible text: at the top center there is a header reading \"계정 압축 설정 검증 - 모의 계정/API - 실제 설정 모듈과 브라우저 이벤트\". Below it are three text links/tabs: \"계정 A\", \"계정 B\", and \"로그아웃\". The main card title reads \"첨부파일 압축\". Inside the card, the section heading/label says \"업로드 전 이미지·동영상 압축\" followed by explanatory body copy stating that compression is on by default, compressed quality can be lowered, when OFF only the original screen size is used and files exceeding a certain limit cannot be attached, and that only necessary parts should be compressed for important media. Another bold line says \"압축이 OFF입니다. 업로드 용량 제한을 초과하는 파일은 첨부할 수 없습니다.\" A smaller paragraph below mentions saving settings to the logged-in account and device, and that changes apply when switching devices or reloading to check again. A subsection label reads \"압축 방식\" with a dropdown currently showing \"용량 절약\". Beneath that is a note that the compression method applies to uploaded files and that the chosen option uses a different image quality/size approach. There is a button labeled \"계정 압축 설정 다시 불러오기\". Under the card there is a wide empty bordered rectangular area, likely a text area or input region, with no visible content. UI components present: a simple centered page header, account/logout text navigation, one main settings card with a right-aligned toggle switch shown in the OFF/disabled-looking gray state, one select dropdown, one action button, and one empty bordered field below the card. Layout structure: a mostly white page with the content centered in a single narrow column; the navigation text sits above the card; the card occupies the upper-middle area; the empty field sits directly beneath it; there is no visible sidebar or footer. Visual state: loaded and stable, not showing a spinner, error, or blank screen; it appears to be an authenticated account-settings fixture with the compression feature currently OFF. Verdict: pass — the screen renders successfully with readable text, visible controls, and no major clipping, overflow, missing sections, or broken layout issues.",
+  "signals": {
+    "width": 1920,
+    "height": 1080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.93,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible text: at the top center there is a header reading \\\\\\\"계정 압축 설정 검증 - 모의 계정/API - 실제 설정 모듈과 브라우저 이벤트\\\\\\\". Below it are three text links/tabs: \\\\\\\"계정 A\\\\\\\", \\\\\\\"계정 B\\\\\\\", and \\\\\\\"로그아웃\\\\\\\". The main card title reads \\\\\\\"첨부파일 압축\\\\\\\". Inside the card, the section heading/label says \\\\\\\"업로드 전 이미지·동영상 압축\\\\\\\" followed by explanatory body copy stating that compression is on by default, compressed quality can be lowered, when OFF only the original screen size is used and files exceeding a certain limit cannot be attached, and that only necessary parts should be compressed for important media. Another bold line says \\\\\\\"압축이 OFF입니다. 업로드 용량 제한을 초과하는 파일은 첨부할 수 없습니다.\\\\\\\" A smaller paragraph below mentions saving settings to the logged-in account and device, and that changes apply when switching devices or reloading to check again. A subsection label reads \\\\\\\"압축 방식\\\\\\\" with a dropdown currently showing \\\\\\\"용량 절약\\\\\\\". Beneath that is a note that the compression method applies to uploaded files and that the chosen option uses a different image quality/size approach. There is a button labeled \\\\\\\"계정 압축 설정 다시 불러오기\\\\\\\". Under the card there is a wide empty bordered rectangular area, likely a text area or input region, with no visible content. UI components present: a simple centered page header, account/logout text navigation, one main settings card with a right-aligned toggle switch shown in the OFF/disabled-looking gray state, one select dropdown, one action button, and one empty bordered field below the card. Layout structure: a mostly white page with the content centered in a single narrow column; the navigation text sits above the card; the card occupies the upper-middle area; the empty field sits directly beneath it; there is no visible sidebar or footer. Visual state: loaded and stable, not showing a spinner, error, or blank screen; it appears to be an authenticated account-settings fixture with the compression feature currently OFF. Verdict: pass — the screen renders successfully with readable text, visible controls, and no major clipping, overflow, missing sections, or broken layout issues.\\\"}\",\"usage\":{\"prompt_tokens\":1792,\"completion_tokens\":488,\"total_tokens\":2280,\"cost\":0.00354,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00354,\"upstream_inference_prompt_cost\":0.001344,\"upstream_inference_completions_cost\":0.002196},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/account-settings_desktop_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "9102f8dac4a8815cffd00cfea1e98bf04a43816e9e6f44b810ac4599768f1d8b",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/9102f8dac4a8815cffd00cfea1e98bf04a43816e9e6f44b810ac4599768f1d8b.json",
+    "promptHash": "311ba44b1741e9a19acdb907999fa6b86622601f73492e6a648515e8d66121fd",
+    "assetHashes": [
+      "5df3b8e1d13a92b17f3d8c23e1e5126b9c426c16b5d43daa84dbff9409a53e70"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

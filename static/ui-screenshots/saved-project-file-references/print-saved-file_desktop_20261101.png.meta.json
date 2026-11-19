@@ -1,0 +1,16 @@
+{
+  "profile": "print",
+  "viewport": {
+    "name": "desktop",
+    "width": 1920,
+    "height": 1080
+  },
+  "scope": "Actual component/shared runtime; auth/list/model are fixtures. Separate real Strapi/JWT/archive HTTP tests validate backend. Text snapshots only.",
+  "checks": [
+    "friendly label",
+    "hidden explicit descriptor once",
+    "no dispatch on selection",
+    "typed label not authority"
+  ],
+  "pageErrors": []
+}

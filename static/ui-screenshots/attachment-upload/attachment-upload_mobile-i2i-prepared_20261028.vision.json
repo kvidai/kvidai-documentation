@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.93,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-prepared_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: At the top is an upload status banner/card showing the filename \"step1-jpeg.jpg\" on the left and \"업로드 완료\" (upload complete) on the right. Inside the same banner it says \"원본 7.3MB · 이 첨부의 최대 크기 2MB\", \"업로드한 파일 1.5MB\", and a warning message \"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\" Below that is a collapsible/help row with a triangle icon and the text \"이유와 처리 제한 자세히\".\n\nThe main form area begins with the required label \"원본 이미지 *\" and a counter \"1/10 개\". There is a segmented control with two options: \"업로드\" (selected) and \"URL\". Under it is a dashed drag-and-drop upload zone with an upload arrow icon and the text \"이미지를 드래그 앤 드롭하거나 클릭하여 선택하세요\" plus \"지원 형식: JPG, PNG, WebP\".\n\nA single uploaded image thumbnail appears below the drop zone, showing a square color-gradient preview with a red circular X button in the top-right corner for removing the image. Next is the required label \"편집 프롬프트 *\" with a small \"예시\" button beside an icon. A large multiline text box is filled with the text \"파일 처리 중에 작성한 다음 초안\". Under the textbox is helper text: \"어떤 표현이 거절되나요? 생성 가이드 보기\" and a smaller line \"이미지에 적용한 변경 사항을 설명해주세요.\" Beneath that is a rounded button labeled \"고급 설정\" with a gear icon.\n\nNear the bottom is a credit section showing a coin/credit icon and \"필요 크레딧: 3.9 크레딧\" in bold, with \"보유 크레딧: 100000 크레딧\" below it. At the very bottom is a prominent blue primary button labeled \"이미지 편집\" with a magic-wand/sparkle style icon.\n\nLayout/state: This is a mobile-sized single-column attachment/image-editing form. No sidebar or top navigation is visible. The screen appears loaded and usable, with an intentional upload-complete state and one attached image preview. Verdict: pass. No severe clipping, overflow, broken layout, blank regions, or error states observed.",
+  "signals": {
+    "width": 390,
+    "height": 1102,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.93,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: At the top is an upload status banner/card showing the filename \\\\\\\"step1-jpeg.jpg\\\\\\\" on the left and \\\\\\\"업로드 완료\\\\\\\" (upload complete) on the right. Inside the same banner it says \\\\\\\"원본 7.3MB · 이 첨부의 최대 크기 2MB\\\\\\\", \\\\\\\"업로드한 파일 1.5MB\\\\\\\", and a warning message \\\\\\\"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\\\\\\\" Below that is a collapsible/help row with a triangle icon and the text \\\\\\\"이유와 처리 제한 자세히\\\\\\\".\\\\n\\\\nThe main form area begins with the required label \\\\\\\"원본 이미지 *\\\\\\\" and a counter \\\\\\\"1/10 개\\\\\\\". There is a segmented control with two options: \\\\\\\"업로드\\\\\\\" (selected) and \\\\\\\"URL\\\\\\\". Under it is a dashed drag-and-drop upload zone with an upload arrow icon and the text \\\\\\\"이미지를 드래그 앤 드롭하거나 클릭하여 선택하세요\\\\\\\" plus \\\\\\\"지원 형식: JPG, PNG, WebP\\\\\\\".\\\\n\\\\nA single uploaded image thumbnail appears below the drop zone, showing a square color-gradient preview with a red circular X button in the top-right corner for removing the image. Next is the required label \\\\\\\"편집 프롬프트 *\\\\\\\" with a small \\\\\\\"예시\\\\\\\" button beside an icon. A large multiline text box is filled with the text \\\\\\\"파일 처리 중에 작성한 다음 초안\\\\\\\". Under the textbox is helper text: \\\\\\\"어떤 표현이 거절되나요? 생성 가이드 보기\\\\\\\" and a smaller line \\\\\\\"이미지에 적용한 변경 사항을 설명해주세요.\\\\\\\" Beneath that is a rounded button labeled \\\\\\\"고급 설정\\\\\\\" with a gear icon.\\\\n\\\\nNear the bottom is a credit section showing a coin/credit icon and \\\\\\\"필요 크레딧: 3.9 크레딧\\\\\\\" in bold, with \\\\\\\"보유 크레딧: 100000 크레딧\\\\\\\" below it. At the very bottom is a prominent blue primary button labeled \\\\\\\"이미지 편집\\\\\\\" with a magic-wand/sparkle style icon.\\\\n\\\\nLayout/state: This is a mobile-sized single-column attachment/image-editing form. No sidebar or top navigation is visible. The screen appears loaded and usable, with an intentional upload-complete state and one attached image preview. Verdict: pass. No severe clipping, overflow, broken layout, blank regions, or error states observed.\\\"}\",\"usage\":{\"prompt_tokens\":1231,\"completion_tokens\":549,\"total_tokens\":1780,\"cost\":0.00339375,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00339375,\"upstream_inference_prompt_cost\":0.00092325,\"upstream_inference_completions_cost\":0.0024705},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-prepared_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "9ee21b4709afb8907072bff2fa19d57b3d3e3ab6cd1b79f86204e3345994ff0c",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/9ee21b4709afb8907072bff2fa19d57b3d3e3ab6cd1b79f86204e3345994ff0c.json",
+    "promptHash": "1ee27b45796513b9c1cadb11539ae3665bf7fb2fbcd86918429a1415c1fedcba",
+    "assetHashes": [
+      "e404b0c4764a9dafc5ac63a2b606cbc8abea99cdb826cdf310d8ce1b11b03a4a"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

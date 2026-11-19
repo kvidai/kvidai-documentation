@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-warning_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen content inventory: A single-page attachment processing UI in Korean titled \"첨부 처리 UI 검증\" at the top. Below the title is a subtitle/body line reading \"모의 상태, 실제 업로드나 압축은 실행하지 않는 UI 검증 화면\". The main content is a vertical stack of three rounded cards on a light background, each with a pale yellow border and white interior. \n\nFirst card: filename \"여름-여행-원본-500MB-영상.mp4\" on the left with status text \"압축 중\" on the right. Under it is the line \"원본 500MB · 이 첨부의 최대 크기 100MB\". Body message says the file is being compressed because the size exceeds the 기준, that quality will be preserved, and that leaving this screen and returning later may fail the upload, so the user should keep the screen open. There is a collapsible row labeled \"▼ 이유와 처리 제한 자세히\" and a paragraph explaining that compression is performed one file at a time to reduce performance strain, files over 100MB are recommended, compression may take up to 10 minutes for a 1GB upload, and leaving the page or switching tabs may slow or stop work. A button at the bottom says \"이 파일 처리 취소\".\n\nSecond card: filename \"고해상도-사진-50MB.heif\" with status text \"처리 실패\". Under it is the line \"원본 50MB · 이 첨부의 최대 크기 21MB\". Body message says the current browser does not support this file format for compression and that HEIF/HEIC should be re-sent as JPEG-PNG or in a supported format after lowering size. It also has the same expandable row \"▼ 이유와 처리 제한 자세히\". No visible cancel button on this card.\n\nThird card: filename \"다음-영상-200MB.mp4\" with status text \"순서 대기\". Under it is the line \"원본 200MB · 이 첨부의 최대 크기 100MB\". Body text says it will prepare this file after processing the above file. It includes the expandable row \"▼ 이유와 처리 제한 자세히\" and a bottom button \"이 파일 처리 취소\".\n\nAt the bottom of the page there is a large multiline text area containing the text \"압축 중에도 이 초안이 유지됩니다\". The overall layout is a simple single-column main content area with no visible sidebar, header navigation, modal, or footer; the screen is in a populated, loaded state showing processing, failure, and queue statuses. Verdict: pass. The screenshot appears successfully rendered with readable text, visible controls, and no obvious clipping, blank sections, crashes, or major overlap.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen content inventory: A single-page attachment processing UI in Korean titled \\\\\\\"첨부 처리 UI 검증\\\\\\\" at the top. Below the title is a subtitle/body line reading \\\\\\\"모의 상태, 실제 업로드나 압축은 실행하지 않는 UI 검증 화면\\\\\\\". The main content is a vertical stack of three rounded cards on a light background, each with a pale yellow border and white interior. \\\\n\\\\nFirst card: filename \\\\\\\"여름-여행-원본-500MB-영상.mp4\\\\\\\" on the left with status text \\\\\\\"압축 중\\\\\\\" on the right. Under it is the line \\\\\\\"원본 500MB · 이 첨부의 최대 크기 100MB\\\\\\\". Body message says the file is being compressed because the size exceeds the 기준, that quality will be preserved, and that leaving this screen and returning later may fail the upload, so the user should keep the screen open. There is a collapsible row labeled \\\\\\\"▼ 이유와 처리 제한 자세히\\\\\\\" and a paragraph explaining that compression is performed one file at a time to reduce performance strain, files over 100MB are recommended, compression may take up to 10 minutes for a 1GB upload, and leaving the page or switching tabs may slow or stop work. A button at the bottom says \\\\\\\"이 파일 처리 취소\\\\\\\".\\\\n\\\\nSecond card: filename \\\\\\\"고해상도-사진-50MB.heif\\\\\\\" with status text \\\\\\\"처리 실패\\\\\\\". Under it is the line \\\\\\\"원본 50MB · 이 첨부의 최대 크기 21MB\\\\\\\". Body message says the current browser does not support this file format for compression and that HEIF/HEIC should be re-sent as JPEG-PNG or in a supported format after lowering size. It also has the same expandable row \\\\\\\"▼ 이유와 처리 제한 자세히\\\\\\\". No visible cancel button on this card.\\\\n\\\\nThird card: filename \\\\\\\"다음-영상-200MB.mp4\\\\\\\" with status text \\\\\\\"순서 대기\\\\\\\". Under it is the line \\\\\\\"원본 200MB · 이 첨부의 최대 크기 100MB\\\\\\\". Body text says it will prepare this file after processing the above file. It includes the expandable row \\\\\\\"▼ 이유와 처리 제한 자세히\\\\\\\" and a bottom button \\\\\\\"이 파일 처리 취소\\\\\\\".\\\\n\\\\nAt the bottom of the page there is a large multiline text area containing the text \\\\\\\"압축 중에도 이 초안이 유지됩니다\\\\\\\". The overall layout is a simple single-column main content area with no visible sidebar, header navigation, modal, or footer; the screen is in a populated, loaded state showing processing, failure, and queue statuses. Verdict: pass. The screenshot appears successfully rendered with readable text, visible controls, and no obvious clipping, blank sections, crashes, or major overlap.\\\"}\",\"usage\":{\"prompt_tokens\":1134,\"completion_tokens\":609,\"total_tokens\":1743,\"cost\":0.003591,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.003591,\"upstream_inference_prompt_cost\":0.0008505,\"upstream_inference_completions_cost\":0.0027405},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-warning_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "308c88c798a9c0e3c8c0428daeef1b2d4cb112f8d51df343f2887fe24185aecd",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/308c88c798a9c0e3c8c0428daeef1b2d4cb112f8d51df343f2887fe24185aecd.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "6cee02c4640132c7b9a0312bbdb872b4d6a8a3389ee4d8cb0b100a121edde272"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

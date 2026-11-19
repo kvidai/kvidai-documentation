@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 1,
+  "screenshot": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/ai-edit_1280-chunk-transfer_20261029.png",
+  "provider": "openai-compatible",
+  "model": "google/gemini-3.1-flash-lite-preview",
+  "issues": [],
+  "summary": "Visual Inventory: 1. Heading 'AI 컷편집·요약' and description. 2. '1 원본' section with file metadata 'private-source.mp4', '0:10', '1920x1080', '0.0MB'. 3. File upload card showing URL 'https://next.example.test/video.mp4', '불러오기' button, '업로드 중' status, filename 'private-source.mp4', size '<0.1MB', warning '이 첨부의 최대 크기 100MB', '첨부파일을 업로드합니다...', '이유와 처리 제한 자세히', and '이 파일 처리 취소' button. 4. Processing overlay '영상 변환 중...', '이 기기에 편집할 수 있도록...', 'private-source.mp4' metadata. 5. '2 작업 선택' section with cards '무음 컷', '핵심 요약', '숏츠 추출'. 6. '실행' button. 7. '3 결과' section with placeholder text '작업을 실행하면 결과가 표시됩니다'. The screen shows a workspace state where a video is being uploaded and processed. Layout is clean, text is readable, and all requested UI components are present as expected for this workflow state. Verdict: Pass.",
+  "signals": {
+    "width": 1280,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\n  \\\"pass\\\": true,\\n  \\\"confidence\\\": 1.0,\\n  \\\"issues\\\": [],\\n  \\\"summary\\\": \\\"Visual Inventory: 1. Heading 'AI 컷편집·요약' and description. 2. '1 원본' section with file metadata 'private-source.mp4', '0:10', '1920x1080', '0.0MB'. 3. File upload card showing URL 'https://next.example.test/video.mp4', '불러오기' button, '업로드 중' status, filename 'private-source.mp4', size '<0.1MB', warning '이 첨부의 최대 크기 100MB', '첨부파일을 업로드합니다...', '이유와 처리 제한 자세히', and '이 파일 처리 취소' button. 4. Processing overlay '영상 변환 중...', '이 기기에 편집할 수 있도록...', 'private-source.mp4' metadata. 5. '2 작업 선택' section with cards '무음 컷', '핵심 요약', '숏츠 추출'. 6. '실행' button. 7. '3 결과' section with placeholder text '작업을 실행하면 결과가 표시됩니다'. The screen shows a workspace state where a video is being uploaded and processed. Layout is clean, text is readable, and all requested UI components are present as expected for this workflow state. Verdict: Pass.\\\"\\n}\",\"usage\":{\"prompt_tokens\":995,\"completion_tokens\":320,\"total_tokens\":1315,\"cost\":0.00072875,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00072875,\"upstream_inference_prompt_cost\":0.00024875,\"upstream_inference_completions_cost\":0.00048},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/ai-edit_1280-chunk-transfer_20261029.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "145e338f82e54a4893989015d262a9fa9abef4999b24c38240d5f9510711102e",
+    "hit": false,
+    "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/145e338f82e54a4893989015d262a9fa9abef4999b24c38240d5f9510711102e.json",
+    "promptHash": "ddee7d8f274a7f11941259879b0016f91fd9c8125e7778f9ca7521196a4af072",
+    "assetHashes": [
+      "20753ffe5cd1d8f3a55131066e25dcd67f6e7db23f403e1be238dd45176ded32"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

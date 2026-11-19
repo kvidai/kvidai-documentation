@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 1,
+  "screenshot": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/video-autocut/20261031-combined-ko-390.png",
+  "provider": "openai-compatible",
+  "model": "google/gemini-2.5-flash-lite",
+  "issues": [],
+  "summary": "- All visible text: \"UI protocol fixture · no AI/billing\", \"추천 · 목적에 맞는 장면 분석\", \"모아 온 상품 영상으로 처음 보는 고객에게 소개하는 30초 영상을 만들어 주세요.\", \"영상 3개 · 총 8분 · 목표 30초\", \"상품이 잘 보이는 장면 고르기\", \"상품이 잘 보이고 흔들림이 적은 장면을 우선 고를게요.\", \"예상 분석·편집비 US$1.60-US$2.00\", \"이번 분석·편집 최대 US$2.00\", \"선택 구간 추출 1회가 포함돼요. 최종 영상 렌더링, 추가 생성, 저장·전송 비용은 별도예요. 이 금액은 전체 영상 제작비가 아니에요.\", \"분석 후 편집 한도: 최대 20 크레딧\", \"처음 요청한 편집의 예산을 기준으로 추천했어요. 예상 청구액이 아니라 사용 한도예요.\", \"위 분석비와 별도인 편집 한도예요. 어느 한도든 초과하는 추가 작업은 다시 승인을 받아요. 시작 전 채팅에서 예산을 바꿀 수 있어요.\", \"▶ 비용·분석 범위 자세히\", \"승인하고 시작 · US$2.00 + 최대 20 크레딧\", \"예산·편집 방식 변경\"\n- All UI components present: A title/header section, a card-like section containing analysis details, a button for approval and start, and a button to change budget/editing method.\n- Layout structure: The content is vertically stacked within a main content area.\n- Visual state: Populated and loaded.\n\nThe UI renders successfully with no apparent issues. The layout is clean, text is readable, and all interactive elements are visible and distinct. The primary call to action ('승인하고 시작 · US$2.00 + 최대 20 크레딧') is prominent. There are no overflows, clipping, or missing content.\n",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\n  \\\"pass\\\": true,\\n  \\\"confidence\\\": 1,\\n  \\\"issues\\\": [],\\n  \\\"summary\\\": \\\"- All visible text: \\\\\\\"UI protocol fixture · no AI/billing\\\\\\\", \\\\\\\"추천 · 목적에 맞는 장면 분석\\\\\\\", \\\\\\\"모아 온 상품 영상으로 처음 보는 고객에게 소개하는 30초 영상을 만들어 주세요.\\\\\\\", \\\\\\\"영상 3개 · 총 8분 · 목표 30초\\\\\\\", \\\\\\\"상품이 잘 보이는 장면 고르기\\\\\\\", \\\\\\\"상품이 잘 보이고 흔들림이 적은 장면을 우선 고를게요.\\\\\\\", \\\\\\\"예상 분석·편집비 US$1.60-US$2.00\\\\\\\", \\\\\\\"이번 분석·편집 최대 US$2.00\\\\\\\", \\\\\\\"선택 구간 추출 1회가 포함돼요. 최종 영상 렌더링, 추가 생성, 저장·전송 비용은 별도예요. 이 금액은 전체 영상 제작비가 아니에요.\\\\\\\", \\\\\\\"분석 후 편집 한도: 최대 20 크레딧\\\\\\\", \\\\\\\"처음 요청한 편집의 예산을 기준으로 추천했어요. 예상 청구액이 아니라 사용 한도예요.\\\\\\\", \\\\\\\"위 분석비와 별도인 편집 한도예요. 어느 한도든 초과하는 추가 작업은 다시 승인을 받아요. 시작 전 채팅에서 예산을 바꿀 수 있어요.\\\\\\\", \\\\\\\"▶ 비용·분석 범위 자세히\\\\\\\", \\\\\\\"승인하고 시작 · US$2.00 + 최대 20 크레딧\\\\\\\", \\\\\\\"예산·편집 방식 변경\\\\\\\"\\\\n- All UI components present: A title/header section, a card-like section containing analysis details, a button for approval and start, and a button to change budget/editing method.\\\\n- Layout structure: The content is vertically stacked within a main content area.\\\\n- Visual state: Populated and loaded.\\\\n\\\\nThe UI renders successfully with no apparent issues. The layout is clean, text is readable, and all interactive elements are visible and distinct. The primary call to action ('승인하고 시작 · US$2.00 + 최대 20 크레딧') is prominent. There are no overflows, clipping, or missing content.\\\\n\\\"\\n}\",\"usage\":{\"prompt_tokens\":959,\"completion_tokens\":462,\"total_tokens\":1421,\"cost\":0.0002807,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0002807,\"upstream_inference_prompt_cost\":0.0000959,\"upstream_inference_completions_cost\":0.0001848},\"completion_tokens_details\":{\"reasoning_tokens\":2,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/video-autocut/20261031-combined-ko-390-vision-final.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "7bedd5a8c2345bba274f1b22e19ce60ea3e62404ab06bcd313f08627299831af",
+    "hit": false,
+    "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/7bedd5a8c2345bba274f1b22e19ce60ea3e62404ab06bcd313f08627299831af.json",
+    "promptHash": "34b05736e871f15a49756b936f6af830d31cc3098f01850425f5b7cb630edb64",
+    "assetHashes": [
+      "fcf24f866ff777177bfdb27c2ac5271928ad4f31e8da48369b217b9ae71445c4"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

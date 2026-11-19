@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/reference-policy-desktop.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "The UI renders clearly and appears to be a valid negative-path upload state showing a file size limit failure message in Korean, with readable controls and no major clipping or broken layout.",
+  "signals": {
+    "width": 1280,
+    "height": 900,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The UI renders clearly and appears to be a valid negative-path upload state showing a file size limit failure message in Korean, with readable controls and no major clipping or broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":1667,\"completion_tokens\":59,\"total_tokens\":1726,\"cost\":0.00151575,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00151575,\"upstream_inference_prompt_cost\":0.00125025,\"upstream_inference_completions_cost\":0.0002655},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/reference-policy-desktop.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "5400efeadc1a252f6ffec54d25adc56b08836147d283303b5423bc30b92b8971",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/5400efeadc1a252f6ffec54d25adc56b08836147d283303b5423bc30b92b8971.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "e32ff61658c9c714a1c8a34679f3bde19b74de01652b7b4b1bdbb82232694413"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

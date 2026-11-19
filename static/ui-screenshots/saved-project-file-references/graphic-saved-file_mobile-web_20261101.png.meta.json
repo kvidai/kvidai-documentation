@@ -1,0 +1,16 @@
+{
+  "profile": "graphic",
+  "viewport": {
+    "name": "mobile-web",
+    "width": 390,
+    "height": 844
+  },
+  "scope": "Actual component/shared runtime; auth/list/model are fixtures. Separate real Strapi/JWT/archive HTTP tests validate backend. Text snapshots only.",
+  "checks": [
+    "friendly label",
+    "hidden explicit descriptor once",
+    "no dispatch on selection",
+    "typed label not authority"
+  ],
+  "pageErrors": []
+}

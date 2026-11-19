@@ -1,0 +1,262 @@
+{
+  "batch": true,
+  "target": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements",
+  "total": 6,
+  "passCount": 6,
+  "failCount": 0,
+  "concurrency": 2,
+  "results": [
+    {
+      "pass": true,
+      "confidence": 0.92,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/graphic-rich-parts_desktop_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [],
+      "summary": "Visual inventory: The screenshot displays a Korean-language form titled 'AI 편집 도우미' (AI Editing Assistant) with subtitle '필요한 기능만 선택하세요' (Select only the features you need). The main content area contains: (1) A 'Design ready' section with a light gray background listing two bullet points: 'Keep the headline' and 'Adjust the margins'; (2) A question '어떤 작업이 필요하신가요?' (What task do you need?) with two checkbox options below: 'Gif 자료로 편집' (Edit with GIF materials) marked as '추천' (Recommended) with helper text '추가 상세 비용을 줄일 수 있어요' (You can reduce additional detailed costs), and 'SG 이미지 생성' (Generate SG image) with helper text '밀도 비율 정의 추진합니다' (Defining density ratio); (3) A text input field labeled '직접 입력' (Direct Input) for custom requirements; (4) Two action buttons: a blue '선택하고 구축' (Select and Build) button and a gray '절문 취소' (Cancel Request) button; (5) Below that, tab navigation with '자료 읽고' and '기능 찾기' tabs; (6) Another text area with placeholder text '메시지를 입력하거나 @/ 를 사용하세요' (Enter a message or use @/); (7) A blue 'SUBMIT' button at the bottom.\n\nThe layout is clean and well-organized with proper spacing. All text is in Korean and fully readable with no clipping. All interactive elements (checkboxes, buttons, text fields) are visible and properly styled. The form appears to be in a populated, interactive state ready for user input. No loading spinners, error messages, or broken components are present. The visual hierarchy is clear with headings, sections, and primary CTAs prominently displayed. The page appears to be part of a design/editing assistance workflow.\n\nRendering verdict: PASS - The screen renders successfully with all expected content visible, proper layout structure, readable typography, and clear interactive elements. No clipping, overflow, or visual regressions detected.",
+      "signals": {
+        "width": 1920,
+        "height": 1080,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/graphic-rich-parts_desktop_20261101.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.92,\n  \"issues\": [],\n  \"summary\": \"Visual inventory: The screenshot displays a Korean-language form titled 'AI 편집 도우미' (AI Editing Assistant) with subtitle '필요한 기능만 선택하세요' (Select only the features you need). The main content area contains: (1) A 'Design ready' section with a light gray background listing two bullet points: 'Keep the headline' and 'Adjust the margins'; (2) A question '어떤 작업이 필요하신가요?' (What task do you need?) with two checkbox options below: 'Gif 자료로 편집' (Edit with GIF materials) marked as '추천' (Recommended) with helper text '추가 상세 비용을 줄일 수 있어요' (You can reduce additional detailed costs), and 'SG 이미지 생성' (Generate SG image) with helper text '밀도 비율 정의 추진합니다' (Defining density ratio); (3) A text input field labeled '직접 입력' (Direct Input) for custom requirements; (4) Two action buttons: a blue '선택하고 구축' (Select and Build) button and a gray '절문 취소' (Cancel Request) button; (5) Below that, tab navigation with '자료 읽고' and '기능 찾기' tabs; (6) Another text area with placeholder text '메시지를 입력하거나 @/ 를 사용하세요' (Enter a message or use @/); (7) A blue 'SUBMIT' button at the bottom.\\n\\nThe layout is clean and well-organized with proper spacing. All text is in Korean and fully readable with no clipping. All interactive elements (checkboxes, buttons, text fields) are visible and properly styled. The form appears to be in a populated, interactive state ready for user input. No loading spinners, error messages, or broken components are present. The visual hierarchy is clear with headings, sections, and primary CTAs prominently displayed. The page appears to be part of a design/editing assistance workflow.\\n\\nRendering verdict: PASS - The screen renders successfully with all expected content visible, proper layout structure, readable typography, and clear interactive elements. No clipping, overflow, or visual regressions detected.\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "cbc06d97d849cbe660382b4d9beb2ff9b348f823a0b98c77b8387c6e630ef44a",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/cbc06d97d849cbe660382b4d9beb2ff9b348f823a0b98c77b8387c6e630ef44a.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "ce4c0db22c136ea78345351d8ea56d5c8a2fd17095bbc3b1ae6b18916f40e1ac"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.85,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/graphic-rich-parts_mobile-web_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [
+        "Image is unusually small for detailed UI review (mobile-sized screenshot)",
+        "Third tile crop appears to show only partial content - difficult to verify complete lower section rendering"
+      ],
+      "summary": "Visual inventory: The screen displays an 'AI 편집 도우미' (AI Edit Assistant) form in Korean. Header includes a briefcase icon and title 'AI 편집 도우미' with subtitle '필요한 기능만 선택하세요' (Select only needed features). Main content area contains: (1) Question '어떤 작업이 필요한가요?' with two checkbox options - '기존 자료로 편집' (Edit with existing materials, labeled 추천/Recommended) with helper text, and '새 이미지 생성' (Create new image) with helper text; (2) Text area labeled '직접 입력' (Direct input); (3) Two action buttons - '선택하고 계속' (blue, primary CTA) and '취소' (Cancel); (4) Two link buttons below - '자료 점수' and '기능 찾기'; (5) Message input area with placeholder text mentioning @mention and file usage; (6) Blue ' 보내기' (Send) button at bottom. Layout is single-column mobile form design. State is populated with form content, no loading or error states visible.\n\nRendering verdict: PASS. The screen renders successfully with: (1) No blank/white screen or error states; (2) All major content visible including header, form sections, checkboxes, text area, buttons, and message composer; (3) Korean text renders correctly with no character corruption; (4) Primary CTA (blue button) is prominent; (5) No obvious clipping or overflow in the main screenshot; (6) Form components are properly arranged in logical hierarchy. Minor note: zoom tiles 2 and 3 show partial content due to cropping, but full screenshot confirms complete rendering. Mobile layout appears intentional for this interface.",
+      "signals": {
+        "width": 390,
+        "height": 844,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/graphic-rich-parts_mobile-web_20261101.png.meta.json",
+        "warnings": [
+          "Image is unusually small for UI review."
+        ]
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.85,\n  \"issues\": [\n    \"Image is unusually small for detailed UI review (mobile-sized screenshot)\",\n    \"Third tile crop appears to show only partial content - difficult to verify complete lower section rendering\"\n  ],\n  \"summary\": \"Visual inventory: The screen displays an 'AI 편집 도우미' (AI Edit Assistant) form in Korean. Header includes a briefcase icon and title 'AI 편집 도우미' with subtitle '필요한 기능만 선택하세요' (Select only needed features). Main content area contains: (1) Question '어떤 작업이 필요한가요?' with two checkbox options - '기존 자료로 편집' (Edit with existing materials, labeled 추천/Recommended) with helper text, and '새 이미지 생성' (Create new image) with helper text; (2) Text area labeled '직접 입력' (Direct input); (3) Two action buttons - '선택하고 계속' (blue, primary CTA) and '취소' (Cancel); (4) Two link buttons below - '자료 점수' and '기능 찾기'; (5) Message input area with placeholder text mentioning @mention and file usage; (6) Blue ' 보내기' (Send) button at bottom. Layout is single-column mobile form design. State is populated with form content, no loading or error states visible.\\n\\nRendering verdict: PASS. The screen renders successfully with: (1) No blank/white screen or error states; (2) All major content visible including header, form sections, checkboxes, text area, buttons, and message composer; (3) Korean text renders correctly with no character corruption; (4) Primary CTA (blue button) is prominent; (5) No obvious clipping or overflow in the main screenshot; (6) Form components are properly arranged in logical hierarchy. Minor note: zoom tiles 2 and 3 show partial content due to cropping, but full screenshot confirms complete rendering. Mobile layout appears intentional for this interface.\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "ee5a2d1ec00e992ce99e6bbeed56761a3c5c60827f12163d9648afc75214001a",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/ee5a2d1ec00e992ce99e6bbeed56761a3c5c60827f12163d9648afc75214001a.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "0c2d158eb3b13b341da23f4e6941cd6ae10e1f52abd815c3aaba6caf66b9df49"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.92,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/print-rich-parts_desktop_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [],
+      "summary": "Visual inventory: The screenshot shows a Korean-language web form titled 'AI 편집 도우미' (AI Editing Assistant) with subtitle '필요한 기능만 선택하세요' (Select only the features you need). Header contains a briefcase icon. Main content area displays a light gray box labeled 'Design ready' containing two bullet points: 'Keep the headline' and 'Adjust the margins'. Below is a large white textarea with placeholder text in Korean. At the bottom are two navigation links: '자료 함조' (left) and '기능 찾기' (right), followed by a blue action button labeled '보내기' (Send). The layout is centered and responsive, with appropriate spacing and visual hierarchy.\n\nRendering verdict: PASS. The screen renders successfully with no layout issues. All text is legible including CJK characters. The form structure is complete with header, content box, textarea, navigation links, and prominent CTA button. No clipping, overflow, or missing content detected. The visual state appears to be a ready-to-use form interface in normal (not loading, error, or empty) state. Layout is clean and intentional with no unintended overlaps or alignment issues.",
+      "signals": {
+        "width": 1920,
+        "height": 1080,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/print-rich-parts_desktop_20261101.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.92,\n  \"issues\": [],\n  \"summary\": \"Visual inventory: The screenshot shows a Korean-language web form titled 'AI 편집 도우미' (AI Editing Assistant) with subtitle '필요한 기능만 선택하세요' (Select only the features you need). Header contains a briefcase icon. Main content area displays a light gray box labeled 'Design ready' containing two bullet points: 'Keep the headline' and 'Adjust the margins'. Below is a large white textarea with placeholder text in Korean. At the bottom are two navigation links: '자료 함조' (left) and '기능 찾기' (right), followed by a blue action button labeled '보내기' (Send). The layout is centered and responsive, with appropriate spacing and visual hierarchy.\\n\\nRendering verdict: PASS. The screen renders successfully with no layout issues. All text is legible including CJK characters. The form structure is complete with header, content box, textarea, navigation links, and prominent CTA button. No clipping, overflow, or missing content detected. The visual state appears to be a ready-to-use form interface in normal (not loading, error, or empty) state. Layout is clean and intentional with no unintended overlaps or alignment issues.\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "99b686ac7ed2fc28434083cfe779f2c48f1d93d876d094811069e1318fbeffbe",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/99b686ac7ed2fc28434083cfe779f2c48f1d93d876d094811069e1318fbeffbe.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "c8f6ab2ca11b0dbe50b8225cc08e7a503803fddf3bcf29a2369f3e9d8936ac3a"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.92,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/print-rich-parts_mobile-web_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [
+        "Image resolution is unusually small for comprehensive UI review",
+        "Third screenshot tile appears to be blank/white - may be loading state or intentional empty space"
+      ],
+      "summary": "Visual inventory of screenshot 1 (primary full-page view):\n\n**Header/Top:**\n- Briefcase icon in top-left corner\n- Title: \"AI 편집 도우미\" (AI Editing Assistant)\n- Subtitle: \"필요한 기능만 선택하세요\" (Select only the features you need)\n\n**Main Content Area:**\n- Light gray card labeled \"Design ready\"\n- Two bullet points:\n  - \"Keep the headline\"\n  - \"Adjust the margins\"\n\n**Bottom Section (Form Area):**\n- Two toggle/button options: \"자료 첨조\" (Resource Reference) and \"기능 찾기\" (Find Features)\n- Text input textarea with placeholder: \"메시지를 입력하거나 @ / 를 사용하세요\" (Enter message or use @ / )\n- Blue \"보내기\" (Send) button spanning full width\n\n**Screenshots 2 & 3:**\n- Screenshot 2 shows zoomed/cropped version of header and card content\n- Screenshot 3 appears blank/white (likely spacing or empty state)\n\n**Rendering Verdict: PASS**\nThe primary screenshot (1) displays a complete, functional UI with proper layout structure. All critical elements are visible and readable: navigation header with icons, main content card with bulleted guidance, form inputs, and call-to-action button. Text is rendered correctly in Korean without character corruption. No overflow, clipping of critical content, or broken layout detected. The form appears interactive and ready for user input. The smaller tile crops show detail views but appear intentional as zoom aids. Visual hierarchy is clear with the send button prominently displayed. The blank third tile may represent intentional spacing or a loading state, but does not affect the main interface rendering.",
+      "signals": {
+        "width": 390,
+        "height": 844,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/print-rich-parts_mobile-web_20261101.png.meta.json",
+        "warnings": [
+          "Image is unusually small for UI review."
+        ]
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.92,\n  \"issues\": [\n    \"Image resolution is unusually small for comprehensive UI review\",\n    \"Third screenshot tile appears to be blank/white - may be loading state or intentional empty space\"\n  ],\n  \"summary\": \"Visual inventory of screenshot 1 (primary full-page view):\\n\\n**Header/Top:**\\n- Briefcase icon in top-left corner\\n- Title: \\\"AI 편집 도우미\\\" (AI Editing Assistant)\\n- Subtitle: \\\"필요한 기능만 선택하세요\\\" (Select only the features you need)\\n\\n**Main Content Area:**\\n- Light gray card labeled \\\"Design ready\\\"\\n- Two bullet points:\\n  - \\\"Keep the headline\\\"\\n  - \\\"Adjust the margins\\\"\\n\\n**Bottom Section (Form Area):**\\n- Two toggle/button options: \\\"자료 첨조\\\" (Resource Reference) and \\\"기능 찾기\\\" (Find Features)\\n- Text input textarea with placeholder: \\\"메시지를 입력하거나 @ / 를 사용하세요\\\" (Enter message or use @ / )\\n- Blue \\\"보내기\\\" (Send) button spanning full width\\n\\n**Screenshots 2 & 3:**\\n- Screenshot 2 shows zoomed/cropped version of header and card content\\n- Screenshot 3 appears blank/white (likely spacing or empty state)\\n\\n**Rendering Verdict: PASS**\\nThe primary screenshot (1) displays a complete, functional UI with proper layout structure. All critical elements are visible and readable: navigation header with icons, main content card with bulleted guidance, form inputs, and call-to-action button. Text is rendered correctly in Korean without character corruption. No overflow, clipping of critical content, or broken layout detected. The form appears interactive and ready for user input. The smaller tile crops show detail views but appear intentional as zoom aids. Visual hierarchy is clear with the send button prominently displayed. The blank third tile may represent intentional spacing or a loading state, but does not affect the main interface rendering.\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "d99b67a43fb1de5053593de22a10680caf63c4a738217b19363d5cf6ecf7b9da",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/d99b67a43fb1de5053593de22a10680caf63c4a738217b19363d5cf6ecf7b9da.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "fa4e9cb1c9aa451ae624636a025ce370637cc01b379b65334bbeb0109dafc125"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.92,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/video-rich-parts_desktop_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [
+        "Minor: Red error icon and text for 'generate_video' tool is intentionally displayed as a failure state, not a rendering defect",
+        "Minor: Korean text 'insufficient credits' and related error messaging is fully readable and intentional error state"
+      ],
+      "summary": "**Visual Inventory:**\n\n**Header/Top:**\n- Title: 'AI 어시스턴트' with subtitle 'Video 분석 운영을 자동화 된데이터 인텔리세요'\n- Button: '+ 새 프리셋 만들기' (New preset creation)\n\n**Main Content Card:**\n- File indicator: 'source-video.m...' (truncated filename)\n- Heading: 'Video edit complete'\n- Bullet points:\n  - 'Keep the opening shot'\n  - 'Trim the ending'\n- Tool usage section:\n  - ✓ Check mark: 'Used tool: inspect_media' (success state)\n  - ⊘ Circled error icon in red: 'Used tool: generate_video' (failed state)\n  - Error message in red Korean text: 'Credits 부족합니다. 충전 후 다시 시도해주세요.' (Insufficient credits message)\n  - Additional text: 'insufficient credits' and '크레딧 구매' (credit purchase)\n- Timestamp: '사용 크레딧: 7' (Credits used: 7) and '9:00:00 AM'\n\n**Bottom Section:**\n- Toggle: '런터 먼저 보기' with 'OFF' state\n- Text input field with placeholder: '메시지를 입력하세요...' (Enter message)\n- Button: 'Dictate'\n- Send button (blue arrow icon)\n\n**Layout Structure:**\nVertical stack - header with title and new preset button, main content card with video edit summary and tool execution results, bottom input composer with dictation and send controls.\n\n**Visual State:**\nAuthenticated state showing completed task with mixed results (one tool succeeded, one tool failed due to insufficient credits). Error state is intentional and properly communicated.\n\n**Rendering Verdict: PASS**\n- Layout is clean and well-organized with no overflow or clipping\n- All text is fully readable including CJK Korean characters\n- Tool status indicators (checkmark and error icon) are clearly visible and appropriately styled\n- Error messaging is prominent and intentional (red text, error icon)\n- Input composer at bottom is fully visible and accessible\n- No missing or blank sections\n- Primary content (video edit completion summary) is fully visible\n- Visual hierarchy is clear with tool results properly emphasized\n- No unintended visual regressions\n- Error state is correctly displayed as a business logic result, not a rendering defect",
+      "signals": {
+        "width": 1920,
+        "height": 1080,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/video-rich-parts_desktop_20261101.png.meta.json",
+        "warnings": []
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.92,\n  \"issues\": [\n    \"Minor: Red error icon and text for 'generate_video' tool is intentionally displayed as a failure state, not a rendering defect\",\n    \"Minor: Korean text 'insufficient credits' and related error messaging is fully readable and intentional error state\"\n  ],\n  \"summary\": \"**Visual Inventory:**\\n\\n**Header/Top:**\\n- Title: 'AI 어시스턴트' with subtitle 'Video 분석 운영을 자동화 된데이터 인텔리세요'\\n- Button: '+ 새 프리셋 만들기' (New preset creation)\\n\\n**Main Content Card:**\\n- File indicator: 'source-video.m...' (truncated filename)\\n- Heading: 'Video edit complete'\\n- Bullet points:\\n  - 'Keep the opening shot'\\n  - 'Trim the ending'\\n- Tool usage section:\\n  - ✓ Check mark: 'Used tool: inspect_media' (success state)\\n  - ⊘ Circled error icon in red: 'Used tool: generate_video' (failed state)\\n  - Error message in red Korean text: 'Credits 부족합니다. 충전 후 다시 시도해주세요.' (Insufficient credits message)\\n  - Additional text: 'insufficient credits' and '크레딧 구매' (credit purchase)\\n- Timestamp: '사용 크레딧: 7' (Credits used: 7) and '9:00:00 AM'\\n\\n**Bottom Section:**\\n- Toggle: '런터 먼저 보기' with 'OFF' state\\n- Text input field with placeholder: '메시지를 입력하세요...' (Enter message)\\n- Button: 'Dictate'\\n- Send button (blue arrow icon)\\n\\n**Layout Structure:**\\nVertical stack - header with title and new preset button, main content card with video edit summary and tool execution results, bottom input composer with dictation and send controls.\\n\\n**Visual State:**\\nAuthenticated state showing completed task with mixed results (one tool succeeded, one tool failed due to insufficient credits). Error state is intentional and properly communicated.\\n\\n**Rendering Verdict: PASS**\\n- Layout is clean and well-organized with no overflow or clipping\\n- All text is fully readable including CJK Korean characters\\n- Tool status indicators (checkmark and error icon) are clearly visible and appropriately styled\\n- Error messaging is prominent and intentional (red text, error icon)\\n- Input composer at bottom is fully visible and accessible\\n- No missing or blank sections\\n- Primary content (video edit completion summary) is fully visible\\n- Visual hierarchy is clear with tool results properly emphasized\\n- No unintended visual regressions\\n- Error state is correctly displayed as a business logic result, not a rendering defect\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "bf728ceebae36e800fc72aee94907cd531bed12e7d4cd2ad9900816cdb1a2c4f",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/bf728ceebae36e800fc72aee94907cd531bed12e7d4cd2ad9900816cdb1a2c4f.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "b3e6fc179985d258305023ebe71fc878c867fb065de84ace7c40ffb940717a66"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    },
+    {
+      "pass": true,
+      "confidence": 0.92,
+      "screenshot": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/video-rich-parts_mobile-web_20261101.png",
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "issues": [
+        "Image resolution is small (mobile viewport), makes fine text detail verification challenging but readable",
+        "Minor: Red error message text for 'generate_video' tool could have slightly better contrast, but is legible"
+      ],
+      "summary": "Visual Inventory:\n\nHeader: 'AI 어시스턴트' (AI Assistant) title with subtitle '비디오 분석 요청을 처리하여 알려드세요' (Process video analysis requests)\n\nMain Content Card (file-based task):\n- File icon with 'source-video.m...' filename\n- Heading: 'Video edit complete'\n- Two bullet points: 'Keep the opening shot' and 'Trim the ending'\n- Used tool checkmark: 'inspect_media' (green checkmark, clickable)\n- Used tool error: 'generate_video' (red circled-X icon with red label)\n- Error message below in Korean: 'Credit exhausted. Please try again later after purchasing more credits.' with 'Insufficient credits' label\n- Credit icon: '크레딧 구매' (Buy credits) link\n- Timestamp: 'Source credit: 7' and '9:00:00 AM'\n\nFooter Controls:\n- 'Counter view off' toggle button with OFF state\n- Input composer area with '@' mention indicator, '/' command indicator, attachment icon, message input placeholder 'Message input here...', 'Dictate' button, and blue send button\n\nRendering Verdict: PASS - Screen displays correctly with no major layout issues. All content is visible and readable. The error state (failed generate_video tool with credit exhaustion message) is properly rendered with appropriate visual hierarchy (red X icon, red label, explanatory message). The UI structure is intact with header, main content card showing task completion status with mixed success/failure tool states, and functional footer composer. Text is readable in Korean and English. No overflow, clipping of critical elements, or blank sections detected. The small image resolution makes fine typography verification difficult but no significant rendering issues are apparent.",
+      "signals": {
+        "width": 390,
+        "height": 844,
+        "blankLike": false,
+        "lowVariance": false,
+        "consoleErrors": 0,
+        "pageErrors": 0,
+        "requestFailures": 0,
+        "viewportMatches": true,
+        "metadataPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/video-rich-parts_mobile-web_20261101.png.meta.json",
+        "warnings": [
+          "Image is unusually small for UI review."
+        ]
+      },
+      "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.92,\n  \"issues\": [\n    \"Image resolution is small (mobile viewport), makes fine text detail verification challenging but readable\",\n    \"Minor: Red error message text for 'generate_video' tool could have slightly better contrast, but is legible\"\n  ],\n  \"summary\": \"Visual Inventory:\\n\\nHeader: 'AI 어시스턴트' (AI Assistant) title with subtitle '비디오 분석 요청을 처리하여 알려드세요' (Process video analysis requests)\\n\\nMain Content Card (file-based task):\\n- File icon with 'source-video.m...' filename\\n- Heading: 'Video edit complete'\\n- Two bullet points: 'Keep the opening shot' and 'Trim the ending'\\n- Used tool checkmark: 'inspect_media' (green checkmark, clickable)\\n- Used tool error: 'generate_video' (red circled-X icon with red label)\\n- Error message below in Korean: 'Credit exhausted. Please try again later after purchasing more credits.' with 'Insufficient credits' label\\n- Credit icon: '크레딧 구매' (Buy credits) link\\n- Timestamp: 'Source credit: 7' and '9:00:00 AM'\\n\\nFooter Controls:\\n- 'Counter view off' toggle button with OFF state\\n- Input composer area with '@' mention indicator, '/' command indicator, attachment icon, message input placeholder 'Message input here...', 'Dictate' button, and blue send button\\n\\nRendering Verdict: PASS - Screen displays correctly with no major layout issues. All content is visible and readable. The error state (failed generate_video tool with credit exhaustion message) is properly rendered with appropriate visual hierarchy (red X icon, red label, explanatory message). The UI structure is intact with header, main content card showing task completion status with mixed success/failure tool states, and functional footer composer. Text is readable in Korean and English. No overflow, clipping of critical elements, or blank sections detected. The small image resolution makes fine typography verification difficult but no significant rendering issues are apparent.\"\n}\n```",
+      "execution": {
+        "mode": "provider",
+        "reportPath": "/Users/mac/code_workspace/kvidai/.claude/worktrees/20261101_agent-chat-interactions/apps/web-service/docs/ui-screenshots/assistant-ui-agent-elements/20261101-vision-contrast.json",
+        "artifactsKept": false,
+        "artifactsCleaned": true
+      },
+      "cache": {
+        "key": "ad84073120aa9506bacb5e045b92b54ebe61855772bf92106f548b967e61cd72",
+        "hit": false,
+        "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/ad84073120aa9506bacb5e045b92b54ebe61855772bf92106f548b967e61cd72.json",
+        "promptHash": "ce777fe542bbdcfda1efd6d57a8d06651f01334262229076f54659b74457e24d",
+        "assetHashes": [
+          "a36317ecb48475f97a90eab92a87860a2dd4a269c1806e27248a1a3254fbc03c"
+        ],
+        "readEnabled": true,
+        "writeEnabled": true
+      }
+    }
+  ]
+}

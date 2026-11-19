@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261028T231419176Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible on the screen is a single attachment/upload card in Korean showing an upload processing failure state. The card contains the filename label \"step1-jpeg.jpg\" at top left and the status text \"처리 실패\" (processing failed) at top right. Under that, it shows the file size line \"원본 7.3MB · 이 첨부의 최대 크기 2MB\" indicating the original file is 7.3MB and the maximum allowed size for this attachment is 2MB. The main body message says: \"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\" Below the message is a collapsed disclosure row with a right-pointing triangle icon and the text \"이유와 처리 제한 자세히\" (details about reasons and processing limits). The layout is a single rounded rectangular panel on a light background with an orange border; there are no sidebars, headers, or other app areas visible. The screen is populated and not blank, and it appears to be an intentional error/refusal state for an oversized attachment. Verdict: pass; no obvious clipping, broken layout, or missing critical UI is visible.",
+  "signals": {
+    "width": 716,
+    "height": 356,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible on the screen is a single attachment/upload card in Korean showing an upload processing failure state. The card contains the filename label \\\\\\\"step1-jpeg.jpg\\\\\\\" at top left and the status text \\\\\\\"처리 실패\\\\\\\" (processing failed) at top right. Under that, it shows the file size line \\\\\\\"원본 7.3MB · 이 첨부의 최대 크기 2MB\\\\\\\" indicating the original file is 7.3MB and the maximum allowed size for this attachment is 2MB. The main body message says: \\\\\\\"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\\\\\\\" Below the message is a collapsed disclosure row with a right-pointing triangle icon and the text \\\\\\\"이유와 처리 제한 자세히\\\\\\\" (details about reasons and processing limits). The layout is a single rounded rectangular panel on a light background with an orange border; there are no sidebars, headers, or other app areas visible. The screen is populated and not blank, and it appears to be an intentional error/refusal state for an oversized attachment. Verdict: pass; no obvious clipping, broken layout, or missing critical UI is visible.\\\"}\",\"usage\":{\"prompt_tokens\":1038,\"completion_tokens\":308,\"total_tokens\":1346,\"cost\":0.0021645,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0021645,\"upstream_inference_prompt_cost\":0.0007785,\"upstream_inference_completions_cost\":0.001386},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261028T231419176Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "95b1bf003be863ec517ca557ae88e472889feca33c3ab6e31da7db92e5f794d1",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/95b1bf003be863ec517ca557ae88e472889feca33c3ab6e31da7db92e5f794d1.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "5731c1630729f423a8efb4090d87bea142029adba0412d83e6393b0c6a591ff5"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

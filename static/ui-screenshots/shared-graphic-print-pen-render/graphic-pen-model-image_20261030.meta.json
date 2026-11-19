@@ -1,0 +1,25 @@
+{
+  "perspective": "isolated renderer regression",
+  "profile": "graphic",
+  "mockedRenderer": false,
+  "logical": {
+    "widthPx": 1000,
+    "heightPx": 500
+  },
+  "dimensions": {
+    "width": 1000,
+    "height": 500
+  },
+  "penPixel": [
+    239,
+    68,
+    68
+  ],
+  "rectangleFill": [
+    253,
+    236,
+    236
+  ],
+  "sourceUnchanged": true,
+  "revision": "pen-render-saved"
+}

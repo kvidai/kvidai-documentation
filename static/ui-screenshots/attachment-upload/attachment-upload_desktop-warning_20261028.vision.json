@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-warning_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible UI inventory: A centered attachment-processing panel on a white background. At the top of the panel is the heading '첨부 처리 UI 검증' with a smaller subtitle beneath it reading '모의 상태 · 실제 업로드나 압축을 실행하지 않는 UI 검증 화면'. Below are three stacked file cards in a narrow column. The first card shows the filename '여름-여행-원본-500MB-영상.mp4' with a size line '원본 500MB · 이 첨부의 최대 크기 100MB' and a right-aligned status label '압축 중'. Its body text explains that the file exceeds the size threshold and is being compressed sequentially, warning that quality may be reduced and that leaving or refreshing the page may cause upload failure. It includes a disclosure-style link '이유와 처리 제한 자세히' and a button '이 파일 처리 취소'. The second card shows '고해상도-사진-50MB.heif' with '원본 50MB · 이 첨부의 최대 크기 21MB' and a status label '처리 실패'. Its message says the current browser does not support compression for this format and instructs the user to export to a supported format such as HEIF/HEIC/JPEG/PNG or reduce size and resubmit. It also has '이유와 처리 제한 자세히'. The third card shows '다음-영상-200MB.mp4' with '원본 200MB · 이 첨부의 최대 크기 100MB' and a status label '순서 대기'. Its message says it will wait and process after the previous file is prepared, with the same disclosure link and a button '이 파일 처리 취소'. At the bottom is a large textarea/input area containing the text '압축 중에도 이 초안이 유지됩니다'. Layout structure: single centered main content column, no sidebar, no top navigation, no footer, and no modal. Visual state: populated validation/demo state with one in-progress item, one failure item, and one queued item; no loading overlay, no blank areas, and no crash/error screen. Verdict: pass — the component renders successfully with readable text, visible controls, and no severe clipping, overlap, or missing major content.",
+  "signals": {
+    "width": 1920,
+    "height": 1080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible UI inventory: A centered attachment-processing panel on a white background. At the top of the panel is the heading '첨부 처리 UI 검증' with a smaller subtitle beneath it reading '모의 상태 · 실제 업로드나 압축을 실행하지 않는 UI 검증 화면'. Below are three stacked file cards in a narrow column. The first card shows the filename '여름-여행-원본-500MB-영상.mp4' with a size line '원본 500MB · 이 첨부의 최대 크기 100MB' and a right-aligned status label '압축 중'. Its body text explains that the file exceeds the size threshold and is being compressed sequentially, warning that quality may be reduced and that leaving or refreshing the page may cause upload failure. It includes a disclosure-style link '이유와 처리 제한 자세히' and a button '이 파일 처리 취소'. The second card shows '고해상도-사진-50MB.heif' with '원본 50MB · 이 첨부의 최대 크기 21MB' and a status label '처리 실패'. Its message says the current browser does not support compression for this format and instructs the user to export to a supported format such as HEIF/HEIC/JPEG/PNG or reduce size and resubmit. It also has '이유와 처리 제한 자세히'. The third card shows '다음-영상-200MB.mp4' with '원본 200MB · 이 첨부의 최대 크기 100MB' and a status label '순서 대기'. Its message says it will wait and process after the previous file is prepared, with the same disclosure link and a button '이 파일 처리 취소'. At the bottom is a large textarea/input area containing the text '압축 중에도 이 초안이 유지됩니다'. Layout structure: single centered main content column, no sidebar, no top navigation, no footer, and no modal. Visual state: populated validation/demo state with one in-progress item, one failure item, and one queued item; no loading overlay, no blank areas, and no crash/error screen. Verdict: pass — the component renders successfully with readable text, visible controls, and no severe clipping, overlap, or missing major content.\\\"}\",\"usage\":{\"prompt_tokens\":1811,\"completion_tokens\":497,\"total_tokens\":2308,\"cost\":0.00359475,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00359475,\"upstream_inference_prompt_cost\":0.00135825,\"upstream_inference_completions_cost\":0.0022365},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-warning_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "cb5eff5a739c245c644ab05f832e0cf46e5d39a2e2eb6bce29328e021ac39493",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/cb5eff5a739c245c644ab05f832e0cf46e5d39a2e2eb6bce29328e021ac39493.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "eed14d542757da8a5cb0cdb00baab5286d9a5e9b6b13815d8ee6c69ed5e2c8e4"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

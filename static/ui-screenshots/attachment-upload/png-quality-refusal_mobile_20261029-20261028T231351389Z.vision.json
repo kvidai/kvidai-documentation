@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261028T231351389Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: At the top is Korean text reading \"실제 업로드 UI·압축 Worker · 계정/API·캔버스는 검증 대역 · 2MB 제한\". Below it are account tabs/labels \"계정 A\" and \"계정 B\", followed by a section label with a down triangle icon: \"검증 계정 압축 설정\". The main central content is a large white rounded settings card titled \"첨부파일 압축\". Inside the card, the first paragraph explains image/video compression before upload and mentions that it is ON by default, that OFF uses original file only, that oversized files cannot be attached, and that important media should be cropped or reduced. To the right of this text is a blue toggle switch in the ON state. Additional explanatory text below says supported image/video compression is ON and warns not to close the page while processing, then another paragraph says settings are saved to the logged-in account and can be loaded on another device, with changes applied after reopening or reloading the tab. There is a subsection label \"압축 방식\" with a dropdown/select currently showing \"용량 절약\" and a down-arrow. Beneath that is more helper text explaining that only files over the limit are compressed and that the lower-quality bitrate mode preserves original files under the limit. A button at the bottom of the card reads \"계정 압축 설정 다시 불러오기\". Below the settings card is an upload area titled \"이미지 업로드\" with a file chooser line showing \"Choose File step1-png-lossless-noise.png\". Under it is a bordered status panel for the selected file showing the filename \"step1-png-lossless-noise.png\" on the left and the status \"처리 실패\" on the right; below that it says \"원본 3.2MB · 이 첨부의 최대 크기 2MB\". The error message states that upload processing was stopped to prevent quality loss, and because this mode cannot meet the size limit while preserving original text, size, and transparency, the user should crop the needed part and reattach or choose a smaller original. A collapsible row at the bottom of that panel reads \"▶ 이유와 처리 제한 자세히\". Lower on the page is another section heading \"에디터 캔버스 검증 대역\" with a large blank white area beneath it. At the bottom of the screenshot, a large bordered text input/textarea contains the text \"화질 보호 실패 후에도 유지되는 초안\". Visual/layout state: the screen is rendered normally with a long single-column layout, visible controls, and an error/refusal state for an oversized file attachment; no full-page crash, no blank screen, and no major clipping or broken components are visible. Verdict: pass.",
+  "signals": {
+    "width": 780,
+    "height": 3080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: At the top is Korean text reading \\\\\\\"실제 업로드 UI·압축 Worker · 계정/API·캔버스는 검증 대역 · 2MB 제한\\\\\\\". Below it are account tabs/labels \\\\\\\"계정 A\\\\\\\" and \\\\\\\"계정 B\\\\\\\", followed by a section label with a down triangle icon: \\\\\\\"검증 계정 압축 설정\\\\\\\". The main central content is a large white rounded settings card titled \\\\\\\"첨부파일 압축\\\\\\\". Inside the card, the first paragraph explains image/video compression before upload and mentions that it is ON by default, that OFF uses original file only, that oversized files cannot be attached, and that important media should be cropped or reduced. To the right of this text is a blue toggle switch in the ON state. Additional explanatory text below says supported image/video compression is ON and warns not to close the page while processing, then another paragraph says settings are saved to the logged-in account and can be loaded on another device, with changes applied after reopening or reloading the tab. There is a subsection label \\\\\\\"압축 방식\\\\\\\" with a dropdown/select currently showing \\\\\\\"용량 절약\\\\\\\" and a down-arrow. Beneath that is more helper text explaining that only files over the limit are compressed and that the lower-quality bitrate mode preserves original files under the limit. A button at the bottom of the card reads \\\\\\\"계정 압축 설정 다시 불러오기\\\\\\\". Below the settings card is an upload area titled \\\\\\\"이미지 업로드\\\\\\\" with a file chooser line showing \\\\\\\"Choose File step1-png-lossless-noise.png\\\\\\\". Under it is a bordered status panel for the selected file showing the filename \\\\\\\"step1-png-lossless-noise.png\\\\\\\" on the left and the status \\\\\\\"처리 실패\\\\\\\" on the right; below that it says \\\\\\\"원본 3.2MB · 이 첨부의 최대 크기 2MB\\\\\\\". The error message states that upload processing was stopped to prevent quality loss, and because this mode cannot meet the size limit while preserving original text, size, and transparency, the user should crop the needed part and reattach or choose a smaller original. A collapsible row at the bottom of that panel reads \\\\\\\"▶ 이유와 처리 제한 자세히\\\\\\\". Lower on the page is another section heading \\\\\\\"에디터 캔버스 검증 대역\\\\\\\" with a large blank white area beneath it. At the bottom of the screenshot, a large bordered text input/textarea contains the text \\\\\\\"화질 보호 실패 후에도 유지되는 초안\\\\\\\". Visual/layout state: the screen is rendered normally with a long single-column layout, visible controls, and an error/refusal state for an oversized file attachment; no full-page crash, no blank screen, and no major clipping or broken components are visible. Verdict: pass.\\\"}\",\"usage\":{\"prompt_tokens\":2012,\"completion_tokens\":602,\"total_tokens\":2614,\"cost\":0.004218,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.004218,\"upstream_inference_prompt_cost\":0.001509,\"upstream_inference_completions_cost\":0.002709},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261028T231351389Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "5ac9adcf51f4e9f6edfe536fcbbf896b43abb638d834c3128fee1e01de0a739d",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/5ac9adcf51f4e9f6edfe536fcbbf896b43abb638d834c3128fee1e01de0a739d.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "963d35ed275f856593f50911e94e7e970883a97e48a195ef0437f28de23f8c6c"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

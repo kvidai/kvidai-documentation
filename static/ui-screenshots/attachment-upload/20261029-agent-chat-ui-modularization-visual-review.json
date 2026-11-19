@@ -1,0 +1,141 @@
+{
+  "scope": "Changed/new isolated web component captures on web2e99b8b;fixture auth/API/storage;original automatic reports retained",
+  "source": {
+    "root": "d8a957de",
+    "web": "2e99b8b"
+  },
+  "reviewedAt": "2026-10-29T05:07:14.361Z",
+  "total": 14,
+  "automatedPassCount": 11,
+  "directImageAdjudicationCount": 3,
+  "acceptedCount": 14,
+  "results": [
+    {
+      "file": "docs/ui-screenshots/attachment-upload/ai-edit_1280-phase-aware-transfer_20261029.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "0fdc897300c6c7d03a6da6a989bc78a438f4577c97e95956b0fad955af8ea29f",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/ai-edit_390-phase-aware-transfer_20261029.png",
+      "pass": true,
+      "confidence": 0.91,
+      "issues": [],
+      "sha256": "b74323d6aff4e0e6b5161be75ff784c6abf69ccafd54a16a9a73e1ea0ad305f9",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-ready_20261028.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "c76857afc53a092665e754c0be626589acfe741e734a0f5a52ea297938fef82a",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-chat-compression_20261028.png",
+      "pass": true,
+      "confidence": 0.97,
+      "issues": [],
+      "sha256": "daa681e79429bc799bd3c27519e7d570a25e55211501bd605b580cc05d7c8067",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/reference-transfer-cancel-mobile_20261028.png",
+      "pass": true,
+      "confidence": 0.95,
+      "issues": [],
+      "sha256": "41bc062ac7075c56fe2302e72000ff449f7115287674f66c406c51892d3a13ea",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/reference-policy-desktop.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "e32ff61658c9c714a1c8a34679f3bde19b74de01652b7b4b1bdbb82232694413",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261029T050033730Z.png",
+      "pass": false,
+      "confidence": 0.98,
+      "issues": [
+        "The UI is showing a clear processing failure/oversize refusal state, but the rendered card is still readable.",
+        "This appears to be an error/negative-path screen rather than a successful attachment preview.",
+        "No major clipping or blank rendering is visible."
+      ],
+      "sha256": "8684600c2f0a7331dcd6f7b413ab0e35740a3fa6da32501ca6bad5087840e079",
+      "accepted": true,
+      "adjudication": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261029T050033730Z.vision.adjudication.json"
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop_20261029-20261029T050033730Z.png",
+      "pass": true,
+      "confidence": 0.95,
+      "issues": [
+        ""
+      ],
+      "sha256": "7212418feb4ddce44de950dd455ee06c979d1cd7260aa35fbc2ea27c9719738c",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261029T050051074Z.png",
+      "pass": false,
+      "confidence": 0.98,
+      "issues": [
+        "업로드 실패 상태가 표시되어 있으며, 첨부 파일 크기 7.3MB가 최대 2MB를 초과해 처리가 중단된 안내가 보입니다."
+      ],
+      "sha256": "5731c1630729f423a8efb4090d87bea142029adba0412d83e6393b0c6a591ff5",
+      "accepted": true,
+      "adjudication": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261029T050051074Z.vision.adjudication.json"
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile_20261029-20261029T050051074Z.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "84fac5192e123f3a88d8022c763baf015dc331864491cd1925a7d8e1dd75ad86",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261029T050022557Z.png",
+      "pass": false,
+      "confidence": 0.98,
+      "issues": [
+        "Error/blocked state is shown instead of a successful rendered attachment card: '처리 실패' with oversize notice.",
+        "Attached image exceeds the stated maximum size and the UI indicates processing was stopped.",
+        "Major content is readable, but the screenshot represents a failed upload/processing state."
+      ],
+      "sha256": "c4ceb54bd873a7e7195283f2532a503f0ccf36beb9d22a09eb30fb81c6698acf",
+      "accepted": true,
+      "adjudication": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261029T050022557Z.vision.adjudication.json"
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261029T050022557Z.png",
+      "pass": true,
+      "confidence": 0.96,
+      "issues": [],
+      "sha256": "847c70bee8d56bf5c2419d2edb1bb8eb5a79c525c7c15501747eb17bbbca24a0",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261029T050041441Z.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "f35dba825686270d9ed8a72e62ff21c98ef9dac20d749dbed8fc9ca25bec2983",
+      "accepted": true
+    },
+    {
+      "file": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261029T050041441Z.png",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "sha256": "963d35ed275f856593f50911e94e7e970883a97e48a195ef0437f28de23f8c6c",
+      "accepted": true
+    }
+  ]
+}

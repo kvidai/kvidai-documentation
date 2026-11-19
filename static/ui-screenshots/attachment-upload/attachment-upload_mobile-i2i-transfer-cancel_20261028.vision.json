@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.97,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-transfer-cancel_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: At the top is an upload status card showing the filename “step1-jpeg.jpg” on the left and “업로드 중” (uploading) on the right. Under it, the text reads “원본 7.3MB · 이 첨부의 최대 크기 2MB” followed by the warning “첨부파일을 업로드합니다. 이 화면을 닫거나 새로고침하면 업로드가 실패할 수 있습니다.” There is a collapsible help row labeled “이유와 처리 제한 자세히” and a button-like control “이 파일 처리 취소.” Below that is the attachment section label “원본 이미지 *” with the count “0/10 개.” A two-tab control is visible with “업로드” selected and “URL” unselected. Beneath is a large dashed drag-and-drop upload zone containing an upload icon and the text “이미지를 드래그 앤 드롭하거나 클릭하여 선택하세요” plus smaller support text “지원 형식: JPG, PNG, WebP.” Next is the prompt section labeled “편집 프롬프트 *” with a small “예시” button and a large text box containing “전송 중에 작성한 다음 초안.” Under the textbox is an info line with a small icon and the text “어떤 표현이 거절되나요? 생성 가이드 보기,” plus helper text “이미지에 적용할 변경 사항을 설명해주세요.” Farther down is a collapsed “고급 설정” control with a gear icon. Near the bottom, a credit status line shows “필요 크레딧: 3.9 크레딧” and “보유 크레딧: 100000 크레딧.” A prominent blue primary button labeled “이미지 편집” appears above a small loading/status label reading “이미지 업로드 중...”. Layout/state: a single-column mobile-style form on a light background with visible upload-in-progress state, form controls, and a primary CTA. Verdict: pass — the UI is rendered successfully with readable text and no severe clipping, broken layout, or missing major content.",
+  "signals": {
+    "width": 390,
+    "height": 947,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.97,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: At the top is an upload status card showing the filename “step1-jpeg.jpg” on the left and “업로드 중” (uploading) on the right. Under it, the text reads “원본 7.3MB · 이 첨부의 최대 크기 2MB” followed by the warning “첨부파일을 업로드합니다. 이 화면을 닫거나 새로고침하면 업로드가 실패할 수 있습니다.” There is a collapsible help row labeled “이유와 처리 제한 자세히” and a button-like control “이 파일 처리 취소.” Below that is the attachment section label “원본 이미지 *” with the count “0/10 개.” A two-tab control is visible with “업로드” selected and “URL” unselected. Beneath is a large dashed drag-and-drop upload zone containing an upload icon and the text “이미지를 드래그 앤 드롭하거나 클릭하여 선택하세요” plus smaller support text “지원 형식: JPG, PNG, WebP.” Next is the prompt section labeled “편집 프롬프트 *” with a small “예시” button and a large text box containing “전송 중에 작성한 다음 초안.” Under the textbox is an info line with a small icon and the text “어떤 표현이 거절되나요? 생성 가이드 보기,” plus helper text “이미지에 적용할 변경 사항을 설명해주세요.” Farther down is a collapsed “고급 설정” control with a gear icon. Near the bottom, a credit status line shows “필요 크레딧: 3.9 크레딧” and “보유 크레딧: 100000 크레딧.” A prominent blue primary button labeled “이미지 편집” appears above a small loading/status label reading “이미지 업로드 중...”. Layout/state: a single-column mobile-style form on a light background with visible upload-in-progress state, form controls, and a primary CTA. Verdict: pass — the UI is rendered successfully with readable text and no severe clipping, broken layout, or missing major content.\\\"}\",\"usage\":{\"prompt_tokens\":1153,\"completion_tokens\":467,\"total_tokens\":1620,\"cost\":0.00296625,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00296625,\"upstream_inference_prompt_cost\":0.00086475,\"upstream_inference_completions_cost\":0.0021015},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-transfer-cancel_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "71ae57893220fff71faec7d6eef381a49d35e314d082cc812d237f7e7d1be67d",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/71ae57893220fff71faec7d6eef381a49d35e314d082cc812d237f7e7d1be67d.json",
+    "promptHash": "1ee27b45796513b9c1cadb11539ae3665bf7fb2fbcd86918429a1415c1fedcba",
+    "assetHashes": [
+      "b78321b861233f0ef5ea3a7a07c355a3e38ce045641a3089966639109e98bb10"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

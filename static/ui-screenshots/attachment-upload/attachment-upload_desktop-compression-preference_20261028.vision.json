@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.96,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-compression-preference_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen is a centered upload/compression settings component on a mostly white background. At the very top, a small status line reads: \"압축 설정 검증 · 실제 브라우저 저장소 · 업로드 서버 미사용 · 검증용 10바이트 제한\". The main content is a white rounded card titled \"첨부파일 압축\". Inside the card, there is a section labeled \"업로드 전 이미지·동영상 압축\" followed by several lines of explanatory Korean body copy about compressing only when needed, preserving important media, and that compression is disabled for files exceeding the upload limit. To the right of this section is a toggle switch in the off/disabled-looking position. Below, another paragraph states that files exceeding the upload capacity limit cannot be uploaded. Beneath the card is a file input row labeled \"검증 파일\" with the chosen filename shown as \"Choose File eleven.png\". Under that is a pale yellow warning/error panel for the selected file \"eleven.png\" with the status text \"처리 실패\" on the right. The message says the file exceeds the attachment maximum size and instructs the user to reduce the file size and reattach it; it also notes that when compression is enabled, oversized files are not processed automatically. At the bottom is a bordered text input/textarea containing the text \"원본을 다시 첨부하지 않고도 입력 가능\". The screen is a loaded, non-empty validation state with a visible warning/error for an oversized file. Rendering verdict: pass; the UI is visible and intact with no major clipping, broken layout, blank screen, or crash state.",
+  "signals": {
+    "width": 1920,
+    "height": 1080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.96,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen is a centered upload/compression settings component on a mostly white background. At the very top, a small status line reads: \\\\\\\"압축 설정 검증 · 실제 브라우저 저장소 · 업로드 서버 미사용 · 검증용 10바이트 제한\\\\\\\". The main content is a white rounded card titled \\\\\\\"첨부파일 압축\\\\\\\". Inside the card, there is a section labeled \\\\\\\"업로드 전 이미지·동영상 압축\\\\\\\" followed by several lines of explanatory Korean body copy about compressing only when needed, preserving important media, and that compression is disabled for files exceeding the upload limit. To the right of this section is a toggle switch in the off/disabled-looking position. Below, another paragraph states that files exceeding the upload capacity limit cannot be uploaded. Beneath the card is a file input row labeled \\\\\\\"검증 파일\\\\\\\" with the chosen filename shown as \\\\\\\"Choose File eleven.png\\\\\\\". Under that is a pale yellow warning/error panel for the selected file \\\\\\\"eleven.png\\\\\\\" with the status text \\\\\\\"처리 실패\\\\\\\" on the right. The message says the file exceeds the attachment maximum size and instructs the user to reduce the file size and reattach it; it also notes that when compression is enabled, oversized files are not processed automatically. At the bottom is a bordered text input/textarea containing the text \\\\\\\"원본을 다시 첨부하지 않고도 입력 가능\\\\\\\". The screen is a loaded, non-empty validation state with a visible warning/error for an oversized file. Rendering verdict: pass; the UI is visible and intact with no major clipping, broken layout, blank screen, or crash state.\\\"}\",\"usage\":{\"prompt_tokens\":1811,\"completion_tokens\":358,\"total_tokens\":2169,\"cost\":0.00296925,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00296925,\"upstream_inference_prompt_cost\":0.00135825,\"upstream_inference_completions_cost\":0.001611},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-compression-preference_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "11ee8b314204a0969179dca06ce5c55f0cc6cf048bb6bc9f0d10d1882d2e033a",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/11ee8b314204a0969179dca06ce5c55f0cc6cf048bb6bc9f0d10d1882d2e033a.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "0acda6de8070960b0bea086bee58621cb7e9679897506657d327f56f4f204455"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

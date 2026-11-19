@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.96,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261028T231309122Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen shows a centered upload/compression settings panel in Korean on a white background, with lots of empty whitespace around it. At the top of the content area are small text labels \"실제 업로드 UI-압축 Worker · 계정/API·캔버스는 검증 대역 · 2MB 제한\" and tabs/links \"계정 A\" and \"계정 B\". Below is a section label \"▼ 검증 계정 압축 설정\" and a large card titled \"첨부파일 압축\". Inside the card is explanatory body text describing upload-time image/video compression, including that compression is enabled by default, OFF uses the original file only, and that supported image/video compression is on; there is a blue toggle switch shown ON at the upper right of the card. A subsection labeled \"압축 방식\" contains a dropdown currently set to \"용량 절약\". Beneath the dropdown is additional explanatory text about applying compression only to files over the limit and using lower quality/bitrate. A button below reads \"계정 압축 설정 다시 불러오기\". Under the card is an upload row labeled \"이미지 업로드\" followed by a file picker showing \"Choose File\" and the selected file name \"step1-png-lossless-noise.png\". Below that is a highlighted status/error card for the file \"step1-png-lossless-noise.png\" with a right-aligned status text \"처리 실패\"; it states \"원본 3.2MB · 이 첨부의 최대 크기 2MB\" and explains that attachment processing was stopped to prevent quality loss, that preserving original glyph size/transparency cannot meet the screen’s size 기준, and advises trimming the needed part or choosing a smaller original. A small expandable line reads \"▶ 이유와 처리 제한 자세히\". Beneath this is another section header \"에디터 캔버스 검증 대역\". Near the very bottom of the viewport there is a partially visible bordered input/textarea-like box containing the text \"화질 보호 실패 후에도 유지되는 초안\". The layout is a single-column centered card stack with no visible sidebar or full app chrome. Verdict: pass — the UI appears successfully rendered, with readable text and visible controls; there is no obvious crash, blank screen, or severe overlap, though the bottom draft box is partially cut off by the viewport.",
+  "signals": {
+    "width": 2880,
+    "height": 3128,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.96,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen shows a centered upload/compression settings panel in Korean on a white background, with lots of empty whitespace around it. At the top of the content area are small text labels \\\\\\\"실제 업로드 UI-압축 Worker · 계정/API·캔버스는 검증 대역 · 2MB 제한\\\\\\\" and tabs/links \\\\\\\"계정 A\\\\\\\" and \\\\\\\"계정 B\\\\\\\". Below is a section label \\\\\\\"▼ 검증 계정 압축 설정\\\\\\\" and a large card titled \\\\\\\"첨부파일 압축\\\\\\\". Inside the card is explanatory body text describing upload-time image/video compression, including that compression is enabled by default, OFF uses the original file only, and that supported image/video compression is on; there is a blue toggle switch shown ON at the upper right of the card. A subsection labeled \\\\\\\"압축 방식\\\\\\\" contains a dropdown currently set to \\\\\\\"용량 절약\\\\\\\". Beneath the dropdown is additional explanatory text about applying compression only to files over the limit and using lower quality/bitrate. A button below reads \\\\\\\"계정 압축 설정 다시 불러오기\\\\\\\". Under the card is an upload row labeled \\\\\\\"이미지 업로드\\\\\\\" followed by a file picker showing \\\\\\\"Choose File\\\\\\\" and the selected file name \\\\\\\"step1-png-lossless-noise.png\\\\\\\". Below that is a highlighted status/error card for the file \\\\\\\"step1-png-lossless-noise.png\\\\\\\" with a right-aligned status text \\\\\\\"처리 실패\\\\\\\"; it states \\\\\\\"원본 3.2MB · 이 첨부의 최대 크기 2MB\\\\\\\" and explains that attachment processing was stopped to prevent quality loss, that preserving original glyph size/transparency cannot meet the screen’s size 기준, and advises trimming the needed part or choosing a smaller original. A small expandable line reads \\\\\\\"▶ 이유와 처리 제한 자세히\\\\\\\". Beneath this is another section header \\\\\\\"에디터 캔버스 검증 대역\\\\\\\". Near the very bottom of the viewport there is a partially visible bordered input/textarea-like box containing the text \\\\\\\"화질 보호 실패 후에도 유지되는 초안\\\\\\\". The layout is a single-column centered card stack with no visible sidebar or full app chrome. Verdict: pass — the UI appears successfully rendered, with readable text and visible controls; there is no obvious crash, blank screen, or severe overlap, though the bottom draft box is partially cut off by the viewport.\\\"}\",\"usage\":{\"prompt_tokens\":2819,\"completion_tokens\":519,\"total_tokens\":3338,\"cost\":0.00444975,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00444975,\"upstream_inference_prompt_cost\":0.00211425,\"upstream_inference_completions_cost\":0.0023355},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261028T231309122Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "3e977fd6a9142801ae46e2f1323cbdfb9563449da26a94687b7a1a3a7ee35afb",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/3e977fd6a9142801ae46e2f1323cbdfb9563449da26a94687b7a1a3a7ee35afb.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "847c70bee8d56bf5c2419d2edb1bb8eb5a79c525c7c15501747eb17bbbca24a0"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

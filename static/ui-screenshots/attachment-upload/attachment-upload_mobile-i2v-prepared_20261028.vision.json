@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.93,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2v-prepared_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: A mobile-style attachment and generation form for a KVIDAI image/video workflow. At the top is an attachment status card showing the filename \"step1-jpeg.jpg\" with the status text \"첨부 준비 완료\" on the right. Under it are upload details in Korean: \"원본 7.3MB · 이 첨부의 최대 크기 2MB\", \"첨부 준비 파일 1.5MB · 메시지 전송 완료는 별도입니다\", and a warning that compressed attachments may be lower quality than the original: \"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\" There is also a collapsible/help row labeled \"이유와 처리 제한 자세히\" with a small triangle/expand icon. Below that is the section label \"이미지 업로드 *\" and a dashed upload/drop area containing a large image preview thumbnail; the preview is a colorful gradient image with small text near the top-left of the thumbnail and a red square close/remove button with a white X in the top-right corner of the preview. Under the upload area is a required prompt field labeled \"프롬프트 *\" with a multiline textbox containing the text \"파일 처리 중에 작성한 다음 초안\". Beneath the textbox is an info icon and helper text: \"어떤 표현이 거절되나요? 생성 가이드 보기\", followed by smaller explanatory text: \"번역 기능을 사용할 경우 보다 나은 결과를 위해 프롬프트 내용이 수정될 수 있습니다.\" Next is a light blue info banner stating: \"V2 모델은 더 높은 품질의 비디오를 생성하며 네거티브 프롬프트를 지원하지 않습니다.\" The model selector section labeled \"모델\" shows a dropdown set to \"V2 (고품질)\" with a video camera icon and chevron. The resolution section labeled \"해상도\" shows a dropdown set to \"480p (빠른 생성) 20 크레딧\"; below it is a note: \"V2: 480p, 720p, 1080p 지원\". The aspect ratio section labeled \"화면 비율\" shows a dropdown set to \"Auto (이미지 기반)\". There is a collapsed button/accordion labeled \"고급 설정\" with a gear icon. A summary card below lists the chosen settings with icons: \"해상도: 480p\", \"길이: 5 초\", and \"필요 크레딧: 20 크레딧\". Near the bottom, a cost/status row repeats \"필요 크레딧: 20 크레딧\" and shows \"보유 크레딧: 100,000 크레딧\". At the bottom is a prominent blue primary button with a play icon labeled \"비디오 생성\". Layout/state: single-column mobile form view, no visible top navigation or footer, content is fully populated and appears in an active ready-to-generate state. Verdict: pass — the screen renders successfully with readable text, visible controls, and no obvious clipping, broken layout, or error state.",
+  "signals": {
+    "width": 390,
+    "height": 1461,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.93,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: A mobile-style attachment and generation form for a KVIDAI image/video workflow. At the top is an attachment status card showing the filename \\\\\\\"step1-jpeg.jpg\\\\\\\" with the status text \\\\\\\"첨부 준비 완료\\\\\\\" on the right. Under it are upload details in Korean: \\\\\\\"원본 7.3MB · 이 첨부의 최대 크기 2MB\\\\\\\", \\\\\\\"첨부 준비 파일 1.5MB · 메시지 전송 완료는 별도입니다\\\\\\\", and a warning that compressed attachments may be lower quality than the original: \\\\\\\"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\\\\\\\" There is also a collapsible/help row labeled \\\\\\\"이유와 처리 제한 자세히\\\\\\\" with a small triangle/expand icon. Below that is the section label \\\\\\\"이미지 업로드 *\\\\\\\" and a dashed upload/drop area containing a large image preview thumbnail; the preview is a colorful gradient image with small text near the top-left of the thumbnail and a red square close/remove button with a white X in the top-right corner of the preview. Under the upload area is a required prompt field labeled \\\\\\\"프롬프트 *\\\\\\\" with a multiline textbox containing the text \\\\\\\"파일 처리 중에 작성한 다음 초안\\\\\\\". Beneath the textbox is an info icon and helper text: \\\\\\\"어떤 표현이 거절되나요? 생성 가이드 보기\\\\\\\", followed by smaller explanatory text: \\\\\\\"번역 기능을 사용할 경우 보다 나은 결과를 위해 프롬프트 내용이 수정될 수 있습니다.\\\\\\\" Next is a light blue info banner stating: \\\\\\\"V2 모델은 더 높은 품질의 비디오를 생성하며 네거티브 프롬프트를 지원하지 않습니다.\\\\\\\" The model selector section labeled \\\\\\\"모델\\\\\\\" shows a dropdown set to \\\\\\\"V2 (고품질)\\\\\\\" with a video camera icon and chevron. The resolution section labeled \\\\\\\"해상도\\\\\\\" shows a dropdown set to \\\\\\\"480p (빠른 생성) 20 크레딧\\\\\\\"; below it is a note: \\\\\\\"V2: 480p, 720p, 1080p 지원\\\\\\\". The aspect ratio section labeled \\\\\\\"화면 비율\\\\\\\" shows a dropdown set to \\\\\\\"Auto (이미지 기반)\\\\\\\". There is a collapsed button/accordion labeled \\\\\\\"고급 설정\\\\\\\" with a gear icon. A summary card below lists the chosen settings with icons: \\\\\\\"해상도: 480p\\\\\\\", \\\\\\\"길이: 5 초\\\\\\\", and \\\\\\\"필요 크레딧: 20 크레딧\\\\\\\". Near the bottom, a cost/status row repeats \\\\\\\"필요 크레딧: 20 크레딧\\\\\\\" and shows \\\\\\\"보유 크레딧: 100,000 크레딧\\\\\\\". At the bottom is a prominent blue primary button with a play icon labeled \\\\\\\"비디오 생성\\\\\\\". Layout/state: single-column mobile form view, no visible top navigation or footer, content is fully populated and appears in an active ready-to-generate state. Verdict: pass — the screen renders successfully with readable text, visible controls, and no obvious clipping, broken layout, or error state.\\\"}\",\"usage\":{\"prompt_tokens\":1402,\"completion_tokens\":688,\"total_tokens\":2090,\"cost\":0.0041475,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0041475,\"upstream_inference_prompt_cost\":0.0010515,\"upstream_inference_completions_cost\":0.003096},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2v-prepared_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "3cc1eec7452febc17be7d03c4148af6eca25ec64e99477f7c2de5a9c45590042",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/3cc1eec7452febc17be7d03c4148af6eca25ec64e99477f7c2de5a9c45590042.json",
+    "promptHash": "1ee27b45796513b9c1cadb11539ae3665bf7fb2fbcd86918429a1415c1fedcba",
+    "assetHashes": [
+      "6e11615548c400eccd7f3852414bb8d4411b3e974eee034efa941ae76ba567ba"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

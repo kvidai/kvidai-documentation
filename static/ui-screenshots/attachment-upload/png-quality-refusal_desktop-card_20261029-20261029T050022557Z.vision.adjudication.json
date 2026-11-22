@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "reviewer": "Codex direct image inspection via view_image",
+  "expectedState": "Quality-protection processing refusal is required by the passing negative-path browser test",
+  "observed": "Filename,status,original7.3MB or3.2MB versus2MB cap,and Korean crop/smaller-original guidance are legible;card border intact;no clipping,overlap or blank/crash rendering",
+  "reason": "Automated flags describe the expected refusal state rather than a rendering defect",
+  "sha256": "c4ceb54bd873a7e7195283f2532a503f0ccf36beb9d22a09eb30fb81c6698acf",
+  "reviewedAt": "2026-10-29T05:07:14.341Z"
+}

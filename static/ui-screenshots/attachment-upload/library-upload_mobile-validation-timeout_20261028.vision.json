@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "The screenshot shows the expected media-library state with a visible red upload failure banner and readable timeout/error guidance in the dark upload rail, plus the completed upload card and surrounding content. No obvious clipping, severe overlap, or broken layout is visible in the full screenshot.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The screenshot shows the expected media-library state with a visible red upload failure banner and readable timeout/error guidance in the dark upload rail, plus the completed upload card and surrounding content. No obvious clipping, severe overlap, or broken layout is visible in the full screenshot.\\\"}\",\"usage\":{\"prompt_tokens\":686,\"completion_tokens\":76,\"total_tokens\":762,\"cost\":0.0008565,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0008565,\"upstream_inference_prompt_cost\":0.0005145,\"upstream_inference_completions_cost\":0.000342},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "f3091d616f792fe80ac4a326b20d00dae81225968ccb53365f56f1e57d9e6f2e",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/f3091d616f792fe80ac4a326b20d00dae81225968ccb53365f56f1e57d9e6f2e.json",
+    "promptHash": "823674ec4a5614ff84f7f3559ac207f3849db85af5a2dd48dbdcbf7562eb8c7c",
+    "assetHashes": [
+      "c9dd89e454d2a2ebc2d2d21ea33b0b1e0d35416a1d9d73296178364dc8f37c78"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

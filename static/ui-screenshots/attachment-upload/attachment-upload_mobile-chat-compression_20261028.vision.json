@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.97,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-chat-compression_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "업로드 진행 중 상태와 안내 문구, 주요 버튼/컨트롤이 모두 보이며 화면 붕괴나 심각한 잘림은 없습니다.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.97,\\\"issues\\\":[],\\\"summary\\\":\\\"업로드 진행 중 상태와 안내 문구, 주요 버튼/컨트롤이 모두 보이며 화면 붕괴나 심각한 잘림은 없습니다.\\\"}\",\"usage\":{\"prompt_tokens\":702,\"completion_tokens\":57,\"total_tokens\":759,\"cost\":0.000783,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.000783,\"upstream_inference_prompt_cost\":0.0005265,\"upstream_inference_completions_cost\":0.0002565},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-chat-compression_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "9289d28f28e10c15a7007ef276ecbfaae4b47bfdc7f599c20ebe224077f5dc6d",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/9289d28f28e10c15a7007ef276ecbfaae4b47bfdc7f599c20ebe224077f5dc6d.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "daa681e79429bc799bd3c27519e7d570a25e55211501bd605b580cc05d7c8067"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

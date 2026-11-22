@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-compression-preference_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: The screenshot shows a compact upload/settings panel in Korean on a white background. At the top is a small status/title line reading \"압축 설정 검증 · 실제 브라우저 저장소 · 업로드 서버 미사용 · 검증용 10바이트 제한\". Below it is a large rounded card titled \"첨부파일 압축\". Inside the card is a section labeled \"업로드 전 이미지·동영상 압축\" with explanatory body text describing compression behavior and that OFF mode only uses the original file and larger files cannot be attached. On the right side of this section is a gray toggle switch in the OFF position. Additional body text below explains that compression is OFF and files exceeding the upload size limit cannot be attached, and notes that the selected attachment remains on this browser tab until canceled. Beneath the card is a file picker area labeled \"검증 파일\" with the browser file input showing \"Choose File eleven.png\". Below that is a bordered warning/error box containing the filename \"eleven.png\", a right-aligned status label \"처리 실패\", a size line \"원본 <0.1MB · 이 첨부의 최대 크기 <0.1MB\", and a warning message stating that the attachment file exceeded the size 기준 for this screen, asking to reduce the file size and retry because compression is off / automatic processing will not occur. At the bottom is a single-line text input/textarea with the visible text \"원본을 다시 첨부하지 않고도 입력 가능\". Layout-wise, everything is stacked vertically in one main column; there is no sidebar, no top app navigation, and no footer. Visual state is an error/refusal state for an oversized file upload, with the toggle OFF and the validation card showing failure. Verdict: pass — the component renders successfully, all major content is visible and readable, and there is no blank screen, crash, major clipping, or broken layout.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: The screenshot shows a compact upload/settings panel in Korean on a white background. At the top is a small status/title line reading \\\\\\\"압축 설정 검증 · 실제 브라우저 저장소 · 업로드 서버 미사용 · 검증용 10바이트 제한\\\\\\\". Below it is a large rounded card titled \\\\\\\"첨부파일 압축\\\\\\\". Inside the card is a section labeled \\\\\\\"업로드 전 이미지·동영상 압축\\\\\\\" with explanatory body text describing compression behavior and that OFF mode only uses the original file and larger files cannot be attached. On the right side of this section is a gray toggle switch in the OFF position. Additional body text below explains that compression is OFF and files exceeding the upload size limit cannot be attached, and notes that the selected attachment remains on this browser tab until canceled. Beneath the card is a file picker area labeled \\\\\\\"검증 파일\\\\\\\" with the browser file input showing \\\\\\\"Choose File eleven.png\\\\\\\". Below that is a bordered warning/error box containing the filename \\\\\\\"eleven.png\\\\\\\", a right-aligned status label \\\\\\\"처리 실패\\\\\\\", a size line \\\\\\\"원본 <0.1MB · 이 첨부의 최대 크기 <0.1MB\\\\\\\", and a warning message stating that the attachment file exceeded the size 기준 for this screen, asking to reduce the file size and retry because compression is off / automatic processing will not occur. At the bottom is a single-line text input/textarea with the visible text \\\\\\\"원본을 다시 첨부하지 않고도 입력 가능\\\\\\\". Layout-wise, everything is stacked vertically in one main column; there is no sidebar, no top app navigation, and no footer. Visual state is an error/refusal state for an oversized file upload, with the toggle OFF and the validation card showing failure. Verdict: pass — the component renders successfully, all major content is visible and readable, and there is no blank screen, crash, major clipping, or broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":1134,\"completion_tokens\":422,\"total_tokens\":1556,\"cost\":0.0027495,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0027495,\"upstream_inference_prompt_cost\":0.0008505,\"upstream_inference_completions_cost\":0.001899},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-compression-preference_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "f075e435828c1ffa85b37ce9c83bdd13fe65dd1c31e826e6a0ec6ad8e1b51ae9",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/f075e435828c1ffa85b37ce9c83bdd13fe65dd1c31e826e6a0ec6ad8e1b51ae9.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "2cb1e56de1562a6c6b41bee257ab4ded1e723ce4f18850b4166ab8f1751a16a0"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

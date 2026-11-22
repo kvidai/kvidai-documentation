@@ -1,0 +1,12 @@
+{
+  "analysisCapMicroDollars": 2000000,
+  "boundary": "production web card/CSS; explicit UI API/auth/price fixture; no model, wallet or product E2E",
+  "continuationCapCredits": 20,
+  "ownerStarts": 1,
+  "reloadDidNotStart": true,
+  "state": "passed",
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

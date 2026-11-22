@@ -1,0 +1,44 @@
+{
+  "pass": false,
+  "confidence": 0.97,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [
+    "The main panel shows a prominent red error banner with Korean text indicating upload/project connection failure: '파일 업로드 또는 프로젝트 연결에 실패했습니다.'",
+    "The screenshot is very small and some lower text in the attachment card is hard to read, though the UI is still visible.",
+    "The page appears to be in an error/refusal state rather than a successful loaded state."
+  ],
+  "summary": "Visible text in the screenshot includes: '미디어 업로드 검증' at the top, followed by smaller explanatory text reading '실제 파일 선택: Worker·multipart·계정 수명 / API·로그인·보관함 목록은 검증 대역'. Below that are labels '계정 A' and '계정 B'. A section header with a disclosure triangle reads '검증 계정 압축 설정'. The main content is a dark media upload card titled '내 미디어', with an upload/share-style icon button at the top right. A red error banner inside the card says '파일 업로드 또는 프로젝트 연결에 실패했습니다.'. The central empty upload area shows an image placeholder icon and instructions: '파일을 여기로 드래그하거나 클릭하여 업로드하세요' with smaller limits text '이미지 2MB · 동영상 10MB'. Near the bottom of the dark card there is an attachment/error panel for a file named 'short.mp4', showing status text '처리 실패', file size text beginning with '원본 10.5MB · 이 첨부의 최대 크기 100MB', and additional explanatory Korean text stating the file information check took too long and to resave in a supported format or attach a smaller file; a collapsed help line reads '이유와 처리 제한 자세히'. Beneath the dark card there is a large empty white text area/input region with a border. The overall layout is a simple single-column main content view on a white page, with no visible sidebar or full app chrome. Visual state: loaded but in an error/refusal state for the upload component, with the primary content visible and interactive-looking elements present. Verdict: fail because the screen is showing an explicit upload/project connection failure state rather than a successful screenshot, though there is no blank page or crash and the UI is still rendered.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":false,\\\"confidence\\\":0.97,\\\"issues\\\":[\\\"The main panel shows a prominent red error banner with Korean text indicating upload/project connection failure: '파일 업로드 또는 프로젝트 연결에 실패했습니다.'\\\",\\\"The screenshot is very small and some lower text in the attachment card is hard to read, though the UI is still visible.\\\",\\\"The page appears to be in an error/refusal state rather than a successful loaded state.\\\"],\\\"summary\\\":\\\"Visible text in the screenshot includes: '미디어 업로드 검증' at the top, followed by smaller explanatory text reading '실제 파일 선택: Worker·multipart·계정 수명 / API·로그인·보관함 목록은 검증 대역'. Below that are labels '계정 A' and '계정 B'. A section header with a disclosure triangle reads '검증 계정 압축 설정'. The main content is a dark media upload card titled '내 미디어', with an upload/share-style icon button at the top right. A red error banner inside the card says '파일 업로드 또는 프로젝트 연결에 실패했습니다.'. The central empty upload area shows an image placeholder icon and instructions: '파일을 여기로 드래그하거나 클릭하여 업로드하세요' with smaller limits text '이미지 2MB · 동영상 10MB'. Near the bottom of the dark card there is an attachment/error panel for a file named 'short.mp4', showing status text '처리 실패', file size text beginning with '원본 10.5MB · 이 첨부의 최대 크기 100MB', and additional explanatory Korean text stating the file information check took too long and to resave in a supported format or attach a smaller file; a collapsed help line reads '이유와 처리 제한 자세히'. Beneath the dark card there is a large empty white text area/input region with a border. The overall layout is a simple single-column main content view on a white page, with no visible sidebar or full app chrome. Visual state: loaded but in an error/refusal state for the upload component, with the primary content visible and interactive-looking elements present. Verdict: fail because the screen is showing an explicit upload/project connection failure state rather than a successful screenshot, though there is no blank page or crash and the UI is still rendered.\\\"}\",\"usage\":{\"prompt_tokens\":1134,\"completion_tokens\":479,\"total_tokens\":1613,\"cost\":0.003006,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.003006,\"upstream_inference_prompt_cost\":0.0008505,\"upstream_inference_completions_cost\":0.0021555},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "6935fa527abc2d67216af560ce84151c09373152b253e3ffec502e983bec9b3f",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/6935fa527abc2d67216af560ce84151c09373152b253e3ffec502e983bec9b3f.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "30ccdf29b6e40a693de15d9e2533f30e52f7f292c6573c3b8ff91061cd8f7cd8"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

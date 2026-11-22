@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261028T231351389Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen shows a single rounded rectangular attachment/error card on a light background. The card contains the filename text \"step1-png-lossless-noise.png\" at the upper left and the status label \"처리 실패\" at the upper right. Beneath that is a smaller metadata line reading \"원본 3.2MB · 이 첨부의 최대 크기 2MB\". The main body text explains the failure in Korean: \"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\" At the bottom left there is a collapsed disclosure row with a right-pointing triangle icon and the label \"이유와 처리 제한 자세히\". Layout is a compact card with text stacked vertically and no other visible navigation, panels, forms, or images. Visual state is an error/refusal state for an oversized attachment upload, with the full explanatory message visible and readable. Verdict: pass; the component renders successfully with no blank screen, no major clipping, and no obvious broken layout.",
+  "signals": {
+    "width": 716,
+    "height": 356,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen shows a single rounded rectangular attachment/error card on a light background. The card contains the filename text \\\\\\\"step1-png-lossless-noise.png\\\\\\\" at the upper left and the status label \\\\\\\"처리 실패\\\\\\\" at the upper right. Beneath that is a smaller metadata line reading \\\\\\\"원본 3.2MB · 이 첨부의 최대 크기 2MB\\\\\\\". The main body text explains the failure in Korean: \\\\\\\"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\\\\\\\" At the bottom left there is a collapsed disclosure row with a right-pointing triangle icon and the label \\\\\\\"이유와 처리 제한 자세히\\\\\\\". Layout is a compact card with text stacked vertically and no other visible navigation, panels, forms, or images. Visual state is an error/refusal state for an oversized attachment upload, with the full explanatory message visible and readable. Verdict: pass; the component renders successfully with no blank screen, no major clipping, and no obvious broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":1038,\"completion_tokens\":278,\"total_tokens\":1316,\"cost\":0.0020295,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0020295,\"upstream_inference_prompt_cost\":0.0007785,\"upstream_inference_completions_cost\":0.001251},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261028T231351389Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "75dcfbc5cab99e1aa0c00b5a3ba2908d18bf15bc9e6b115f531016b1d9ae0431",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/75dcfbc5cab99e1aa0c00b5a3ba2908d18bf15bc9e6b115f531016b1d9ae0431.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "f35dba825686270d9ed8a72e62ff21c98ef9dac20d749dbed8fc9ca25bec2983"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

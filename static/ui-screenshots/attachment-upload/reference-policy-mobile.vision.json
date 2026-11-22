@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.95,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/reference-policy-mobile.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen inventory: At the top, there is Korean text reading “참조 첨부 검증: 모의 로그인 / 출시 OFF” and a bold section title “Reference 미디어” with a small info/help icon next to it. On the far right of the header area it shows the count “총 0/12”. Below is a tab row with three media-type tabs: an image tab labeled “이미지 (0)”, a video tab labeled “비디오 (0)” that appears selected/highlighted, and an audio tab labeled “오디오 (0)”. Under the tabs, a status line reads “0/3 비디오 (최대 3, MP4/MOV, 총 50MB 이하)”. The main body contains a large dashed-border upload drop zone with an upload arrow icon and the text “파일 추가” and “또는 드래그 앤 드롭”. Beneath that is a URL input field with placeholder text “미디어 URL 붙여넣기 (https://...)” and a button to the right labeled “URL 추가”. Below the input is an attachment/error card showing the filename “over-budget.mp4” on the left and a status label “처리 실패” on the right. The card message states “원본 55.6MB · 이 첨부의 최대 크기 52.4MB” followed by “첨부파일이 이 화면의 용량 기준을 초과했습니다. 파일 크기를 줄여 다시 첨부해 주세요.” and a collapsible/help link line “이유와 처리 제한 자세히”. At the bottom is a visible text area containing “첨부 실패 후에도 입력 가능”. Layout: single-column component on a white background, with the header and tabs at top, upload controls in the center, and the failure card plus text area below. Visual state: loaded and stable, showing an oversized-file failure state for a video attachment while still allowing further input. Verdict: pass — the UI is rendered successfully with readable text, visible controls, and no major clipping, blank areas, or broken layout.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.95,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen inventory: At the top, there is Korean text reading “참조 첨부 검증: 모의 로그인 / 출시 OFF” and a bold section title “Reference 미디어” with a small info/help icon next to it. On the far right of the header area it shows the count “총 0/12”. Below is a tab row with three media-type tabs: an image tab labeled “이미지 (0)”, a video tab labeled “비디오 (0)” that appears selected/highlighted, and an audio tab labeled “오디오 (0)”. Under the tabs, a status line reads “0/3 비디오 (최대 3, MP4/MOV, 총 50MB 이하)”. The main body contains a large dashed-border upload drop zone with an upload arrow icon and the text “파일 추가” and “또는 드래그 앤 드롭”. Beneath that is a URL input field with placeholder text “미디어 URL 붙여넣기 (https://...)” and a button to the right labeled “URL 추가”. Below the input is an attachment/error card showing the filename “over-budget.mp4” on the left and a status label “처리 실패” on the right. The card message states “원본 55.6MB · 이 첨부의 최대 크기 52.4MB” followed by “첨부파일이 이 화면의 용량 기준을 초과했습니다. 파일 크기를 줄여 다시 첨부해 주세요.” and a collapsible/help link line “이유와 처리 제한 자세히”. At the bottom is a visible text area containing “첨부 실패 후에도 입력 가능”. Layout: single-column component on a white background, with the header and tabs at top, upload controls in the center, and the failure card plus text area below. Visual state: loaded and stable, showing an oversized-file failure state for a video attachment while still allowing further input. Verdict: pass — the UI is rendered successfully with readable text, visible controls, and no major clipping, blank areas, or broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":1134,\"completion_tokens\":454,\"total_tokens\":1588,\"cost\":0.0028935,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0028935,\"upstream_inference_prompt_cost\":0.0008505,\"upstream_inference_completions_cost\":0.002043},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/reference-policy-mobile.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "778b9a94762be5910a92c84cb68de980f17fcca5d02a612a48993ca5787f5bf9",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/778b9a94762be5910a92c84cb68de980f17fcca5d02a612a48993ca5787f5bf9.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "183d06f71b424c769bc91dafbe892af59fe6dcabc07d735a3a5385f493e9bd2f"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

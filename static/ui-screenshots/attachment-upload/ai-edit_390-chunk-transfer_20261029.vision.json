@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 1,
+  "screenshot": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/ai-edit_390-chunk-transfer_20261029.png",
+  "provider": "openai-compatible",
+  "model": "google/gemini-3.1-flash-lite-preview",
+  "issues": [],
+  "summary": "Visual Inventory: The screen shows an 'AI 컷편집·요약' (AI Cut Editing/Summary) workspace. Top section: Loading state with a spinner and text '영상 변환 중...' (Converting video). Below that: A '원본' (Source) section containing: 1. A file card for 'private-source.mp4' (0:10, 1920x1080, 0.0MB) with a '다른 영상' (Other video) button. 2. A URL input field containing 'https://next.example.test/video.mp4' next to a '불러오기' (Import) button. 3. An upload status card showing 'private-source.mp4', '업로드 중' (Uploading), '원본 <0.1MB', '이 첨부의 최대 크기 100MB', a warning message about file loss on refresh, an expandable '이유와 처리 제한 자세히' (Details on processing limits) toggle, and an '이 파일 취소' (Cancel this file) button. Layout: Single-column vertical list of cards. Visual state: The interface is actively processing/uploading files. Rendering verdict: The layout is stable, all UI elements (cards, input fields, buttons) are rendered clearly without clipping, text is fully legible, and the interface correctly conveys the active upload/conversion state. All required elements for the upload card review are present.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\n  \\\"pass\\\": true,\\n  \\\"confidence\\\": 1.0,\\n  \\\"issues\\\": [],\\n  \\\"summary\\\": \\\"Visual Inventory: The screen shows an 'AI 컷편집·요약' (AI Cut Editing/Summary) workspace. Top section: Loading state with a spinner and text '영상 변환 중...' (Converting video). Below that: A '원본' (Source) section containing: 1. A file card for 'private-source.mp4' (0:10, 1920x1080, 0.0MB) with a '다른 영상' (Other video) button. 2. A URL input field containing 'https://next.example.test/video.mp4' next to a '불러오기' (Import) button. 3. An upload status card showing 'private-source.mp4', '업로드 중' (Uploading), '원본 <0.1MB', '이 첨부의 최대 크기 100MB', a warning message about file loss on refresh, an expandable '이유와 처리 제한 자세히' (Details on processing limits) toggle, and an '이 파일 취소' (Cancel this file) button. Layout: Single-column vertical list of cards. Visual state: The interface is actively processing/uploading files. Rendering verdict: The layout is stable, all UI elements (cards, input fields, buttons) are rendered clearly without clipping, text is fully legible, and the interface correctly conveys the active upload/conversion state. All required elements for the upload card review are present.\\\"\\n}\",\"usage\":{\"prompt_tokens\":1005,\"completion_tokens\":341,\"total_tokens\":1346,\"cost\":0.00076275,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00076275,\"upstream_inference_prompt_cost\":0.00025125,\"upstream_inference_completions_cost\":0.0005115},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/Users/mac/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/ai-edit_390-chunk-transfer_20261029.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "f11d7fe1bea4e2d3870a2c2b65270a10791a5f912353558f0254902be8b4fca8",
+    "hit": false,
+    "path": "/var/folders/yc/ljcdcnjx18x5z9wyv757_vy00000gn/T/affyink-ui-vision-check/cache/f11d7fe1bea4e2d3870a2c2b65270a10791a5f912353558f0254902be8b4fca8.json",
+    "promptHash": "4f68b636654c2f9f8e1b4c4e2f21c11bdc90c1d3c12fd2db179bf0f75d38016d",
+    "assetHashes": [
+      "a6584dad36205efaf967acdf269d4be24580c9d8a77880d5a49d84fc938b46ce"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

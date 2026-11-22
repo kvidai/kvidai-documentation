@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261029T050041441Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "The UI renders successfully with readable Korean labels, visible controls, and a clear oversize/processing refusal state. No major clipping, overlap, blank areas, or crash-like rendering issues are apparent in the full screenshot.",
+  "signals": {
+    "width": 780,
+    "height": 3080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The UI renders successfully with readable Korean labels, visible controls, and a clear oversize/processing refusal state. No major clipping, overlap, blank areas, or crash-like rendering issues are apparent in the full screenshot.\\\"}\",\"usage\":{\"prompt_tokens\":1580,\"completion_tokens\":67,\"total_tokens\":1647,\"cost\":0.0014865,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0014865,\"upstream_inference_prompt_cost\":0.001185,\"upstream_inference_completions_cost\":0.0003015},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261029T050041441Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "cc2fb62db2a7bec50237688df93618fd0a0aa2e80230b85a62e6ad131ff0e6cf",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/cc2fb62db2a7bec50237688df93618fd0a0aa2e80230b85a62e6ad131ff0e6cf.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "963d35ed275f856593f50911e94e7e970883a97e48a195ef0437f28de23f8c6c"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

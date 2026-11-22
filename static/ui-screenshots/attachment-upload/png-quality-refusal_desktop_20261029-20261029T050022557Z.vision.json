@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.96,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261029T050022557Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Korean upload/compression UI renders clearly with visible controls, labels, and an expected oversize/processing refusal state. No major clipping, blank areas, or broken layout visible in the main component.",
+  "signals": {
+    "width": 2880,
+    "height": 3128,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.96,\\\"issues\\\":[],\\\"summary\\\":\\\"Korean upload/compression UI renders clearly with visible controls, labels, and an expected oversize/processing refusal state. No major clipping, blank areas, or broken layout visible in the main component.\\\"}\",\"usage\":{\"prompt_tokens\":2387,\"completion_tokens\":64,\"total_tokens\":2451,\"cost\":0.00207825,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00207825,\"upstream_inference_prompt_cost\":0.00179025,\"upstream_inference_completions_cost\":0.000288},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261029T050022557Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "e8a1b457f786e1f1946c8c03c14aeea7e7b4d1bfd24f9867db211e03891b7c4c",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/e8a1b457f786e1f1946c8c03c14aeea7e7b4d1bfd24f9867db211e03891b7c4c.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "847c70bee8d56bf5c2419d2edb1bb8eb5a79c525c7c15501747eb17bbbca24a0"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

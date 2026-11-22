@@ -1,0 +1,12 @@
+{
+  "profile": "print",
+  "viewport": {
+    "name": "desktop",
+    "width": 1920,
+    "height": 1080
+  },
+  "actualVersion": "0.15.32",
+  "scope": "Isolated production adapter and real assistant-ui Parts; auth/model/project/network are fixtures; no live execution/persistence acceptance.",
+  "pageErrors": [],
+  "sentCount": 0
+}

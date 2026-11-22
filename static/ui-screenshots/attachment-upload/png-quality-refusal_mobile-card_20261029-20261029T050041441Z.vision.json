@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261029T050041441Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "The attachment card renders normally with readable Korean error text and metadata, and the failure/oversize state appears intentional and successful enough for review.",
+  "signals": {
+    "width": 716,
+    "height": 356,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The attachment card renders normally with readable Korean error text and metadata, and the failure/oversize state appears intentional and successful enough for review.\\\"}\",\"usage\":{\"prompt_tokens\":606,\"completion_tokens\":52,\"total_tokens\":658,\"cost\":0.0006885,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0006885,\"upstream_inference_prompt_cost\":0.0004545,\"upstream_inference_completions_cost\":0.000234},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261029T050041441Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "441e067827f241101c58e1b117208b8010e332e63d0ae06b02036c804b9358f4",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/441e067827f241101c58e1b117208b8010e332e63d0ae06b02036c804b9358f4.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "f35dba825686270d9ed8a72e62ff21c98ef9dac20d749dbed8fc9ca25bec2983"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

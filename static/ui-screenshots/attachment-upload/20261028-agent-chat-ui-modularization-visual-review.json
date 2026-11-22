@@ -1,0 +1,231 @@
+{
+  "scope": "Isolated web component harness; auth/API/storage fixtures",
+  "total": 27,
+  "passCount": 27,
+  "failCount": 0,
+  "initialFailures": [
+    "library timeout contrast corrected by restoring production theme in fixture",
+    "JPEG refusal-card expected negative state clarified; initial reports retained"
+  ],
+  "results": [
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/account-settings_desktop_20261028.png",
+      "sha256": "5df3b8e1d13a92b17f3d8c23e1e5126b9c426c16b5d43daa84dbff9409a53e70",
+      "pass": true,
+      "confidence": 0.93,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/account-settings_desktop_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/account-settings_mobile_20261028.png",
+      "sha256": "ac926ffb473ac78add2f9be99fb5c1a412ec2fafe65d9a417920183964d3583e",
+      "pass": true,
+      "confidence": 0.92,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/account-settings_mobile_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-compression-preference_20261028.png",
+      "sha256": "0acda6de8070960b0bea086bee58621cb7e9679897506657d327f56f4f204455",
+      "pass": true,
+      "confidence": 0.96,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-compression-preference_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-superagent-ready_20261028.png",
+      "sha256": "bd8ce55bde2f1b2405b5f787326f982769fa84f1a921d34c34c4a9c0684aa4a7",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-superagent-ready_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-warning_20261028.png",
+      "sha256": "eed14d542757da8a5cb0cdb00baab5286d9a5e9b6b13815d8ee6c69ed5e2c8e4",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_desktop-warning_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-chat-compression_20261028.png",
+      "sha256": "de08e8718792f298713eb0676e63e487e4612c02ca41d1e0636c01efa8eebf70",
+      "pass": true,
+      "confidence": 0.94,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-chat-compression_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-compression-preference_20261028.png",
+      "sha256": "2cb1e56de1562a6c6b41bee257ab4ded1e723ce4f18850b4166ab8f1751a16a0",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-compression-preference_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-prepared_20261028.png",
+      "sha256": "e404b0c4764a9dafc5ac63a2b606cbc8abea99cdb826cdf310d8ce1b11b03a4a",
+      "pass": true,
+      "confidence": 0.93,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-prepared_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-transfer-cancel_20261028.png",
+      "sha256": "b78321b861233f0ef5ea3a7a07c355a3e38ce045641a3089966639109e98bb10",
+      "pass": true,
+      "confidence": 0.97,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2i-transfer-cancel_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2v-prepared_20261028.png",
+      "sha256": "6e11615548c400eccd7f3852414bb8d4411b3e974eee034efa941ae76ba567ba",
+      "pass": true,
+      "confidence": 0.93,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-i2v-prepared_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-limit_20261028.png",
+      "sha256": "c2bd0dcd778b7deda3c0e2a02492b9403e3b571c74e9dd226bfca66e8114abbe",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-limit_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-ready_20261028.png",
+      "sha256": "9b45d8380a7b374c4442e4b7e524a8378700cc96e42b3cf3ea99affc469a84b0",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-ready_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-warning_20261028.png",
+      "sha256": "6cee02c4640132c7b9a0312bbdb872b4d6a8a3389ee4d8cb0b100a121edde272",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/attachment-upload_mobile-warning_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/library-upload_mobile-compressed_20261028.png",
+      "sha256": "d57fa8b6c1171f59fb398d9b4968737a287c9b209c275942edc1718c5c44a6a1",
+      "pass": true,
+      "confidence": 0.94,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/library-upload_mobile-compressed_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.png",
+      "sha256": "c9dd89e454d2a2ebc2d2d21ea33b0b1e0d35416a1d9d73296178364dc8f37c78",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/library-upload_mobile-validation-timeout_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/reference-policy-desktop.png",
+      "sha256": "93cc6954cf6062c77dee9bd8b5557600311e89055666cd299a9fa666cc41d3d7",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/reference-policy-desktop.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/reference-policy-mobile.png",
+      "sha256": "183d06f71b424c769bc91dafbe892af59fe6dcabc07d735a3a5385f493e9bd2f",
+      "pass": true,
+      "confidence": 0.95,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/reference-policy-mobile.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/reference-transfer-cancel-mobile_20261028.png",
+      "sha256": "ec09c43de8d3c2875f9af992d08475fc1c6279146e839d561c0f16a96f812fe9",
+      "pass": true,
+      "confidence": 0.87,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/reference-transfer-cancel-mobile_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/design-upload_mobile-lossless-png_20261028.png",
+      "sha256": "7955620741661a8dd3d3dde3720845dcf4f80ff6a7af11448a2b33467a5bb280",
+      "pass": true,
+      "confidence": 0.96,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/design-upload_mobile-lossless-png_20261028.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261028T231333675Z.png",
+      "sha256": "8684600c2f0a7331dcd6f7b413ab0e35740a3fa6da32501ca6bad5087840e079",
+      "pass": true,
+      "confidence": 0.99,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261028T231333675Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop_20261029-20261028T231333675Z.png",
+      "sha256": "7212418feb4ddce44de950dd455ee06c979d1cd7260aa35fbc2ea27c9719738c",
+      "pass": true,
+      "confidence": 0.97,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop_20261029-20261028T231333675Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261028T231419176Z.png",
+      "sha256": "5731c1630729f423a8efb4090d87bea142029adba0412d83e6393b0c6a591ff5",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile-card_20261029-20261028T231419176Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile_20261029-20261028T231419176Z.png",
+      "sha256": "84fac5192e123f3a88d8022c763baf015dc331864491cd1925a7d8e1dd75ad86",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile_20261029-20261028T231419176Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261028T231309122Z.png",
+      "sha256": "c4ceb54bd873a7e7195283f2532a503f0ccf36beb9d22a09eb30fb81c6698acf",
+      "pass": true,
+      "confidence": 0.99,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261028T231309122Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261028T231309122Z.png",
+      "sha256": "847c70bee8d56bf5c2419d2edb1bb8eb5a79c525c7c15501747eb17bbbca24a0",
+      "pass": true,
+      "confidence": 0.96,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop_20261029-20261028T231309122Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261028T231351389Z.png",
+      "sha256": "f35dba825686270d9ed8a72e62ff21c98ef9dac20d749dbed8fc9ca25bec2983",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile-card_20261029-20261028T231351389Z.vision.json"
+    },
+    {
+      "screenshot": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261028T231351389Z.png",
+      "sha256": "963d35ed275f856593f50911e94e7e970883a97e48a195ef0437f28de23f8c6c",
+      "pass": true,
+      "confidence": 0.98,
+      "issues": [],
+      "report": "docs/ui-screenshots/attachment-upload/png-quality-refusal_mobile_20261029-20261028T231351389Z.vision.json"
+    }
+  ],
+  "sourceCommit": "41567d8ba3450e3a7ca8a9c851fed22d90234e9f",
+  "historicalBaseline": true,
+  "currentCaptureNote": "This records the 2026-10-28 bytes at sourceCommit. Regenerated or new 2026-10-29 captures are reviewed in 20261029-agent-chat-ui-modularization-visual-review.json; unchanged files retain their historical matching hashes."
+}

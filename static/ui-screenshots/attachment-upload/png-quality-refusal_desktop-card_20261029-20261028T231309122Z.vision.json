@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.99,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261028T231309122Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screenshot shows a single centered attachment/error card on a light beige background with a thin rounded orange border. Text at top left reads \"step1-png-lossless-noise.png\"; top right shows the status label \"처리 실패\". Beneath the filename is a smaller line reading \"원본 3.2MB · 이 첨부의 최대 크기 2MB\". The main body contains a large Korean error message: \"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\" At the lower left of the card there is a small disclosure triangle/chevron icon followed by the expandable text \"이유와 처리 제한 자세히\". Layout is a simple single-card view with no sidebar, header, footer, or other controls visible. Visual state is an error/refusal state for an oversized attachment, with all content readable and the card fully rendered. Verdict: pass, because the screen is not blank, the error state is intentional, and there is no obvious clipping, overlap, or broken layout.",
+  "signals": {
+    "width": 1136,
+    "height": 316,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.99,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screenshot shows a single centered attachment/error card on a light beige background with a thin rounded orange border. Text at top left reads \\\\\\\"step1-png-lossless-noise.png\\\\\\\"; top right shows the status label \\\\\\\"처리 실패\\\\\\\". Beneath the filename is a smaller line reading \\\\\\\"원본 3.2MB · 이 첨부의 최대 크기 2MB\\\\\\\". The main body contains a large Korean error message: \\\\\\\"화질 손상을 막기 위해 첨부 처리를 중단했습니다. 원본의 글자·크기·투명도를 유지하는 방식으로는 이 화면의 용량 기준을 맞출 수 없습니다. 필요한 부분을 잘라 다시 첨부하거나 더 작은 원본을 선택해 주세요.\\\\\\\" At the lower left of the card there is a small disclosure triangle/chevron icon followed by the expandable text \\\\\\\"이유와 처리 제한 자세히\\\\\\\". Layout is a simple single-card view with no sidebar, header, footer, or other controls visible. Visual state is an error/refusal state for an oversized attachment, with all content readable and the card fully rendered. Verdict: pass, because the screen is not blank, the error state is intentional, and there is no obvious clipping, overlap, or broken layout.\\\"}\",\"usage\":{\"prompt_tokens\":1139,\"completion_tokens\":285,\"total_tokens\":1424,\"cost\":0.00213675,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00213675,\"upstream_inference_prompt_cost\":0.00085425,\"upstream_inference_completions_cost\":0.0012825},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/png-quality-refusal_desktop-card_20261029-20261028T231309122Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "573500631e869a3aac7916bbd3b263640f8215e74b2a10c13c533a4c3f8a23c1",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/573500631e869a3aac7916bbd3b263640f8215e74b2a10c13c533a4c3f8a23c1.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "c4ceb54bd873a7e7195283f2532a503f0ccf36beb9d22a09eb30fb81c6698acf"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

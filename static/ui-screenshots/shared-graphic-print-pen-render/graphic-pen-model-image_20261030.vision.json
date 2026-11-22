@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.97,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/shared-graphic-print-pen-render/graphic-pen-model-image_20261030.png",
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-6",
+  "issues": [],
+  "summary": "White background present. Pale red rectangle with red border and number '1' visible. Two-segment V-shaped red pen path is clearly rendered inside the rectangle, with both segments continuous, unclipped, and visually distinct from the rectangle border. Sample text 'Original design' appears at top as expected.",
+  "signals": {
+    "width": 1000,
+    "height": 500,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "metadataPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/design-agent-pen-render/graphic-pen-model-image_20261030.meta.json",
+    "warnings": []
+  },
+  "rawResponse": "```json\n{\n  \"pass\": true,\n  \"confidence\": 0.97,\n  \"issues\": [],\n  \"summary\": \"White background present. Pale red rectangle with red border and number '1' visible. Two-segment V-shaped red pen path is clearly rendered inside the rectangle, with both segments continuous, unclipped, and visually distinct from the rectangle border. Sample text 'Original design' appears at top as expected.\"\n}\n```",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/design-agent-pen-render/graphic-pen-model-image_20261030.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "780e4caf8cdc5dd3096028397c66fb6fa99bcadd63ab7886bedd31dc9055fde8",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/780e4caf8cdc5dd3096028397c66fb6fa99bcadd63ab7886bedd31dc9055fde8.json",
+    "promptHash": "d5653aaec5a1d11dedb9b1b6c74b3e7728f88751d761ac4bc13fa8ab7ca917b3",
+    "assetHashes": [
+      "60b5131bc397609f6772d39b51c2f1432e8f6fc66df4e9520e7080c287188ed0"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  },
+  "originalScreenshotAtCapture": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/design-agent-pen-render/graphic-pen-model-image_20261030.png"
+}

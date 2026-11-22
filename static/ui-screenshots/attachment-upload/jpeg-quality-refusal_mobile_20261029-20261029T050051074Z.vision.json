@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile_20261029-20261029T050051074Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Render appears successful: Korean UI text and controls are visible, the upload card shows a clear handled error/oversize state, and there is no obvious blank screen, crash, or severe clipping.",
+  "signals": {
+    "width": 780,
+    "height": 3080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Render appears successful: Korean UI text and controls are visible, the upload card shows a clear handled error/oversize state, and there is no obvious blank screen, crash, or severe clipping.\\\"}\",\"usage\":{\"prompt_tokens\":1580,\"completion_tokens\":63,\"total_tokens\":1643,\"cost\":0.0014685,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0014685,\"upstream_inference_prompt_cost\":0.001185,\"upstream_inference_completions_cost\":0.0002835},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_mobile_20261029-20261029T050051074Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "bf3cdd3faf010797575ad33ae7b906eb7ab3444177b0d0b992630ca82e00f8c2",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/bf3cdd3faf010797575ad33ae7b906eb7ab3444177b0d0b992630ca82e00f8c2.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "84fac5192e123f3a88d8022c763baf015dc331864491cd1925a7d8e1dd75ad86"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-ready_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "The UI is rendered and readable with the expected upload/status card, file picker, text area, and send button visible. No major clipping, overlap, blank state, or obvious rendering failure is present.",
+  "signals": {
+    "width": 390,
+    "height": 844,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"The UI is rendered and readable with the expected upload/status card, file picker, text area, and send button visible. No major clipping, overlap, blank state, or obvious rendering failure is present.\\\"}\",\"usage\":{\"prompt_tokens\":702,\"completion_tokens\":64,\"total_tokens\":766,\"cost\":0.0008145,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.0008145,\"upstream_inference_prompt_cost\":0.0005265,\"upstream_inference_completions_cost\":0.000288},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_mobile-superagent-ready_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "b89fc5f493e78be3d976e10feb1843b5d1ab5911cb10a52216bec477e0b5f499",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/b89fc5f493e78be3d976e10feb1843b5d1ab5911cb10a52216bec477e0b5f499.json",
+    "promptHash": "dae0cd7dce0c9c5b89782e8eec8442a3445ed6c6537b29ebdacd97334e6acb39",
+    "assetHashes": [
+      "c76857afc53a092665e754c0be626589acfe741e734a0f5a52ea297938fef82a"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

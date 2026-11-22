@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.98,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-superagent-ready_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible screen: a mostly white page with a small centered upload/demo panel near the top. At the top of the panel is a Korean title, \"일반 에이전트 첨부 경로 검증\", with a smaller subtitle underneath reading \"실제 SDK 첨부 경로 - FileReader · 모델 응답만 모의 처리\". Below is a beige bordered status card showing the filename \"notes.txt\" on the left and the status text \"첨부 준비 완료\" on the right. Inside the card, body copy says \"원본 <0.1MB / 첨부의 최대 크기 100MB\" and \"첨부 준비 파일 <0.1MB · 메시지 전송 결과는 별도입니다\", followed by a small disclosure line \"이유와 처리 제한 자세히\". Under the card is a file upload control area with the text \"Choose File notes.txt\", then a large empty text input/textarea-style field, and beneath it a small rectangular button labeled \"전송\". The rest of the screen is empty white space with no sidebar, header navigation, modal, error message, spinner, or footer visible. Visual state appears to be a normal ready/loaded upload form with a file already selected. Verdict: pass — the UI is rendered successfully, with readable text and visible controls, and no major clipping, overlap, blank-screen, or crash state.",
+  "signals": {
+    "width": 1920,
+    "height": 1080,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.98,\\\"issues\\\":[],\\\"summary\\\":\\\"Visible screen: a mostly white page with a small centered upload/demo panel near the top. At the top of the panel is a Korean title, \\\\\\\"일반 에이전트 첨부 경로 검증\\\\\\\", with a smaller subtitle underneath reading \\\\\\\"실제 SDK 첨부 경로 - FileReader · 모델 응답만 모의 처리\\\\\\\". Below is a beige bordered status card showing the filename \\\\\\\"notes.txt\\\\\\\" on the left and the status text \\\\\\\"첨부 준비 완료\\\\\\\" on the right. Inside the card, body copy says \\\\\\\"원본 <0.1MB / 첨부의 최대 크기 100MB\\\\\\\" and \\\\\\\"첨부 준비 파일 <0.1MB · 메시지 전송 결과는 별도입니다\\\\\\\", followed by a small disclosure line \\\\\\\"이유와 처리 제한 자세히\\\\\\\". Under the card is a file upload control area with the text \\\\\\\"Choose File notes.txt\\\\\\\", then a large empty text input/textarea-style field, and beneath it a small rectangular button labeled \\\\\\\"전송\\\\\\\". The rest of the screen is empty white space with no sidebar, header navigation, modal, error message, spinner, or footer visible. Visual state appears to be a normal ready/loaded upload form with a file already selected. Verdict: pass — the UI is rendered successfully, with readable text and visible controls, and no major clipping, overlap, blank-screen, or crash state.\\\"}\",\"usage\":{\"prompt_tokens\":1811,\"completion_tokens\":310,\"total_tokens\":2121,\"cost\":0.00275325,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00275325,\"upstream_inference_prompt_cost\":0.00135825,\"upstream_inference_completions_cost\":0.001395},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/attachment-upload_desktop-superagent-ready_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "07e4a3609f231eb5a89c45874cd3e6d0655d437e020e9a4fd96b8ca8d45ac36a",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/07e4a3609f231eb5a89c45874cd3e6d0655d437e020e9a4fd96b8ca8d45ac36a.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "bd8ce55bde2f1b2405b5f787326f982769fa84f1a921d34c34c4a9c0684aa4a7"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

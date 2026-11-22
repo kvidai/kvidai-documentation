@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "confidence": 0.99,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261028T231333675Z.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Refusal card renders legibly and intact, with the expected oversized file message and no preview or success state visible.",
+  "signals": {
+    "width": 1136,
+    "height": 316,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": []
+  },
+  "rawResponse": "{\"content\":\"{\\\"pass\\\":true,\\\"confidence\\\":0.99,\\\"issues\\\":[],\\\"summary\\\":\\\"Refusal card renders legibly and intact, with the expected oversized file message and no preview or success state visible.\\\"}\",\"usage\":{\"prompt_tokens\":689,\"completion_tokens\":47,\"total_tokens\":736,\"cost\":0.00072825,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00072825,\"upstream_inference_prompt_cost\":0.00051675,\"upstream_inference_completions_cost\":0.0002115},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "apps/web-service/docs/ui-screenshots/attachment-upload/jpeg-quality-refusal_desktop-card_20261029-20261028T231333675Z.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "982cab5677066f3bed7debe806a84015fd2e20da783850987b92a310537d52f8",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/982cab5677066f3bed7debe806a84015fd2e20da783850987b92a310537d52f8.json",
+    "promptHash": "f8b566b81c4b31e4ae32559005fc93988014535bca296ec518429ed32578f549",
+    "assetHashes": [
+      "8684600c2f0a7331dcd6f7b413ab0e35740a3fa6da32501ca6bad5087840e079"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

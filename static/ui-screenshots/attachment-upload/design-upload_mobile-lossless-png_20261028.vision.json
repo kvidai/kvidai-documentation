@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "confidence": 0.96,
+  "screenshot": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/design-upload_mobile-lossless-png_20261028.png",
+  "provider": "openai-compatible",
+  "model": "openai/gpt-5.4-mini",
+  "issues": [],
+  "summary": "Visible UI inventory: At the top-left, there is Korean text reading \"실제 업로드 UI-압축 Worker · 계정/API·캔버스는 검증\" and beneath it \"대역 · 2MB 제한\". Below that are two account labels, \"계정 A\" and \"계정 B\". The main content begins with a section label \"▼ 검증 계정 압축 설정\" followed by a large white card titled \"첨부파일 압축\". Inside the card is a blue ON toggle next to explanatory copy: \"업로드 전 이미지·동영상 압축\", \"기본 ON입니다. 압축하면 화질이 저하될 수 있습니다. OFF일 때는 이 화면의 용량 제한 이내인 원본만 사용하고, 초과 파일은 첨부할 수 없습니다. 중요한 미디어는 필요한 부분만 자르거나 크기를 줄여 첨부하세요.\" Further body text states \"지원되는 이미지·동영상의 압축이 ON입니다. 처리 중에는 화면을 닫지 마세요.\" and \"로그인한 계정에 저장하고 다른 기기에서 불러옵니다. 변경은 새로 준비하는 첨부에 적용됩니다. 다른 탭·기기의 변경은 화면으로 돌아오거나 다시 불러올 때 확인합니다.\" There is a dropdown labeled \"압축 방식\" currently set to \"화질 우선 (기본)\". Another paragraph reads \"제한을 넘는 파일에만 적용합니다. 용량 절약은 더 낮은 품질·비트레이트를 사용합니다. 제한 이내의 원본 파일은 그대로 유지합니다.\" A button says \"계정 압축 설정 다시 불러오기\". Below the card is an upload area labeled \"이미지 업로드\" with a file chooser showing \"Choose File step1-png-lossless-pattern.png\". Under it, a beige/yellow bordered file status box shows the filename \"step1-png-lossless-pattern.png\" with status text \"업로드 완료\", and details \"원본 3.2MB · 이 첨부의 최대 크기 2MB\" and \"업로드한 파일 <0.1MB\". A warning message says \"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\" Beneath that is a collapsible line with a triangle icon and text \"이유와 처리 제한 자세히\". Next is another section header \"에디터 캔버스 검증 대역\" with a large empty white area below it. At the bottom of the screen there is a large text area containing \"첨부 처리 중 작성한 초안\". Layout: a simple single-column page with text at top, a central settings card, an upload subsection, a mostly empty canvas verification area, and a bottom textarea. Visual state: loaded and interactive, with compression enabled, a selected file uploaded successfully, and no error state visible. Verdict: pass — the screen renders successfully with readable text, visible controls, and no major clipping, overlap, crash, or blank-page failure.",
+  "signals": {
+    "width": 390,
+    "height": 1540,
+    "blankLike": false,
+    "lowVariance": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "requestFailures": 0,
+    "viewportMatches": null,
+    "warnings": [
+      "Image is unusually small for UI review."
+    ]
+  },
+  "rawResponse": "{\"content\":\"{\\n  \\\"pass\\\": true,\\n  \\\"confidence\\\": 0.96,\\n  \\\"issues\\\": [],\\n  \\\"summary\\\": \\\"Visible UI inventory: At the top-left, there is Korean text reading \\\\\\\"실제 업로드 UI-압축 Worker · 계정/API·캔버스는 검증\\\\\\\" and beneath it \\\\\\\"대역 · 2MB 제한\\\\\\\". Below that are two account labels, \\\\\\\"계정 A\\\\\\\" and \\\\\\\"계정 B\\\\\\\". The main content begins with a section label \\\\\\\"▼ 검증 계정 압축 설정\\\\\\\" followed by a large white card titled \\\\\\\"첨부파일 압축\\\\\\\". Inside the card is a blue ON toggle next to explanatory copy: \\\\\\\"업로드 전 이미지·동영상 압축\\\\\\\", \\\\\\\"기본 ON입니다. 압축하면 화질이 저하될 수 있습니다. OFF일 때는 이 화면의 용량 제한 이내인 원본만 사용하고, 초과 파일은 첨부할 수 없습니다. 중요한 미디어는 필요한 부분만 자르거나 크기를 줄여 첨부하세요.\\\\\\\" Further body text states \\\\\\\"지원되는 이미지·동영상의 압축이 ON입니다. 처리 중에는 화면을 닫지 마세요.\\\\\\\" and \\\\\\\"로그인한 계정에 저장하고 다른 기기에서 불러옵니다. 변경은 새로 준비하는 첨부에 적용됩니다. 다른 탭·기기의 변경은 화면으로 돌아오거나 다시 불러올 때 확인합니다.\\\\\\\" There is a dropdown labeled \\\\\\\"압축 방식\\\\\\\" currently set to \\\\\\\"화질 우선 (기본)\\\\\\\". Another paragraph reads \\\\\\\"제한을 넘는 파일에만 적용합니다. 용량 절약은 더 낮은 품질·비트레이트를 사용합니다. 제한 이내의 원본 파일은 그대로 유지합니다.\\\\\\\" A button says \\\\\\\"계정 압축 설정 다시 불러오기\\\\\\\". Below the card is an upload area labeled \\\\\\\"이미지 업로드\\\\\\\" with a file chooser showing \\\\\\\"Choose File step1-png-lossless-pattern.png\\\\\\\". Under it, a beige/yellow bordered file status box shows the filename \\\\\\\"step1-png-lossless-pattern.png\\\\\\\" with status text \\\\\\\"업로드 완료\\\\\\\", and details \\\\\\\"원본 3.2MB · 이 첨부의 최대 크기 2MB\\\\\\\" and \\\\\\\"업로드한 파일 <0.1MB\\\\\\\". A warning message says \\\\\\\"압축된 첨부파일은 원본보다 화질이 낮아질 수 있습니다. 중요한 세부 내용이 유지되는지 확인하세요.\\\\\\\" Beneath that is a collapsible line with a triangle icon and text \\\\\\\"이유와 처리 제한 자세히\\\\\\\". Next is another section header \\\\\\\"에디터 캔버스 검증 대역\\\\\\\" with a large empty white area below it. At the bottom of the screen there is a large text area containing \\\\\\\"첨부 처리 중 작성한 초안\\\\\\\". Layout: a simple single-column page with text at top, a central settings card, an upload subsection, a mostly empty canvas verification area, and a bottom textarea. Visual state: loaded and interactive, with compression enabled, a selected file uploaded successfully, and no error state visible. Verdict: pass — the screen renders successfully with readable text, visible controls, and no major clipping, overlap, crash, or blank-page failure.\\\"\\n}\",\"usage\":{\"prompt_tokens\":1477,\"completion_tokens\":690,\"total_tokens\":2167,\"cost\":0.00421275,\"is_byok\":false,\"prompt_tokens_details\":{\"cached_tokens\":0,\"cache_write_tokens\":0,\"audio_tokens\":0,\"video_tokens\":0},\"cost_details\":{\"upstream_inference_cost\":0.00421275,\"upstream_inference_prompt_cost\":0.00110775,\"upstream_inference_completions_cost\":0.003105},\"completion_tokens_details\":{\"reasoning_tokens\":0,\"image_tokens\":0,\"audio_tokens\":0}}}",
+  "execution": {
+    "mode": "provider",
+    "reportPath": "/home/ubuntu/code_workspace/kvidai/apps/web-service/docs/ui-screenshots/attachment-upload/design-upload_mobile-lossless-png_20261028.vision.json",
+    "artifactsKept": false,
+    "artifactsCleaned": true
+  },
+  "cache": {
+    "key": "536177dc6a77bddcd8e38884e379a5968a2e4da310c512110812cdcac94c4160",
+    "hit": false,
+    "path": "/tmp/affyink-ui-vision-check/cache/536177dc6a77bddcd8e38884e379a5968a2e4da310c512110812cdcac94c4160.json",
+    "promptHash": "426334688430ba28e5e3933cddc27a6f7beee6042764c99bccaa30cdaedf359b",
+    "assetHashes": [
+      "7955620741661a8dd3d3dde3720845dcf4f80ff6a7af11448a2b33467a5bb280"
+    ],
+    "readEnabled": true,
+    "writeEnabled": true
+  }
+}

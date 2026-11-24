@@ -1,12 +1,13 @@
 # llm-platform LLM endpoints (내부, 비공개)
 
-내부 개발자용. **공개 사이트(`docs/`)에는 아직 올리지 않는다**: 두 경로 모두 APIM(`api.kvid.ai`)에 게시되지 않았고(공유 서비스라 소유자 승인 필요), 하나는 사용자에게 노출하지 않는 `console.kvid.ai` 직결이며, 모델은 지금 하나뿐이다. 요청·응답·에러의 상세 명세는 한 곳에만 둔다: 모노레포 `api-tests/azure-api-management/llm-platform/` (Bruno collection, 각 `.yml` 의 `docs:`). 이 문서는 어디에 무엇이 있는지와 상태만 적는다.
+내부 개발자용. **공개 사이트(`docs/`)에는 아직 올리지 않았다**: 공개 가격과 사용자용 문서는 제품 결정이 필요하다. 요청·응답·에러의 상세 명세는 한 곳에만 둔다: 모노레포 `api-tests/azure-api-management/llm-platform/` (Bruno collection, 각 `.yml` 의 `docs:`). 이 문서는 어디에 무엇이 있는지와 상태만 적는다.
 
-## 두 가지 길
+## 세 가지 길
 
 | 길 | URL | 인증 | 과금 |
 | --- | --- | --- | --- |
-| Strapi (과금되는 chat) | `POST https://console.kvid.ai/api/llm/chat/completions` | 사용자 Strapi JWT | 크레딧 차감 (실제 토큰 사용량) |
+| **APIM (정식, 2026-11-24 게시)** | `POST https://api.kvid.ai/llm/chat/completions` | APIM 구독 키 (`api-key`) | 구독 키 소유자의 크레딧 차감. 항상 production |
+| Strapi 직결 | `POST https://console.kvid.ai/api/llm/chat/completions` | 사용자 Strapi JWT | 크레딧 차감 (실제 토큰 사용량) |
 | 게이트웨이 직접 | `https://llm-gateway-staging.kvid.ai/v1/...`, `https://llm-gateway-production.kvid.ai/v1/...` | virtual key (`x-bf-vk` 또는 `Authorization: Bearer`) | 크레딧 없음, 키별 한도만 |
 
 - 지원 모델: `openrouter/openai/gpt-6-luna` 하나. 다른 모델은 게이트웨이 403 `model_blocked`, Strapi 400 `UNKNOWN_MODEL`.
@@ -16,7 +17,11 @@
 ## 호출 예
 
 ```bash
-# 1) Strapi: 사용자 JWT 를 받아 호출 (크레딧이 차감된다; 응답 헤더 x-llm-platform-charged-micro-credits)
+# 0) APIM (정식): 구독 키로 호출 — 구독 키 소유자의 크레딧이 차감된다
+curl -s https://api.kvid.ai/llm/chat/completions -H "api-key: $APIM_KEY" -H 'content-type: application/json' \
+  -d '{"model":"openrouter/openai/gpt-6-luna","max_tokens":300,"messages":[{"role":"user","content":"Say hi in 3 words."}]}'
+
+# 1) Strapi 직결: 사용자 JWT 를 받아 호출 (크레딧이 차감된다; 응답 헤더 x-llm-platform-charged-micro-credits)
 JWT=$(curl -s -X POST https://console.kvid.ai/api/auth/local -H 'content-type: application/json' \
   -d '{"identifier":"<email>","password":"<password>"}' | jq -r .jwt)
 curl -s https://console.kvid.ai/api/llm/chat/completions -H "authorization: Bearer $JWT" -H 'content-type: application/json' \
@@ -36,6 +41,5 @@ Strapi 경로의 가격은 가격표(`pricing-table`, `service_type=llm_api`)에
 ## 상태와 검증 (2026-11-24)
 
 - staging, production 모두 게이트웨이 공개 URL 점검 14/14, Strapi 경로 실제 호출 6/6.
-- 정석은 APIM 경유다: 외부 사용자가 부르는 API 는 `api.kvid.ai` 로 게시해야 하고, 지금의 직결은 임시다 (`credit/` 의 직결 endpoint 는 web-service 서버가 내부 토큰으로만 부르는 내부용이라 해당 없음).
-- APIM `llm` API 는 정의가 이미 준비돼 있다 (`infrastructure/azure-apim/artifacts/apis/llm`, 게시: `./apply-api.sh llm --apply --yes`, 사전 조건은 그 CLAUDE.md 의 `llm` 절). 게시하면 (`api.kvid.ai/llm/chat/completions` → `console.kvid.ai/api/llm/chat/completions`, 정책이 서버 토큰과 `x-kvidai-user-email` 을 넣음) 이 문서와 Bruno 문서를 갱신하고 공개 `docs/api-services/` 에 사용법을, `docs/pricing.md` 에 가격을 옮긴다.
+- APIM `llm` API 는 2026-11-24 게시됐다 (`infrastructure/azure-apim/artifacts/apis/llm`, 정책은 production 백엔드와 서버 토큰, 키 없음 401 · 구독 키 200 실측). 남은 일: 공개 `docs/api-services/` 의 사용법 페이지와 `docs/pricing.md` 의 가격 (제품 결정).
 - 구현·운영: 모노레포 `services/llm-platform/` (게이트웨이 설정·배포), `apps/strapi-ts/src/api/llm-chat-completions/` (Strapi 경로).

@@ -37,5 +37,5 @@ Strapi 경로의 가격은 가격표(`pricing-table`, `service_type=llm_api`)에
 
 - staging, production 모두 게이트웨이 공개 URL 점검 14/14, Strapi 경로 실제 호출 6/6.
 - 정석은 APIM 경유다: 외부 사용자가 부르는 API 는 `api.kvid.ai` 로 게시해야 하고, 지금의 직결은 임시다 (`credit/` 의 직결 endpoint 는 web-service 서버가 내부 토큰으로만 부르는 내부용이라 해당 없음).
-- APIM 에 `llm` API 를 게시하면 (path `llm/chat/completions` → `console.kvid.ai/api/llm/chat/completions`, 정책이 서버 토큰과 `x-kvidai-user-email` 을 넣음) 이 문서와 Bruno 문서를 갱신하고 공개 `docs/api-services/` 에 사용법을, `docs/pricing.md` 에 가격을 옮긴다.
+- APIM `llm` API 는 정의가 이미 준비돼 있다 (`infrastructure/azure-apim/artifacts/apis/llm`, 게시: `./apply-api.sh llm --apply --yes`, 사전 조건은 그 CLAUDE.md 의 `llm` 절). 게시하면 (`api.kvid.ai/llm/chat/completions` → `console.kvid.ai/api/llm/chat/completions`, 정책이 서버 토큰과 `x-kvidai-user-email` 을 넣음) 이 문서와 Bruno 문서를 갱신하고 공개 `docs/api-services/` 에 사용법을, `docs/pricing.md` 에 가격을 옮긴다.
 - 구현·운영: 모노레포 `services/llm-platform/` (게이트웨이 설정·배포), `apps/strapi-ts/src/api/llm-chat-completions/` (Strapi 경로).

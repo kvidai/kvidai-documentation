@@ -1,6 +1,6 @@
 # llm-platform LLM endpoints (내부, 비공개)
 
-내부 개발자용. **공개 사이트(`docs/`)에는 아직 올리지 않았다**: 공개 가격과 사용자용 문서는 제품 결정이 필요하다. 요청·응답·에러의 상세 명세는 한 곳에만 둔다: 모노레포 `api-tests/azure-api-management/llm-platform/` (Bruno collection, 각 `.yml` 의 `docs:`). 이 문서는 어디에 무엇이 있는지와 상태만 적는다.
+내부 개발자용. **공개 사이트(`docs/`)에는 아직 올리지 않았다**: 공개 가격과 사용자용 문서는 제품 결정이 필요하다. 공개용 초안은 `docs/` 와 같은 경로·이름으로 이 폴더에 있다: `api-services/llm-api.md`, `pricing.md`(조각), 한국어는 `i18n/ko/docusaurus-plugin-content-docs/current/` 아래. 확정되면 `docs/` 로 옮긴다. 요청·응답·에러의 상세 명세는 한 곳에만 둔다: 모노레포 `api-tests/azure-api-management/llm-platform/` (Bruno collection, 각 `.yml` 의 `docs:`). 이 문서는 어디에 무엇이 있는지와 상태만 적는다.
 
 ## 세 가지 길
 

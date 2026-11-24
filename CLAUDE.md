@@ -75,7 +75,7 @@ vercel --prod                           # Deploy to Vercel
     - `api-services/` - Korean API documentation
     - `web-app/` - Korean web app guides
     - `getting-started.md` - Korean getting started guide
-- `docs-internal/` - Internal notes, NOT published (search setup, QA, screenshots, `llm-platform-endpoints.md` = how to call the shared LLM gateway)
+- `docs-internal/` - NOT published. Internal notes (search setup, QA, screenshots, `llm-platform-endpoints.md` = how to call the shared LLM gateway) AND **drafts of public pages that are not confirmed yet: same relative path and file name as the page will have** (`docs-internal/api-services/llm-api.md` -> `docs/api-services/llm-api.md`; Korean under `docs-internal/i18n/ko/docusaurus-plugin-content-docs/current/...` -> `i18n/ko/...`; a `pricing.md` there is a FRAGMENT to merge into `docs/pricing.md`). Move the content to `docs/` when confirmed, delete the draft notes and the "Open items" section, add the page to `sidebars.ts`.
 - `blog/` - Blog posts (authors.yml maintained)
 - `src/` - React components and custom pages
   - `components/HomepageFeatures/` - Custom homepage with video showcases

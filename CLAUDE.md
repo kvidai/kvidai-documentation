@@ -75,6 +75,7 @@ vercel --prod                           # Deploy to Vercel
     - `api-services/` - Korean API documentation
     - `web-app/` - Korean web app guides
     - `getting-started.md` - Korean getting started guide
+- `docs-internal/` - Internal notes, NOT published (search setup, QA, screenshots, `llm-platform-endpoints.md` = how to call the shared LLM gateway)
 - `blog/` - Blog posts (authors.yml maintained)
 - `src/` - React components and custom pages
   - `components/HomepageFeatures/` - Custom homepage with video showcases

@@ -6,11 +6,12 @@
  *
  * Runs against the built site served on :3100 by playwright.config.ts (run `pnpm build` first). HTTP only, no browser page.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { expect, test } from '@playwright/test';
 
-const BASE_URL = process.env.BASE_URL ?? 'http://localhost:3100';
+const BASE_URL = process.env.BASE_URL ?? 'http://127.0.0.1:3100';
+const BUILD_DIR = process.env.KVIDAI_DOCS_BUILD_DIR || 'build';
 const MCP_TOOL_REFERENCE_PATH = resolve(__dirname, '../docs/agents/mcp-tools.md');
 
 function markdownLinkTargets(markdown: string): string[] {
@@ -83,3 +84,56 @@ test.describe('generated llms-full.txt', () => {
     expect(body).not.toContain('/blog');
   });
 });
+
+// English builds warn about links to Korean routes because locales are built
+// separately. Verify the generated Korean pages after the complete build.
+const koreanRoutes = [
+  'api-services/agent-api',
+  'api-services/ai-edit-api',
+  'api-services/image-api',
+  'api-services/media-api',
+  'api-services/overview',
+  'api-services/preset-api',
+  'api-services/project-management',
+  'api-services/speech-to-text',
+  'api-services/talk-v2v',
+  'api-services/video-api',
+  'api-services/voice-api',
+  'getting-started/account-setup',
+  'getting-started/api-keys',
+  'getting-started/buy-credits',
+  'getting-started/quick-start',
+  'intro',
+  'pricing',
+  'web-app/gallery',
+  'web-app/storyboard',
+  'web-app/video-editor',
+  'web-app/voice-library',
+];
+
+for (const route of koreanRoutes) {
+  test(`generated Korean page /ko/docs/${route}`, async ({ request }) => {
+    // An externally managed BASE_URL need not have a local build directory.
+    if (!process.env.BASE_URL) {
+      expect(existsSync(resolve(BUILD_DIR, 'ko', 'docs', route, 'index.html'))).toBe(true);
+    }
+    expect((await request.get(`${BASE_URL}/ko/docs/${route}`)).status()).toBe(200);
+  });
+}
+
+for (const prefix of ['', '/ko']) {
+  test(`SDK API key link in ${prefix || '/en'}`, async ({ request }) => {
+    const sdkResponse = await request.get(`${BASE_URL}${prefix}/docs/api-services/sdk`);
+    expect(sdkResponse.status()).toBe(200);
+    const html = await sdkResponse.text();
+    const expected = `${prefix}/docs/getting-started/api-keys`;
+    const hrefs = [...html.matchAll(/href=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)]
+      .map((match) => match[1] ?? match[2] ?? match[3]);
+    expect(hrefs).toContain(expected);
+    expect(hrefs).not.toContain(`${prefix}/docs/getting-started/authentication`);
+    if (!process.env.BASE_URL) {
+      expect(existsSync(resolve(BUILD_DIR, prefix ? 'ko' : '', 'docs', 'getting-started', 'api-keys', 'index.html'))).toBe(true);
+    }
+    expect((await request.get(`${BASE_URL}${expected}`)).status()).toBe(200);
+  });
+}

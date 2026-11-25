@@ -45,12 +45,12 @@ pnpm typecheck    # Run TypeScript type checking
 
 **Deployment:**
 ```bash
-pnpm deploy                              # Deploy to GitHub Pages
-USE_SSH=true pnpm deploy                 # Deploy using SSH
-GIT_USER=<username> pnpm deploy          # Deploy with specific Git user
-netlify deploy --prod                    # Deploy to Netlify (recommended)
-vercel --prod                           # Deploy to Vercel
+pnpm deploy:preview                      # Test, then deploy a Netlify preview
+pnpm deploy:prod                         # Test, then deploy to Netlify
+pnpm deploy                              # Test, then publish to GitHub Pages without force push
 ```
+
+GitHub Pages deployment uses the existing Docusaurus target and SSH or Git credential helper authentication, requires an existing deployment branch, and fails if it cannot be updated without force. `GIT_PASS` is rejected because Docusaurus can expose it in errors. If the target repository differs from `origin`, set both `ORGANIZATION_NAME` and `PROJECT_NAME` explicitly. `--target-dir` accepts a relative directory; other deploy arguments are rejected. Direct Netlify or Vercel CLI commands bypass the predeploy wrapper.
 
 ## Architecture
 

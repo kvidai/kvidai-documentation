@@ -42,8 +42,10 @@ export default defineConfig({
 
   /* Build the actual static site before serving it; an explicit BASE_URL uses an already managed server. */
   webServer: process.env.BASE_URL ? undefined : {
-    command: 'pnpm exec docusaurus build && pnpm exec docusaurus serve --port 3100',
-    url: 'http://localhost:3100',
+    command: process.env.KVIDAI_DOCS_PREBUILT === 'true'
+      ? 'pnpm exec docusaurus serve --host 127.0.0.1 --port 3100 --dir "${KVIDAI_DOCS_BUILD_DIR:-build}"'
+      : 'pnpm exec docusaurus build && pnpm exec docusaurus serve --host 127.0.0.1 --port 3100',
+    url: 'http://127.0.0.1:3100',
     timeout: 120_000,
     reuseExistingServer: false,
     stdout: 'pipe',

@@ -10,7 +10,7 @@
     "build": "docusaurus build && node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml",
     "postbuild": "node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "node scripts/deploy-github-pages.js",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -19,12 +19,14 @@
     "screenshots": "node scripts/copy-screenshots.js",
     "prebuild": "node scripts/copy-screenshots.js",
     "test": "playwright test --project=chromium",
+    "test:predeploy": "node --test scripts/__tests__/predeploy-assets.test.mjs && pnpm exec docusaurus build --out-dir \"${KVIDAI_DOCS_BUILD_DIR:-build}\" && node scripts/copy-screenshots.js --build && KVIDAI_DOCS_REQUIRE_BUILD_FILES=true node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml && env -u BASE_URL KVIDAI_DOCS_PREBUILT=true playwright test --project=chromium tests/llms-txt.spec.ts",
+    "test:predeploy:ui": "pnpm exec docusaurus build && env -u BASE_URL KVIDAI_DOCS_PREBUILT=true playwright test --project=chromium tests/documentation-navigation.spec.ts",
     "test:screenshot": "playwright test tests/screenshot.spec.ts --project=chromium",
     "test:screenshot:serve": "BASE_URL=http://localhost:3000 playwright test tests/screenshot.spec.ts --project=chromium",
     "test:ui": "playwright test --ui",
     "test:report": "playwright show-report",
-    "deploy:preview": "netlify deploy --dir=build",
-    "deploy:prod": "netlify deploy --dir=build --prod"
+    "deploy:preview": "bash scripts/deploy-verified.sh preview",
+    "deploy:prod": "bash scripts/deploy-verified.sh prod"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",

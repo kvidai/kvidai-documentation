@@ -338,6 +338,6 @@ Add `https://console.kvid.ai` and `https://api.kvid.ai` to `host_permissions` in
 ## Related
 
 - [API Reference](./overview) — full endpoint reference
-- [Authentication Guide](../getting-started/authentication) — 2-credential model details
+- [API Keys](../getting-started/api-keys) — create and rotate API keys
 - [Video API](./video-api) — video generation endpoint reference
 - [Media API](./media-api) — upload endpoint reference

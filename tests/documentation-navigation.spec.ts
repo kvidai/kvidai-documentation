@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = process.env.BASE_URL ?? 'http://localhost:3100';
+const BASE_URL = process.env.BASE_URL ?? 'http://127.0.0.1:3100';
 
 test('documentation homepage has its platform title', async ({ page }) => {
   await page.goto(`${BASE_URL}/`);

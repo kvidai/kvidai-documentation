@@ -11,7 +11,10 @@ const fs = require('fs');
 const path = require('path');
 
 const src = path.resolve(__dirname, '..', '..', 'web-service', 'docs', 'ui-screenshots');
-const dest = path.resolve(__dirname, '..', 'static', 'ui-screenshots');
+const targetDir = process.argv[2] === '--build'
+  ? (process.env.KVIDAI_DOCS_BUILD_DIR || 'build')
+  : 'static';
+const dest = path.resolve(__dirname, '..', targetDir, 'ui-screenshots');
 
 if (!fs.existsSync(src)) {
   console.warn(`[copy-screenshots] Source not found: ${src}`);

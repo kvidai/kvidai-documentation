@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import { createHash } from 'node:crypto';
 
-const BASE = process.env.BASE_URL ?? 'http://localhost:3100';
+const BASE = process.env.BASE_URL ?? 'http://127.0.0.1:3100';
 const monorepoRoot = path.resolve(__dirname, '../../..');
 const OUT = fs.existsSync(path.join(monorepoRoot, '.gitmodules'))
   ? path.join(monorepoRoot, 'docs/ui-screenshots/documentation')

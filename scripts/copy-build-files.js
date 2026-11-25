@@ -10,8 +10,8 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-const buildDir = path.join(__dirname, '..', 'build');
-const staticDir = path.join(__dirname, '..', 'static');
+const buildDir = process.env.KVIDAI_DOCS_BUILD_DIR || path.join(__dirname, '..', 'build');
+const staticDir = process.env.KVIDAI_DOCS_STATIC_DIR || path.join(__dirname, '..', 'static');
 
 // Use files from command line arguments
 const files = args;
@@ -19,11 +19,12 @@ const files = args;
 files.forEach(file => {
   const sourcePath = path.join(buildDir, file);
   const destPath = path.join(staticDir, file);
-  
+
   if (fs.existsSync(sourcePath)) {
     fs.copyFileSync(sourcePath, destPath);
     console.log(`✓ Copied ${file} to static directory`);
   } else {
     console.log(`✗ ${file} not found in build directory`);
+    if (process.env.KVIDAI_DOCS_REQUIRE_BUILD_FILES === 'true') process.exitCode = 1;
   }
 });

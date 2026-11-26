@@ -19,7 +19,7 @@
     "screenshots": "node scripts/copy-screenshots.js",
     "prebuild": "node scripts/copy-screenshots.js",
     "test": "playwright test --project=chromium",
-    "test:predeploy": "node --test scripts/__tests__/predeploy-assets.test.mjs scripts/__tests__/candidate-manifest.test.mjs && pnpm exec docusaurus build --out-dir \"${KVIDAI_DOCS_BUILD_DIR:-build}\" && node scripts/copy-screenshots.js --build && KVIDAI_DOCS_REQUIRE_BUILD_FILES=true node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml && node scripts/candidate-manifest.mjs create && env -u BASE_URL KVIDAI_DOCS_PREBUILT=true playwright test --project=chromium tests/llms-txt.spec.ts && node scripts/candidate-manifest.mjs verify",
+    "test:predeploy": "node --test scripts/__tests__/predeploy-assets.test.mjs scripts/__tests__/candidate-manifest.test.mjs && pnpm exec tsc --noEmit --incremental false && pnpm exec docusaurus build --out-dir \"${KVIDAI_DOCS_BUILD_DIR:-build}\" && node scripts/copy-screenshots.js --build && KVIDAI_DOCS_REQUIRE_BUILD_FILES=true node scripts/copy-build-files.js llms.txt llms-full.txt sitemap.xml && node scripts/candidate-manifest.mjs create && env -u BASE_URL KVIDAI_DOCS_PREBUILT=true playwright test --project=chromium tests/llms-txt.spec.ts && node scripts/candidate-manifest.mjs verify",
     "test:predeploy:ui": "pnpm exec docusaurus build && env -u BASE_URL KVIDAI_DOCS_PREBUILT=true playwright test --project=chromium tests/documentation-navigation.spec.ts",
     "test:screenshot": "playwright test tests/screenshot.spec.ts --project=chromium",
     "test:screenshot:serve": "BASE_URL=http://localhost:3000 playwright test tests/screenshot.spec.ts --project=chromium",

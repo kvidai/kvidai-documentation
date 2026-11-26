@@ -8,6 +8,28 @@ import {fileURLToPath} from 'node:url';
 
 const scripts = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
+test('typecheck failure stops the predeploy build and Netlify deployment', () => {
+  const root = mkdtempSync(path.join(os.tmpdir(), 'docs-typecheck-gate-'));
+  try {
+    const bin = path.join(root, 'bin');
+    const calls = path.join(root, 'calls');
+    mkdirSync(bin);
+    mkdirSync(path.join(root, 'scripts'));
+    copyFileSync(path.join(scripts, 'deploy-verified.sh'), path.join(root, 'scripts/deploy-verified.sh'));
+    const {scripts: commands} = JSON.parse(readFileSync(path.join(scripts, '../package.json'), 'utf8'));
+    writeFileSync(path.join(bin, 'pnpm'), `#!/bin/sh\nprintf 'pnpm %s\\n' "$*" >> "$CALLS"\ncase "$*" in\n  'run test:predeploy') exec /bin/sh -c "$PREDEPLOY" ;;\n  'exec tsc --noEmit --incremental false') exit 17 ;;\nesac\nexit 0\n`, {mode: 0o755});
+    writeFileSync(path.join(bin, 'node'), '#!/bin/sh\nprintf "node %s\\n" "$*" >> "$CALLS"\nexit 0\n', {mode: 0o755});
+    const result = spawnSync('/bin/bash', [path.join(root, 'scripts/deploy-verified.sh'), 'preview'], {
+      env: {PATH: `${bin}:/usr/bin:/bin`, HOME: root, TMPDIR: root, CALLS: calls, PREDEPLOY: commands['test:predeploy']},
+      encoding: 'utf8', timeout: 10000,
+    });
+    assert.equal(result.status, 17, result.stderr);
+    const executed = readFileSync(calls, 'utf8').trim().split('\n');
+    assert.ok(executed.includes('pnpm exec tsc --noEmit --incremental false'));
+    assert.ok(!executed.some(line => line.includes('docusaurus build') || line.includes('netlify deploy')));
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});
+
 test('predeploy refreshes screenshots in its build without changing static', () => {
   const root = mkdtempSync(path.join(os.tmpdir(), 'docs-assets-'));
   try {

@@ -19,6 +19,10 @@ elif [ "$#" -ne 1 ]; then
   exit 2
 fi
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
+if [ "$1" != github-pages ] && ! pnpm exec netlify --version >/dev/null 2>&1; then
+  echo 'Netlify CLI is required for preview and production deployment; install it or make it available on PATH.' >&2
+  exit 1
+fi
 umask 077
 candidate_root="$(mktemp -d "${TMPDIR:-/tmp}/kvidai-docs-deploy.XXXXXXXX")"
 trap 'rm -rf -- "$candidate_root"' EXIT

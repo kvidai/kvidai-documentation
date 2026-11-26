@@ -1,0 +1,12 @@
+{
+  "role": "anonymous",
+  "route": "/docs/intro",
+  "baseURL": "http://127.0.0.1:3100",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "state": "actual built documentation page",
+  "mockedBoundaries": [],
+  "sha256": "e5ba78d3c3c0bd64cb9a9b0c045d50526ee998b6aa6f447a4d89d683fdd18cc8"
+}

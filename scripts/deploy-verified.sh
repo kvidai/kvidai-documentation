@@ -47,8 +47,10 @@ mkdir "$candidate_root/static"
     -u GIT_SSH -u GIT_SSH_COMMAND -u GIT_CONFIG_COUNT -u GIT_CONFIG_PARAMETERS \
     -u AWS_ACCESS_KEY_ID -u AWS_SECRET_ACCESS_KEY -u AWS_SESSION_TOKEN \
     GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1 GIT_TERMINAL_PROMPT=0 \
-    KVIDAI_DOCS_BUILD_DIR="$candidate_root/build" KVIDAI_DOCS_STATIC_DIR="$candidate_root/static" pnpm run test:predeploy
+    KVIDAI_DOCS_BUILD_DIR="$candidate_root/build" KVIDAI_DOCS_STATIC_DIR="$candidate_root/static" \
+    KVIDAI_DOCS_CANDIDATE_MANIFEST="$candidate_root/manifest.json" pnpm run test:predeploy
 )
+KVIDAI_DOCS_BUILD_DIR="$candidate_root/build" KVIDAI_DOCS_CANDIDATE_MANIFEST="$candidate_root/manifest.json" node scripts/candidate-manifest.mjs verify
 if [ "$1" = github-pages ]; then
   mkdir "$candidate_root/bin" "$candidate_root/tmp"
   cp scripts/git-pages-guard.sh "$candidate_root/bin/git"

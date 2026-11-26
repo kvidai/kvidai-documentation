@@ -26,12 +26,12 @@ test('actual Docusaurus publishes the tested build to a local Git remote', {time
     mkdirSync(bin);
     mkdirSync(site);
     mkdirSync(join(site, 'scripts'));
-    for (const file of ['deploy-verified.sh', 'deploy-github-pages.js', 'git-pages-guard.sh', 'check-pages-target.js']) copyFileSync(join(app, 'scripts', file), join(site, 'scripts', file));
+    for (const file of ['deploy-verified.sh', 'deploy-github-pages.js', 'git-pages-guard.sh', 'check-pages-target.js', 'candidate-manifest.mjs']) copyFileSync(join(app, 'scripts', file), join(site, 'scripts', file));
     symlinkSync(join(app, 'node_modules'), join(site, 'node_modules'), 'dir');
     writeFileSync(join(site, 'package.json'), '{"name":"pages-fixture","version":"1.0.0"}');
     writeFileSync(join(site, 'docusaurus.config.js'), "module.exports={title:'Fixture',url:'https://example.invalid',baseUrl:'/',githubHost:'example.invalid',organizationName:'acme',projectName:'docs',deploymentBranch:'gh-pages'};\n");
     writeFileSync(join(root, 'mutated-config'), "module.exports={title:'Fixture',url:'https://other.invalid',baseUrl:'/',githubHost:'other.invalid',organizationName:'other',projectName:'other',deploymentBranch:'main'};\n");
-    writeFileSync(join(bin, 'pnpm'), '#!/bin/sh\n[ "$1" = run ] && [ "$2" = test:predeploy ] || exit 9\n[ -z "${GIT_USER+x}${GIT_PASS+x}${GITHUB_TOKEN+x}${NETLIFY_AUTH_TOKEN+x}${SSH_AUTH_SOCK+x}${AWS_SECRET_ACCESS_KEY+x}${GIT_CONFIG_KEY_0+x}${GIT_CONFIG_VALUE_0+x}" ] || exit 11\n[ "${TEST_FAIL:-0}" = 0 ] || exit 8\nmkdir -p "$KVIDAI_DOCS_BUILD_DIR"\nprintf verified > "$KVIDAI_DOCS_BUILD_DIR/index.html"\nprintf "%s" "$KVIDAI_DOCS_BUILD_DIR" > "$CANDIDATE"\nif [ "${MUTATE_CONFIG:-0}" = 1 ]; then cp "$MUTATED_CONFIG" docusaurus.config.js; fi\n', {mode: 0o755});
+    writeFileSync(join(bin, 'pnpm'), '#!/bin/sh\n[ "$1" = run ] && [ "$2" = test:predeploy ] || exit 9\n[ -z "${GIT_USER+x}${GIT_PASS+x}${GITHUB_TOKEN+x}${NETLIFY_AUTH_TOKEN+x}${SSH_AUTH_SOCK+x}${AWS_SECRET_ACCESS_KEY+x}${GIT_CONFIG_KEY_0+x}${GIT_CONFIG_VALUE_0+x}" ] || exit 11\n[ "${TEST_FAIL:-0}" = 0 ] || exit 8\nmkdir -p "$KVIDAI_DOCS_BUILD_DIR"\nprintf verified > "$KVIDAI_DOCS_BUILD_DIR/index.html"\nnode scripts/candidate-manifest.mjs create || exit $?\nprintf "%s" "$KVIDAI_DOCS_BUILD_DIR" > "$CANDIDATE"\nif [ "${MUTATE_CONFIG:-0}" = 1 ]; then cp "$MUTATED_CONFIG" docusaurus.config.js; fi\n', {mode: 0o755});
     writeFileSync(env.GIT_CONFIG_GLOBAL, `[url "file://${bare}"]\n\tinsteadOf = git@example.invalid:acme/docs.git\n[user]\n\tname = Test\n\temail = test@example.invalid\n`);
     ok(['init', '--bare', bare]);
     ok(['init', '-b', 'gh-pages', seed]);

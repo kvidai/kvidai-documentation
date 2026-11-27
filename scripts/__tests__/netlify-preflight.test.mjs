@@ -31,11 +31,13 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 const dir = process.argv[2];
 const manifest = JSON.parse(readFileSync(path.join(dir, '..', 'manifest.json'), 'utf8'));
-const entry = manifest.entries.find(item => item.path === 'index.html' && item.type === 'file');
 assert.equal(dir, manifest.root);
-assert.ok(entry);
-assert.equal(createHash('sha256').update(readFileSync(path.join(dir, 'index.html'))).digest('hex'), entry.sha256);
-writeFileSync(process.env.RECEIPT, entry.sha256);
+const files = manifest.entries.filter(item => item.type === 'file');
+assert.deepEqual(files.map(item => item.path).sort(), ['assets/app.js', 'index.html', 'ko/index.html']);
+for (const entry of files) {
+  assert.equal(createHash('sha256').update(readFileSync(path.join(dir, entry.path))).digest('hex'), entry.sha256);
+}
+writeFileSync(process.env.RECEIPT, String(files.length));
 `
     );
     writeFileSync(
@@ -47,12 +49,15 @@ case "$*" in
   'run test:predeploy')
     [ "$TEST_EXIT" = 0 ] || exit "$TEST_EXIT"
     mkdir -p "$KVIDAI_DOCS_BUILD_DIR"
+    mkdir -p "$KVIDAI_DOCS_BUILD_DIR/assets" "$KVIDAI_DOCS_BUILD_DIR/ko"
     printf verified > "$KVIDAI_DOCS_BUILD_DIR/index.html"
+    printf script > "$KVIDAI_DOCS_BUILD_DIR/assets/app.js"
+    printf korean > "$KVIDAI_DOCS_BUILD_DIR/ko/index.html"
     node scripts/candidate-manifest.mjs create ;;
   'exec netlify deploy '*)
     for arg in "$@"; do case "$arg" in --dir=*) candidate=\${arg#--dir=} ;; esac; done
     [ -n "\${candidate:-}" ] || exit 92
-    if [ "$MUTATE_CANDIDATE" = 1 ]; then printf changed > "$candidate/index.html"; fi
+    if [ "$MUTATE_CANDIDATE" = 1 ]; then printf changed > "$candidate/assets/app.js"; fi
     node scripts/verify-fake-netlify.mjs "$candidate" ;;
   *) exit 91 ;;
 esac
@@ -114,7 +119,7 @@ for (const mode of ['preview', 'prod']) {
     assert.equal(calls[1], 'run test:predeploy');
     assert.match(calls[2], /^exec netlify deploy --dir=/);
     assert.equal(calls[2].endsWith(' --prod'), mode === 'prod');
-    assert.match(receipt, /^[a-f0-9]{64}$/);
+    assert.equal(receipt, '3');
   });
 
   test(`${mode} rejects bytes changed before fake Netlify reads them`, () => {

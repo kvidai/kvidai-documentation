@@ -25,7 +25,12 @@ jobs:
         run: node --test scripts/__tests__/ci-push-test-selector.test.mjs
       - name: Select checks from cumulative develop diff
         id: select
-        run: echo "suite=$(node scripts/ci-push-test-selector.mjs)" >> "$GITHUB_OUTPUT"
+        run: |
+          suite=$(node scripts/ci-push-test-selector.mjs)
+          case "$suite" in
+            assets|full) echo "suite=$suite" >> "$GITHUB_OUTPUT" ;;
+            *) echo "Invalid test suite: $suite" >&2; exit 1 ;;
+          esac
       - name: Test asset copying
         if: steps.select.outputs.suite == 'assets'
         run: node --test scripts/__tests__/predeploy-assets.test.mjs

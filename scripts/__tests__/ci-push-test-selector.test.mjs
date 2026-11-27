@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
+import {mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync} from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {execFileSync, spawnSync} from 'node:child_process';
@@ -71,3 +71,23 @@ test('fetch failure falls back even if the local remote-tracking ref exists', ()
   git(repo, 'remote', 'set-url', 'origin', '/nonexistent/docs-repository');
   assert.equal(select(), 'full');
 }));
+
+test('workflow rejects selector errors and invalid output', () => {
+  const workflow = fileURLToPath(new URL('../../.github/workflows/ci-push.yml', import.meta.url));
+  const text = readFileSync(workflow, 'utf8');
+  const match = text.match(/id: select\n        run: \|\n((?:          .*\n)+)/);
+  assert.ok(match, 'selector workflow step is missing');
+  const script = match[1].replace(/^          /gm, '');
+  const root = mkdtempSync(path.join(os.tmpdir(), 'docs-ci-workflow-'));
+  try {
+    const fakeNode = path.join(root, 'node');
+    const output = path.join(root, 'output');
+    writeFileSync(fakeNode, '#!/bin/sh\nprintf "%s\\n" "$SELECTOR_RESULT"\nexit "$SELECTOR_STATUS"\n', {mode: 0o755});
+    for (const [value, status, expected] of [['assets', '0', 0], ['full', '0', 0], ['', '0', 1], ['unexpected', '0', 1], ['', '42', 42]]) {
+      writeFileSync(output, '');
+      const result = spawnSync('/bin/bash', ['-e', '-c', script], {encoding: 'utf8', env: {...process.env, PATH: `${root}:${process.env.PATH}`, GITHUB_OUTPUT: output, SELECTOR_RESULT: value, SELECTOR_STATUS: status}});
+      assert.equal(result.status, expected, result.stderr);
+      assert.equal(readFileSync(output, 'utf8'), expected === 0 ? `suite=${value}\n` : '');
+    }
+  } finally { rmSync(root, {recursive: true, force: true}); }
+});

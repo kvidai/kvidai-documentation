@@ -1,0 +1,40 @@
+name: Documentation push checks
+
+on:
+  push:
+    branches: ['**']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: documentation-push-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Test change selection
+        run: node --test scripts/__tests__/ci-push-test-selector.test.mjs
+      - name: Select checks from cumulative develop diff
+        id: select
+        run: echo "suite=$(node scripts/ci-push-test-selector.mjs)" >> "$GITHUB_OUTPUT"
+      - name: Test asset copying
+        if: steps.select.outputs.suite == 'assets'
+        run: node --test scripts/__tests__/predeploy-assets.test.mjs
+      - uses: pnpm/action-setup@v4
+        if: steps.select.outputs.suite == 'full'
+      # This standalone repository does not commit a lockfile; resolution is not reproducible.
+      - name: Install dependencies
+        if: steps.select.outputs.suite == 'full'
+        run: pnpm install --no-frozen-lockfile
+      - name: Run headless predeploy checks
+        if: steps.select.outputs.suite == 'full'
+        run: pnpm run test:predeploy
